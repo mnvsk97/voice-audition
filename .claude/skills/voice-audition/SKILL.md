@@ -34,6 +34,9 @@ Use Glob and Grep to search for:
 - `**/.env*` — provider keys (just key names, not values)
 - `**/prompts*`, `**/system*`, `**/*persona*` — personality/tone definitions
 - `**/flows*`, `**/*flow*` — conversation flow definitions
+- `**/docs/**`, `**/prd*`, `**/brief*`, `**/brand*`, `**/README*` — product/business docs
+- `**/*persona*`, `**/*audience*`, `**/*customer*` — user/audience definitions
+- `**/CLAUDE.md`, `**/.claude/**` — project context files
 
 **DO NOT ask the user things you can learn from their code.**
 
@@ -46,11 +49,22 @@ Based on what you learned from the codebase, have a short conversation to fill i
 - What is this agent for? Who's on the other end of the call?
 - What should the interaction FEEL like?
 - Any voice preference (gender, age, accent)?
-- Any provider preference or constraint?
 - How important is latency vs. quality vs. cost?
 - What would make someone trust this voice? What would make them hang up?
 
-**You typically need 1-3 questions, not 10.** If the code already reveals "this is a Pipecat agent for a fertility clinic using Cartesia," you might only need to ask "What should the voice feel like — warm and nurturing, or professional and efficient?"
+**Provider preferences (always worth asking even if you see keys in .env):**
+- Do you have a preferred TTS provider? If so, why? (cost, quality, existing deal, latency needs)
+- Are you locked into a provider, or open to switching if something better fits?
+- Any providers you explicitly want to avoid?
+
+Understanding the *why* behind provider preference matters — "we're on Cartesia because we need <150ms TTFB" is different from "we have Cartesia keys but haven't committed yet."
+
+**Reference documents (ask early — this is gold):**
+- "Do you have any product docs, business briefs, or brand guidelines I should read? Things like a PRD, pitch deck, brand voice doc, or customer persona doc — anything that describes who your users are and how you want them to feel."
+- If the user points to files, READ THEM thoroughly. A product doc gives you the full picture: business context, target audience demographics, brand personality, competitive positioning, tone guidelines. This is 10x more valuable than interview answers alone.
+- Also look for: `**/docs/**`, `**/prd*`, `**/brief*`, `**/brand*`, `**/persona*`, `**/README*` — the user might have these in the repo already without thinking to mention them.
+
+**You typically need 2-4 questions.** If the code already reveals "this is a Pipecat agent for a fertility clinic using Cartesia," you might only need to ask about voice feel and whether they have any docs on their target patients.
 
 ### Phase 2: Search the Catalog
 
