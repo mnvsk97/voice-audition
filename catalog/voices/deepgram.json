@@ -1,7 +1,7 @@
 {
   "provider": "deepgram",
-  "synced_at": "2026-04-03T07:36:37.034942+00:00",
-  "voice_count": 52,
+  "synced_at": "2026-04-03T16:44:04.101934+00:00",
+  "voice_count": 40,
   "voices": [
     {
       "id": "deepgram:aura-2-thalia-en",
@@ -31,7 +31,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034619+00:00",
+      "last_verified": "2026-04-03T16:44:04.101350+00:00",
       "status": "active"
     },
     {
@@ -62,7 +62,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034757+00:00",
+      "last_verified": "2026-04-03T16:44:04.101835+00:00",
       "status": "active"
     },
     {
@@ -93,7 +93,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034761+00:00",
+      "last_verified": "2026-04-03T16:44:04.101840+00:00",
       "status": "active"
     },
     {
@@ -124,7 +124,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034763+00:00",
+      "last_verified": "2026-04-03T16:44:04.101842+00:00",
       "status": "active"
     },
     {
@@ -155,7 +155,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034765+00:00",
+      "last_verified": "2026-04-03T16:44:04.101844+00:00",
       "status": "active"
     },
     {
@@ -186,7 +186,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034767+00:00",
+      "last_verified": "2026-04-03T16:44:04.101846+00:00",
       "status": "active"
     },
     {
@@ -217,7 +217,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034768+00:00",
+      "last_verified": "2026-04-03T16:44:04.101848+00:00",
       "status": "active"
     },
     {
@@ -248,7 +248,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034770+00:00",
+      "last_verified": "2026-04-03T16:44:04.101850+00:00",
       "status": "active"
     },
     {
@@ -279,7 +279,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034773+00:00",
+      "last_verified": "2026-04-03T16:44:04.101851+00:00",
       "status": "active"
     },
     {
@@ -310,7 +310,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034776+00:00",
+      "last_verified": "2026-04-03T16:44:04.101853+00:00",
       "status": "active"
     },
     {
@@ -341,7 +341,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034778+00:00",
+      "last_verified": "2026-04-03T16:44:04.101855+00:00",
       "status": "active"
     },
     {
@@ -372,7 +372,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034780+00:00",
+      "last_verified": "2026-04-03T16:44:04.101856+00:00",
       "status": "active"
     },
     {
@@ -403,7 +403,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034782+00:00",
+      "last_verified": "2026-04-03T16:44:04.101858+00:00",
       "status": "active"
     },
     {
@@ -434,7 +434,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034783+00:00",
+      "last_verified": "2026-04-03T16:44:04.101860+00:00",
       "status": "active"
     },
     {
@@ -465,7 +465,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034785+00:00",
+      "last_verified": "2026-04-03T16:44:04.101861+00:00",
       "status": "active"
     },
     {
@@ -496,7 +496,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034787+00:00",
+      "last_verified": "2026-04-03T16:44:04.101863+00:00",
       "status": "active"
     },
     {
@@ -527,7 +527,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034788+00:00",
+      "last_verified": "2026-04-03T16:44:04.101864+00:00",
       "status": "active"
     },
     {
@@ -558,7 +558,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034790+00:00",
+      "last_verified": "2026-04-03T16:44:04.101866+00:00",
       "status": "active"
     },
     {
@@ -589,7 +589,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034792+00:00",
+      "last_verified": "2026-04-03T16:44:04.101868+00:00",
       "status": "active"
     },
     {
@@ -620,7 +620,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034793+00:00",
+      "last_verified": "2026-04-03T16:44:04.101869+00:00",
       "status": "active"
     },
     {
@@ -651,7 +651,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034795+00:00",
+      "last_verified": "2026-04-03T16:44:04.101871+00:00",
       "status": "active"
     },
     {
@@ -682,7 +682,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034797+00:00",
+      "last_verified": "2026-04-03T16:44:04.101872+00:00",
       "status": "active"
     },
     {
@@ -713,7 +713,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034800+00:00",
+      "last_verified": "2026-04-03T16:44:04.101874+00:00",
       "status": "active"
     },
     {
@@ -744,7 +744,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034802+00:00",
+      "last_verified": "2026-04-03T16:44:04.101877+00:00",
       "status": "active"
     },
     {
@@ -775,7 +775,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034803+00:00",
+      "last_verified": "2026-04-03T16:44:04.101879+00:00",
       "status": "active"
     },
     {
@@ -806,7 +806,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034805+00:00",
+      "last_verified": "2026-04-03T16:44:04.101880+00:00",
       "status": "active"
     },
     {
@@ -837,7 +837,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034806+00:00",
+      "last_verified": "2026-04-03T16:44:04.101882+00:00",
       "status": "active"
     },
     {
@@ -868,7 +868,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034808+00:00",
+      "last_verified": "2026-04-03T16:44:04.101884+00:00",
       "status": "active"
     },
     {
@@ -899,7 +899,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034809+00:00",
+      "last_verified": "2026-04-03T16:44:04.101886+00:00",
       "status": "active"
     },
     {
@@ -930,7 +930,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034811+00:00",
+      "last_verified": "2026-04-03T16:44:04.101888+00:00",
       "status": "active"
     },
     {
@@ -961,7 +961,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034815+00:00",
+      "last_verified": "2026-04-03T16:44:04.101890+00:00",
       "status": "active"
     },
     {
@@ -992,7 +992,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034855+00:00",
+      "last_verified": "2026-04-03T16:44:04.101892+00:00",
       "status": "active"
     },
     {
@@ -1023,7 +1023,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034857+00:00",
+      "last_verified": "2026-04-03T16:44:04.101893+00:00",
       "status": "active"
     },
     {
@@ -1054,7 +1054,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034859+00:00",
+      "last_verified": "2026-04-03T16:44:04.101895+00:00",
       "status": "active"
     },
     {
@@ -1085,7 +1085,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034861+00:00",
+      "last_verified": "2026-04-03T16:44:04.101897+00:00",
       "status": "active"
     },
     {
@@ -1116,7 +1116,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034863+00:00",
+      "last_verified": "2026-04-03T16:44:04.101898+00:00",
       "status": "active"
     },
     {
@@ -1147,7 +1147,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034864+00:00",
+      "last_verified": "2026-04-03T16:44:04.101900+00:00",
       "status": "active"
     },
     {
@@ -1178,7 +1178,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034866+00:00",
+      "last_verified": "2026-04-03T16:44:04.101902+00:00",
       "status": "active"
     },
     {
@@ -1209,7 +1209,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034867+00:00",
+      "last_verified": "2026-04-03T16:44:04.101903+00:00",
       "status": "active"
     },
     {
@@ -1240,379 +1240,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034869+00:00",
-      "status": "active"
-    },
-    {
-      "id": "deepgram:aura-asteria-en",
-      "provider": "deepgram",
-      "provider_voice_id": "aura-asteria-en",
-      "provider_model": "aura-1",
-      "name": "Asteria (v1)",
-      "description": null,
-      "gender": "female",
-      "age_group": "middle",
-      "accent": "american",
-      "language": "en",
-      "additional_languages": [],
-      "traits": {
-        "warmth": null,
-        "energy": null,
-        "clarity": null,
-        "authority": null,
-        "friendliness": null,
-        "pace": null
-      },
-      "use_cases": [],
-      "personality_tags": [],
-      "style_tags": [],
-      "preview_url": null,
-      "provider_page_url": "https://deepgram.com/product/text-to-speech",
-      "popularity_score": null,
-      "metadata_source": "manual",
-      "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034871+00:00",
-      "status": "active"
-    },
-    {
-      "id": "deepgram:aura-orion-en",
-      "provider": "deepgram",
-      "provider_voice_id": "aura-orion-en",
-      "provider_model": "aura-1",
-      "name": "Orion (v1)",
-      "description": null,
-      "gender": "male",
-      "age_group": "middle",
-      "accent": "american",
-      "language": "en",
-      "additional_languages": [],
-      "traits": {
-        "warmth": null,
-        "energy": null,
-        "clarity": null,
-        "authority": null,
-        "friendliness": null,
-        "pace": null
-      },
-      "use_cases": [],
-      "personality_tags": [],
-      "style_tags": [],
-      "preview_url": null,
-      "provider_page_url": "https://deepgram.com/product/text-to-speech",
-      "popularity_score": null,
-      "metadata_source": "manual",
-      "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034873+00:00",
-      "status": "active"
-    },
-    {
-      "id": "deepgram:aura-luna-en",
-      "provider": "deepgram",
-      "provider_voice_id": "aura-luna-en",
-      "provider_model": "aura-1",
-      "name": "Luna (v1)",
-      "description": null,
-      "gender": "female",
-      "age_group": "young",
-      "accent": "american",
-      "language": "en",
-      "additional_languages": [],
-      "traits": {
-        "warmth": null,
-        "energy": null,
-        "clarity": null,
-        "authority": null,
-        "friendliness": null,
-        "pace": null
-      },
-      "use_cases": [],
-      "personality_tags": [],
-      "style_tags": [],
-      "preview_url": null,
-      "provider_page_url": "https://deepgram.com/product/text-to-speech",
-      "popularity_score": null,
-      "metadata_source": "manual",
-      "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034875+00:00",
-      "status": "active"
-    },
-    {
-      "id": "deepgram:aura-arcas-en",
-      "provider": "deepgram",
-      "provider_voice_id": "aura-arcas-en",
-      "provider_model": "aura-1",
-      "name": "Arcas (v1)",
-      "description": null,
-      "gender": "male",
-      "age_group": "young",
-      "accent": "american",
-      "language": "en",
-      "additional_languages": [],
-      "traits": {
-        "warmth": null,
-        "energy": null,
-        "clarity": null,
-        "authority": null,
-        "friendliness": null,
-        "pace": null
-      },
-      "use_cases": [],
-      "personality_tags": [],
-      "style_tags": [],
-      "preview_url": null,
-      "provider_page_url": "https://deepgram.com/product/text-to-speech",
-      "popularity_score": null,
-      "metadata_source": "manual",
-      "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034878+00:00",
-      "status": "active"
-    },
-    {
-      "id": "deepgram:aura-stella-en",
-      "provider": "deepgram",
-      "provider_voice_id": "aura-stella-en",
-      "provider_model": "aura-1",
-      "name": "Stella (v1)",
-      "description": null,
-      "gender": "female",
-      "age_group": "young",
-      "accent": "american",
-      "language": "en",
-      "additional_languages": [],
-      "traits": {
-        "warmth": null,
-        "energy": null,
-        "clarity": null,
-        "authority": null,
-        "friendliness": null,
-        "pace": null
-      },
-      "use_cases": [],
-      "personality_tags": [],
-      "style_tags": [],
-      "preview_url": null,
-      "provider_page_url": "https://deepgram.com/product/text-to-speech",
-      "popularity_score": null,
-      "metadata_source": "manual",
-      "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034879+00:00",
-      "status": "active"
-    },
-    {
-      "id": "deepgram:aura-athena-en",
-      "provider": "deepgram",
-      "provider_voice_id": "aura-athena-en",
-      "provider_model": "aura-1",
-      "name": "Athena (v1)",
-      "description": null,
-      "gender": "female",
-      "age_group": "middle",
-      "accent": "british",
-      "language": "en",
-      "additional_languages": [],
-      "traits": {
-        "warmth": null,
-        "energy": null,
-        "clarity": null,
-        "authority": null,
-        "friendliness": null,
-        "pace": null
-      },
-      "use_cases": [],
-      "personality_tags": [],
-      "style_tags": [],
-      "preview_url": null,
-      "provider_page_url": "https://deepgram.com/product/text-to-speech",
-      "popularity_score": null,
-      "metadata_source": "manual",
-      "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034881+00:00",
-      "status": "active"
-    },
-    {
-      "id": "deepgram:aura-hera-en",
-      "provider": "deepgram",
-      "provider_voice_id": "aura-hera-en",
-      "provider_model": "aura-1",
-      "name": "Hera (v1)",
-      "description": null,
-      "gender": "female",
-      "age_group": "mature",
-      "accent": "american",
-      "language": "en",
-      "additional_languages": [],
-      "traits": {
-        "warmth": null,
-        "energy": null,
-        "clarity": null,
-        "authority": null,
-        "friendliness": null,
-        "pace": null
-      },
-      "use_cases": [],
-      "personality_tags": [],
-      "style_tags": [],
-      "preview_url": null,
-      "provider_page_url": "https://deepgram.com/product/text-to-speech",
-      "popularity_score": null,
-      "metadata_source": "manual",
-      "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034883+00:00",
-      "status": "active"
-    },
-    {
-      "id": "deepgram:aura-perseus-en",
-      "provider": "deepgram",
-      "provider_voice_id": "aura-perseus-en",
-      "provider_model": "aura-1",
-      "name": "Perseus (v1)",
-      "description": null,
-      "gender": "male",
-      "age_group": "young",
-      "accent": "american",
-      "language": "en",
-      "additional_languages": [],
-      "traits": {
-        "warmth": null,
-        "energy": null,
-        "clarity": null,
-        "authority": null,
-        "friendliness": null,
-        "pace": null
-      },
-      "use_cases": [],
-      "personality_tags": [],
-      "style_tags": [],
-      "preview_url": null,
-      "provider_page_url": "https://deepgram.com/product/text-to-speech",
-      "popularity_score": null,
-      "metadata_source": "manual",
-      "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034885+00:00",
-      "status": "active"
-    },
-    {
-      "id": "deepgram:aura-angus-en",
-      "provider": "deepgram",
-      "provider_voice_id": "aura-angus-en",
-      "provider_model": "aura-1",
-      "name": "Angus (v1)",
-      "description": null,
-      "gender": "male",
-      "age_group": "middle",
-      "accent": "irish",
-      "language": "en",
-      "additional_languages": [],
-      "traits": {
-        "warmth": null,
-        "energy": null,
-        "clarity": null,
-        "authority": null,
-        "friendliness": null,
-        "pace": null
-      },
-      "use_cases": [],
-      "personality_tags": [],
-      "style_tags": [],
-      "preview_url": null,
-      "provider_page_url": "https://deepgram.com/product/text-to-speech",
-      "popularity_score": null,
-      "metadata_source": "manual",
-      "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034887+00:00",
-      "status": "active"
-    },
-    {
-      "id": "deepgram:aura-helios-en",
-      "provider": "deepgram",
-      "provider_voice_id": "aura-helios-en",
-      "provider_model": "aura-1",
-      "name": "Helios (v1)",
-      "description": null,
-      "gender": "male",
-      "age_group": "middle",
-      "accent": "british",
-      "language": "en",
-      "additional_languages": [],
-      "traits": {
-        "warmth": null,
-        "energy": null,
-        "clarity": null,
-        "authority": null,
-        "friendliness": null,
-        "pace": null
-      },
-      "use_cases": [],
-      "personality_tags": [],
-      "style_tags": [],
-      "preview_url": null,
-      "provider_page_url": "https://deepgram.com/product/text-to-speech",
-      "popularity_score": null,
-      "metadata_source": "manual",
-      "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034888+00:00",
-      "status": "active"
-    },
-    {
-      "id": "deepgram:aura-zeus-en",
-      "provider": "deepgram",
-      "provider_voice_id": "aura-zeus-en",
-      "provider_model": "aura-1",
-      "name": "Zeus (v1)",
-      "description": null,
-      "gender": "male",
-      "age_group": "mature",
-      "accent": "american",
-      "language": "en",
-      "additional_languages": [],
-      "traits": {
-        "warmth": null,
-        "energy": null,
-        "clarity": null,
-        "authority": null,
-        "friendliness": null,
-        "pace": null
-      },
-      "use_cases": [],
-      "personality_tags": [],
-      "style_tags": [],
-      "preview_url": null,
-      "provider_page_url": "https://deepgram.com/product/text-to-speech",
-      "popularity_score": null,
-      "metadata_source": "manual",
-      "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034890+00:00",
-      "status": "active"
-    },
-    {
-      "id": "deepgram:aura-atlas-en",
-      "provider": "deepgram",
-      "provider_voice_id": "aura-atlas-en",
-      "provider_model": "aura-1",
-      "name": "Atlas (v1)",
-      "description": null,
-      "gender": "male",
-      "age_group": "middle",
-      "accent": "american",
-      "language": "en",
-      "additional_languages": [],
-      "traits": {
-        "warmth": null,
-        "energy": null,
-        "clarity": null,
-        "authority": null,
-        "friendliness": null,
-        "pace": null
-      },
-      "use_cases": [],
-      "personality_tags": [],
-      "style_tags": [],
-      "preview_url": null,
-      "provider_page_url": "https://deepgram.com/product/text-to-speech",
-      "popularity_score": null,
-      "metadata_source": "manual",
-      "provider_metadata": {},
-      "last_verified": "2026-04-03T07:36:37.034892+00:00",
+      "last_verified": "2026-04-03T16:44:04.101905+00:00",
       "status": "active"
     }
   ]

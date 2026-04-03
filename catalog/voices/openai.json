@@ -1,6 +1,6 @@
 {
   "provider": "openai",
-  "synced_at": "2026-04-03T07:36:37.008837+00:00",
+  "synced_at": "2026-04-03T16:44:04.103163+00:00",
   "voice_count": 13,
   "voices": [
     {
@@ -9,7 +9,7 @@
       "provider_voice_id": "alloy",
       "provider_model": "gpt-4o-mini-tts",
       "name": "Alloy",
-      "description": "Neutral, versatile. Safe default for diverse audiences. Balanced warmth and clarity.",
+      "description": "Neutral, versatile. Safe default for diverse audiences.",
       "gender": "neutral",
       "age_group": "middle",
       "accent": "american",
@@ -31,10 +31,9 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {
-        "supports_instructions": true,
-        "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
+        "supports_instructions": true
       },
-      "last_verified": "2026-04-03T07:36:37.008321+00:00",
+      "last_verified": "2026-04-03T16:44:04.103121+00:00",
       "status": "active"
     },
     {
@@ -43,7 +42,7 @@
       "provider_voice_id": "ash",
       "provider_model": "gpt-4o-mini-tts",
       "name": "Ash",
-      "description": "Soft-spoken, thoughtful male voice. Calm and measured.",
+      "description": "Soft-spoken, thoughtful. Calm and measured.",
       "gender": "male",
       "age_group": "young",
       "accent": "american",
@@ -65,10 +64,9 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {
-        "supports_instructions": true,
-        "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
+        "supports_instructions": true
       },
-      "last_verified": "2026-04-03T07:36:37.008716+00:00",
+      "last_verified": "2026-04-03T16:44:04.103127+00:00",
       "status": "active"
     },
     {
@@ -77,7 +75,7 @@
       "provider_voice_id": "ballad",
       "provider_model": "gpt-4o-mini-tts",
       "name": "Ballad",
-      "description": "Warm, melodic male voice with gentle delivery.",
+      "description": "Warm, melodic with gentle delivery.",
       "gender": "male",
       "age_group": "middle",
       "accent": "american",
@@ -99,10 +97,9 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {
-        "supports_instructions": true,
-        "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
+        "supports_instructions": true
       },
-      "last_verified": "2026-04-03T07:36:37.008719+00:00",
+      "last_verified": "2026-04-03T16:44:04.103129+00:00",
       "status": "active"
     },
     {
@@ -111,7 +108,7 @@
       "provider_voice_id": "cedar",
       "provider_model": "gpt-4o-mini-tts",
       "name": "Cedar",
-      "description": "Grounded, steady male voice. Reliable and clear.",
+      "description": "Grounded, steady. Reliable and clear.",
       "gender": "male",
       "age_group": "middle",
       "accent": "american",
@@ -133,10 +130,9 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {
-        "supports_instructions": true,
-        "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
+        "supports_instructions": true
       },
-      "last_verified": "2026-04-03T07:36:37.008721+00:00",
+      "last_verified": "2026-04-03T16:44:04.103131+00:00",
       "status": "active"
     },
     {
@@ -145,7 +141,7 @@
       "provider_voice_id": "coral",
       "provider_model": "gpt-4o-mini-tts",
       "name": "Coral",
-      "description": "Bright, warm female voice. Friendly and engaging.",
+      "description": "Bright, warm. Friendly and engaging.",
       "gender": "female",
       "age_group": "young",
       "accent": "american",
@@ -167,10 +163,9 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {
-        "supports_instructions": true,
-        "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
+        "supports_instructions": true
       },
-      "last_verified": "2026-04-03T07:36:37.008723+00:00",
+      "last_verified": "2026-04-03T16:44:04.103133+00:00",
       "status": "active"
     },
     {
@@ -179,7 +174,7 @@
       "provider_voice_id": "echo",
       "provider_model": "gpt-4o-mini-tts",
       "name": "Echo",
-      "description": "Balanced male voice. Reliable and easy to listen to for long sessions.",
+      "description": "Balanced. Reliable for long sessions.",
       "gender": "male",
       "age_group": "middle",
       "accent": "american",
@@ -201,10 +196,9 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {
-        "supports_instructions": true,
-        "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
+        "supports_instructions": true
       },
-      "last_verified": "2026-04-03T07:36:37.008725+00:00",
+      "last_verified": "2026-04-03T16:44:04.103134+00:00",
       "status": "active"
     },
     {
@@ -213,7 +207,7 @@
       "provider_voice_id": "fable",
       "provider_model": "gpt-4o-mini-tts",
       "name": "Fable",
-      "description": "Expressive, storytelling male voice with British accent.",
+      "description": "Expressive, storytelling with British accent.",
       "gender": "male",
       "age_group": "middle",
       "accent": "british",
@@ -235,10 +229,9 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {
-        "supports_instructions": true,
-        "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
+        "supports_instructions": true
       },
-      "last_verified": "2026-04-03T07:36:37.008729+00:00",
+      "last_verified": "2026-04-03T16:44:04.103136+00:00",
       "status": "active"
     },
     {
@@ -247,7 +240,7 @@
       "provider_voice_id": "marin",
       "provider_model": "gpt-4o-mini-tts",
       "name": "Marin",
-      "description": "Clear, youthful female voice. Professional and articulate.",
+      "description": "Clear, youthful. Professional and articulate.",
       "gender": "female",
       "age_group": "young",
       "accent": "american",
@@ -269,10 +262,9 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {
-        "supports_instructions": true,
-        "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
+        "supports_instructions": true
       },
-      "last_verified": "2026-04-03T07:36:37.008731+00:00",
+      "last_verified": "2026-04-03T16:44:04.103138+00:00",
       "status": "active"
     },
     {
@@ -281,7 +273,7 @@
       "provider_voice_id": "nova",
       "provider_model": "gpt-4o-mini-tts",
       "name": "Nova",
-      "description": "Bright and engaging female voice. Great for consumer apps. Energetic.",
+      "description": "Bright and engaging. Great for consumer apps.",
       "gender": "female",
       "age_group": "young",
       "accent": "american",
@@ -303,10 +295,9 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {
-        "supports_instructions": true,
-        "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
+        "supports_instructions": true
       },
-      "last_verified": "2026-04-03T07:36:37.008732+00:00",
+      "last_verified": "2026-04-03T16:44:04.103140+00:00",
       "status": "active"
     },
     {
@@ -315,7 +306,7 @@
       "provider_voice_id": "onyx",
       "provider_model": "gpt-4o-mini-tts",
       "name": "Onyx",
-      "description": "Deep, commanding male voice. Premium, executive-level feel.",
+      "description": "Deep, commanding. Premium executive feel.",
       "gender": "male",
       "age_group": "mature",
       "accent": "american",
@@ -337,10 +328,9 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {
-        "supports_instructions": true,
-        "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
+        "supports_instructions": true
       },
-      "last_verified": "2026-04-03T07:36:37.008734+00:00",
+      "last_verified": "2026-04-03T16:44:04.103141+00:00",
       "status": "active"
     },
     {
@@ -349,7 +339,7 @@
       "provider_voice_id": "sage",
       "provider_model": "gpt-4o-mini-tts",
       "name": "Sage",
-      "description": "Wise, calm female voice. Measured and thoughtful delivery.",
+      "description": "Wise, calm. Measured and thoughtful.",
       "gender": "female",
       "age_group": "middle",
       "accent": "american",
@@ -371,10 +361,9 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {
-        "supports_instructions": true,
-        "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
+        "supports_instructions": true
       },
-      "last_verified": "2026-04-03T07:36:37.008736+00:00",
+      "last_verified": "2026-04-03T16:44:04.103143+00:00",
       "status": "active"
     },
     {
@@ -383,7 +372,7 @@
       "provider_voice_id": "shimmer",
       "provider_model": "gpt-4o-mini-tts",
       "name": "Shimmer",
-      "description": "Warm, soothing female voice. Well-suited for care and wellness.",
+      "description": "Warm, soothing. Care and wellness.",
       "gender": "female",
       "age_group": "middle",
       "accent": "american",
@@ -405,10 +394,9 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {
-        "supports_instructions": true,
-        "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
+        "supports_instructions": true
       },
-      "last_verified": "2026-04-03T07:36:37.008737+00:00",
+      "last_verified": "2026-04-03T16:44:04.103144+00:00",
       "status": "active"
     },
     {
@@ -417,7 +405,7 @@
       "provider_voice_id": "verse",
       "provider_model": "gpt-4o-mini-tts",
       "name": "Verse",
-      "description": "Dynamic, expressive male voice. Good range and energy.",
+      "description": "Dynamic, expressive. Good range and energy.",
       "gender": "male",
       "age_group": "young",
       "accent": "american",
@@ -439,10 +427,9 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {
-        "supports_instructions": true,
-        "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
+        "supports_instructions": true
       },
-      "last_verified": "2026-04-03T07:36:37.008739+00:00",
+      "last_verified": "2026-04-03T16:44:04.103146+00:00",
       "status": "active"
     }
   ]

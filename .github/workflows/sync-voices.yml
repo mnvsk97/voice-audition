@@ -23,8 +23,9 @@ jobs:
         run: pip install -r sync/requirements.txt
 
       - name: Run sync
-        working-directory: sync
-        run: python sync_all.py
+        run: python sync/sync.py
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
         continue-on-error: true
 
       - name: Check for changes
