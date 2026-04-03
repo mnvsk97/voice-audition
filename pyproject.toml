@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "voice-audition"
 version = "0.1.0"
 description = "Build and maintain a rich voice catalog across TTS providers"
-readme = {text = "VoiceAudition — the casting director for your AI voice agent.", content-type = "text/plain"}
+readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
 dependencies = [
