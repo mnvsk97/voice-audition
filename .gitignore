@@ -37,8 +37,5 @@ build/
 .windsurf/
 .zencoder/
 skills-lock.json
-skills/
-
-# Keep .claude/ and .github/ tracked
-!.claude/
-!.github/
+/skills/
+.superdesign/

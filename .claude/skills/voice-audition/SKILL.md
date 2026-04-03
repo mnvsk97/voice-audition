@@ -3,7 +3,7 @@ name: voice-audition
 description: >
   VoiceAudition — the casting director for your AI voice agent. A skill-first plugin that
   reads your codebase to understand context, interviews you about your needs, searches a
-  catalog of voices across all major TTS providers, and lets you audition candidates with
+  catalog of 500+ voices across all major TTS providers, and lets you audition candidates with
   audio samples generated from your actual use case.
 
   TRIGGER when: user asks "what voice should I use", "find me a voice", "help me pick a voice",
@@ -14,6 +14,64 @@ description: >
 # VoiceAudition — Voice Casting Director
 
 You are a voice casting director for AI voice agents. You read the user's codebase, interview them about what's missing, search across all TTS providers, and present audition-ready voice options — with audio samples the user can actually listen to.
+
+## Important: How Search Works
+
+The voice catalog lives in `catalog/*.json` — one file per provider, 500+ voices total.
+You search it using `voice_audition/search.py`. This is a two-stage process:
+
+**Stage 1 (filter):** Run Python to hard-filter by provider, gender, language, latency, cost, accent, age.
+This narrows 500+ voices to ~20-50 candidates.
+
+**Stage 2 (semantic match):** You READ the filtered results and pick the best 3-4 based on
+the user's context. YOUR language understanding IS the semantic search. No embeddings needed.
+
+### How to Search
+
+Find the VoiceAudition repo path first. The skill is installed from the voice-audition repo.
+Look for the catalog directory — it might be in the skill's source repo or installed alongside it.
+
+```bash
+# Find where the voice-audition catalog lives
+VOICE_AUDITION_DIR=$(find ~/.claude /tmp -name "catalog" -path "*/voice-audition/*" -o -name "catalog" -path "*/voice-suggester/*" 2>/dev/null | head -1 | xargs dirname)
+
+# If not found, clone it
+if [ -z "$VOICE_AUDITION_DIR" ]; then
+  git clone --depth 1 https://github.com/mnvsk97/voice-audition.git /tmp/voice-audition
+  VOICE_AUDITION_DIR=/tmp/voice-audition
+fi
+```
+
+Then run search:
+
+```bash
+# Get catalog summary
+python3 -c "
+import sys; sys.path.insert(0, '$VOICE_AUDITION_DIR')
+from voice_audition.search import catalog_summary
+import json; print(json.dumps(catalog_summary(), indent=2))
+"
+
+# Stage 1: Filter (adjust params based on user's needs)
+python3 -c "
+import sys; sys.path.insert(0, '$VOICE_AUDITION_DIR')
+from voice_audition.search import filter_voices, format_for_context
+
+# Adjust these filters based on what you learned from the user:
+voices = filter_voices(
+    gender='female',           # or 'male', 'neutral', None for any
+    language='en',             # language code
+    latency_tier='fast',       # 'fastest', 'fast', 'standard', None for any
+    max_cost_per_min=0.025,    # None for any
+    provider=None,             # 'cartesia', 'elevenlabs', etc. or None for all
+    accent=None,               # 'american', 'british', etc. or None
+    age=None,                  # 'young', 'middle', 'mature', None
+)
+print(format_for_context(voices, max_voices=40))
+"
+```
+
+**Read the output.** It will show you ~20-50 voices with their names, descriptions, traits, providers, costs, and preview URLs. Now YOU pick the best 3-4 based on the user's full context (business, audience, emotional tone, brand personality). That's Stage 2 — your judgment.
 
 ## The Flow
 
@@ -68,16 +126,27 @@ Understanding the *why* behind provider preference matters — "we're on Cartesi
 
 ### Phase 2: Search the Catalog
 
-Search the voice catalog (see Voice Catalog Reference below) based on everything you've gathered.
+Now run the two-stage search:
 
-**Search strategy:**
-- If user specified a provider → only that provider
-- If user has provider keys in .env → prefer those providers (they can test immediately)
-- If user is open → search all providers
-- Match against: use case, personality traits, gender/age/accent preferences, latency/cost constraints
-- Use the description and traits to do semantic matching against the user's stated needs
+**Stage 1:** Use Bash to call `filter_voices()` from `voice_audition/search.py` with filters derived from the interview. Map what you learned:
 
-**Narrow to 3-4 candidates.** Not more.
+| User said | Filter param |
+|-----------|-------------|
+| "female voice" | `gender='female'` |
+| "we use Cartesia" | `provider='cartesia'` |
+| "needs to be fast" | `latency_tier='fastest'` |
+| "cost matters, high volume" | `max_cost_per_min=0.012` |
+| "British accent" | `accent='british'` |
+| "young-sounding" | `age='young'` |
+| "healthcare" | `use_case='healthcare'` (if voices have use_case tags) |
+| No preference | Leave param as `None` |
+
+**Stage 2:** Read the formatted output. Now use YOUR understanding of the user's full context to pick the best 3-4 voices. Consider:
+- Does the description match the emotional tone they described?
+- Does the accent/gender/age fit their audience?
+- Do the trait scores (warmth, energy, clarity, authority, friendliness) align with what the use case needs?
+- Is the cost acceptable for their scale?
+- Does the user already have this provider's API key? (instant testability)
 
 ### Phase 3: Generate Audition Samples
 
@@ -96,97 +165,92 @@ These sentences should test different voice qualities: greeting warmth, informat
 
 **Step 3b: Generate audio (if user has provider API keys)**
 
-Check if the user has the relevant provider API keys available. If yes, use the Bash tool to call the provider's TTS API and generate audio files:
+Check if the user has the relevant provider API keys available. If yes, use Bash to call the provider's TTS API:
+
+```bash
+mkdir -p /tmp/voice-audition
+```
 
 For **Cartesia**:
 ```bash
-curl -X POST "https://api.cartesia.ai/tts/bytes" \
+curl -sX POST "https://api.cartesia.ai/tts/bytes" \
   -H "X-API-Key: $CARTESIA_API_KEY" \
   -H "Cartesia-Version: 2024-06-10" \
   -H "Content-Type: application/json" \
   -d '{"model_id":"sonic-2","transcript":"<sentence>","voice":{"mode":"id","id":"<voice_id>"},"output_format":{"container":"mp3","bit_rate":128000,"sample_rate":44100}}' \
-  --output /tmp/voice-audition/<voice_name>.mp3
+  --output /tmp/voice-audition/<voice_name>_cartesia.mp3
 ```
 
 For **OpenAI**:
 ```bash
-curl -X POST "https://api.openai.com/v1/audio/speech" \
+curl -sX POST "https://api.openai.com/v1/audio/speech" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"model":"tts-1","input":"<sentence>","voice":"<voice_id>"}' \
-  --output /tmp/voice-audition/<voice_name>.mp3
+  --output /tmp/voice-audition/<voice_name>_openai.mp3
 ```
 
 For **ElevenLabs**:
 ```bash
-curl -X POST "https://api.elevenlabs.io/v1/text-to-speech/<voice_id>" \
+curl -sX POST "https://api.elevenlabs.io/v1/text-to-speech/<voice_id>" \
   -H "xi-api-key: $ELEVENLABS_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"text":"<sentence>","model_id":"eleven_turbo_v2_5"}' \
-  --output /tmp/voice-audition/<voice_name>.mp3
+  --output /tmp/voice-audition/<voice_name>_elevenlabs.mp3
 ```
 
 For **Deepgram**:
 ```bash
-curl -X POST "https://api.deepgram.com/v1/speak?model=<voice_id>" \
+curl -sX POST "https://api.deepgram.com/v1/speak?model=<voice_id>" \
   -H "Authorization: Token $DEEPGRAM_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"text":"<sentence>"}' \
-  --output /tmp/voice-audition/<voice_name>.mp3
+  --output /tmp/voice-audition/<voice_name>_deepgram.mp3
 ```
 
-Always:
-1. Create the output directory: `mkdir -p /tmp/voice-audition`
-2. Name files clearly: `midwestern_woman_cartesia.mp3`, `bella_elevenlabs.mp3`
-3. After generating, open the file so the user can hear it: `open /tmp/voice-audition/<file>.mp3` (macOS) or `xdg-open` (Linux)
+After generating, open it: `open /tmp/voice-audition/<file>.mp3` (macOS) or `xdg-open` (Linux)
 
 **Step 3c: Fallback — provide preview links if no API keys**
 
-If the user doesn't have API keys for a provider, provide direct links to hear the voice:
+If the user doesn't have API keys for a provider, provide direct links:
 
-| Provider | Preview Link Format |
-|----------|-------------------|
-| ElevenLabs | `https://elevenlabs.io/voice-library` (search by voice name) |
-| Cartesia | `https://play.cartesia.ai` (search by voice name) |
-| OpenAI | No public preview — mention the voice name and suggest they try via API |
-| Deepgram | `https://deepgram.com/product/text-to-speech` (playground) |
+| Provider | Where to hear it |
+|----------|-----------------|
+| ElevenLabs | `https://elevenlabs.io/voice-library` — search by voice name |
+| Cartesia | `https://play.cartesia.ai` — search by voice name |
+| OpenAI | No public preview — need API key |
+| Deepgram | `https://deepgram.com/product/text-to-speech` |
 | PlayHT | `https://play.ht/voice-library/` |
-| Rime | `https://rime.ai` (playground) |
+| Rime | `https://rime.ai` — playground |
 
 Tell the user: "I don't have your [Provider] API key, so I can't generate a sample. You can hear this voice at [link]. Try it with this sentence: '[generated sentence]'"
 
 ### Phase 4: Present the Audition
 
-Present each candidate voice as a card:
+Present each candidate voice:
 
 ```
-## Voice 1: Midwestern Woman (Cartesia)
+## Voice 1: [Name] ([Provider])
 
-**Why this voice:** High warmth (0.85) and calm energy — matches the empathetic,
-nurturing tone your fertility clinic patients need. Midwestern American accent
-reads as reliable and trustworthy.
+**Why this voice:** [Specific reasoning tied to their context — not generic]
 
-**Traits:** Warmth 0.85 | Energy 0.4 | Clarity 0.8 | Friendliness 0.8
-**Profile:** Female · Middle-aged · American · Fastest latency · Medium cost
-**Cost:** ~$0.015/min at Cartesia rates
+**Traits:** Warmth [X] | Energy [X] | Clarity [X] | Authority [X] | Friendliness [X]
+**Profile:** [Gender] · [Age] · [Accent] · [Latency tier] · $[cost]/min
+**Preview:** [preview_url if available]
 
-🔊 Audio: /tmp/voice-audition/midwestern_woman_cartesia.mp3
+🔊 Audio: /tmp/voice-audition/[name]_[provider].mp3
+   (or: "Hear it at [playground link] — try: '[sample sentence]'")
 
-Pipecat config:
-    from pipecat.services.cartesia import CartesiaTTSService
-    tts = CartesiaTTSService(
-        api_key=os.getenv("CARTESIA_API_KEY"),
-        voice_id="11af83e2-23eb-452f-956e-7fee218ccb99",
-        model_id="sonic-2",
-    )
+**Pipecat config:**
+[ready-to-paste code block]
 ```
 
 Include for each voice:
 1. Why it fits (specific to their context, not generic)
 2. The tradeoffs (what it's great at and where it compromises)
-3. Traits breakdown
-4. Cost estimate
-5. Audio file path (if generated) or preview link (if not)
+3. Traits breakdown (if available — many voices have null traits, that's fine, use description instead)
+4. Cost per minute
+5. Audio file path (if generated) or preview link + sample sentence (if not)
 6. Ready Pipecat config
 
 ### Phase 5: Help Them Choose
@@ -198,177 +262,42 @@ If the user picks a voice, offer to:
 2. Add the provider API key name to their .env.example if missing
 3. Suggest follow-up: "Test this voice in a real call before going to production. The 10-second playground demo is not the same as a 5-minute conversation."
 
-## Voice Catalog Reference
+## Provider Quick Reference
 
-### Provider Overview
-
-| Provider | Latency | Cost/min (approx) | Quality | Pipecat Class | Best For |
-|----------|---------|-------------------|---------|---------------|----------|
-| Cartesia | <150ms TTFB | ~$0.015 | Very Good | CartesiaTTSService | Speed-critical real-time agents |
-| ElevenLabs | 200-400ms | ~$0.030 | Best naturalness | ElevenLabsTTSService | Premium quality, emotional range |
-| Deepgram Aura | <100ms TTFB | ~$0.010 | Good | DeepgramTTSService | High-volume, cost-sensitive |
-| OpenAI TTS | 200-500ms | ~$0.020 | Very Good | OpenAITTSService | Easy integration, instruction-tunable |
-| PlayHT | 200-400ms | ~$0.020 | Very Good | PlayHTTTSService | Variety, voice cloning |
-| Rime | <100ms TTFB | ~$0.008 | Good | RimeTTSService | Ultra-low latency at scale |
-
-### Cartesia Voices
-
-**British Lady** | Female, Middle-aged, British | ID: `79a125e8-cd45-4c13-8a67-188112f4dd22`
-Warmth 0.6 | Energy 0.4 | Clarity 0.9 | Authority 0.7 | Friendliness 0.5
-Best for: Finance, Legal, Healthcare | Personality: Professional, Authoritative, Trustworthy
-Polished British accent. Excellent for professional, trust-critical applications.
-
-**California Girl** | Female, Young, American | ID: `b7d50908-b17c-442d-ad8d-7c56e5dd3cc6`
-Warmth 0.8 | Energy 0.8 | Clarity 0.7 | Authority 0.2 | Friendliness 0.9
-Best for: Retail, Fitness, General | Personality: Friendly, Energetic, Playful
-Upbeat, youthful energy. Great for casual consumer-facing products.
-
-**Midwestern Woman** | Female, Middle-aged, American | ID: `11af83e2-23eb-452f-956e-7fee218ccb99`
-Warmth 0.85 | Energy 0.4 | Clarity 0.8 | Authority 0.4 | Friendliness 0.8
-Best for: Healthcare, Mental Health, Customer Support | Personality: Empathetic, Calm, Trustworthy
-Warm, steady, and reassuring. Ideal for healthcare and empathetic conversations.
-
-**Confident Man** | Male, Middle-aged, American | ID: `a167e0f3-df7e-4d52-a9c3-f949145e0f0c`
-Warmth 0.5 | Energy 0.6 | Clarity 0.9 | Authority 0.85 | Friendliness 0.4
-Best for: Sales, Finance, Real Estate | Personality: Authoritative, Professional, Trustworthy
-Strong, clear, and assertive. Built for sales and high-stakes conversations.
-
-**Friendly Man** | Male, Young, American | ID: `ee7ea9f8-c0c1-498c-9f62-dc2571ec235e`
-Warmth 0.8 | Energy 0.6 | Clarity 0.8 | Authority 0.3 | Friendliness 0.85
-Best for: Tech Support, Education, Customer Support | Personality: Friendly, Calm, Trustworthy
-Approachable and helpful. Natural fit for support and education.
-
-**Sweet Lady** | Female, Young, American | ID: `e3827ec5-697a-4b7c-9c82-4a5c5e2f5b8d`
-Warmth 0.9 | Energy 0.5 | Clarity 0.75 | Authority 0.2 | Friendliness 0.9
-Best for: Mental Health, Healthcare, Hospitality | Personality: Empathetic, Friendly, Calm
-Gentle and nurturing. Perfect for mental health, care check-ins.
-
-**Southern Gentleman** | Male, Mature, American | ID: `98a34ef2-2140-4c28-9c71-663dc4dd7022`
-Warmth 0.85 | Energy 0.3 | Clarity 0.75 | Authority 0.6 | Friendliness 0.7
-Best for: Hospitality, Real Estate, General | Personality: Trustworthy, Calm, Luxurious
-Warm, unhurried Southern charm. Great for hospitality and premium brands.
-
-### ElevenLabs Voices
-
-**Rachel** | Female, Middle-aged, American | ID: `21m00Tcm4TlvDq8ikWAM`
-Warmth 0.7 | Energy 0.5 | Clarity 0.9 | Authority 0.6 | Friendliness 0.6
-Best for: General, Education, Customer Support | Personality: Professional, Trustworthy, Friendly
-Versatile, natural-sounding. ElevenLabs flagship. Works across many use cases.
-
-**Josh** | Male, Young, American | ID: `TxGEqnHWrfWFTfGW9XjX`
-Warmth 0.65 | Energy 0.6 | Clarity 0.85 | Authority 0.5 | Friendliness 0.7
-Best for: Education, Tech Support, General | Personality: Friendly, Professional, Trustworthy
-Young professional male. Clear and engaging, great for explanations.
-
-**Dorothy** | Female, Young, British | ID: `ThT5KcBeYPX3keUQqHPh`
-Warmth 0.75 | Energy 0.5 | Clarity 0.8 | Authority 0.4 | Friendliness 0.8
-Best for: Hospitality, Retail, Education | Personality: Friendly, Luxurious, Calm
-Warm British voice. Pleasant, approachable quality. Premium feel.
-
-**Adam** | Male, Middle-aged, American | ID: `pNInz6obpgDQGcFmaJgB`
-Warmth 0.5 | Energy 0.5 | Clarity 0.9 | Authority 0.8 | Friendliness 0.4
-Best for: Finance, Legal, Sales | Personality: Authoritative, Professional, Trustworthy
-Deep, authoritative male voice. Commands attention and trust.
-
-**Bella** | Female, Young, American | ID: `EXAVITQu4vr4xnSDxMaL`
-Warmth 0.85 | Energy 0.55 | Clarity 0.8 | Authority 0.3 | Friendliness 0.85
-Best for: Mental Health, Healthcare, Customer Support | Personality: Empathetic, Friendly, Calm
-Soft, empathetic, caring. Excellent for sensitive conversations.
-
-### Deepgram Aura Voices
-
-**Asteria** | Female, Middle-aged, American | ID: `aura-asteria-en`
-Warmth 0.65 | Energy 0.5 | Clarity 0.85 | Authority 0.5 | Friendliness 0.6
-Best for: Customer Support, General, Tech Support | ~$0.010/min
-Balanced female voice. Best value for high-volume deployments.
-
-**Orion** | Male, Middle-aged, American | ID: `aura-orion-en`
-Warmth 0.55 | Energy 0.5 | Clarity 0.85 | Authority 0.65 | Friendliness 0.5
-Best for: Customer Support, Tech Support, General | ~$0.010/min
-Clear male voice. Reliable workhorse for support and info delivery.
-
-**Luna** | Female, Young, American | ID: `aura-luna-en`
-Warmth 0.75 | Energy 0.6 | Clarity 0.8 | Authority 0.3 | Friendliness 0.8
-Best for: Retail, General, Education | ~$0.010/min
-Bright, friendly female voice. Good for consumer-facing at scale.
-
-**Arcas** | Male, Young, American | ID: `aura-arcas-en`
-Warmth 0.7 | Energy 0.55 | Clarity 0.8 | Authority 0.4 | Friendliness 0.7
-Best for: Education, Tech Support, General | ~$0.010/min
-Youthful male voice. Approachable and easy to listen to.
-
-### OpenAI TTS Voices
-
-Note: `gpt-4o-mini-tts` model supports `instructions` parameter for dynamic voice control.
-
-**Alloy** | Neutral, Middle-aged, American | ID: `alloy`
-Warmth 0.6 | Energy 0.5 | Clarity 0.85 | Authority 0.5 | Friendliness 0.6
-Best for: General, Tech Support, Education | ~$0.020/min
-Gender-neutral, versatile. Safe default for diverse audiences.
-
-**Nova** | Female, Young, American | ID: `nova`
-Warmth 0.75 | Energy 0.65 | Clarity 0.85 | Authority 0.35 | Friendliness 0.8
-Best for: Retail, Customer Support, General | ~$0.020/min
-Bright and engaging. Great for consumer apps.
-
-**Onyx** | Male, Mature, American | ID: `onyx`
-Warmth 0.45 | Energy 0.4 | Clarity 0.9 | Authority 0.85 | Friendliness 0.35
-Best for: Finance, Legal, Sales | ~$0.020/min
-Deep, commanding. Premium, executive-level feel.
-
-**Shimmer** | Female, Middle-aged, American | ID: `shimmer`
-Warmth 0.8 | Energy 0.45 | Clarity 0.8 | Authority 0.4 | Friendliness 0.75
-Best for: Healthcare, Mental Health, Hospitality | ~$0.020/min
-Warm, soothing. Well-suited for care and wellness.
-
-**Echo** | Male, Middle-aged, American | ID: `echo`
-Warmth 0.6 | Energy 0.5 | Clarity 0.85 | Authority 0.6 | Friendliness 0.55
-Best for: Education, General, Tech Support | ~$0.020/min
-Balanced male voice. Reliable for long sessions.
-
-### PlayHT Voices
-
-**Jennifer** | Female, Middle-aged, American | ID: `jennifer`
-Warmth 0.7 | Energy 0.5 | Clarity 0.85 | Authority 0.55 | Friendliness 0.65
-Best for: Customer Support, Healthcare, General | ~$0.020/min
-Polished and warm. Strong all-rounder.
-
-**Michael** | Male, Middle-aged, American | ID: `michael`
-Warmth 0.55 | Energy 0.55 | Clarity 0.9 | Authority 0.7 | Friendliness 0.5
-Best for: Sales, Finance, Real Estate | ~$0.020/min
-Confident, clear. Strong for sales and advisory.
-
-### Rime Voices
-
-**Marsh** | Male, Middle-aged, American | ID: `marsh`
-Warmth 0.6 | Energy 0.5 | Clarity 0.85 | Authority 0.6 | Friendliness 0.55
-Best for: Customer Support, Tech Support, General | ~$0.008/min
-Clean, fast. Excellent for latency-critical deployments.
-
-**Bayou** | Female, Middle-aged, American | ID: `bayou`
-Warmth 0.7 | Energy 0.45 | Clarity 0.8 | Authority 0.45 | Friendliness 0.7
-Best for: Customer Support, Healthcare, General | ~$0.008/min
-Warm female voice with low latency. Good for care-oriented agents.
+| Provider | Latency | Cost/min | Quality | Pipecat Class |
+|----------|---------|----------|---------|---------------|
+| Cartesia | <150ms | ~$0.015 | Very Good | CartesiaTTSService |
+| ElevenLabs | 200-400ms | ~$0.030 | Best | ElevenLabsTTSService |
+| Deepgram Aura | <100ms | ~$0.010 | Good | DeepgramTTSService |
+| OpenAI TTS | 200-500ms | ~$0.020 | Very Good | OpenAITTSService |
+| PlayHT | 200-400ms | ~$0.020 | Very Good | PlayHTTTSService |
+| Rime | <100ms | ~$0.008 | Good | RimeTTSService |
 
 ## Decision Heuristics
 
-**Healthcare / Patient Calls:** Warmth > Clarity > Friendliness. Low energy. → Midwestern Woman, Sweet Lady, Bella, Shimmer
-**Sales / Lead Qualification:** Energy > Authority > Clarity. → Confident Man, Adam, Onyx, Michael
-**Customer Support:** Clarity > Friendliness > Warmth. → Asteria, Friendly Man, Rachel, Alloy
-**Mental Health / Wellness:** Warmth > Friendliness, very low Energy. → Sweet Lady, Bella, Shimmer, Bayou
-**Finance / Legal:** Authority > Clarity. → Adam, Onyx, British Lady, Confident Man
-**High Volume / Cost Sensitive:** Cost first. → Deepgram or Rime (5-10x cheaper than ElevenLabs)
-**Latency Critical (<200ms):** Only Cartesia, Deepgram, Rime qualify.
+When mapping user needs to voice traits:
+
+| Use Case | Prioritize | Deprioritize |
+|----------|-----------|-------------|
+| Healthcare / Patient calls | Warmth, Friendliness, Clarity | Energy, Authority |
+| Sales / Lead qualification | Energy, Authority, Clarity | — |
+| Customer support | Clarity, Friendliness | Extreme authority |
+| Mental health / Wellness | Warmth, Friendliness | Energy, Authority, fast pace |
+| Finance / Legal | Authority, Clarity | Playfulness, high friendliness |
+| High volume (100K+ min/mo) | Cost first → Deepgram, Rime | ElevenLabs ($0.030/min adds up) |
+| Latency critical (<200ms) | Only Cartesia, Deepgram, Rime | ElevenLabs, OpenAI, PlayHT |
 
 ## Rules
 
 - **Read the codebase first.** Don't ask what you can learn from code.
-- **Keep the interview short.** 1-3 questions max. The user wants a voice, not a survey.
+- **Keep the interview short.** 2-4 questions max. The user wants a voice, not a survey.
+- **Always run the search.** Use `filter_voices()` + `format_for_context()` from `voice_audition/search.py`. Don't guess from memory.
 - **Generate audio when possible.** Hearing > reading about traits.
 - **Always provide the fallback link** to the provider's playground if you can't generate audio.
 - **Include cost.** Developers care about cost per minute, especially at scale.
 - **Don't over-recommend.** 3 voices with clear reasoning beats 5 voices that confuse.
-- **The best voice wins the game.** Voice is the first thing end users notice. A perfect LLM with a bad voice will feel worse than a decent LLM with a great voice.
-- **OpenAI's instructions parameter** is unique — mention it when relevant. It lets you tune any OpenAI voice dynamically.
+- **The best voice wins the game.** A perfect LLM with a bad voice feels worse than a decent LLM with a great voice.
+- **OpenAI's instructions parameter** is unique — mention it when relevant. It lets you tune any OpenAI voice dynamically via `gpt-4o-mini-tts`.
 - **Accent matters.** British = premium/trust. Midwestern American = warmth/reliability. Match to audience.
 - **After they pick, wire it in.** Offer to write the config directly into their code.
+- **Null traits are fine.** Many voices (especially Rime's 500+) don't have trait scores. Use the description and name to judge. Don't penalize a voice just because it lacks trait data.
