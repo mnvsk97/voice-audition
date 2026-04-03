@@ -1,6 +1,6 @@
 {
   "provider": "rime",
-  "synced_at": "2026-04-03T16:44:04.473381+00:00",
+  "synced_at": "2026-04-03T18:19:09.738932+00:00",
   "voice_count": 527,
   "voices": [
     {
@@ -34,7 +34,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471806+00:00",
+      "last_verified": "2026-04-03T18:19:09.735774+00:00",
       "status": "active"
     },
     {
@@ -68,7 +68,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471817+00:00",
+      "last_verified": "2026-04-03T18:19:09.735793+00:00",
       "status": "active"
     },
     {
@@ -102,7 +102,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471820+00:00",
+      "last_verified": "2026-04-03T18:19:09.735800+00:00",
       "status": "active"
     },
     {
@@ -136,7 +136,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471822+00:00",
+      "last_verified": "2026-04-03T18:19:09.735805+00:00",
       "status": "active"
     },
     {
@@ -170,7 +170,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471824+00:00",
+      "last_verified": "2026-04-03T18:19:09.735809+00:00",
       "status": "active"
     },
     {
@@ -204,7 +204,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471826+00:00",
+      "last_verified": "2026-04-03T18:19:09.735814+00:00",
       "status": "active"
     },
     {
@@ -238,7 +238,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471828+00:00",
+      "last_verified": "2026-04-03T18:19:09.735817+00:00",
       "status": "active"
     },
     {
@@ -272,7 +272,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471830+00:00",
+      "last_verified": "2026-04-03T18:19:09.735821+00:00",
       "status": "active"
     },
     {
@@ -306,7 +306,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471833+00:00",
+      "last_verified": "2026-04-03T18:19:09.735825+00:00",
       "status": "active"
     },
     {
@@ -340,7 +340,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471835+00:00",
+      "last_verified": "2026-04-03T18:19:09.735829+00:00",
       "status": "active"
     },
     {
@@ -374,7 +374,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471837+00:00",
+      "last_verified": "2026-04-03T18:19:09.735833+00:00",
       "status": "active"
     },
     {
@@ -408,7 +408,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471841+00:00",
+      "last_verified": "2026-04-03T18:19:09.735837+00:00",
       "status": "active"
     },
     {
@@ -442,7 +442,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471843+00:00",
+      "last_verified": "2026-04-03T18:19:09.735841+00:00",
       "status": "active"
     },
     {
@@ -476,7 +476,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471845+00:00",
+      "last_verified": "2026-04-03T18:19:09.735845+00:00",
       "status": "active"
     },
     {
@@ -510,7 +510,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471846+00:00",
+      "last_verified": "2026-04-03T18:19:09.735849+00:00",
       "status": "active"
     },
     {
@@ -544,7 +544,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471848+00:00",
+      "last_verified": "2026-04-03T18:19:09.735852+00:00",
       "status": "active"
     },
     {
@@ -578,7 +578,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471849+00:00",
+      "last_verified": "2026-04-03T18:19:09.735856+00:00",
       "status": "active"
     },
     {
@@ -612,7 +612,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471851+00:00",
+      "last_verified": "2026-04-03T18:19:09.735860+00:00",
       "status": "active"
     },
     {
@@ -646,7 +646,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471853+00:00",
+      "last_verified": "2026-04-03T18:19:09.735863+00:00",
       "status": "active"
     },
     {
@@ -680,7 +680,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471855+00:00",
+      "last_verified": "2026-04-03T18:19:09.735867+00:00",
       "status": "active"
     },
     {
@@ -714,7 +714,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471856+00:00",
+      "last_verified": "2026-04-03T18:19:09.735871+00:00",
       "status": "active"
     },
     {
@@ -748,7 +748,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471858+00:00",
+      "last_verified": "2026-04-03T18:19:09.735874+00:00",
       "status": "active"
     },
     {
@@ -782,7 +782,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471859+00:00",
+      "last_verified": "2026-04-03T18:19:09.735878+00:00",
       "status": "active"
     },
     {
@@ -816,7 +816,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471861+00:00",
+      "last_verified": "2026-04-03T18:19:09.735882+00:00",
       "status": "active"
     },
     {
@@ -850,7 +850,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471863+00:00",
+      "last_verified": "2026-04-03T18:19:09.735885+00:00",
       "status": "active"
     },
     {
@@ -884,7 +884,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471864+00:00",
+      "last_verified": "2026-04-03T18:19:09.735889+00:00",
       "status": "active"
     },
     {
@@ -918,7 +918,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471866+00:00",
+      "last_verified": "2026-04-03T18:19:09.735892+00:00",
       "status": "active"
     },
     {
@@ -952,7 +952,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471869+00:00",
+      "last_verified": "2026-04-03T18:19:09.735896+00:00",
       "status": "active"
     },
     {
@@ -986,7 +986,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471871+00:00",
+      "last_verified": "2026-04-03T18:19:09.735900+00:00",
       "status": "active"
     },
     {
@@ -1020,7 +1020,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471872+00:00",
+      "last_verified": "2026-04-03T18:19:09.735903+00:00",
       "status": "active"
     },
     {
@@ -1054,7 +1054,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471874+00:00",
+      "last_verified": "2026-04-03T18:19:09.735907+00:00",
       "status": "active"
     },
     {
@@ -1088,7 +1088,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471879+00:00",
+      "last_verified": "2026-04-03T18:19:09.735911+00:00",
       "status": "active"
     },
     {
@@ -1122,7 +1122,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471882+00:00",
+      "last_verified": "2026-04-03T18:19:09.736032+00:00",
       "status": "active"
     },
     {
@@ -1156,7 +1156,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471884+00:00",
+      "last_verified": "2026-04-03T18:19:09.736036+00:00",
       "status": "active"
     },
     {
@@ -1190,7 +1190,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471885+00:00",
+      "last_verified": "2026-04-03T18:19:09.736040+00:00",
       "status": "active"
     },
     {
@@ -1224,7 +1224,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471887+00:00",
+      "last_verified": "2026-04-03T18:19:09.736044+00:00",
       "status": "active"
     },
     {
@@ -1258,7 +1258,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471889+00:00",
+      "last_verified": "2026-04-03T18:19:09.736048+00:00",
       "status": "active"
     },
     {
@@ -1292,7 +1292,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471890+00:00",
+      "last_verified": "2026-04-03T18:19:09.736053+00:00",
       "status": "active"
     },
     {
@@ -1326,7 +1326,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471892+00:00",
+      "last_verified": "2026-04-03T18:19:09.736056+00:00",
       "status": "active"
     },
     {
@@ -1360,7 +1360,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471893+00:00",
+      "last_verified": "2026-04-03T18:19:09.736060+00:00",
       "status": "active"
     },
     {
@@ -1394,7 +1394,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471895+00:00",
+      "last_verified": "2026-04-03T18:19:09.736064+00:00",
       "status": "active"
     },
     {
@@ -1428,7 +1428,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471896+00:00",
+      "last_verified": "2026-04-03T18:19:09.736068+00:00",
       "status": "active"
     },
     {
@@ -1462,7 +1462,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471898+00:00",
+      "last_verified": "2026-04-03T18:19:09.736072+00:00",
       "status": "active"
     },
     {
@@ -1496,7 +1496,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471900+00:00",
+      "last_verified": "2026-04-03T18:19:09.736075+00:00",
       "status": "active"
     },
     {
@@ -1530,7 +1530,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471901+00:00",
+      "last_verified": "2026-04-03T18:19:09.736079+00:00",
       "status": "active"
     },
     {
@@ -1564,7 +1564,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471903+00:00",
+      "last_verified": "2026-04-03T18:19:09.736082+00:00",
       "status": "active"
     },
     {
@@ -1598,7 +1598,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471905+00:00",
+      "last_verified": "2026-04-03T18:19:09.736086+00:00",
       "status": "active"
     },
     {
@@ -1632,7 +1632,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471907+00:00",
+      "last_verified": "2026-04-03T18:19:09.736089+00:00",
       "status": "active"
     },
     {
@@ -1666,7 +1666,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471908+00:00",
+      "last_verified": "2026-04-03T18:19:09.736093+00:00",
       "status": "active"
     },
     {
@@ -1700,7 +1700,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471910+00:00",
+      "last_verified": "2026-04-03T18:19:09.736096+00:00",
       "status": "active"
     },
     {
@@ -1734,7 +1734,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471912+00:00",
+      "last_verified": "2026-04-03T18:19:09.736100+00:00",
       "status": "active"
     },
     {
@@ -1768,7 +1768,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471913+00:00",
+      "last_verified": "2026-04-03T18:19:09.736104+00:00",
       "status": "active"
     },
     {
@@ -1802,7 +1802,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471915+00:00",
+      "last_verified": "2026-04-03T18:19:09.736107+00:00",
       "status": "active"
     },
     {
@@ -1836,7 +1836,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471918+00:00",
+      "last_verified": "2026-04-03T18:19:09.736111+00:00",
       "status": "active"
     },
     {
@@ -1870,7 +1870,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471920+00:00",
+      "last_verified": "2026-04-03T18:19:09.736115+00:00",
       "status": "active"
     },
     {
@@ -1904,7 +1904,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471922+00:00",
+      "last_verified": "2026-04-03T18:19:09.736118+00:00",
       "status": "active"
     },
     {
@@ -1938,7 +1938,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471924+00:00",
+      "last_verified": "2026-04-03T18:19:09.736122+00:00",
       "status": "active"
     },
     {
@@ -1972,7 +1972,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471926+00:00",
+      "last_verified": "2026-04-03T18:19:09.736126+00:00",
       "status": "active"
     },
     {
@@ -2006,7 +2006,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471928+00:00",
+      "last_verified": "2026-04-03T18:19:09.736130+00:00",
       "status": "active"
     },
     {
@@ -2040,7 +2040,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471929+00:00",
+      "last_verified": "2026-04-03T18:19:09.736134+00:00",
       "status": "active"
     },
     {
@@ -2074,7 +2074,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471931+00:00",
+      "last_verified": "2026-04-03T18:19:09.736138+00:00",
       "status": "active"
     },
     {
@@ -2108,7 +2108,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471932+00:00",
+      "last_verified": "2026-04-03T18:19:09.736142+00:00",
       "status": "active"
     },
     {
@@ -2142,7 +2142,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471934+00:00",
+      "last_verified": "2026-04-03T18:19:09.736145+00:00",
       "status": "active"
     },
     {
@@ -2176,7 +2176,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471936+00:00",
+      "last_verified": "2026-04-03T18:19:09.736149+00:00",
       "status": "active"
     },
     {
@@ -2210,7 +2210,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471937+00:00",
+      "last_verified": "2026-04-03T18:19:09.736153+00:00",
       "status": "active"
     },
     {
@@ -2244,7 +2244,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471939+00:00",
+      "last_verified": "2026-04-03T18:19:09.736157+00:00",
       "status": "active"
     },
     {
@@ -2278,7 +2278,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471940+00:00",
+      "last_verified": "2026-04-03T18:19:09.736160+00:00",
       "status": "active"
     },
     {
@@ -2312,7 +2312,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471942+00:00",
+      "last_verified": "2026-04-03T18:19:09.736164+00:00",
       "status": "active"
     },
     {
@@ -2346,7 +2346,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471944+00:00",
+      "last_verified": "2026-04-03T18:19:09.736168+00:00",
       "status": "active"
     },
     {
@@ -2380,7 +2380,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471945+00:00",
+      "last_verified": "2026-04-03T18:19:09.736172+00:00",
       "status": "active"
     },
     {
@@ -2414,7 +2414,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471947+00:00",
+      "last_verified": "2026-04-03T18:19:09.736176+00:00",
       "status": "active"
     },
     {
@@ -2448,7 +2448,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471948+00:00",
+      "last_verified": "2026-04-03T18:19:09.736179+00:00",
       "status": "active"
     },
     {
@@ -2482,7 +2482,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471951+00:00",
+      "last_verified": "2026-04-03T18:19:09.736183+00:00",
       "status": "active"
     },
     {
@@ -2516,7 +2516,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471953+00:00",
+      "last_verified": "2026-04-03T18:19:09.736186+00:00",
       "status": "active"
     },
     {
@@ -2550,7 +2550,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471956+00:00",
+      "last_verified": "2026-04-03T18:19:09.736189+00:00",
       "status": "active"
     },
     {
@@ -2584,7 +2584,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471957+00:00",
+      "last_verified": "2026-04-03T18:19:09.736193+00:00",
       "status": "active"
     },
     {
@@ -2618,7 +2618,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471959+00:00",
+      "last_verified": "2026-04-03T18:19:09.736196+00:00",
       "status": "active"
     },
     {
@@ -2652,7 +2652,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.471961+00:00",
+      "last_verified": "2026-04-03T18:19:09.736200+00:00",
       "status": "active"
     },
     {
@@ -2686,7 +2686,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472007+00:00",
+      "last_verified": "2026-04-03T18:19:09.736204+00:00",
       "status": "active"
     },
     {
@@ -2720,7 +2720,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472009+00:00",
+      "last_verified": "2026-04-03T18:19:09.736207+00:00",
       "status": "active"
     },
     {
@@ -2754,7 +2754,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472010+00:00",
+      "last_verified": "2026-04-03T18:19:09.736211+00:00",
       "status": "active"
     },
     {
@@ -2788,7 +2788,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472012+00:00",
+      "last_verified": "2026-04-03T18:19:09.736214+00:00",
       "status": "active"
     },
     {
@@ -2822,7 +2822,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472013+00:00",
+      "last_verified": "2026-04-03T18:19:09.736218+00:00",
       "status": "active"
     },
     {
@@ -2856,7 +2856,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472015+00:00",
+      "last_verified": "2026-04-03T18:19:09.736221+00:00",
       "status": "active"
     },
     {
@@ -2890,7 +2890,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472018+00:00",
+      "last_verified": "2026-04-03T18:19:09.736225+00:00",
       "status": "active"
     },
     {
@@ -2924,7 +2924,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472020+00:00",
+      "last_verified": "2026-04-03T18:19:09.736228+00:00",
       "status": "active"
     },
     {
@@ -2958,7 +2958,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472021+00:00",
+      "last_verified": "2026-04-03T18:19:09.736231+00:00",
       "status": "active"
     },
     {
@@ -2992,7 +2992,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472023+00:00",
+      "last_verified": "2026-04-03T18:19:09.736234+00:00",
       "status": "active"
     },
     {
@@ -3026,7 +3026,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472024+00:00",
+      "last_verified": "2026-04-03T18:19:09.736238+00:00",
       "status": "active"
     },
     {
@@ -3060,7 +3060,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472026+00:00",
+      "last_verified": "2026-04-03T18:19:09.736241+00:00",
       "status": "active"
     },
     {
@@ -3094,7 +3094,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472028+00:00",
+      "last_verified": "2026-04-03T18:19:09.736244+00:00",
       "status": "active"
     },
     {
@@ -3128,7 +3128,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472029+00:00",
+      "last_verified": "2026-04-03T18:19:09.736247+00:00",
       "status": "active"
     },
     {
@@ -3162,7 +3162,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472031+00:00",
+      "last_verified": "2026-04-03T18:19:09.736251+00:00",
       "status": "active"
     },
     {
@@ -3196,7 +3196,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472033+00:00",
+      "last_verified": "2026-04-03T18:19:09.736254+00:00",
       "status": "active"
     },
     {
@@ -3230,7 +3230,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472034+00:00",
+      "last_verified": "2026-04-03T18:19:09.736257+00:00",
       "status": "active"
     },
     {
@@ -3264,7 +3264,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472037+00:00",
+      "last_verified": "2026-04-03T18:19:09.736261+00:00",
       "status": "active"
     },
     {
@@ -3298,7 +3298,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472039+00:00",
+      "last_verified": "2026-04-03T18:19:09.736264+00:00",
       "status": "active"
     },
     {
@@ -3332,7 +3332,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472040+00:00",
+      "last_verified": "2026-04-03T18:19:09.736268+00:00",
       "status": "active"
     },
     {
@@ -3366,7 +3366,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472042+00:00",
+      "last_verified": "2026-04-03T18:19:09.736271+00:00",
       "status": "active"
     },
     {
@@ -3400,7 +3400,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472043+00:00",
+      "last_verified": "2026-04-03T18:19:09.736274+00:00",
       "status": "active"
     },
     {
@@ -3434,7 +3434,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472045+00:00",
+      "last_verified": "2026-04-03T18:19:09.736278+00:00",
       "status": "active"
     },
     {
@@ -3468,7 +3468,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472046+00:00",
+      "last_verified": "2026-04-03T18:19:09.736281+00:00",
       "status": "active"
     },
     {
@@ -3502,7 +3502,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472048+00:00",
+      "last_verified": "2026-04-03T18:19:09.736284+00:00",
       "status": "active"
     },
     {
@@ -3536,7 +3536,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472049+00:00",
+      "last_verified": "2026-04-03T18:19:09.736288+00:00",
       "status": "active"
     },
     {
@@ -3570,7 +3570,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472051+00:00",
+      "last_verified": "2026-04-03T18:19:09.736318+00:00",
       "status": "active"
     },
     {
@@ -3604,7 +3604,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472052+00:00",
+      "last_verified": "2026-04-03T18:19:09.736328+00:00",
       "status": "active"
     },
     {
@@ -3638,7 +3638,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472054+00:00",
+      "last_verified": "2026-04-03T18:19:09.736336+00:00",
       "status": "active"
     },
     {
@@ -3672,7 +3672,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472056+00:00",
+      "last_verified": "2026-04-03T18:19:09.736343+00:00",
       "status": "active"
     },
     {
@@ -3706,7 +3706,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472057+00:00",
+      "last_verified": "2026-04-03T18:19:09.736351+00:00",
       "status": "active"
     },
     {
@@ -3740,7 +3740,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472059+00:00",
+      "last_verified": "2026-04-03T18:19:09.736355+00:00",
       "status": "active"
     },
     {
@@ -3774,7 +3774,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472060+00:00",
+      "last_verified": "2026-04-03T18:19:09.736359+00:00",
       "status": "active"
     },
     {
@@ -3808,7 +3808,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472062+00:00",
+      "last_verified": "2026-04-03T18:19:09.736362+00:00",
       "status": "active"
     },
     {
@@ -3842,7 +3842,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472065+00:00",
+      "last_verified": "2026-04-03T18:19:09.736365+00:00",
       "status": "active"
     },
     {
@@ -3876,7 +3876,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472067+00:00",
+      "last_verified": "2026-04-03T18:19:09.736369+00:00",
       "status": "active"
     },
     {
@@ -3910,7 +3910,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472068+00:00",
+      "last_verified": "2026-04-03T18:19:09.736373+00:00",
       "status": "active"
     },
     {
@@ -3944,7 +3944,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472070+00:00",
+      "last_verified": "2026-04-03T18:19:09.736376+00:00",
       "status": "active"
     },
     {
@@ -3978,7 +3978,7 @@
         "model_family": "mist",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472073+00:00",
+      "last_verified": "2026-04-03T18:19:09.736379+00:00",
       "status": "active"
     },
     {
@@ -4012,7 +4012,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472076+00:00",
+      "last_verified": "2026-04-03T18:19:09.736385+00:00",
       "status": "active"
     },
     {
@@ -4046,7 +4046,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472077+00:00",
+      "last_verified": "2026-04-03T18:19:09.736389+00:00",
       "status": "active"
     },
     {
@@ -4080,7 +4080,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472079+00:00",
+      "last_verified": "2026-04-03T18:19:09.736392+00:00",
       "status": "active"
     },
     {
@@ -4114,7 +4114,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472082+00:00",
+      "last_verified": "2026-04-03T18:19:09.736396+00:00",
       "status": "active"
     },
     {
@@ -4148,7 +4148,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472083+00:00",
+      "last_verified": "2026-04-03T18:19:09.736400+00:00",
       "status": "active"
     },
     {
@@ -4182,7 +4182,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472085+00:00",
+      "last_verified": "2026-04-03T18:19:09.736403+00:00",
       "status": "active"
     },
     {
@@ -4216,7 +4216,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472087+00:00",
+      "last_verified": "2026-04-03T18:19:09.736406+00:00",
       "status": "active"
     },
     {
@@ -4250,7 +4250,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472088+00:00",
+      "last_verified": "2026-04-03T18:19:09.736410+00:00",
       "status": "active"
     },
     {
@@ -4284,7 +4284,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472090+00:00",
+      "last_verified": "2026-04-03T18:19:09.736413+00:00",
       "status": "active"
     },
     {
@@ -4318,7 +4318,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472091+00:00",
+      "last_verified": "2026-04-03T18:19:09.736416+00:00",
       "status": "active"
     },
     {
@@ -4352,7 +4352,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472093+00:00",
+      "last_verified": "2026-04-03T18:19:09.736419+00:00",
       "status": "active"
     },
     {
@@ -4386,7 +4386,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472095+00:00",
+      "last_verified": "2026-04-03T18:19:09.736423+00:00",
       "status": "active"
     },
     {
@@ -4420,7 +4420,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472097+00:00",
+      "last_verified": "2026-04-03T18:19:09.736426+00:00",
       "status": "active"
     },
     {
@@ -4454,7 +4454,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472099+00:00",
+      "last_verified": "2026-04-03T18:19:09.736430+00:00",
       "status": "active"
     },
     {
@@ -4488,7 +4488,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472100+00:00",
+      "last_verified": "2026-04-03T18:19:09.736433+00:00",
       "status": "active"
     },
     {
@@ -4522,7 +4522,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472102+00:00",
+      "last_verified": "2026-04-03T18:19:09.736455+00:00",
       "status": "active"
     },
     {
@@ -4556,7 +4556,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472103+00:00",
+      "last_verified": "2026-04-03T18:19:09.736459+00:00",
       "status": "active"
     },
     {
@@ -4590,7 +4590,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472105+00:00",
+      "last_verified": "2026-04-03T18:19:09.736462+00:00",
       "status": "active"
     },
     {
@@ -4624,7 +4624,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472107+00:00",
+      "last_verified": "2026-04-03T18:19:09.736465+00:00",
       "status": "active"
     },
     {
@@ -4658,7 +4658,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472108+00:00",
+      "last_verified": "2026-04-03T18:19:09.736469+00:00",
       "status": "active"
     },
     {
@@ -4692,7 +4692,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472111+00:00",
+      "last_verified": "2026-04-03T18:19:09.736472+00:00",
       "status": "active"
     },
     {
@@ -4726,7 +4726,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472113+00:00",
+      "last_verified": "2026-04-03T18:19:09.736475+00:00",
       "status": "active"
     },
     {
@@ -4760,7 +4760,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472115+00:00",
+      "last_verified": "2026-04-03T18:19:09.736479+00:00",
       "status": "active"
     },
     {
@@ -4794,7 +4794,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472117+00:00",
+      "last_verified": "2026-04-03T18:19:09.736482+00:00",
       "status": "active"
     },
     {
@@ -4828,7 +4828,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472119+00:00",
+      "last_verified": "2026-04-03T18:19:09.736486+00:00",
       "status": "active"
     },
     {
@@ -4862,7 +4862,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472121+00:00",
+      "last_verified": "2026-04-03T18:19:09.736489+00:00",
       "status": "active"
     },
     {
@@ -4896,7 +4896,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472123+00:00",
+      "last_verified": "2026-04-03T18:19:09.736492+00:00",
       "status": "active"
     },
     {
@@ -4930,7 +4930,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472124+00:00",
+      "last_verified": "2026-04-03T18:19:09.736495+00:00",
       "status": "active"
     },
     {
@@ -4964,7 +4964,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472126+00:00",
+      "last_verified": "2026-04-03T18:19:09.736499+00:00",
       "status": "active"
     },
     {
@@ -4998,7 +4998,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472128+00:00",
+      "last_verified": "2026-04-03T18:19:09.736502+00:00",
       "status": "active"
     },
     {
@@ -5032,7 +5032,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472129+00:00",
+      "last_verified": "2026-04-03T18:19:09.736505+00:00",
       "status": "active"
     },
     {
@@ -5066,7 +5066,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472131+00:00",
+      "last_verified": "2026-04-03T18:19:09.736509+00:00",
       "status": "active"
     },
     {
@@ -5100,7 +5100,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472134+00:00",
+      "last_verified": "2026-04-03T18:19:09.736512+00:00",
       "status": "active"
     },
     {
@@ -5134,7 +5134,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472136+00:00",
+      "last_verified": "2026-04-03T18:19:09.736516+00:00",
       "status": "active"
     },
     {
@@ -5168,7 +5168,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472138+00:00",
+      "last_verified": "2026-04-03T18:19:09.736519+00:00",
       "status": "active"
     },
     {
@@ -5202,7 +5202,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472140+00:00",
+      "last_verified": "2026-04-03T18:19:09.736522+00:00",
       "status": "active"
     },
     {
@@ -5236,7 +5236,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472141+00:00",
+      "last_verified": "2026-04-03T18:19:09.736526+00:00",
       "status": "active"
     },
     {
@@ -5270,7 +5270,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472149+00:00",
+      "last_verified": "2026-04-03T18:19:09.736529+00:00",
       "status": "active"
     },
     {
@@ -5304,7 +5304,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472151+00:00",
+      "last_verified": "2026-04-03T18:19:09.736533+00:00",
       "status": "active"
     },
     {
@@ -5338,7 +5338,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472153+00:00",
+      "last_verified": "2026-04-03T18:19:09.736536+00:00",
       "status": "active"
     },
     {
@@ -5372,7 +5372,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472154+00:00",
+      "last_verified": "2026-04-03T18:19:09.736540+00:00",
       "status": "active"
     },
     {
@@ -5406,7 +5406,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472157+00:00",
+      "last_verified": "2026-04-03T18:19:09.736543+00:00",
       "status": "active"
     },
     {
@@ -5440,7 +5440,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472159+00:00",
+      "last_verified": "2026-04-03T18:19:09.736546+00:00",
       "status": "active"
     },
     {
@@ -5474,7 +5474,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472160+00:00",
+      "last_verified": "2026-04-03T18:19:09.736549+00:00",
       "status": "active"
     },
     {
@@ -5508,7 +5508,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472166+00:00",
+      "last_verified": "2026-04-03T18:19:09.736552+00:00",
       "status": "active"
     },
     {
@@ -5542,7 +5542,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472168+00:00",
+      "last_verified": "2026-04-03T18:19:09.736556+00:00",
       "status": "active"
     },
     {
@@ -5576,7 +5576,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472170+00:00",
+      "last_verified": "2026-04-03T18:19:09.736559+00:00",
       "status": "active"
     },
     {
@@ -5610,7 +5610,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472171+00:00",
+      "last_verified": "2026-04-03T18:19:09.736562+00:00",
       "status": "active"
     },
     {
@@ -5644,7 +5644,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472173+00:00",
+      "last_verified": "2026-04-03T18:19:09.736565+00:00",
       "status": "active"
     },
     {
@@ -5678,7 +5678,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472174+00:00",
+      "last_verified": "2026-04-03T18:19:09.736569+00:00",
       "status": "active"
     },
     {
@@ -5712,7 +5712,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472176+00:00",
+      "last_verified": "2026-04-03T18:19:09.736572+00:00",
       "status": "active"
     },
     {
@@ -5746,7 +5746,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472178+00:00",
+      "last_verified": "2026-04-03T18:19:09.736575+00:00",
       "status": "active"
     },
     {
@@ -5780,7 +5780,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472179+00:00",
+      "last_verified": "2026-04-03T18:19:09.736578+00:00",
       "status": "active"
     },
     {
@@ -5814,7 +5814,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472181+00:00",
+      "last_verified": "2026-04-03T18:19:09.736581+00:00",
       "status": "active"
     },
     {
@@ -5848,7 +5848,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472183+00:00",
+      "last_verified": "2026-04-03T18:19:09.736585+00:00",
       "status": "active"
     },
     {
@@ -5882,7 +5882,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472185+00:00",
+      "last_verified": "2026-04-03T18:19:09.736588+00:00",
       "status": "active"
     },
     {
@@ -5916,7 +5916,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472188+00:00",
+      "last_verified": "2026-04-03T18:19:09.736591+00:00",
       "status": "active"
     },
     {
@@ -5950,7 +5950,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472189+00:00",
+      "last_verified": "2026-04-03T18:19:09.736595+00:00",
       "status": "active"
     },
     {
@@ -5984,7 +5984,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472191+00:00",
+      "last_verified": "2026-04-03T18:19:09.736598+00:00",
       "status": "active"
     },
     {
@@ -6018,7 +6018,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472193+00:00",
+      "last_verified": "2026-04-03T18:19:09.736602+00:00",
       "status": "active"
     },
     {
@@ -6052,7 +6052,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472194+00:00",
+      "last_verified": "2026-04-03T18:19:09.736605+00:00",
       "status": "active"
     },
     {
@@ -6086,7 +6086,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472207+00:00",
+      "last_verified": "2026-04-03T18:19:09.736608+00:00",
       "status": "active"
     },
     {
@@ -6120,7 +6120,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472210+00:00",
+      "last_verified": "2026-04-03T18:19:09.736612+00:00",
       "status": "active"
     },
     {
@@ -6154,7 +6154,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472211+00:00",
+      "last_verified": "2026-04-03T18:19:09.736615+00:00",
       "status": "active"
     },
     {
@@ -6188,7 +6188,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472213+00:00",
+      "last_verified": "2026-04-03T18:19:09.736618+00:00",
       "status": "active"
     },
     {
@@ -6222,7 +6222,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472215+00:00",
+      "last_verified": "2026-04-03T18:19:09.736622+00:00",
       "status": "active"
     },
     {
@@ -6256,7 +6256,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472216+00:00",
+      "last_verified": "2026-04-03T18:19:09.736625+00:00",
       "status": "active"
     },
     {
@@ -6290,7 +6290,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472218+00:00",
+      "last_verified": "2026-04-03T18:19:09.736629+00:00",
       "status": "active"
     },
     {
@@ -6324,7 +6324,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472219+00:00",
+      "last_verified": "2026-04-03T18:19:09.736632+00:00",
       "status": "active"
     },
     {
@@ -6358,7 +6358,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472221+00:00",
+      "last_verified": "2026-04-03T18:19:09.736635+00:00",
       "status": "active"
     },
     {
@@ -6392,7 +6392,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472222+00:00",
+      "last_verified": "2026-04-03T18:19:09.736639+00:00",
       "status": "active"
     },
     {
@@ -6426,7 +6426,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472224+00:00",
+      "last_verified": "2026-04-03T18:19:09.736642+00:00",
       "status": "active"
     },
     {
@@ -6460,7 +6460,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472225+00:00",
+      "last_verified": "2026-04-03T18:19:09.736645+00:00",
       "status": "active"
     },
     {
@@ -6494,7 +6494,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472227+00:00",
+      "last_verified": "2026-04-03T18:19:09.736649+00:00",
       "status": "active"
     },
     {
@@ -6528,7 +6528,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472229+00:00",
+      "last_verified": "2026-04-03T18:19:09.736652+00:00",
       "status": "active"
     },
     {
@@ -6562,7 +6562,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472230+00:00",
+      "last_verified": "2026-04-03T18:19:09.736655+00:00",
       "status": "active"
     },
     {
@@ -6596,7 +6596,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472232+00:00",
+      "last_verified": "2026-04-03T18:19:09.736659+00:00",
       "status": "active"
     },
     {
@@ -6630,7 +6630,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472234+00:00",
+      "last_verified": "2026-04-03T18:19:09.736662+00:00",
       "status": "active"
     },
     {
@@ -6664,7 +6664,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472235+00:00",
+      "last_verified": "2026-04-03T18:19:09.736665+00:00",
       "status": "active"
     },
     {
@@ -6698,7 +6698,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472237+00:00",
+      "last_verified": "2026-04-03T18:19:09.736669+00:00",
       "status": "active"
     },
     {
@@ -6732,7 +6732,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472238+00:00",
+      "last_verified": "2026-04-03T18:19:09.736672+00:00",
       "status": "active"
     },
     {
@@ -6766,7 +6766,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472240+00:00",
+      "last_verified": "2026-04-03T18:19:09.736675+00:00",
       "status": "active"
     },
     {
@@ -6800,7 +6800,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472242+00:00",
+      "last_verified": "2026-04-03T18:19:09.736679+00:00",
       "status": "active"
     },
     {
@@ -6834,7 +6834,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472245+00:00",
+      "last_verified": "2026-04-03T18:19:09.736683+00:00",
       "status": "active"
     },
     {
@@ -6868,7 +6868,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472247+00:00",
+      "last_verified": "2026-04-03T18:19:09.736686+00:00",
       "status": "active"
     },
     {
@@ -6902,7 +6902,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472249+00:00",
+      "last_verified": "2026-04-03T18:19:09.736690+00:00",
       "status": "active"
     },
     {
@@ -6936,7 +6936,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472250+00:00",
+      "last_verified": "2026-04-03T18:19:09.736693+00:00",
       "status": "active"
     },
     {
@@ -6970,7 +6970,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472252+00:00",
+      "last_verified": "2026-04-03T18:19:09.736696+00:00",
       "status": "active"
     },
     {
@@ -7004,7 +7004,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472254+00:00",
+      "last_verified": "2026-04-03T18:19:09.736700+00:00",
       "status": "active"
     },
     {
@@ -7038,7 +7038,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472255+00:00",
+      "last_verified": "2026-04-03T18:19:09.736703+00:00",
       "status": "active"
     },
     {
@@ -7072,7 +7072,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472257+00:00",
+      "last_verified": "2026-04-03T18:19:09.736706+00:00",
       "status": "active"
     },
     {
@@ -7106,7 +7106,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472259+00:00",
+      "last_verified": "2026-04-03T18:19:09.736710+00:00",
       "status": "active"
     },
     {
@@ -7140,7 +7140,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472260+00:00",
+      "last_verified": "2026-04-03T18:19:09.736713+00:00",
       "status": "active"
     },
     {
@@ -7174,7 +7174,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472262+00:00",
+      "last_verified": "2026-04-03T18:19:09.736723+00:00",
       "status": "active"
     },
     {
@@ -7208,7 +7208,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472263+00:00",
+      "last_verified": "2026-04-03T18:19:09.736727+00:00",
       "status": "active"
     },
     {
@@ -7242,7 +7242,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472265+00:00",
+      "last_verified": "2026-04-03T18:19:09.736731+00:00",
       "status": "active"
     },
     {
@@ -7276,7 +7276,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472266+00:00",
+      "last_verified": "2026-04-03T18:19:09.736734+00:00",
       "status": "active"
     },
     {
@@ -7310,7 +7310,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472268+00:00",
+      "last_verified": "2026-04-03T18:19:09.736737+00:00",
       "status": "active"
     },
     {
@@ -7344,7 +7344,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472270+00:00",
+      "last_verified": "2026-04-03T18:19:09.736741+00:00",
       "status": "active"
     },
     {
@@ -7378,7 +7378,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472271+00:00",
+      "last_verified": "2026-04-03T18:19:09.736744+00:00",
       "status": "active"
     },
     {
@@ -7412,7 +7412,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472273+00:00",
+      "last_verified": "2026-04-03T18:19:09.736750+00:00",
       "status": "active"
     },
     {
@@ -7446,7 +7446,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472274+00:00",
+      "last_verified": "2026-04-03T18:19:09.736753+00:00",
       "status": "active"
     },
     {
@@ -7480,7 +7480,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472276+00:00",
+      "last_verified": "2026-04-03T18:19:09.736757+00:00",
       "status": "active"
     },
     {
@@ -7514,7 +7514,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472277+00:00",
+      "last_verified": "2026-04-03T18:19:09.736760+00:00",
       "status": "active"
     },
     {
@@ -7548,7 +7548,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472280+00:00",
+      "last_verified": "2026-04-03T18:19:09.736763+00:00",
       "status": "active"
     },
     {
@@ -7582,7 +7582,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472282+00:00",
+      "last_verified": "2026-04-03T18:19:09.736767+00:00",
       "status": "active"
     },
     {
@@ -7616,7 +7616,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472283+00:00",
+      "last_verified": "2026-04-03T18:19:09.736770+00:00",
       "status": "active"
     },
     {
@@ -7650,7 +7650,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472285+00:00",
+      "last_verified": "2026-04-03T18:19:09.736773+00:00",
       "status": "active"
     },
     {
@@ -7684,7 +7684,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472287+00:00",
+      "last_verified": "2026-04-03T18:19:09.736779+00:00",
       "status": "active"
     },
     {
@@ -7718,7 +7718,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472288+00:00",
+      "last_verified": "2026-04-03T18:19:09.736782+00:00",
       "status": "active"
     },
     {
@@ -7752,7 +7752,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472290+00:00",
+      "last_verified": "2026-04-03T18:19:09.736785+00:00",
       "status": "active"
     },
     {
@@ -7786,7 +7786,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472292+00:00",
+      "last_verified": "2026-04-03T18:19:09.736789+00:00",
       "status": "active"
     },
     {
@@ -7820,7 +7820,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472295+00:00",
+      "last_verified": "2026-04-03T18:19:09.736792+00:00",
       "status": "active"
     },
     {
@@ -7854,7 +7854,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472297+00:00",
+      "last_verified": "2026-04-03T18:19:09.736796+00:00",
       "status": "active"
     },
     {
@@ -7888,7 +7888,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472299+00:00",
+      "last_verified": "2026-04-03T18:19:09.736799+00:00",
       "status": "active"
     },
     {
@@ -7922,7 +7922,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472300+00:00",
+      "last_verified": "2026-04-03T18:19:09.736804+00:00",
       "status": "active"
     },
     {
@@ -7956,7 +7956,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472302+00:00",
+      "last_verified": "2026-04-03T18:19:09.736826+00:00",
       "status": "active"
     },
     {
@@ -7990,7 +7990,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472304+00:00",
+      "last_verified": "2026-04-03T18:19:09.736832+00:00",
       "status": "active"
     },
     {
@@ -8024,7 +8024,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472306+00:00",
+      "last_verified": "2026-04-03T18:19:09.736836+00:00",
       "status": "active"
     },
     {
@@ -8058,7 +8058,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472307+00:00",
+      "last_verified": "2026-04-03T18:19:09.736839+00:00",
       "status": "active"
     },
     {
@@ -8092,7 +8092,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472309+00:00",
+      "last_verified": "2026-04-03T18:19:09.736843+00:00",
       "status": "active"
     },
     {
@@ -8126,7 +8126,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472310+00:00",
+      "last_verified": "2026-04-03T18:19:09.736846+00:00",
       "status": "active"
     },
     {
@@ -8160,7 +8160,7 @@
         "model_family": "mistv2",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472312+00:00",
+      "last_verified": "2026-04-03T18:19:09.736851+00:00",
       "status": "active"
     },
     {
@@ -8194,7 +8194,7 @@
         "model_family": "mistv2",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.472314+00:00",
+      "last_verified": "2026-04-03T18:19:09.736855+00:00",
       "status": "active"
     },
     {
@@ -8228,7 +8228,7 @@
         "model_family": "mistv2",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.472315+00:00",
+      "last_verified": "2026-04-03T18:19:09.736858+00:00",
       "status": "active"
     },
     {
@@ -8262,7 +8262,7 @@
         "model_family": "mistv2",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.472318+00:00",
+      "last_verified": "2026-04-03T18:19:09.736862+00:00",
       "status": "active"
     },
     {
@@ -8296,7 +8296,7 @@
         "model_family": "mistv2",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.472320+00:00",
+      "last_verified": "2026-04-03T18:19:09.736865+00:00",
       "status": "active"
     },
     {
@@ -8330,7 +8330,7 @@
         "model_family": "mistv2",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.472321+00:00",
+      "last_verified": "2026-04-03T18:19:09.736868+00:00",
       "status": "active"
     },
     {
@@ -8364,7 +8364,7 @@
         "model_family": "mistv2",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.472323+00:00",
+      "last_verified": "2026-04-03T18:19:09.736871+00:00",
       "status": "active"
     },
     {
@@ -8398,7 +8398,7 @@
         "model_family": "mistv2",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.472324+00:00",
+      "last_verified": "2026-04-03T18:19:09.736876+00:00",
       "status": "active"
     },
     {
@@ -8432,7 +8432,7 @@
         "model_family": "mistv2",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.472327+00:00",
+      "last_verified": "2026-04-03T18:19:09.736880+00:00",
       "status": "active"
     },
     {
@@ -8466,7 +8466,7 @@
         "model_family": "mistv2",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.472328+00:00",
+      "last_verified": "2026-04-03T18:19:09.736883+00:00",
       "status": "active"
     },
     {
@@ -8500,7 +8500,7 @@
         "model_family": "mistv2",
         "original_lang_code": "fra"
       },
-      "last_verified": "2026-04-03T16:44:04.472330+00:00",
+      "last_verified": "2026-04-03T18:19:09.736887+00:00",
       "status": "active"
     },
     {
@@ -8534,7 +8534,7 @@
         "model_family": "mistv2",
         "original_lang_code": "fra"
       },
-      "last_verified": "2026-04-03T16:44:04.472332+00:00",
+      "last_verified": "2026-04-03T18:19:09.736890+00:00",
       "status": "active"
     },
     {
@@ -8568,7 +8568,7 @@
         "model_family": "mistv2",
         "original_lang_code": "fra"
       },
-      "last_verified": "2026-04-03T16:44:04.472333+00:00",
+      "last_verified": "2026-04-03T18:19:09.736894+00:00",
       "status": "active"
     },
     {
@@ -8602,7 +8602,7 @@
         "model_family": "mistv2",
         "original_lang_code": "fra"
       },
-      "last_verified": "2026-04-03T16:44:04.472335+00:00",
+      "last_verified": "2026-04-03T18:19:09.736897+00:00",
       "status": "active"
     },
     {
@@ -8636,7 +8636,7 @@
         "model_family": "mistv2",
         "original_lang_code": "ger"
       },
-      "last_verified": "2026-04-03T16:44:04.472337+00:00",
+      "last_verified": "2026-04-03T18:19:09.736904+00:00",
       "status": "active"
     },
     {
@@ -8670,7 +8670,7 @@
         "model_family": "mistv2",
         "original_lang_code": "ger"
       },
-      "last_verified": "2026-04-03T16:44:04.472338+00:00",
+      "last_verified": "2026-04-03T18:19:09.736907+00:00",
       "status": "active"
     },
     {
@@ -8704,7 +8704,7 @@
         "model_family": "mistv2",
         "original_lang_code": "ger"
       },
-      "last_verified": "2026-04-03T16:44:04.472340+00:00",
+      "last_verified": "2026-04-03T18:19:09.736911+00:00",
       "status": "active"
     },
     {
@@ -8738,7 +8738,7 @@
         "model_family": "mistv2",
         "original_lang_code": "ger"
       },
-      "last_verified": "2026-04-03T16:44:04.472345+00:00",
+      "last_verified": "2026-04-03T18:19:09.736914+00:00",
       "status": "active"
     },
     {
@@ -8772,7 +8772,7 @@
         "model_family": "mistv2",
         "original_lang_code": "ger"
       },
-      "last_verified": "2026-04-03T16:44:04.472346+00:00",
+      "last_verified": "2026-04-03T18:19:09.736917+00:00",
       "status": "active"
     },
     {
@@ -8806,7 +8806,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472348+00:00",
+      "last_verified": "2026-04-03T18:19:09.736922+00:00",
       "status": "active"
     },
     {
@@ -8840,7 +8840,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472351+00:00",
+      "last_verified": "2026-04-03T18:19:09.736925+00:00",
       "status": "active"
     },
     {
@@ -8874,7 +8874,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472353+00:00",
+      "last_verified": "2026-04-03T18:19:09.736930+00:00",
       "status": "active"
     },
     {
@@ -8908,7 +8908,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472354+00:00",
+      "last_verified": "2026-04-03T18:19:09.736934+00:00",
       "status": "active"
     },
     {
@@ -8942,7 +8942,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472356+00:00",
+      "last_verified": "2026-04-03T18:19:09.736938+00:00",
       "status": "active"
     },
     {
@@ -8976,7 +8976,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472359+00:00",
+      "last_verified": "2026-04-03T18:19:09.736941+00:00",
       "status": "active"
     },
     {
@@ -9010,7 +9010,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472360+00:00",
+      "last_verified": "2026-04-03T18:19:09.736945+00:00",
       "status": "active"
     },
     {
@@ -9044,7 +9044,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472362+00:00",
+      "last_verified": "2026-04-03T18:19:09.736948+00:00",
       "status": "active"
     },
     {
@@ -9078,7 +9078,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472364+00:00",
+      "last_verified": "2026-04-03T18:19:09.736951+00:00",
       "status": "active"
     },
     {
@@ -9112,7 +9112,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472365+00:00",
+      "last_verified": "2026-04-03T18:19:09.736955+00:00",
       "status": "active"
     },
     {
@@ -9146,7 +9146,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472367+00:00",
+      "last_verified": "2026-04-03T18:19:09.736960+00:00",
       "status": "active"
     },
     {
@@ -9180,7 +9180,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472369+00:00",
+      "last_verified": "2026-04-03T18:19:09.736964+00:00",
       "status": "active"
     },
     {
@@ -9214,7 +9214,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472370+00:00",
+      "last_verified": "2026-04-03T18:19:09.736968+00:00",
       "status": "active"
     },
     {
@@ -9248,7 +9248,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472372+00:00",
+      "last_verified": "2026-04-03T18:19:09.736971+00:00",
       "status": "active"
     },
     {
@@ -9282,7 +9282,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472374+00:00",
+      "last_verified": "2026-04-03T18:19:09.736975+00:00",
       "status": "active"
     },
     {
@@ -9316,7 +9316,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472375+00:00",
+      "last_verified": "2026-04-03T18:19:09.736980+00:00",
       "status": "active"
     },
     {
@@ -9350,7 +9350,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472377+00:00",
+      "last_verified": "2026-04-03T18:19:09.736983+00:00",
       "status": "active"
     },
     {
@@ -9384,7 +9384,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472379+00:00",
+      "last_verified": "2026-04-03T18:19:09.736988+00:00",
       "status": "active"
     },
     {
@@ -9418,7 +9418,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472380+00:00",
+      "last_verified": "2026-04-03T18:19:09.736992+00:00",
       "status": "active"
     },
     {
@@ -9452,7 +9452,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472382+00:00",
+      "last_verified": "2026-04-03T18:19:09.736995+00:00",
       "status": "active"
     },
     {
@@ -9486,7 +9486,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472384+00:00",
+      "last_verified": "2026-04-03T18:19:09.736999+00:00",
       "status": "active"
     },
     {
@@ -9520,7 +9520,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472396+00:00",
+      "last_verified": "2026-04-03T18:19:09.737002+00:00",
       "status": "active"
     },
     {
@@ -9554,7 +9554,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472397+00:00",
+      "last_verified": "2026-04-03T18:19:09.737005+00:00",
       "status": "active"
     },
     {
@@ -9588,7 +9588,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472399+00:00",
+      "last_verified": "2026-04-03T18:19:09.737009+00:00",
       "status": "active"
     },
     {
@@ -9622,7 +9622,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472400+00:00",
+      "last_verified": "2026-04-03T18:19:09.737014+00:00",
       "status": "active"
     },
     {
@@ -9656,7 +9656,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472402+00:00",
+      "last_verified": "2026-04-03T18:19:09.737018+00:00",
       "status": "active"
     },
     {
@@ -9690,7 +9690,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472405+00:00",
+      "last_verified": "2026-04-03T18:19:09.737021+00:00",
       "status": "active"
     },
     {
@@ -9724,7 +9724,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472407+00:00",
+      "last_verified": "2026-04-03T18:19:09.737024+00:00",
       "status": "active"
     },
     {
@@ -9758,7 +9758,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472409+00:00",
+      "last_verified": "2026-04-03T18:19:09.737028+00:00",
       "status": "active"
     },
     {
@@ -9792,7 +9792,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472412+00:00",
+      "last_verified": "2026-04-03T18:19:09.737031+00:00",
       "status": "active"
     },
     {
@@ -9826,7 +9826,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472413+00:00",
+      "last_verified": "2026-04-03T18:19:09.737035+00:00",
       "status": "active"
     },
     {
@@ -9860,7 +9860,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472415+00:00",
+      "last_verified": "2026-04-03T18:19:09.737040+00:00",
       "status": "active"
     },
     {
@@ -9894,7 +9894,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472417+00:00",
+      "last_verified": "2026-04-03T18:19:09.737043+00:00",
       "status": "active"
     },
     {
@@ -9928,7 +9928,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472418+00:00",
+      "last_verified": "2026-04-03T18:19:09.737047+00:00",
       "status": "active"
     },
     {
@@ -9962,7 +9962,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472420+00:00",
+      "last_verified": "2026-04-03T18:19:09.737052+00:00",
       "status": "active"
     },
     {
@@ -9996,7 +9996,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472421+00:00",
+      "last_verified": "2026-04-03T18:19:09.737056+00:00",
       "status": "active"
     },
     {
@@ -10030,7 +10030,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472423+00:00",
+      "last_verified": "2026-04-03T18:19:09.737059+00:00",
       "status": "active"
     },
     {
@@ -10064,7 +10064,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472425+00:00",
+      "last_verified": "2026-04-03T18:19:09.737064+00:00",
       "status": "active"
     },
     {
@@ -10098,7 +10098,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472426+00:00",
+      "last_verified": "2026-04-03T18:19:09.737068+00:00",
       "status": "active"
     },
     {
@@ -10132,7 +10132,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472428+00:00",
+      "last_verified": "2026-04-03T18:19:09.737071+00:00",
       "status": "active"
     },
     {
@@ -10166,7 +10166,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472429+00:00",
+      "last_verified": "2026-04-03T18:19:09.737075+00:00",
       "status": "active"
     },
     {
@@ -10200,7 +10200,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472431+00:00",
+      "last_verified": "2026-04-03T18:19:09.737078+00:00",
       "status": "active"
     },
     {
@@ -10234,7 +10234,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472433+00:00",
+      "last_verified": "2026-04-03T18:19:09.737081+00:00",
       "status": "active"
     },
     {
@@ -10268,7 +10268,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472434+00:00",
+      "last_verified": "2026-04-03T18:19:09.737085+00:00",
       "status": "active"
     },
     {
@@ -10302,7 +10302,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472436+00:00",
+      "last_verified": "2026-04-03T18:19:09.737090+00:00",
       "status": "active"
     },
     {
@@ -10336,7 +10336,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472437+00:00",
+      "last_verified": "2026-04-03T18:19:09.737093+00:00",
       "status": "active"
     },
     {
@@ -10370,7 +10370,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472439+00:00",
+      "last_verified": "2026-04-03T18:19:09.737097+00:00",
       "status": "active"
     },
     {
@@ -10404,7 +10404,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472442+00:00",
+      "last_verified": "2026-04-03T18:19:09.737100+00:00",
       "status": "active"
     },
     {
@@ -10438,7 +10438,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472445+00:00",
+      "last_verified": "2026-04-03T18:19:09.737104+00:00",
       "status": "active"
     },
     {
@@ -10472,7 +10472,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472447+00:00",
+      "last_verified": "2026-04-03T18:19:09.737107+00:00",
       "status": "active"
     },
     {
@@ -10506,7 +10506,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472448+00:00",
+      "last_verified": "2026-04-03T18:19:09.737110+00:00",
       "status": "active"
     },
     {
@@ -10540,7 +10540,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472451+00:00",
+      "last_verified": "2026-04-03T18:19:09.737116+00:00",
       "status": "active"
     },
     {
@@ -10574,7 +10574,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472453+00:00",
+      "last_verified": "2026-04-03T18:19:09.737119+00:00",
       "status": "active"
     },
     {
@@ -10608,7 +10608,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472454+00:00",
+      "last_verified": "2026-04-03T18:19:09.737123+00:00",
       "status": "active"
     },
     {
@@ -10642,7 +10642,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472456+00:00",
+      "last_verified": "2026-04-03T18:19:09.737147+00:00",
       "status": "active"
     },
     {
@@ -10676,7 +10676,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472457+00:00",
+      "last_verified": "2026-04-03T18:19:09.737152+00:00",
       "status": "active"
     },
     {
@@ -10710,7 +10710,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472460+00:00",
+      "last_verified": "2026-04-03T18:19:09.737156+00:00",
       "status": "active"
     },
     {
@@ -10744,7 +10744,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472462+00:00",
+      "last_verified": "2026-04-03T18:19:09.737159+00:00",
       "status": "active"
     },
     {
@@ -10778,7 +10778,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472463+00:00",
+      "last_verified": "2026-04-03T18:19:09.737164+00:00",
       "status": "active"
     },
     {
@@ -10812,7 +10812,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472465+00:00",
+      "last_verified": "2026-04-03T18:19:09.737168+00:00",
       "status": "active"
     },
     {
@@ -10846,7 +10846,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472467+00:00",
+      "last_verified": "2026-04-03T18:19:09.737171+00:00",
       "status": "active"
     },
     {
@@ -10880,7 +10880,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472468+00:00",
+      "last_verified": "2026-04-03T18:19:09.737175+00:00",
       "status": "active"
     },
     {
@@ -10914,7 +10914,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472470+00:00",
+      "last_verified": "2026-04-03T18:19:09.737178+00:00",
       "status": "active"
     },
     {
@@ -10948,7 +10948,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472475+00:00",
+      "last_verified": "2026-04-03T18:19:09.737182+00:00",
       "status": "active"
     },
     {
@@ -10982,7 +10982,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472477+00:00",
+      "last_verified": "2026-04-03T18:19:09.737185+00:00",
       "status": "active"
     },
     {
@@ -11016,7 +11016,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472479+00:00",
+      "last_verified": "2026-04-03T18:19:09.737191+00:00",
       "status": "active"
     },
     {
@@ -11050,7 +11050,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472481+00:00",
+      "last_verified": "2026-04-03T18:19:09.737194+00:00",
       "status": "active"
     },
     {
@@ -11084,7 +11084,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472482+00:00",
+      "last_verified": "2026-04-03T18:19:09.737198+00:00",
       "status": "active"
     },
     {
@@ -11118,7 +11118,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472485+00:00",
+      "last_verified": "2026-04-03T18:19:09.737201+00:00",
       "status": "active"
     },
     {
@@ -11152,7 +11152,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472487+00:00",
+      "last_verified": "2026-04-03T18:19:09.737206+00:00",
       "status": "active"
     },
     {
@@ -11186,7 +11186,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472488+00:00",
+      "last_verified": "2026-04-03T18:19:09.737210+00:00",
       "status": "active"
     },
     {
@@ -11220,7 +11220,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472490+00:00",
+      "last_verified": "2026-04-03T18:19:09.737214+00:00",
       "status": "active"
     },
     {
@@ -11254,7 +11254,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472492+00:00",
+      "last_verified": "2026-04-03T18:19:09.737219+00:00",
       "status": "active"
     },
     {
@@ -11288,7 +11288,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472493+00:00",
+      "last_verified": "2026-04-03T18:19:09.737224+00:00",
       "status": "active"
     },
     {
@@ -11322,7 +11322,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472495+00:00",
+      "last_verified": "2026-04-03T18:19:09.737228+00:00",
       "status": "active"
     },
     {
@@ -11356,7 +11356,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472496+00:00",
+      "last_verified": "2026-04-03T18:19:09.737250+00:00",
       "status": "active"
     },
     {
@@ -11390,7 +11390,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472498+00:00",
+      "last_verified": "2026-04-03T18:19:09.737254+00:00",
       "status": "active"
     },
     {
@@ -11424,7 +11424,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472500+00:00",
+      "last_verified": "2026-04-03T18:19:09.737257+00:00",
       "status": "active"
     },
     {
@@ -11458,7 +11458,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472501+00:00",
+      "last_verified": "2026-04-03T18:19:09.737261+00:00",
       "status": "active"
     },
     {
@@ -11492,7 +11492,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472503+00:00",
+      "last_verified": "2026-04-03T18:19:09.737267+00:00",
       "status": "active"
     },
     {
@@ -11526,7 +11526,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472505+00:00",
+      "last_verified": "2026-04-03T18:19:09.737270+00:00",
       "status": "active"
     },
     {
@@ -11560,7 +11560,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472506+00:00",
+      "last_verified": "2026-04-03T18:19:09.737274+00:00",
       "status": "active"
     },
     {
@@ -11594,7 +11594,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472508+00:00",
+      "last_verified": "2026-04-03T18:19:09.737277+00:00",
       "status": "active"
     },
     {
@@ -11628,7 +11628,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472509+00:00",
+      "last_verified": "2026-04-03T18:19:09.737280+00:00",
       "status": "active"
     },
     {
@@ -11662,7 +11662,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472512+00:00",
+      "last_verified": "2026-04-03T18:19:09.737284+00:00",
       "status": "active"
     },
     {
@@ -11696,7 +11696,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472514+00:00",
+      "last_verified": "2026-04-03T18:19:09.737287+00:00",
       "status": "active"
     },
     {
@@ -11730,7 +11730,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472515+00:00",
+      "last_verified": "2026-04-03T18:19:09.737309+00:00",
       "status": "active"
     },
     {
@@ -11764,7 +11764,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472517+00:00",
+      "last_verified": "2026-04-03T18:19:09.737313+00:00",
       "status": "active"
     },
     {
@@ -11798,7 +11798,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472519+00:00",
+      "last_verified": "2026-04-03T18:19:09.737317+00:00",
       "status": "active"
     },
     {
@@ -11832,7 +11832,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472521+00:00",
+      "last_verified": "2026-04-03T18:19:09.737320+00:00",
       "status": "active"
     },
     {
@@ -11866,7 +11866,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472523+00:00",
+      "last_verified": "2026-04-03T18:19:09.737323+00:00",
       "status": "active"
     },
     {
@@ -11900,7 +11900,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472525+00:00",
+      "last_verified": "2026-04-03T18:19:09.737327+00:00",
       "status": "active"
     },
     {
@@ -11934,7 +11934,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472526+00:00",
+      "last_verified": "2026-04-03T18:19:09.737331+00:00",
       "status": "active"
     },
     {
@@ -11968,7 +11968,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472528+00:00",
+      "last_verified": "2026-04-03T18:19:09.737337+00:00",
       "status": "active"
     },
     {
@@ -12002,7 +12002,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472529+00:00",
+      "last_verified": "2026-04-03T18:19:09.737341+00:00",
       "status": "active"
     },
     {
@@ -12036,7 +12036,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472533+00:00",
+      "last_verified": "2026-04-03T18:19:09.737345+00:00",
       "status": "active"
     },
     {
@@ -12070,7 +12070,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472535+00:00",
+      "last_verified": "2026-04-03T18:19:09.737349+00:00",
       "status": "active"
     },
     {
@@ -12104,7 +12104,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472537+00:00",
+      "last_verified": "2026-04-03T18:19:09.737352+00:00",
       "status": "active"
     },
     {
@@ -12138,7 +12138,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472538+00:00",
+      "last_verified": "2026-04-03T18:19:09.737356+00:00",
       "status": "active"
     },
     {
@@ -12172,7 +12172,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472540+00:00",
+      "last_verified": "2026-04-03T18:19:09.737359+00:00",
       "status": "active"
     },
     {
@@ -12206,7 +12206,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472543+00:00",
+      "last_verified": "2026-04-03T18:19:09.737365+00:00",
       "status": "active"
     },
     {
@@ -12240,7 +12240,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472545+00:00",
+      "last_verified": "2026-04-03T18:19:09.737369+00:00",
       "status": "active"
     },
     {
@@ -12274,7 +12274,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472547+00:00",
+      "last_verified": "2026-04-03T18:19:09.737372+00:00",
       "status": "active"
     },
     {
@@ -12308,7 +12308,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472548+00:00",
+      "last_verified": "2026-04-03T18:19:09.737376+00:00",
       "status": "active"
     },
     {
@@ -12342,7 +12342,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472550+00:00",
+      "last_verified": "2026-04-03T18:19:09.737379+00:00",
       "status": "active"
     },
     {
@@ -12376,7 +12376,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472552+00:00",
+      "last_verified": "2026-04-03T18:19:09.737383+00:00",
       "status": "active"
     },
     {
@@ -12410,7 +12410,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472553+00:00",
+      "last_verified": "2026-04-03T18:19:09.737386+00:00",
       "status": "active"
     },
     {
@@ -12444,7 +12444,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472555+00:00",
+      "last_verified": "2026-04-03T18:19:09.737391+00:00",
       "status": "active"
     },
     {
@@ -12478,7 +12478,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472557+00:00",
+      "last_verified": "2026-04-03T18:19:09.737395+00:00",
       "status": "active"
     },
     {
@@ -12512,7 +12512,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472558+00:00",
+      "last_verified": "2026-04-03T18:19:09.737398+00:00",
       "status": "active"
     },
     {
@@ -12546,7 +12546,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472561+00:00",
+      "last_verified": "2026-04-03T18:19:09.737401+00:00",
       "status": "active"
     },
     {
@@ -12580,7 +12580,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472563+00:00",
+      "last_verified": "2026-04-03T18:19:09.737405+00:00",
       "status": "active"
     },
     {
@@ -12614,7 +12614,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472565+00:00",
+      "last_verified": "2026-04-03T18:19:09.737410+00:00",
       "status": "active"
     },
     {
@@ -12648,7 +12648,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472567+00:00",
+      "last_verified": "2026-04-03T18:19:09.737414+00:00",
       "status": "active"
     },
     {
@@ -12682,7 +12682,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472569+00:00",
+      "last_verified": "2026-04-03T18:19:09.737419+00:00",
       "status": "active"
     },
     {
@@ -12716,7 +12716,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472570+00:00",
+      "last_verified": "2026-04-03T18:19:09.737423+00:00",
       "status": "active"
     },
     {
@@ -12750,7 +12750,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472573+00:00",
+      "last_verified": "2026-04-03T18:19:09.737427+00:00",
       "status": "active"
     },
     {
@@ -12784,7 +12784,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472575+00:00",
+      "last_verified": "2026-04-03T18:19:09.737431+00:00",
       "status": "active"
     },
     {
@@ -12818,7 +12818,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472576+00:00",
+      "last_verified": "2026-04-03T18:19:09.737434+00:00",
       "status": "active"
     },
     {
@@ -12852,7 +12852,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472578+00:00",
+      "last_verified": "2026-04-03T18:19:09.737438+00:00",
       "status": "active"
     },
     {
@@ -12886,7 +12886,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.472580+00:00",
+      "last_verified": "2026-04-03T18:19:09.737441+00:00",
       "status": "active"
     },
     {
@@ -12920,7 +12920,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473038+00:00",
+      "last_verified": "2026-04-03T18:19:09.737446+00:00",
       "status": "active"
     },
     {
@@ -12954,7 +12954,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473040+00:00",
+      "last_verified": "2026-04-03T18:19:09.737450+00:00",
       "status": "active"
     },
     {
@@ -12988,7 +12988,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473042+00:00",
+      "last_verified": "2026-04-03T18:19:09.737453+00:00",
       "status": "active"
     },
     {
@@ -13022,7 +13022,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473044+00:00",
+      "last_verified": "2026-04-03T18:19:09.737456+00:00",
       "status": "active"
     },
     {
@@ -13056,7 +13056,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473045+00:00",
+      "last_verified": "2026-04-03T18:19:09.737460+00:00",
       "status": "active"
     },
     {
@@ -13090,7 +13090,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473048+00:00",
+      "last_verified": "2026-04-03T18:19:09.737463+00:00",
       "status": "active"
     },
     {
@@ -13124,7 +13124,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473050+00:00",
+      "last_verified": "2026-04-03T18:19:09.737467+00:00",
       "status": "active"
     },
     {
@@ -13158,7 +13158,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473052+00:00",
+      "last_verified": "2026-04-03T18:19:09.737472+00:00",
       "status": "active"
     },
     {
@@ -13192,7 +13192,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473053+00:00",
+      "last_verified": "2026-04-03T18:19:09.737475+00:00",
       "status": "active"
     },
     {
@@ -13226,7 +13226,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473059+00:00",
+      "last_verified": "2026-04-03T18:19:09.737479+00:00",
       "status": "active"
     },
     {
@@ -13260,7 +13260,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473071+00:00",
+      "last_verified": "2026-04-03T18:19:09.737482+00:00",
       "status": "active"
     },
     {
@@ -13294,7 +13294,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473073+00:00",
+      "last_verified": "2026-04-03T18:19:09.737489+00:00",
       "status": "active"
     },
     {
@@ -13328,7 +13328,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473075+00:00",
+      "last_verified": "2026-04-03T18:19:09.737492+00:00",
       "status": "active"
     },
     {
@@ -13362,7 +13362,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473076+00:00",
+      "last_verified": "2026-04-03T18:19:09.737496+00:00",
       "status": "active"
     },
     {
@@ -13396,7 +13396,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473078+00:00",
+      "last_verified": "2026-04-03T18:19:09.737501+00:00",
       "status": "active"
     },
     {
@@ -13430,7 +13430,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473080+00:00",
+      "last_verified": "2026-04-03T18:19:09.737504+00:00",
       "status": "active"
     },
     {
@@ -13464,7 +13464,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473081+00:00",
+      "last_verified": "2026-04-03T18:19:09.737507+00:00",
       "status": "active"
     },
     {
@@ -13498,7 +13498,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473083+00:00",
+      "last_verified": "2026-04-03T18:19:09.737511+00:00",
       "status": "active"
     },
     {
@@ -13532,7 +13532,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473085+00:00",
+      "last_verified": "2026-04-03T18:19:09.737514+00:00",
       "status": "active"
     },
     {
@@ -13566,7 +13566,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473087+00:00",
+      "last_verified": "2026-04-03T18:19:09.737517+00:00",
       "status": "active"
     },
     {
@@ -13600,7 +13600,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473089+00:00",
+      "last_verified": "2026-04-03T18:19:09.737521+00:00",
       "status": "active"
     },
     {
@@ -13634,7 +13634,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473091+00:00",
+      "last_verified": "2026-04-03T18:19:09.737526+00:00",
       "status": "active"
     },
     {
@@ -13668,7 +13668,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473093+00:00",
+      "last_verified": "2026-04-03T18:19:09.737529+00:00",
       "status": "active"
     },
     {
@@ -13702,7 +13702,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473094+00:00",
+      "last_verified": "2026-04-03T18:19:09.737533+00:00",
       "status": "active"
     },
     {
@@ -13736,7 +13736,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473096+00:00",
+      "last_verified": "2026-04-03T18:19:09.737538+00:00",
       "status": "active"
     },
     {
@@ -13770,7 +13770,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473098+00:00",
+      "last_verified": "2026-04-03T18:19:09.737542+00:00",
       "status": "active"
     },
     {
@@ -13804,7 +13804,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473099+00:00",
+      "last_verified": "2026-04-03T18:19:09.737545+00:00",
       "status": "active"
     },
     {
@@ -13838,7 +13838,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473101+00:00",
+      "last_verified": "2026-04-03T18:19:09.737549+00:00",
       "status": "active"
     },
     {
@@ -13872,7 +13872,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473103+00:00",
+      "last_verified": "2026-04-03T18:19:09.737554+00:00",
       "status": "active"
     },
     {
@@ -13906,7 +13906,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473104+00:00",
+      "last_verified": "2026-04-03T18:19:09.737557+00:00",
       "status": "active"
     },
     {
@@ -13940,7 +13940,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473106+00:00",
+      "last_verified": "2026-04-03T18:19:09.737562+00:00",
       "status": "active"
     },
     {
@@ -13974,7 +13974,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473109+00:00",
+      "last_verified": "2026-04-03T18:19:09.737566+00:00",
       "status": "active"
     },
     {
@@ -14008,7 +14008,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473111+00:00",
+      "last_verified": "2026-04-03T18:19:09.737569+00:00",
       "status": "active"
     },
     {
@@ -14042,7 +14042,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473112+00:00",
+      "last_verified": "2026-04-03T18:19:09.737572+00:00",
       "status": "active"
     },
     {
@@ -14076,7 +14076,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473114+00:00",
+      "last_verified": "2026-04-03T18:19:09.737576+00:00",
       "status": "active"
     },
     {
@@ -14110,7 +14110,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473116+00:00",
+      "last_verified": "2026-04-03T18:19:09.737581+00:00",
       "status": "active"
     },
     {
@@ -14144,7 +14144,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473117+00:00",
+      "last_verified": "2026-04-03T18:19:09.737584+00:00",
       "status": "active"
     },
     {
@@ -14178,7 +14178,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473119+00:00",
+      "last_verified": "2026-04-03T18:19:09.737587+00:00",
       "status": "active"
     },
     {
@@ -14212,7 +14212,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473121+00:00",
+      "last_verified": "2026-04-03T18:19:09.737591+00:00",
       "status": "active"
     },
     {
@@ -14246,7 +14246,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473122+00:00",
+      "last_verified": "2026-04-03T18:19:09.737594+00:00",
       "status": "active"
     },
     {
@@ -14280,7 +14280,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473124+00:00",
+      "last_verified": "2026-04-03T18:19:09.737597+00:00",
       "status": "active"
     },
     {
@@ -14314,7 +14314,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473126+00:00",
+      "last_verified": "2026-04-03T18:19:09.737601+00:00",
       "status": "active"
     },
     {
@@ -14348,7 +14348,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473127+00:00",
+      "last_verified": "2026-04-03T18:19:09.737606+00:00",
       "status": "active"
     },
     {
@@ -14382,7 +14382,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473129+00:00",
+      "last_verified": "2026-04-03T18:19:09.737612+00:00",
       "status": "active"
     },
     {
@@ -14416,7 +14416,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473131+00:00",
+      "last_verified": "2026-04-03T18:19:09.737616+00:00",
       "status": "active"
     },
     {
@@ -14450,7 +14450,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473133+00:00",
+      "last_verified": "2026-04-03T18:19:09.737619+00:00",
       "status": "active"
     },
     {
@@ -14484,7 +14484,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473135+00:00",
+      "last_verified": "2026-04-03T18:19:09.737622+00:00",
       "status": "active"
     },
     {
@@ -14518,7 +14518,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473137+00:00",
+      "last_verified": "2026-04-03T18:19:09.737626+00:00",
       "status": "active"
     },
     {
@@ -14552,7 +14552,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473138+00:00",
+      "last_verified": "2026-04-03T18:19:09.737629+00:00",
       "status": "active"
     },
     {
@@ -14586,7 +14586,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473140+00:00",
+      "last_verified": "2026-04-03T18:19:09.737634+00:00",
       "status": "active"
     },
     {
@@ -14620,7 +14620,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473142+00:00",
+      "last_verified": "2026-04-03T18:19:09.737639+00:00",
       "status": "active"
     },
     {
@@ -14654,7 +14654,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473143+00:00",
+      "last_verified": "2026-04-03T18:19:09.737643+00:00",
       "status": "active"
     },
     {
@@ -14688,7 +14688,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473146+00:00",
+      "last_verified": "2026-04-03T18:19:09.737646+00:00",
       "status": "active"
     },
     {
@@ -14722,7 +14722,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473148+00:00",
+      "last_verified": "2026-04-03T18:19:09.737649+00:00",
       "status": "active"
     },
     {
@@ -14756,7 +14756,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473149+00:00",
+      "last_verified": "2026-04-03T18:19:09.737653+00:00",
       "status": "active"
     },
     {
@@ -14790,7 +14790,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473151+00:00",
+      "last_verified": "2026-04-03T18:19:09.738484+00:00",
       "status": "active"
     },
     {
@@ -14824,7 +14824,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473153+00:00",
+      "last_verified": "2026-04-03T18:19:09.738491+00:00",
       "status": "active"
     },
     {
@@ -14858,7 +14858,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473154+00:00",
+      "last_verified": "2026-04-03T18:19:09.738495+00:00",
       "status": "active"
     },
     {
@@ -14892,7 +14892,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473156+00:00",
+      "last_verified": "2026-04-03T18:19:09.738499+00:00",
       "status": "active"
     },
     {
@@ -14926,7 +14926,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473157+00:00",
+      "last_verified": "2026-04-03T18:19:09.738503+00:00",
       "status": "active"
     },
     {
@@ -14960,7 +14960,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473159+00:00",
+      "last_verified": "2026-04-03T18:19:09.738506+00:00",
       "status": "active"
     },
     {
@@ -14994,7 +14994,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473161+00:00",
+      "last_verified": "2026-04-03T18:19:09.738509+00:00",
       "status": "active"
     },
     {
@@ -15028,7 +15028,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473162+00:00",
+      "last_verified": "2026-04-03T18:19:09.738513+00:00",
       "status": "active"
     },
     {
@@ -15062,7 +15062,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473164+00:00",
+      "last_verified": "2026-04-03T18:19:09.738519+00:00",
       "status": "active"
     },
     {
@@ -15096,7 +15096,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473168+00:00",
+      "last_verified": "2026-04-03T18:19:09.738522+00:00",
       "status": "active"
     },
     {
@@ -15130,7 +15130,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473170+00:00",
+      "last_verified": "2026-04-03T18:19:09.738526+00:00",
       "status": "active"
     },
     {
@@ -15164,7 +15164,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473171+00:00",
+      "last_verified": "2026-04-03T18:19:09.738529+00:00",
       "status": "active"
     },
     {
@@ -15198,7 +15198,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473173+00:00",
+      "last_verified": "2026-04-03T18:19:09.738532+00:00",
       "status": "active"
     },
     {
@@ -15232,7 +15232,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473175+00:00",
+      "last_verified": "2026-04-03T18:19:09.738536+00:00",
       "status": "active"
     },
     {
@@ -15266,7 +15266,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473176+00:00",
+      "last_verified": "2026-04-03T18:19:09.738545+00:00",
       "status": "active"
     },
     {
@@ -15300,7 +15300,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473178+00:00",
+      "last_verified": "2026-04-03T18:19:09.738550+00:00",
       "status": "active"
     },
     {
@@ -15334,7 +15334,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473180+00:00",
+      "last_verified": "2026-04-03T18:19:09.738553+00:00",
       "status": "active"
     },
     {
@@ -15368,7 +15368,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473181+00:00",
+      "last_verified": "2026-04-03T18:19:09.738557+00:00",
       "status": "active"
     },
     {
@@ -15402,7 +15402,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473184+00:00",
+      "last_verified": "2026-04-03T18:19:09.738561+00:00",
       "status": "active"
     },
     {
@@ -15436,7 +15436,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473186+00:00",
+      "last_verified": "2026-04-03T18:19:09.738566+00:00",
       "status": "active"
     },
     {
@@ -15470,7 +15470,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473188+00:00",
+      "last_verified": "2026-04-03T18:19:09.738571+00:00",
       "status": "active"
     },
     {
@@ -15504,7 +15504,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473190+00:00",
+      "last_verified": "2026-04-03T18:19:09.738575+00:00",
       "status": "active"
     },
     {
@@ -15538,7 +15538,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473192+00:00",
+      "last_verified": "2026-04-03T18:19:09.738580+00:00",
       "status": "active"
     },
     {
@@ -15572,7 +15572,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473194+00:00",
+      "last_verified": "2026-04-03T18:19:09.738584+00:00",
       "status": "active"
     },
     {
@@ -15606,7 +15606,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473195+00:00",
+      "last_verified": "2026-04-03T18:19:09.738588+00:00",
       "status": "active"
     },
     {
@@ -15640,7 +15640,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473197+00:00",
+      "last_verified": "2026-04-03T18:19:09.738591+00:00",
       "status": "active"
     },
     {
@@ -15674,7 +15674,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473199+00:00",
+      "last_verified": "2026-04-03T18:19:09.738595+00:00",
       "status": "active"
     },
     {
@@ -15708,7 +15708,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473200+00:00",
+      "last_verified": "2026-04-03T18:19:09.738598+00:00",
       "status": "active"
     },
     {
@@ -15742,7 +15742,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473203+00:00",
+      "last_verified": "2026-04-03T18:19:09.738603+00:00",
       "status": "active"
     },
     {
@@ -15776,7 +15776,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473205+00:00",
+      "last_verified": "2026-04-03T18:19:09.738607+00:00",
       "status": "active"
     },
     {
@@ -15810,7 +15810,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473206+00:00",
+      "last_verified": "2026-04-03T18:19:09.738610+00:00",
       "status": "active"
     },
     {
@@ -15844,7 +15844,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473208+00:00",
+      "last_verified": "2026-04-03T18:19:09.738614+00:00",
       "status": "active"
     },
     {
@@ -15878,7 +15878,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473209+00:00",
+      "last_verified": "2026-04-03T18:19:09.738617+00:00",
       "status": "active"
     },
     {
@@ -15912,7 +15912,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473211+00:00",
+      "last_verified": "2026-04-03T18:19:09.738621+00:00",
       "status": "active"
     },
     {
@@ -15946,7 +15946,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473213+00:00",
+      "last_verified": "2026-04-03T18:19:09.738626+00:00",
       "status": "active"
     },
     {
@@ -15980,7 +15980,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473214+00:00",
+      "last_verified": "2026-04-03T18:19:09.738630+00:00",
       "status": "active"
     },
     {
@@ -16014,7 +16014,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473216+00:00",
+      "last_verified": "2026-04-03T18:19:09.738635+00:00",
       "status": "active"
     },
     {
@@ -16048,7 +16048,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473218+00:00",
+      "last_verified": "2026-04-03T18:19:09.738638+00:00",
       "status": "active"
     },
     {
@@ -16082,7 +16082,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473219+00:00",
+      "last_verified": "2026-04-03T18:19:09.738642+00:00",
       "status": "active"
     },
     {
@@ -16116,7 +16116,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473222+00:00",
+      "last_verified": "2026-04-03T18:19:09.738646+00:00",
       "status": "active"
     },
     {
@@ -16150,7 +16150,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473223+00:00",
+      "last_verified": "2026-04-03T18:19:09.738649+00:00",
       "status": "active"
     },
     {
@@ -16184,7 +16184,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473225+00:00",
+      "last_verified": "2026-04-03T18:19:09.738653+00:00",
       "status": "active"
     },
     {
@@ -16218,7 +16218,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473227+00:00",
+      "last_verified": "2026-04-03T18:19:09.738656+00:00",
       "status": "active"
     },
     {
@@ -16252,7 +16252,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473228+00:00",
+      "last_verified": "2026-04-03T18:19:09.738661+00:00",
       "status": "active"
     },
     {
@@ -16286,7 +16286,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473230+00:00",
+      "last_verified": "2026-04-03T18:19:09.738665+00:00",
       "status": "active"
     },
     {
@@ -16320,7 +16320,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473242+00:00",
+      "last_verified": "2026-04-03T18:19:09.738668+00:00",
       "status": "active"
     },
     {
@@ -16354,7 +16354,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473244+00:00",
+      "last_verified": "2026-04-03T18:19:09.738671+00:00",
       "status": "active"
     },
     {
@@ -16388,7 +16388,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473245+00:00",
+      "last_verified": "2026-04-03T18:19:09.738675+00:00",
       "status": "active"
     },
     {
@@ -16422,7 +16422,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473248+00:00",
+      "last_verified": "2026-04-03T18:19:09.738678+00:00",
       "status": "active"
     },
     {
@@ -16456,7 +16456,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473250+00:00",
+      "last_verified": "2026-04-03T18:19:09.738681+00:00",
       "status": "active"
     },
     {
@@ -16490,7 +16490,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473251+00:00",
+      "last_verified": "2026-04-03T18:19:09.738687+00:00",
       "status": "active"
     },
     {
@@ -16524,7 +16524,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473253+00:00",
+      "last_verified": "2026-04-03T18:19:09.738692+00:00",
       "status": "active"
     },
     {
@@ -16558,7 +16558,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473255+00:00",
+      "last_verified": "2026-04-03T18:19:09.738695+00:00",
       "status": "active"
     },
     {
@@ -16592,7 +16592,7 @@
         "model_family": "arcana",
         "original_lang_code": "eng"
       },
-      "last_verified": "2026-04-03T16:44:04.473256+00:00",
+      "last_verified": "2026-04-03T18:19:09.738700+00:00",
       "status": "active"
     },
     {
@@ -16626,7 +16626,7 @@
         "model_family": "arcana",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.473258+00:00",
+      "last_verified": "2026-04-03T18:19:09.738704+00:00",
       "status": "active"
     },
     {
@@ -16660,7 +16660,7 @@
         "model_family": "arcana",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.473260+00:00",
+      "last_verified": "2026-04-03T18:19:09.738708+00:00",
       "status": "active"
     },
     {
@@ -16694,7 +16694,7 @@
         "model_family": "arcana",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.473262+00:00",
+      "last_verified": "2026-04-03T18:19:09.738711+00:00",
       "status": "active"
     },
     {
@@ -16728,7 +16728,7 @@
         "model_family": "arcana",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.473263+00:00",
+      "last_verified": "2026-04-03T18:19:09.738716+00:00",
       "status": "active"
     },
     {
@@ -16762,7 +16762,7 @@
         "model_family": "arcana",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.473265+00:00",
+      "last_verified": "2026-04-03T18:19:09.738720+00:00",
       "status": "active"
     },
     {
@@ -16796,7 +16796,7 @@
         "model_family": "arcana",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.473266+00:00",
+      "last_verified": "2026-04-03T18:19:09.738723+00:00",
       "status": "active"
     },
     {
@@ -16830,7 +16830,7 @@
         "model_family": "arcana",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.473269+00:00",
+      "last_verified": "2026-04-03T18:19:09.738727+00:00",
       "status": "active"
     },
     {
@@ -16864,7 +16864,7 @@
         "model_family": "arcana",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.473271+00:00",
+      "last_verified": "2026-04-03T18:19:09.738730+00:00",
       "status": "active"
     },
     {
@@ -16898,7 +16898,7 @@
         "model_family": "arcana",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.473272+00:00",
+      "last_verified": "2026-04-03T18:19:09.738733+00:00",
       "status": "active"
     },
     {
@@ -16932,7 +16932,7 @@
         "model_family": "arcana",
         "original_lang_code": "spa"
       },
-      "last_verified": "2026-04-03T16:44:04.473274+00:00",
+      "last_verified": "2026-04-03T18:19:09.738736+00:00",
       "status": "active"
     },
     {
@@ -16966,7 +16966,7 @@
         "model_family": "arcana",
         "original_lang_code": "ger"
       },
-      "last_verified": "2026-04-03T16:44:04.473276+00:00",
+      "last_verified": "2026-04-03T18:19:09.738742+00:00",
       "status": "active"
     },
     {
@@ -17000,7 +17000,7 @@
         "model_family": "arcana",
         "original_lang_code": "ger"
       },
-      "last_verified": "2026-04-03T16:44:04.473277+00:00",
+      "last_verified": "2026-04-03T18:19:09.738745+00:00",
       "status": "active"
     },
     {
@@ -17034,7 +17034,7 @@
         "model_family": "arcana",
         "original_lang_code": "ger"
       },
-      "last_verified": "2026-04-03T16:44:04.473279+00:00",
+      "last_verified": "2026-04-03T18:19:09.738748+00:00",
       "status": "active"
     },
     {
@@ -17068,7 +17068,7 @@
         "model_family": "arcana",
         "original_lang_code": "ger"
       },
-      "last_verified": "2026-04-03T16:44:04.473281+00:00",
+      "last_verified": "2026-04-03T18:19:09.738752+00:00",
       "status": "active"
     },
     {
@@ -17102,7 +17102,7 @@
         "model_family": "arcana",
         "original_lang_code": "ger"
       },
-      "last_verified": "2026-04-03T16:44:04.473283+00:00",
+      "last_verified": "2026-04-03T18:19:09.738755+00:00",
       "status": "active"
     },
     {
@@ -17136,7 +17136,7 @@
         "model_family": "arcana",
         "original_lang_code": "ger"
       },
-      "last_verified": "2026-04-03T16:44:04.473285+00:00",
+      "last_verified": "2026-04-03T18:19:09.738758+00:00",
       "status": "active"
     },
     {
@@ -17170,7 +17170,7 @@
         "model_family": "arcana",
         "original_lang_code": "fra"
       },
-      "last_verified": "2026-04-03T16:44:04.473287+00:00",
+      "last_verified": "2026-04-03T18:19:09.738765+00:00",
       "status": "active"
     },
     {
@@ -17204,7 +17204,7 @@
         "model_family": "arcana",
         "original_lang_code": "fra"
       },
-      "last_verified": "2026-04-03T16:44:04.473288+00:00",
+      "last_verified": "2026-04-03T18:19:09.738774+00:00",
       "status": "active"
     },
     {
@@ -17238,7 +17238,7 @@
         "model_family": "arcana",
         "original_lang_code": "fra"
       },
-      "last_verified": "2026-04-03T16:44:04.473290+00:00",
+      "last_verified": "2026-04-03T18:19:09.738778+00:00",
       "status": "active"
     },
     {
@@ -17272,7 +17272,7 @@
         "model_family": "arcana",
         "original_lang_code": "fra"
       },
-      "last_verified": "2026-04-03T16:44:04.473291+00:00",
+      "last_verified": "2026-04-03T18:19:09.738783+00:00",
       "status": "active"
     },
     {
@@ -17306,7 +17306,7 @@
         "model_family": "arcana",
         "original_lang_code": "fra"
       },
-      "last_verified": "2026-04-03T16:44:04.473293+00:00",
+      "last_verified": "2026-04-03T18:19:09.738787+00:00",
       "status": "active"
     },
     {
@@ -17340,7 +17340,7 @@
         "model_family": "arcana",
         "original_lang_code": "hin"
       },
-      "last_verified": "2026-04-03T16:44:04.473295+00:00",
+      "last_verified": "2026-04-03T18:19:09.738790+00:00",
       "status": "active"
     },
     {
@@ -17374,7 +17374,7 @@
         "model_family": "arcana",
         "original_lang_code": "hin"
       },
-      "last_verified": "2026-04-03T16:44:04.473297+00:00",
+      "last_verified": "2026-04-03T18:19:09.738793+00:00",
       "status": "active"
     },
     {
@@ -17408,7 +17408,7 @@
         "model_family": "arcana",
         "original_lang_code": "hin"
       },
-      "last_verified": "2026-04-03T16:44:04.473300+00:00",
+      "last_verified": "2026-04-03T18:19:09.738797+00:00",
       "status": "active"
     },
     {
@@ -17442,7 +17442,7 @@
         "model_family": "arcana",
         "original_lang_code": "ara"
       },
-      "last_verified": "2026-04-03T16:44:04.473302+00:00",
+      "last_verified": "2026-04-03T18:19:09.738802+00:00",
       "status": "active"
     },
     {
@@ -17476,7 +17476,7 @@
         "model_family": "arcana",
         "original_lang_code": "ara"
       },
-      "last_verified": "2026-04-03T16:44:04.473303+00:00",
+      "last_verified": "2026-04-03T18:19:09.738805+00:00",
       "status": "active"
     },
     {
@@ -17510,7 +17510,7 @@
         "model_family": "arcana",
         "original_lang_code": "ara"
       },
-      "last_verified": "2026-04-03T16:44:04.473305+00:00",
+      "last_verified": "2026-04-03T18:19:09.738809+00:00",
       "status": "active"
     },
     {
@@ -17544,7 +17544,7 @@
         "model_family": "arcana",
         "original_lang_code": "ara"
       },
-      "last_verified": "2026-04-03T16:44:04.473308+00:00",
+      "last_verified": "2026-04-03T18:19:09.738812+00:00",
       "status": "active"
     },
     {
@@ -17578,7 +17578,7 @@
         "model_family": "arcana",
         "original_lang_code": "heb"
       },
-      "last_verified": "2026-04-03T16:44:04.473310+00:00",
+      "last_verified": "2026-04-03T18:19:09.738815+00:00",
       "status": "active"
     },
     {
@@ -17612,7 +17612,7 @@
         "model_family": "arcana",
         "original_lang_code": "heb"
       },
-      "last_verified": "2026-04-03T16:44:04.473311+00:00",
+      "last_verified": "2026-04-03T18:19:09.738820+00:00",
       "status": "active"
     },
     {
@@ -17646,7 +17646,7 @@
         "model_family": "arcana",
         "original_lang_code": "jpn"
       },
-      "last_verified": "2026-04-03T16:44:04.473313+00:00",
+      "last_verified": "2026-04-03T18:19:09.738824+00:00",
       "status": "active"
     },
     {
@@ -17680,7 +17680,7 @@
         "model_family": "arcana",
         "original_lang_code": "jpn"
       },
-      "last_verified": "2026-04-03T16:44:04.473315+00:00",
+      "last_verified": "2026-04-03T18:19:09.738829+00:00",
       "status": "active"
     },
     {
@@ -17714,7 +17714,7 @@
         "model_family": "arcana",
         "original_lang_code": "jpn"
       },
-      "last_verified": "2026-04-03T16:44:04.473316+00:00",
+      "last_verified": "2026-04-03T18:19:09.738832+00:00",
       "status": "active"
     },
     {
@@ -17748,7 +17748,7 @@
         "model_family": "arcana",
         "original_lang_code": "por"
       },
-      "last_verified": "2026-04-03T16:44:04.473318+00:00",
+      "last_verified": "2026-04-03T18:19:09.738837+00:00",
       "status": "active"
     },
     {
@@ -17782,7 +17782,7 @@
         "model_family": "arcana",
         "original_lang_code": "por"
       },
-      "last_verified": "2026-04-03T16:44:04.473320+00:00",
+      "last_verified": "2026-04-03T18:19:09.738840+00:00",
       "status": "active"
     },
     {
@@ -17816,7 +17816,7 @@
         "model_family": "arcana",
         "original_lang_code": "por"
       },
-      "last_verified": "2026-04-03T16:44:04.473322+00:00",
+      "last_verified": "2026-04-03T18:19:09.738843+00:00",
       "status": "active"
     },
     {
@@ -17850,7 +17850,7 @@
         "model_family": "arcana",
         "original_lang_code": "por"
       },
-      "last_verified": "2026-04-03T16:44:04.473323+00:00",
+      "last_verified": "2026-04-03T18:19:09.738847+00:00",
       "status": "active"
     },
     {
@@ -17884,7 +17884,7 @@
         "model_family": "arcana",
         "original_lang_code": "por"
       },
-      "last_verified": "2026-04-03T16:44:04.473325+00:00",
+      "last_verified": "2026-04-03T18:19:09.738850+00:00",
       "status": "active"
     },
     {
@@ -17918,7 +17918,7 @@
         "model_family": "arcana",
         "original_lang_code": "por"
       },
-      "last_verified": "2026-04-03T16:44:04.473326+00:00",
+      "last_verified": "2026-04-03T18:19:09.738857+00:00",
       "status": "active"
     }
   ]

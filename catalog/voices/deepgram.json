@@ -1,6 +1,6 @@
 {
   "provider": "deepgram",
-  "synced_at": "2026-04-03T16:44:04.101934+00:00",
+  "synced_at": "2026-04-03T18:19:09.751367+00:00",
   "voice_count": 40,
   "voices": [
     {
@@ -31,7 +31,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101350+00:00",
+      "last_verified": "2026-04-03T18:19:09.751134+00:00",
       "status": "active"
     },
     {
@@ -62,7 +62,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101835+00:00",
+      "last_verified": "2026-04-03T18:19:09.751146+00:00",
       "status": "active"
     },
     {
@@ -93,7 +93,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101840+00:00",
+      "last_verified": "2026-04-03T18:19:09.751152+00:00",
       "status": "active"
     },
     {
@@ -124,7 +124,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101842+00:00",
+      "last_verified": "2026-04-03T18:19:09.751156+00:00",
       "status": "active"
     },
     {
@@ -155,7 +155,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101844+00:00",
+      "last_verified": "2026-04-03T18:19:09.751159+00:00",
       "status": "active"
     },
     {
@@ -186,7 +186,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101846+00:00",
+      "last_verified": "2026-04-03T18:19:09.751162+00:00",
       "status": "active"
     },
     {
@@ -217,7 +217,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101848+00:00",
+      "last_verified": "2026-04-03T18:19:09.751166+00:00",
       "status": "active"
     },
     {
@@ -248,7 +248,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101850+00:00",
+      "last_verified": "2026-04-03T18:19:09.751169+00:00",
       "status": "active"
     },
     {
@@ -279,7 +279,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101851+00:00",
+      "last_verified": "2026-04-03T18:19:09.751173+00:00",
       "status": "active"
     },
     {
@@ -310,7 +310,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101853+00:00",
+      "last_verified": "2026-04-03T18:19:09.751176+00:00",
       "status": "active"
     },
     {
@@ -341,7 +341,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101855+00:00",
+      "last_verified": "2026-04-03T18:19:09.751180+00:00",
       "status": "active"
     },
     {
@@ -372,7 +372,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101856+00:00",
+      "last_verified": "2026-04-03T18:19:09.751183+00:00",
       "status": "active"
     },
     {
@@ -403,7 +403,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101858+00:00",
+      "last_verified": "2026-04-03T18:19:09.751186+00:00",
       "status": "active"
     },
     {
@@ -434,7 +434,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101860+00:00",
+      "last_verified": "2026-04-03T18:19:09.751189+00:00",
       "status": "active"
     },
     {
@@ -465,7 +465,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101861+00:00",
+      "last_verified": "2026-04-03T18:19:09.751192+00:00",
       "status": "active"
     },
     {
@@ -496,7 +496,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101863+00:00",
+      "last_verified": "2026-04-03T18:19:09.751195+00:00",
       "status": "active"
     },
     {
@@ -527,7 +527,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101864+00:00",
+      "last_verified": "2026-04-03T18:19:09.751198+00:00",
       "status": "active"
     },
     {
@@ -558,7 +558,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101866+00:00",
+      "last_verified": "2026-04-03T18:19:09.751223+00:00",
       "status": "active"
     },
     {
@@ -589,7 +589,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101868+00:00",
+      "last_verified": "2026-04-03T18:19:09.751232+00:00",
       "status": "active"
     },
     {
@@ -620,7 +620,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101869+00:00",
+      "last_verified": "2026-04-03T18:19:09.751239+00:00",
       "status": "active"
     },
     {
@@ -651,7 +651,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101871+00:00",
+      "last_verified": "2026-04-03T18:19:09.751245+00:00",
       "status": "active"
     },
     {
@@ -682,7 +682,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101872+00:00",
+      "last_verified": "2026-04-03T18:19:09.751251+00:00",
       "status": "active"
     },
     {
@@ -713,7 +713,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101874+00:00",
+      "last_verified": "2026-04-03T18:19:09.751258+00:00",
       "status": "active"
     },
     {
@@ -744,7 +744,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101877+00:00",
+      "last_verified": "2026-04-03T18:19:09.751265+00:00",
       "status": "active"
     },
     {
@@ -775,7 +775,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101879+00:00",
+      "last_verified": "2026-04-03T18:19:09.751272+00:00",
       "status": "active"
     },
     {
@@ -806,7 +806,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101880+00:00",
+      "last_verified": "2026-04-03T18:19:09.751276+00:00",
       "status": "active"
     },
     {
@@ -837,7 +837,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101882+00:00",
+      "last_verified": "2026-04-03T18:19:09.751279+00:00",
       "status": "active"
     },
     {
@@ -868,7 +868,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101884+00:00",
+      "last_verified": "2026-04-03T18:19:09.751283+00:00",
       "status": "active"
     },
     {
@@ -899,7 +899,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101886+00:00",
+      "last_verified": "2026-04-03T18:19:09.751286+00:00",
       "status": "active"
     },
     {
@@ -930,7 +930,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101888+00:00",
+      "last_verified": "2026-04-03T18:19:09.751304+00:00",
       "status": "active"
     },
     {
@@ -961,7 +961,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101890+00:00",
+      "last_verified": "2026-04-03T18:19:09.751307+00:00",
       "status": "active"
     },
     {
@@ -992,7 +992,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101892+00:00",
+      "last_verified": "2026-04-03T18:19:09.751310+00:00",
       "status": "active"
     },
     {
@@ -1023,7 +1023,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101893+00:00",
+      "last_verified": "2026-04-03T18:19:09.751314+00:00",
       "status": "active"
     },
     {
@@ -1054,7 +1054,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101895+00:00",
+      "last_verified": "2026-04-03T18:19:09.751317+00:00",
       "status": "active"
     },
     {
@@ -1085,7 +1085,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101897+00:00",
+      "last_verified": "2026-04-03T18:19:09.751320+00:00",
       "status": "active"
     },
     {
@@ -1116,7 +1116,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101898+00:00",
+      "last_verified": "2026-04-03T18:19:09.751323+00:00",
       "status": "active"
     },
     {
@@ -1147,7 +1147,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101900+00:00",
+      "last_verified": "2026-04-03T18:19:09.751327+00:00",
       "status": "active"
     },
     {
@@ -1178,7 +1178,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101902+00:00",
+      "last_verified": "2026-04-03T18:19:09.751330+00:00",
       "status": "active"
     },
     {
@@ -1209,7 +1209,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101903+00:00",
+      "last_verified": "2026-04-03T18:19:09.751333+00:00",
       "status": "active"
     },
     {
@@ -1240,7 +1240,7 @@
       "popularity_score": null,
       "metadata_source": "manual",
       "provider_metadata": {},
-      "last_verified": "2026-04-03T16:44:04.101905+00:00",
+      "last_verified": "2026-04-03T18:19:09.751336+00:00",
       "status": "active"
     }
   ]

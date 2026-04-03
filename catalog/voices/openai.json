@@ -1,6 +1,6 @@
 {
   "provider": "openai",
-  "synced_at": "2026-04-03T16:44:04.103163+00:00",
+  "synced_at": "2026-04-03T18:19:09.752321+00:00",
   "voice_count": 13,
   "voices": [
     {
@@ -33,7 +33,7 @@
       "provider_metadata": {
         "supports_instructions": true
       },
-      "last_verified": "2026-04-03T16:44:04.103121+00:00",
+      "last_verified": "2026-04-03T18:19:09.752230+00:00",
       "status": "active"
     },
     {
@@ -66,7 +66,7 @@
       "provider_metadata": {
         "supports_instructions": true
       },
-      "last_verified": "2026-04-03T16:44:04.103127+00:00",
+      "last_verified": "2026-04-03T18:19:09.752240+00:00",
       "status": "active"
     },
     {
@@ -99,7 +99,7 @@
       "provider_metadata": {
         "supports_instructions": true
       },
-      "last_verified": "2026-04-03T16:44:04.103129+00:00",
+      "last_verified": "2026-04-03T18:19:09.752244+00:00",
       "status": "active"
     },
     {
@@ -132,7 +132,7 @@
       "provider_metadata": {
         "supports_instructions": true
       },
-      "last_verified": "2026-04-03T16:44:04.103131+00:00",
+      "last_verified": "2026-04-03T18:19:09.752248+00:00",
       "status": "active"
     },
     {
@@ -165,7 +165,7 @@
       "provider_metadata": {
         "supports_instructions": true
       },
-      "last_verified": "2026-04-03T16:44:04.103133+00:00",
+      "last_verified": "2026-04-03T18:19:09.752251+00:00",
       "status": "active"
     },
     {
@@ -198,7 +198,7 @@
       "provider_metadata": {
         "supports_instructions": true
       },
-      "last_verified": "2026-04-03T16:44:04.103134+00:00",
+      "last_verified": "2026-04-03T18:19:09.752254+00:00",
       "status": "active"
     },
     {
@@ -231,7 +231,7 @@
       "provider_metadata": {
         "supports_instructions": true
       },
-      "last_verified": "2026-04-03T16:44:04.103136+00:00",
+      "last_verified": "2026-04-03T18:19:09.752258+00:00",
       "status": "active"
     },
     {
@@ -264,7 +264,7 @@
       "provider_metadata": {
         "supports_instructions": true
       },
-      "last_verified": "2026-04-03T16:44:04.103138+00:00",
+      "last_verified": "2026-04-03T18:19:09.752261+00:00",
       "status": "active"
     },
     {
@@ -297,7 +297,7 @@
       "provider_metadata": {
         "supports_instructions": true
       },
-      "last_verified": "2026-04-03T16:44:04.103140+00:00",
+      "last_verified": "2026-04-03T18:19:09.752264+00:00",
       "status": "active"
     },
     {
@@ -330,7 +330,7 @@
       "provider_metadata": {
         "supports_instructions": true
       },
-      "last_verified": "2026-04-03T16:44:04.103141+00:00",
+      "last_verified": "2026-04-03T18:19:09.752267+00:00",
       "status": "active"
     },
     {
@@ -363,7 +363,7 @@
       "provider_metadata": {
         "supports_instructions": true
       },
-      "last_verified": "2026-04-03T16:44:04.103143+00:00",
+      "last_verified": "2026-04-03T18:19:09.752270+00:00",
       "status": "active"
     },
     {
@@ -396,7 +396,7 @@
       "provider_metadata": {
         "supports_instructions": true
       },
-      "last_verified": "2026-04-03T16:44:04.103144+00:00",
+      "last_verified": "2026-04-03T18:19:09.752274+00:00",
       "status": "active"
     },
     {
@@ -429,7 +429,7 @@
       "provider_metadata": {
         "supports_instructions": true
       },
-      "last_verified": "2026-04-03T16:44:04.103146+00:00",
+      "last_verified": "2026-04-03T18:19:09.752277+00:00",
       "status": "active"
     }
   ]
