@@ -39,3 +39,4 @@ build/
 skills-lock.json
 /skills/
 .superdesign/
+.claude/skills/truefoundry-*

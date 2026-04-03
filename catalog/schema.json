@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VoiceAudition Voice Catalog Entry",
+  "description": "Unified schema for a TTS voice across any provider",
+  "type": "object",
+  "required": ["id", "provider", "provider_voice_id", "name"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique ID: {provider}:{provider_voice_id}"
+    },
+    "provider": {
+      "type": "string",
+      "enum": ["elevenlabs", "cartesia", "deepgram", "openai", "playht", "rime"]
+    },
+    "provider_voice_id": {
+      "type": "string",
+      "description": "Original voice ID from the provider"
+    },
+    "provider_model": {
+      "type": "string",
+      "description": "TTS model this voice works with (e.g. eleven_turbo_v2_5, sonic-2, aura-2)"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Human-readable description of the voice character"
+    },
+    "gender": {
+      "type": "string",
+      "enum": ["male", "female", "neutral", "unknown"]
+    },
+    "age_group": {
+      "type": "string",
+      "enum": ["young", "middle", "mature", "unknown"]
+    },
+    "accent": {
+      "type": ["string", "null"],
+      "description": "e.g. american, british, australian, indian"
+    },
+    "language": {
+      "type": "string",
+      "description": "Primary language BCP-47 code (e.g. en, es, fr)"
+    },
+    "additional_languages": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "traits": {
+      "type": "object",
+      "description": "Voice characteristics on 0-1 scale. null = not yet classified.",
+      "properties": {
+        "warmth": { "type": ["number", "null"] },
+        "energy": { "type": ["number", "null"] },
+        "clarity": { "type": ["number", "null"] },
+        "authority": { "type": ["number", "null"] },
+        "friendliness": { "type": ["number", "null"] },
+        "pace": { "type": ["number", "null"] }
+      }
+    },
+    "use_cases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "e.g. healthcare, sales, customer_support, education"
+    },
+    "personality_tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "e.g. empathetic, professional, authoritative, playful"
+    },
+    "style_tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Free-form descriptors: raspy, deep, warm, crisp, soothing"
+    },
+    "preview_url": {
+      "type": ["string", "null"],
+      "description": "Direct URL to audio preview (from provider or self-hosted)"
+    },
+    "provider_page_url": {
+      "type": ["string", "null"],
+      "description": "URL where user can hear/test this voice on the provider's site"
+    },
+    "popularity_score": {
+      "type": ["number", "null"],
+      "description": "0-1, derived from provider usage stats where available"
+    },
+    "metadata_source": {
+      "type": "string",
+      "enum": ["provider_api", "enriched_llm", "manual", "hybrid"],
+      "description": "How the metadata was obtained"
+    },
+    "provider_metadata": {
+      "type": "object",
+      "description": "Raw provider-specific fields we don't normalize"
+    },
+    "last_verified": {
+      "type": ["string", "null"],
+      "description": "ISO timestamp of last sync verification"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "deprecated", "preview"],
+      "default": "active"
+    }
+  }
+}

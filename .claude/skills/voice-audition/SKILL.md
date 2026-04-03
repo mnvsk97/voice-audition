@@ -128,7 +128,7 @@ Understanding the *why* behind provider preference matters — "we're on Cartesi
 
 Now run the two-stage search:
 
-**Stage 1:** Use Bash to call `filter_voices()` from `voice_audition/search.py` with filters derived from the interview. Map what you learned:
+**Stage 1:** Use Bash to call `filter_voices()` from `sync/search.py` with filters derived from the interview. Map what you learned:
 
 | User said | Filter param |
 |-----------|-------------|
@@ -291,7 +291,8 @@ When mapping user needs to voice traits:
 
 - **Read the codebase first.** Don't ask what you can learn from code.
 - **Keep the interview short.** 2-4 questions max. The user wants a voice, not a survey.
-- **Always run the search.** Use `filter_voices()` + `format_for_context()` from `voice_audition/search.py`. Don't guess from memory.
+- **Always run the search.** Use `filter_voices()` + `prepare_for_context()` from `sync/search.py`. Don't guess from memory.
+- **Read provider profiles.** The `catalog/providers.json` file has provider details including developer sentiment scores, pricing, technical specs, and Pipecat integration info. Use this when comparing providers.
 - **Generate audio when possible.** Hearing > reading about traits.
 - **Always provide the fallback link** to the provider's playground if you can't generate audio.
 - **Include cost.** Developers care about cost per minute, especially at scale.

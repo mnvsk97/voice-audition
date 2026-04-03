@@ -2,15 +2,16 @@ name: Sync Voice Catalog
 
 on:
   schedule:
-    - cron: '0 6 * * 1'  # Weekly on Monday at 6am UTC
+    - cron: '0 */6 * * *'  # Every 6 hours
   workflow_dispatch: # Manual trigger
-
-permissions:
-  contents: write
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
       - uses: actions/checkout@v4
 
@@ -18,20 +19,33 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Sync all providers
-        run: python scripts/sync_all.py
+      - name: Install dependencies
+        run: pip install -r sync/requirements.txt
+
+      - name: Run sync
+        working-directory: sync
+        run: python sync_all.py
+        continue-on-error: true
 
       - name: Check for changes
         id: changes
         run: |
           git diff --quiet catalog/ && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
 
-      - name: Commit and push
+      - name: Create PR with updates
         if: steps.changes.outputs.changed == 'true'
         run: |
           git config user.name "VoiceAudition Bot"
           git config user.email "bot@voiceaudition.dev"
+          BRANCH="catalog-sync-$(date +%Y%m%d-%H%M)"
+          git checkout -b "$BRANCH"
           git add catalog/
-          VOICE_COUNT=$(python -c "import json, pathlib; print(sum(len(json.loads(f.read_text())) for f in pathlib.Path('catalog').glob('*.json')))")
-          git commit -m "sync: update voice catalog ($VOICE_COUNT voices)"
-          git push
+          git commit -m "Update voice catalog $(date +%Y-%m-%d)"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "Update voice catalog $(date +%Y-%m-%d)" \
+            --body "Automated sync of voice catalog from provider APIs." \
+            --base main \
+            --head "$BRANCH"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
