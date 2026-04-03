@@ -142,9 +142,16 @@ async def build_index(force: bool = False) -> None:
         print("[index] No voices found in catalog.")
         return
 
-    documents = [voice_to_document(v) for v in voices]
+    # Deduplicate by ID (keep first occurrence)
+    seen = set()
+    documents = []
+    for v in voices:
+        doc = voice_to_document(v)
+        if doc.id not in seen:
+            seen.add(doc.id)
+            documents.append(doc)
     n = len(documents)
-    print(f"[index] Indexing {n} voices...")
+    print(f"[index] Indexing {n} voices ({len(voices) - n} duplicates removed)...")
 
     client = MossClient(project_id, project_key)
     await client.create_index("voice-audition", documents, "moss-minilm")

@@ -171,7 +171,7 @@ def sync_rime():
                     continue
                 voices.append(make_voice(
                     provider="rime",
-                    provider_voice_id=n,
+                    provider_voice_id=f"{model_family}:{n}",
                     name=n.replace("_", " ").title(),
                     provider_model=model_family,
                     language=iso,
