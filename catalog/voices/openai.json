@@ -1,6 +1,6 @@
 {
   "provider": "openai",
-  "synced_at": "2026-04-03T07:36:37.008837+00:00",
+  "synced_at": "2026-04-03T12:22:27.529420+00:00",
   "voice_count": 13,
   "voices": [
     {
@@ -34,7 +34,7 @@
         "supports_instructions": true,
         "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
       },
-      "last_verified": "2026-04-03T07:36:37.008321+00:00",
+      "last_verified": "2026-04-03T12:22:27.529336+00:00",
       "status": "active"
     },
     {
@@ -68,7 +68,7 @@
         "supports_instructions": true,
         "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
       },
-      "last_verified": "2026-04-03T07:36:37.008716+00:00",
+      "last_verified": "2026-04-03T12:22:27.529349+00:00",
       "status": "active"
     },
     {
@@ -102,7 +102,7 @@
         "supports_instructions": true,
         "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
       },
-      "last_verified": "2026-04-03T07:36:37.008719+00:00",
+      "last_verified": "2026-04-03T12:22:27.529354+00:00",
       "status": "active"
     },
     {
@@ -136,7 +136,7 @@
         "supports_instructions": true,
         "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
       },
-      "last_verified": "2026-04-03T07:36:37.008721+00:00",
+      "last_verified": "2026-04-03T12:22:27.529358+00:00",
       "status": "active"
     },
     {
@@ -170,7 +170,7 @@
         "supports_instructions": true,
         "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
       },
-      "last_verified": "2026-04-03T07:36:37.008723+00:00",
+      "last_verified": "2026-04-03T12:22:27.529361+00:00",
       "status": "active"
     },
     {
@@ -204,7 +204,7 @@
         "supports_instructions": true,
         "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
       },
-      "last_verified": "2026-04-03T07:36:37.008725+00:00",
+      "last_verified": "2026-04-03T12:22:27.529365+00:00",
       "status": "active"
     },
     {
@@ -238,7 +238,7 @@
         "supports_instructions": true,
         "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
       },
-      "last_verified": "2026-04-03T07:36:37.008729+00:00",
+      "last_verified": "2026-04-03T12:22:27.529368+00:00",
       "status": "active"
     },
     {
@@ -272,7 +272,7 @@
         "supports_instructions": true,
         "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
       },
-      "last_verified": "2026-04-03T07:36:37.008731+00:00",
+      "last_verified": "2026-04-03T12:22:27.529372+00:00",
       "status": "active"
     },
     {
@@ -306,7 +306,7 @@
         "supports_instructions": true,
         "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
       },
-      "last_verified": "2026-04-03T07:36:37.008732+00:00",
+      "last_verified": "2026-04-03T12:22:27.529375+00:00",
       "status": "active"
     },
     {
@@ -340,7 +340,7 @@
         "supports_instructions": true,
         "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
       },
-      "last_verified": "2026-04-03T07:36:37.008734+00:00",
+      "last_verified": "2026-04-03T12:22:27.529379+00:00",
       "status": "active"
     },
     {
@@ -374,7 +374,7 @@
         "supports_instructions": true,
         "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
       },
-      "last_verified": "2026-04-03T07:36:37.008736+00:00",
+      "last_verified": "2026-04-03T12:22:27.529383+00:00",
       "status": "active"
     },
     {
@@ -408,7 +408,7 @@
         "supports_instructions": true,
         "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
       },
-      "last_verified": "2026-04-03T07:36:37.008737+00:00",
+      "last_verified": "2026-04-03T12:22:27.529386+00:00",
       "status": "active"
     },
     {
@@ -442,7 +442,7 @@
         "supports_instructions": true,
         "note": "Use instructions parameter on gpt-4o-mini-tts for dynamic voice tuning"
       },
-      "last_verified": "2026-04-03T07:36:37.008739+00:00",
+      "last_verified": "2026-04-03T12:22:27.529390+00:00",
       "status": "active"
     }
   ]
