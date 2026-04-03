@@ -19,14 +19,23 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install dependencies
-        run: pip install -r sync/requirements.txt
+      - name: Install voice-audition package
+        run: pip install -e .
 
       - name: Run sync
-        run: python sync/sync.py
+        run: voice-audition sync
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          CARTESIA_API_KEY: ${{ secrets.CARTESIA_API_KEY }}
+          DEEPGRAM_API_KEY: ${{ secrets.DEEPGRAM_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PLAYHT_API_KEY: ${{ secrets.PLAYHT_API_KEY }}
+          PLAYHT_USER_ID: ${{ secrets.PLAYHT_USER_ID }}
+          RIME_API_KEY: ${{ secrets.RIME_API_KEY }}
         continue-on-error: true
+
+      - name: Run monitor
+        run: voice-audition monitor
 
       - name: Check for changes
         id: changes

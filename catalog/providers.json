@@ -18,8 +18,17 @@
         "voice_cloning": true,
         "multilingual": true,
         "languages": 32,
-        "models": ["eleven_multilingual_v2", "eleven_turbo_v2_5", "eleven_flash_v2_5"],
-        "audio_formats": ["mp3", "pcm", "opus", "wav"],
+        "models": [
+          "eleven_multilingual_v2",
+          "eleven_turbo_v2_5",
+          "eleven_flash_v2_5"
+        ],
+        "audio_formats": [
+          "mp3",
+          "pcm",
+          "opus",
+          "wav"
+        ],
         "max_concurrent_requests": "varies by plan",
         "uptime_sla": "99.9% (enterprise)"
       },
@@ -31,14 +40,24 @@
         "pro": "$99/mo (500,000 chars)",
         "scale": "$330/mo (2,000,000 chars)",
         "enterprise": "custom",
-        "estimated_cost_per_minute": 0.030,
+        "estimated_cost_per_minute": 0.03,
         "cost_tier": "high"
       },
       "developer_sentiment": {
         "score": 88,
         "summary": "Best-in-class quality. Community loves the naturalness. Complaints around pricing (expensive at scale) and occasional latency spikes. API is well-documented. Large voice library is a major differentiator.",
-        "strengths": ["best naturalness", "huge voice library", "voice cloning", "emotional range", "great docs"],
-        "weaknesses": ["expensive at scale", "latency not fastest", "rate limits on free tier"],
+        "strengths": [
+          "best naturalness",
+          "huge voice library",
+          "voice cloning",
+          "emotional range",
+          "great docs"
+        ],
+        "weaknesses": [
+          "expensive at scale",
+          "latency not fastest",
+          "rate limits on free tier"
+        ],
         "github_stars_proxy": 0,
         "community_size": "large (voice library marketplace)"
       },
@@ -56,11 +75,24 @@
         "endpoint": "GET https://api.elevenlabs.io/v1/shared-voices",
         "auth_required": false,
         "pagination": "cursor (last_sort_id)",
-        "filters": ["gender", "age", "accent", "language", "use_case"],
+        "filters": [
+          "gender",
+          "age",
+          "accent",
+          "language",
+          "use_case"
+        ],
         "preview_urls": true,
         "metadata_richness": "excellent"
       },
-      "last_synced": null
+      "last_synced": null,
+      "reliability": {
+        "score": 55,
+        "status": "operational",
+        "incidents_90d": 25,
+        "status_page_url": "https://status.elevenlabs.io/",
+        "last_checked": "2026-04-03T23:02:15.829446+00:00"
+      }
     },
     "cartesia": {
       "name": "Cartesia",
@@ -80,8 +112,15 @@
         "voice_cloning": true,
         "multilingual": true,
         "languages": 35,
-        "models": ["sonic-2", "sonic-3"],
-        "audio_formats": ["pcm", "mp3", "wav"],
+        "models": [
+          "sonic-2",
+          "sonic-3"
+        ],
+        "audio_formats": [
+          "pcm",
+          "mp3",
+          "wav"
+        ],
         "max_concurrent_requests": "varies by plan",
         "uptime_sla": "99.9%"
       },
@@ -98,8 +137,18 @@
       "developer_sentiment": {
         "score": 85,
         "summary": "Fastest TTS available. Developers love the speed for real-time voice agents. Quality is very good but not quite ElevenLabs level. API is clean. Growing community. Some complaints about voice variety being smaller than ElevenLabs.",
-        "strengths": ["fastest latency", "great streaming", "clean API", "Pipecat-first", "good multilingual"],
-        "weaknesses": ["smaller voice catalog", "quality slightly behind ElevenLabs", "newer company (risk)"],
+        "strengths": [
+          "fastest latency",
+          "great streaming",
+          "clean API",
+          "Pipecat-first",
+          "good multilingual"
+        ],
+        "weaknesses": [
+          "smaller voice catalog",
+          "quality slightly behind ElevenLabs",
+          "newer company (risk)"
+        ],
         "github_stars_proxy": 0,
         "community_size": "medium (growing fast)"
       },
@@ -117,11 +166,21 @@
         "endpoint": "GET https://api.cartesia.ai/voices",
         "auth_required": true,
         "pagination": "cursor",
-        "filters": ["gender", "language"],
+        "filters": [
+          "gender",
+          "language"
+        ],
         "preview_urls": true,
         "metadata_richness": "minimal"
       },
-      "last_synced": null
+      "last_synced": null,
+      "reliability": {
+        "score": null,
+        "status": "unknown",
+        "incidents_90d": null,
+        "status_page_url": null,
+        "last_checked": "2026-04-03T23:02:17.929760+00:00"
+      }
     },
     "deepgram": {
       "name": "Deepgram",
@@ -141,8 +200,17 @@
         "voice_cloning": false,
         "multilingual": true,
         "languages": 7,
-        "models": ["aura-2", "aura-1"],
-        "audio_formats": ["mp3", "pcm", "wav", "flac", "opus"],
+        "models": [
+          "aura-2",
+          "aura-1"
+        ],
+        "audio_formats": [
+          "mp3",
+          "pcm",
+          "wav",
+          "flac",
+          "opus"
+        ],
         "max_concurrent_requests": "varies by plan",
         "uptime_sla": "99.9%"
       },
@@ -152,14 +220,25 @@
         "pay_as_you_go": "$0.030/1K chars (aura-2)",
         "growth": "$0.027/1K chars",
         "enterprise": "custom",
-        "estimated_cost_per_minute": 0.010,
+        "estimated_cost_per_minute": 0.01,
         "cost_tier": "low"
       },
       "developer_sentiment": {
         "score": 82,
         "summary": "Best value for money. Extremely fast. Developers love the STT+TTS combo. TTS quality is good but not best-in-class. Fewer voice options than ElevenLabs. Great docs, generous free tier.",
-        "strengths": ["cheapest option", "fastest TTFB", "great STT+TTS bundle", "generous free tier", "enterprise-ready"],
-        "weaknesses": ["fewer voices", "quality behind ElevenLabs/Cartesia", "no voice cloning", "limited languages for TTS"],
+        "strengths": [
+          "cheapest option",
+          "fastest TTFB",
+          "great STT+TTS bundle",
+          "generous free tier",
+          "enterprise-ready"
+        ],
+        "weaknesses": [
+          "fewer voices",
+          "quality behind ElevenLabs/Cartesia",
+          "no voice cloning",
+          "limited languages for TTS"
+        ],
         "github_stars_proxy": 0,
         "community_size": "large (STT-driven)"
       },
@@ -180,7 +259,14 @@
         "preview_urls": false,
         "metadata_richness": "none (hardcoded registry)"
       },
-      "last_synced": null
+      "last_synced": null,
+      "reliability": {
+        "score": 68,
+        "status": "operational",
+        "incidents_90d": 14,
+        "status_page_url": "https://status.deepgram.com",
+        "last_checked": "2026-04-03T23:02:17.269166+00:00"
+      }
     },
     "openai": {
       "name": "OpenAI",
@@ -200,8 +286,19 @@
         "voice_cloning": false,
         "multilingual": true,
         "languages": 50,
-        "models": ["tts-1", "tts-1-hd", "gpt-4o-mini-tts"],
-        "audio_formats": ["mp3", "opus", "aac", "flac", "wav", "pcm"],
+        "models": [
+          "tts-1",
+          "tts-1-hd",
+          "gpt-4o-mini-tts"
+        ],
+        "audio_formats": [
+          "mp3",
+          "opus",
+          "aac",
+          "flac",
+          "wav",
+          "pcm"
+        ],
         "max_concurrent_requests": "tier-based",
         "uptime_sla": "99.9%"
       },
@@ -212,14 +309,26 @@
         "tts_1_hd": "$30/1M chars",
         "gpt_4o_mini_tts": "$15/1M chars",
         "enterprise": "volume discounts",
-        "estimated_cost_per_minute": 0.020,
+        "estimated_cost_per_minute": 0.02,
         "cost_tier": "medium"
       },
       "developer_sentiment": {
         "score": 78,
-        "summary": "Easy to integrate if already using OpenAI. Quality is good. The instructions parameter on gpt-4o-mini-tts is a unique killer feature — infinite voice variation from 13 base voices. Limited voice selection compared to ElevenLabs. No voice library or cloning.",
-        "strengths": ["instructions parameter (unique)", "easy if already on OpenAI", "good quality", "wide language support", "reliable infrastructure"],
-        "weaknesses": ["only 13 voices", "no voice library", "no cloning", "no public preview/playground", "latency not fastest"],
+        "summary": "Easy to integrate if already using OpenAI. Quality is good. The instructions parameter on gpt-4o-mini-tts is a unique killer feature \u2014 infinite voice variation from 13 base voices. Limited voice selection compared to ElevenLabs. No voice library or cloning.",
+        "strengths": [
+          "instructions parameter (unique)",
+          "easy if already on OpenAI",
+          "good quality",
+          "wide language support",
+          "reliable infrastructure"
+        ],
+        "weaknesses": [
+          "only 13 voices",
+          "no voice library",
+          "no cloning",
+          "no public preview/playground",
+          "latency not fastest"
+        ],
         "github_stars_proxy": 0,
         "community_size": "massive (general OpenAI, not TTS-specific)"
       },
@@ -241,7 +350,14 @@
         "preview_urls": false,
         "metadata_richness": "none (hardcoded in SDK)"
       },
-      "last_synced": null
+      "last_synced": null,
+      "reliability": {
+        "score": 60,
+        "status": "operational",
+        "incidents_90d": 25,
+        "status_page_url": "https://status.openai.com/",
+        "last_checked": "2026-04-03T23:02:16.622167+00:00"
+      }
     },
     "playht": {
       "name": "PlayHT",
@@ -261,8 +377,17 @@
         "voice_cloning": true,
         "multilingual": true,
         "languages": 30,
-        "models": ["PlayHT2.0", "PlayHT2.0-turbo", "Play3.0-mini"],
-        "audio_formats": ["mp3", "wav", "ogg", "flac"],
+        "models": [
+          "PlayHT2.0",
+          "PlayHT2.0-turbo",
+          "Play3.0-mini"
+        ],
+        "audio_formats": [
+          "mp3",
+          "wav",
+          "ogg",
+          "flac"
+        ],
         "max_concurrent_requests": "plan-based",
         "uptime_sla": "99.9%"
       },
@@ -272,14 +397,24 @@
         "creator": "$31.20/mo",
         "pro": "$99/mo",
         "enterprise": "custom",
-        "estimated_cost_per_minute": 0.020,
+        "estimated_cost_per_minute": 0.02,
         "cost_tier": "medium"
       },
       "developer_sentiment": {
         "score": 75,
         "summary": "Good variety, good cloning. API has rich metadata (style, tempo, texture). Quality is solid but not market-leading. Less community buzz than ElevenLabs or Cartesia. Reliable.",
-        "strengths": ["rich voice metadata", "good cloning", "voice variety", "style/tempo/texture controls"],
-        "weaknesses": ["less community buzz", "quality not top-tier", "Pipecat integration not native", "smaller community"],
+        "strengths": [
+          "rich voice metadata",
+          "good cloning",
+          "voice variety",
+          "style/tempo/texture controls"
+        ],
+        "weaknesses": [
+          "less community buzz",
+          "quality not top-tier",
+          "Pipecat integration not native",
+          "smaller community"
+        ],
         "github_stars_proxy": 0,
         "community_size": "medium"
       },
@@ -298,7 +433,14 @@
         "preview_urls": true,
         "metadata_richness": "good"
       },
-      "last_synced": null
+      "last_synced": null,
+      "reliability": {
+        "score": null,
+        "status": "unknown",
+        "incidents_90d": null,
+        "status_page_url": null,
+        "last_checked": "2026-04-03T23:02:17.929792+00:00"
+      }
     },
     "rime": {
       "name": "Rime",
@@ -318,8 +460,16 @@
         "voice_cloning": false,
         "multilingual": true,
         "languages": 9,
-        "models": ["mist", "mistv2", "arcana"],
-        "audio_formats": ["mp3", "wav", "pcm"],
+        "models": [
+          "mist",
+          "mistv2",
+          "arcana"
+        ],
+        "audio_formats": [
+          "mp3",
+          "wav",
+          "pcm"
+        ],
         "max_concurrent_requests": "plan-based",
         "uptime_sla": "undisclosed"
       },
@@ -333,8 +483,20 @@
       "developer_sentiment": {
         "score": 72,
         "summary": "Fastest option alongside Deepgram. Arcana model sounds very natural. Pronunciation management is unique. Smaller company = risk. Limited docs compared to bigger players. Growing.",
-        "strengths": ["ultra-low latency", "pronunciation management", "Arcana quality", "562 voices", "9 languages"],
-        "weaknesses": ["smaller company", "limited docs", "no voice cloning", "sparse voice metadata", "unclear pricing"],
+        "strengths": [
+          "ultra-low latency",
+          "pronunciation management",
+          "Arcana quality",
+          "562 voices",
+          "9 languages"
+        ],
+        "weaknesses": [
+          "smaller company",
+          "limited docs",
+          "no voice cloning",
+          "sparse voice metadata",
+          "unclear pricing"
+        ],
         "github_stars_proxy": 0,
         "community_size": "small"
       },
@@ -356,7 +518,14 @@
         "preview_urls": false,
         "metadata_richness": "none (names only)"
       },
-      "last_synced": null
+      "last_synced": null,
+      "reliability": {
+        "score": null,
+        "status": "unknown",
+        "incidents_90d": null,
+        "status_page_url": null,
+        "last_checked": "2026-04-03T23:02:17.929787+00:00"
+      }
     }
   }
 }
