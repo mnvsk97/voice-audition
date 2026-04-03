@@ -41,9 +41,25 @@ def stats(query):
     show_stats()
 
 
+@main.command("index")
+@click.option("--force", is_flag=True, help="Rebuild index even if it exists")
+def index_cmd(force):
+    """Build or rebuild the Moss semantic search index."""
+    from voice_audition.index import run_index
+    run_index(force=force)
+
+
 @main.command()
 @click.argument("query")
-def search(query):
-    """Search the voice catalog."""
-    from voice_audition.search import run_search
-    run_search(query)
+@click.option("--top-k", default=5, help="Number of results")
+def search(query, top_k):
+    """Semantic search the voice catalog."""
+    from voice_audition.index import run_semantic_search
+    run_semantic_search(query, top_k=top_k)
+
+
+@main.command()
+def mcp():
+    """Start the MCP server for Claude integration."""
+    from voice_audition.mcp_server import run_mcp
+    run_mcp()

@@ -12,10 +12,12 @@ license = "MIT"
 dependencies = [
     "httpx>=0.27",
     "click>=8.0",
+    "moss>=1.0",
 ]
 
 [project.optional-dependencies]
 enrich = ["mlx-audio>=0.1"]
+mcp = ["fastmcp>=2.0"]
 
 [project.scripts]
 voice-audition = "voice_audition.cli:main"
