@@ -1,0 +1,674 @@
+[
+  {
+    "id": "deepgram:aura-2-thalia-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-thalia-en",
+    "name": "Thalia",
+    "description": "Warm, professional female voice. Versatile for many use cases.",
+    "gender": "female",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416729+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-andromeda-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-andromeda-en",
+    "name": "Andromeda",
+    "description": "Bright, energetic young female voice.",
+    "gender": "female",
+    "age": "young",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416877+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-asteria-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-asteria-en",
+    "name": "Asteria",
+    "description": "Balanced female voice. Best value for high-volume deployments.",
+    "gender": "female",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416880+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-athena-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-athena-en",
+    "name": "Athena",
+    "description": "Clear, authoritative female voice.",
+    "gender": "female",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416882+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-helena-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-helena-en",
+    "name": "Helena",
+    "description": "Warm, friendly female voice with a conversational quality.",
+    "gender": "female",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416883+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-hera-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-hera-en",
+    "name": "Hera",
+    "description": "Mature, commanding female voice.",
+    "gender": "female",
+    "age": "mature",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416885+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-luna-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-luna-en",
+    "name": "Luna",
+    "description": "Bright, friendly female voice. Good for consumer-facing at scale.",
+    "gender": "female",
+    "age": "young",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416886+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-persephone-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-persephone-en",
+    "name": "Persephone",
+    "description": "Soft, gentle young female voice.",
+    "gender": "female",
+    "age": "young",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416887+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-stella-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-stella-en",
+    "name": "Stella",
+    "description": "Professional, polished female voice.",
+    "gender": "female",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416888+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-apollo-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-apollo-en",
+    "name": "Apollo",
+    "description": "Strong, confident male voice.",
+    "gender": "male",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416891+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-arcas-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-arcas-en",
+    "name": "Arcas",
+    "description": "Youthful male voice. Approachable and easy to listen to.",
+    "gender": "male",
+    "age": "young",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416893+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-aries-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-aries-en",
+    "name": "Aries",
+    "description": "Energetic young male voice.",
+    "gender": "male",
+    "age": "young",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416894+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-helios-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-helios-en",
+    "name": "Helios",
+    "description": "Warm, steady male voice.",
+    "gender": "male",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416895+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-hermes-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-hermes-en",
+    "name": "Hermes",
+    "description": "Quick, articulate young male voice.",
+    "gender": "male",
+    "age": "young",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416896+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-orpheus-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-orpheus-en",
+    "name": "Orpheus",
+    "description": "Smooth, melodic male voice.",
+    "gender": "male",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416897+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-orion-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-orion-en",
+    "name": "Orion",
+    "description": "Clear male voice. Reliable workhorse for support and info delivery.",
+    "gender": "male",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416898+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-perseus-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-perseus-en",
+    "name": "Perseus",
+    "description": "Confident, professional male voice.",
+    "gender": "male",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416899+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-titan-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-titan-en",
+    "name": "Titan",
+    "description": "Deep, authoritative mature male voice.",
+    "gender": "male",
+    "age": "mature",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416902+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-zeus-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-zeus-en",
+    "name": "Zeus",
+    "description": "Commanding, powerful male voice.",
+    "gender": "male",
+    "age": "mature",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416903+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-angus-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-angus-en",
+    "name": "Angus",
+    "description": "British male voice. Professional and refined.",
+    "gender": "male",
+    "age": "middle",
+    "accent": "british",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416904+00:00"
+  },
+  {
+    "id": "deepgram:aura-2-cordelia-en",
+    "provider": "deepgram",
+    "provider_voice_id": "aura-2-cordelia-en",
+    "name": "Cordelia",
+    "description": "British female voice. Polished and warm.",
+    "gender": "female",
+    "age": "middle",
+    "accent": "british",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [],
+    "personality": [],
+    "tags": [
+      "aura-2"
+    ],
+    "latency_tier": "fastest",
+    "cost_per_min_usd": 0.01,
+    "preview_url": null,
+    "pipecat_supported": true,
+    "pipecat_class": "DeepgramTTSService",
+    "last_synced": "2026-04-03T06:55:15.416906+00:00"
+  }
+]

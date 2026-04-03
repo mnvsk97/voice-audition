@@ -1,0 +1,735 @@
+[
+  {
+    "id": "elevenlabs:CwhRBWXzGAHq8TQ4Fs17",
+    "provider": "elevenlabs",
+    "provider_voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "name": "Roger",
+    "description": "Laid-Back, Casual, Resonant. classy",
+    "gender": "male",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "conversational"
+    ],
+    "personality": [],
+    "tags": [
+      "classy",
+      "conversational"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/58ee3ff5-f6f2-4628-93b8-e38eb31806b0.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080595+00:00"
+  },
+  {
+    "id": "elevenlabs:EXAVITQu4vr4xnSDxMaL",
+    "provider": "elevenlabs",
+    "provider_voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "name": "Sarah",
+    "description": "Mature, Reassuring, Confident. professional",
+    "gender": "female",
+    "age": "young",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "entertainment_tv"
+    ],
+    "personality": [],
+    "tags": [
+      "professional",
+      "entertainment_tv"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/EXAVITQu4vr4xnSDxMaL/01a3e33c-6e99-4ee7-8543-ff2216a32186.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080615+00:00"
+  },
+  {
+    "id": "elevenlabs:FGY2WhTYpPnrIDTdsKH5",
+    "provider": "elevenlabs",
+    "provider_voice_id": "FGY2WhTYpPnrIDTdsKH5",
+    "name": "Laura",
+    "description": "Enthusiast, Quirky Attitude. sassy",
+    "gender": "female",
+    "age": "young",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "social_media"
+    ],
+    "personality": [],
+    "tags": [
+      "sassy",
+      "social_media"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/FGY2WhTYpPnrIDTdsKH5/67341759-ad08-41a5-be6e-de12fe448618.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080623+00:00"
+  },
+  {
+    "id": "elevenlabs:IKne3meq5aSn9XLyUdCD",
+    "provider": "elevenlabs",
+    "provider_voice_id": "IKne3meq5aSn9XLyUdCD",
+    "name": "Charlie",
+    "description": "Deep, Confident, Energetic. hyped",
+    "gender": "male",
+    "age": "young",
+    "accent": "australian",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "conversational"
+    ],
+    "personality": [],
+    "tags": [
+      "hyped",
+      "conversational"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/IKne3meq5aSn9XLyUdCD/102de6f2-22ed-43e0-a1f1-111fa75c5481.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080628+00:00"
+  },
+  {
+    "id": "elevenlabs:JBFqnCBsd6RMkjVDRZzb",
+    "provider": "elevenlabs",
+    "provider_voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "name": "George",
+    "description": "Warm, Captivating Storyteller. mature",
+    "gender": "male",
+    "age": "middle",
+    "accent": "british",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "narrative_story"
+    ],
+    "personality": [],
+    "tags": [
+      "mature",
+      "narrative_story"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/JBFqnCBsd6RMkjVDRZzb/e6206d1a-0721-4787-aafb-06a6e705cac5.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080633+00:00"
+  },
+  {
+    "id": "elevenlabs:N2lVS1w4EtoT3dr4eOWO",
+    "provider": "elevenlabs",
+    "provider_voice_id": "N2lVS1w4EtoT3dr4eOWO",
+    "name": "Callum",
+    "description": "Husky Trickster",
+    "gender": "male",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "characters_animation"
+    ],
+    "personality": [],
+    "tags": [
+      "characters_animation"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/N2lVS1w4EtoT3dr4eOWO/ac833bd8-ffda-4938-9ebc-b0f99ca25481.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080637+00:00"
+  },
+  {
+    "id": "elevenlabs:SAz9YHcvj6GT2YYXdXww",
+    "provider": "elevenlabs",
+    "provider_voice_id": "SAz9YHcvj6GT2YYXdXww",
+    "name": "River",
+    "description": "Relaxed, Neutral, Informative. calm",
+    "gender": "neutral",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "conversational"
+    ],
+    "personality": [],
+    "tags": [
+      "calm",
+      "conversational"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/SAz9YHcvj6GT2YYXdXww/e6c95f0b-2227-491a-b3d7-2249240decb7.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080642+00:00"
+  },
+  {
+    "id": "elevenlabs:SOYHLrjzK2X1ezoPC6cr",
+    "provider": "elevenlabs",
+    "provider_voice_id": "SOYHLrjzK2X1ezoPC6cr",
+    "name": "Harry",
+    "description": "Fierce Warrior. rough",
+    "gender": "male",
+    "age": "young",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "characters_animation"
+    ],
+    "personality": [],
+    "tags": [
+      "rough",
+      "characters_animation"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/SOYHLrjzK2X1ezoPC6cr/86d178f6-f4b6-4e0e-85be-3de19f490794.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080646+00:00"
+  },
+  {
+    "id": "elevenlabs:TX3LPaxmHKxFdv7VOQHJ",
+    "provider": "elevenlabs",
+    "provider_voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+    "name": "Liam",
+    "description": "Energetic, Social Media Creator. confident",
+    "gender": "male",
+    "age": "young",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "social_media"
+    ],
+    "personality": [],
+    "tags": [
+      "confident",
+      "social_media"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/TX3LPaxmHKxFdv7VOQHJ/63148076-6363-42db-aea8-31424308b92c.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080650+00:00"
+  },
+  {
+    "id": "elevenlabs:Xb7hH8MSUJpSbSDYk0k2",
+    "provider": "elevenlabs",
+    "provider_voice_id": "Xb7hH8MSUJpSbSDYk0k2",
+    "name": "Alice",
+    "description": "Clear, Engaging Educator. professional",
+    "gender": "female",
+    "age": "middle",
+    "accent": "british",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "informative_educational"
+    ],
+    "personality": [],
+    "tags": [
+      "professional",
+      "informative_educational"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/Xb7hH8MSUJpSbSDYk0k2/d10f7534-11f6-41fe-a012-2de1e482d336.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080654+00:00"
+  },
+  {
+    "id": "elevenlabs:XrExE9yKIg1WjnnlVkGX",
+    "provider": "elevenlabs",
+    "provider_voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "name": "Matilda",
+    "description": "Knowledgable, Professional. upbeat",
+    "gender": "female",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "informative_educational"
+    ],
+    "personality": [],
+    "tags": [
+      "upbeat",
+      "informative_educational"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/XrExE9yKIg1WjnnlVkGX/b930e18d-6b4d-466e-bab2-0ae97c6d8535.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080658+00:00"
+  },
+  {
+    "id": "elevenlabs:bIHbv24MWmeRgasZH58o",
+    "provider": "elevenlabs",
+    "provider_voice_id": "bIHbv24MWmeRgasZH58o",
+    "name": "Will",
+    "description": "Relaxed Optimist. chill",
+    "gender": "male",
+    "age": "young",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "conversational"
+    ],
+    "personality": [],
+    "tags": [
+      "chill",
+      "conversational"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/bIHbv24MWmeRgasZH58o/8caf8f3d-ad29-4980-af41-53f20c72d7a4.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080661+00:00"
+  },
+  {
+    "id": "elevenlabs:cgSgspJ2msm6clMCkdW9",
+    "provider": "elevenlabs",
+    "provider_voice_id": "cgSgspJ2msm6clMCkdW9",
+    "name": "Jessica",
+    "description": "Playful, Bright, Warm. cute",
+    "gender": "female",
+    "age": "young",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "conversational"
+    ],
+    "personality": [],
+    "tags": [
+      "cute",
+      "conversational"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/cgSgspJ2msm6clMCkdW9/56a97bf8-b69b-448f-846c-c3a11683d45a.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080665+00:00"
+  },
+  {
+    "id": "elevenlabs:cjVigY5qzO86Huf0OWal",
+    "provider": "elevenlabs",
+    "provider_voice_id": "cjVigY5qzO86Huf0OWal",
+    "name": "Eric",
+    "description": "Smooth, Trustworthy. classy",
+    "gender": "male",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "conversational"
+    ],
+    "personality": [],
+    "tags": [
+      "classy",
+      "conversational"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/cjVigY5qzO86Huf0OWal/d098fda0-6456-4030-b3d8-63aa048c9070.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080669+00:00"
+  },
+  {
+    "id": "elevenlabs:hpp4J3VqNfWAUOO0d1Us",
+    "provider": "elevenlabs",
+    "provider_voice_id": "hpp4J3VqNfWAUOO0d1Us",
+    "name": "Bella",
+    "description": "Professional, Bright, Warm. professional",
+    "gender": "female",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "informative_educational"
+    ],
+    "personality": [],
+    "tags": [
+      "professional",
+      "informative_educational"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/hpp4J3VqNfWAUOO0d1Us/dab0f5ba-3aa4-48a8-9fad-f138fea1126d.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080673+00:00"
+  },
+  {
+    "id": "elevenlabs:iP95p4xoKVk53GoZ742B",
+    "provider": "elevenlabs",
+    "provider_voice_id": "iP95p4xoKVk53GoZ742B",
+    "name": "Chris",
+    "description": "Charming, Down-to-Earth. casual",
+    "gender": "male",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "conversational"
+    ],
+    "personality": [],
+    "tags": [
+      "casual",
+      "conversational"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/iP95p4xoKVk53GoZ742B/3f4bde72-cc48-40dd-829f-57fbf906f4d7.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080677+00:00"
+  },
+  {
+    "id": "elevenlabs:nPczCjzI2devNBz1zQrb",
+    "provider": "elevenlabs",
+    "provider_voice_id": "nPczCjzI2devNBz1zQrb",
+    "name": "Brian",
+    "description": "Deep, Resonant and Comforting. classy",
+    "gender": "male",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "social_media"
+    ],
+    "personality": [],
+    "tags": [
+      "classy",
+      "social_media"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/nPczCjzI2devNBz1zQrb/2dd3e72c-4fd3-42f1-93ea-abc5d4e5aa1d.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080680+00:00"
+  },
+  {
+    "id": "elevenlabs:onwK4e9ZLuTAKqWW03F9",
+    "provider": "elevenlabs",
+    "provider_voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "name": "Daniel",
+    "description": "Steady Broadcaster. formal",
+    "gender": "male",
+    "age": "middle",
+    "accent": "british",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "informative_educational"
+    ],
+    "personality": [],
+    "tags": [
+      "formal",
+      "informative_educational"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/onwK4e9ZLuTAKqWW03F9/7eee0236-1a72-4b86-b303-5dcadc007ba9.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080684+00:00"
+  },
+  {
+    "id": "elevenlabs:pFZP5JQG7iQjIQuC4Bku",
+    "provider": "elevenlabs",
+    "provider_voice_id": "pFZP5JQG7iQjIQuC4Bku",
+    "name": "Lily",
+    "description": "Velvety Actress. confident",
+    "gender": "female",
+    "age": "middle",
+    "accent": "british",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "informative_educational"
+    ],
+    "personality": [],
+    "tags": [
+      "confident",
+      "informative_educational"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/pFZP5JQG7iQjIQuC4Bku/89b68b35-b3dd-4348-a84a-a3c13a3c2b30.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080688+00:00"
+  },
+  {
+    "id": "elevenlabs:pNInz6obpgDQGcFmaJgB",
+    "provider": "elevenlabs",
+    "provider_voice_id": "pNInz6obpgDQGcFmaJgB",
+    "name": "Adam",
+    "description": "Dominant, Firm",
+    "gender": "male",
+    "age": "middle",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "social_media"
+    ],
+    "personality": [],
+    "tags": [
+      "social_media"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/pNInz6obpgDQGcFmaJgB/d6905d7a-dd26-4187-bfff-1bd3a5ea7cac.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080692+00:00"
+  },
+  {
+    "id": "elevenlabs:pqHfZKP75CvOlQylNhV4",
+    "provider": "elevenlabs",
+    "provider_voice_id": "pqHfZKP75CvOlQylNhV4",
+    "name": "Bill",
+    "description": "Wise, Mature, Balanced. crisp",
+    "gender": "male",
+    "age": "mature",
+    "accent": "american",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null
+    },
+    "use_cases": [
+      "advertisement"
+    ],
+    "personality": [],
+    "tags": [
+      "crisp",
+      "advertisement"
+    ],
+    "latency_tier": "fast",
+    "cost_per_min_usd": 0.03,
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/pqHfZKP75CvOlQylNhV4/d782b3ff-84ba-4029-848c-acf01285524d.mp3",
+    "pipecat_supported": true,
+    "pipecat_class": "ElevenLabsTTSService",
+    "last_synced": "2026-04-03T06:56:06.080695+00:00"
+  }
+]
