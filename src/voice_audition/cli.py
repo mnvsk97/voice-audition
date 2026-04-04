@@ -59,6 +59,21 @@ def search(query, top_k):
 
 
 @main.command()
+@click.argument("brief")
+@click.option("--candidates", default=8, help="Number of candidates to audition")
+@click.option("--output", default=None, help="Output directory for audio + scorecard")
+@click.option("--gender", default=None, help="Filter by gender")
+@click.option("--provider", default=None, help="Filter by provider")
+def audition(brief, candidates, output, gender, provider):
+    """Run a voice audition for a use case.
+
+    Example: voice-audition audition "fertility clinic for anxious IVF patients"
+    """
+    from voice_audition.audition import run_audition
+    run_audition(brief, num_candidates=candidates, output_dir=output, gender=gender, provider=provider)
+
+
+@main.command()
 def mcp():
     """Start the MCP server for Claude integration."""
     from voice_audition.mcp_server import run_mcp

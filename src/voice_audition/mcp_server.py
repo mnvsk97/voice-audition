@@ -227,6 +227,58 @@ def get_catalog_stats() -> dict:
 
 
 # ---------------------------------------------------------------------------
+# Tool 6: run_audition
+# ---------------------------------------------------------------------------
+
+@mcp.tool
+def run_voice_audition(
+    brief: str,
+    num_candidates: int = 8,
+    gender: str | None = None,
+    provider: str | None = None,
+) -> dict:
+    """Run a full voice audition for a use case. Generates test scripts,
+    auditions candidates, scores them, and returns a ranked scorecard.
+
+    Examples:
+    - "fertility clinic phone agent for anxious IVF patients"
+    - "cold calling agent for real estate leads"
+    - "meditation app voice, calm and grounding"
+    """
+    from voice_audition.audition import detect_use_case, get_profile, select_candidates
+
+    use_case = detect_use_case(brief)
+    profile = get_profile(use_case)
+
+    filters = {}
+    if gender:
+        filters["gender"] = gender
+    if provider:
+        filters["provider"] = provider
+
+    candidates = select_candidates(brief, num=num_candidates, filters=filters)
+
+    return {
+        "use_case": use_case,
+        "criteria": profile["criteria"],
+        "scripts": [s["name"] for s in profile["scripts"]],
+        "candidates": [
+            {
+                "id": c["id"],
+                "name": c.get("name"),
+                "provider": c.get("provider"),
+                "gender": c.get("gender"),
+                "description": c.get("description"),
+                "search_score": c.get("search_score", 0),
+            }
+            for c in candidates
+        ],
+        "note": "Full audition with audio generation + scoring requires provider API keys. "
+                "Run 'voice-audition audition' CLI command for the complete pipeline.",
+    }
+
+
+# ---------------------------------------------------------------------------
 # Entry points
 # ---------------------------------------------------------------------------
 
