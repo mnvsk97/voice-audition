@@ -1,73 +1,87 @@
-API_COSTS = {
-    "elevenlabs": 0.030,
-    "cartesia": 0.015,
-    "openai": 0.015,
-    "deepgram": 0.010,
-    "rime": 0.030,
-    "playht": 0.020,
-}
+import json
+from pathlib import Path
 
-SELF_HOSTED = {
-    "kokoro_cpu": {
-        "name": "Kokoro (CPU VM)",
-        "monthly_cost": 50,
-        "max_concurrent": 5,
-        "latency_ms": 100,
-        "quality": "very_good",
-    },
-    "kokoro_replicate": {
-        "name": "Kokoro (Replicate)",
-        "cost_per_min": 0.002,
-        "latency_ms": 100,
-        "quality": "very_good",
-    },
-    "orpheus_gpu": {
-        "name": "Orpheus (H100 MIG)",
-        "monthly_cost": 2800,
-        "max_concurrent": 20,
-        "latency_ms": 150,
-        "quality": "excellent",
-    },
-    "orpheus_replicate": {
-        "name": "Orpheus (Replicate)",
-        "cost_per_min": 0.005,
-        "latency_ms": 150,
-        "quality": "excellent",
-    },
-    "piper_cpu": {
-        "name": "Piper (CPU VM)",
-        "monthly_cost": 20,
-        "max_concurrent": 10,
-        "latency_ms": 50,
-        "quality": "good",
-    },
-}
+CATALOG_DIR = Path(__file__).resolve().parent.parent.parent / "catalog"
+
+
+def _load_api_costs() -> dict[str, float]:
+    path = CATALOG_DIR / "providers.json"
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text())
+    providers = data.get("providers", {})
+    return {
+        name: info.get("pricing", {}).get("estimated_cost_per_minute", 0)
+        for name, info in providers.items()
+        if info.get("pricing", {}).get("estimated_cost_per_minute")
+    }
+
+
+def _load_self_hosted() -> dict[str, dict]:
+    path = CATALOG_DIR / "hosting.json"
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text())
+    models = data.get("open_source_models", {})
+    result = {}
+    for key, info in models.items():
+        cost = info.get("estimated_cost_per_min_self_hosted", 0)
+        latency = info.get("latency_ms", "?")
+        quality = info.get("quality_tier", "?")
+        hardware = info.get("hardware", "?")
+        name = info.get("name", key)
+        # Create fixed-cost entry for CPU models, per-min for GPU
+        if hardware == "CPU":
+            result[f"{key}_cpu"] = {
+                "name": f"{name} (CPU VM)",
+                "monthly_cost": 50 if "piper" not in key else 20,
+                "latency_ms": latency,
+                "quality": quality,
+            }
+        else:
+            result[f"{key}_gpu"] = {
+                "name": f"{name} (GPU)",
+                "cost_per_min": cost,
+                "latency_ms": latency,
+                "quality": quality,
+            }
+    return result
 
 
 def calculate_costs(minutes_per_month: int) -> dict:
+    api_costs = _load_api_costs()
+    self_hosted = _load_self_hosted()
+
     results = {"volume_minutes_per_month": minutes_per_month, "api": {}, "self_hosted": {}}
 
-    for provider, cost_per_min in API_COSTS.items():
+    for provider, cost_per_min in api_costs.items():
         monthly = minutes_per_month * cost_per_min
         results["api"][provider] = {
             "cost_per_min": cost_per_min,
             "monthly_cost": round(monthly, 2),
         }
 
-    for key, info in SELF_HOSTED.items():
+    for key, info in self_hosted.items():
         if "cost_per_min" in info:
             monthly = minutes_per_month * info["cost_per_min"]
         else:
-            monthly = info["monthly_cost"]
+            monthly = info.get("monthly_cost", 0)
         results["self_hosted"][key] = {
             "name": info["name"],
             "monthly_cost": round(monthly, 2),
-            "latency_ms": info["latency_ms"],
-            "quality": info["quality"],
+            "latency_ms": info.get("latency_ms", "?"),
+            "quality": info.get("quality", "?"),
         }
 
-    cheapest_api = min(results["api"].items(), key=lambda x: x[1]["monthly_cost"])
-    cheapest_self = min(results["self_hosted"].items(), key=lambda x: x[1]["monthly_cost"])
+    if results["api"]:
+        cheapest_api = min(results["api"].items(), key=lambda x: x[1]["monthly_cost"])
+    else:
+        cheapest_api = ("none", {"cost_per_min": 0, "monthly_cost": 0})
+
+    if results["self_hosted"]:
+        cheapest_self = min(results["self_hosted"].items(), key=lambda x: x[1]["monthly_cost"])
+    else:
+        cheapest_self = ("none", {"name": "none", "monthly_cost": 0})
 
     results["recommendation"] = {
         "cheapest_api": {"provider": cheapest_api[0], **cheapest_api[1]},
@@ -95,7 +109,8 @@ def format_cost_table(results: dict) -> str:
     lines.append(f"  {'Option':<28} {'Monthly':>12} {'Latency':>10} {'Quality':>10}")
     lines.append(f"  {'-'*62}")
     for key, data in sorted(results["self_hosted"].items(), key=lambda x: x[1]["monthly_cost"]):
-        lines.append(f"  {data['name']:<28} ${data['monthly_cost']:>10,.2f} {data['latency_ms']:>8}ms {data['quality']:>10}")
+        lat = f"{data['latency_ms']}ms" if data.get('latency_ms') != '?' else '?'
+        lines.append(f"  {data['name']:<28} ${data['monthly_cost']:>10,.2f} {lat:>10} {data.get('quality', '?'):>10}")
 
     rec = results["recommendation"]
     lines.append("")
