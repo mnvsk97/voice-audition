@@ -10,41 +10,9 @@ import json
 import re
 from pathlib import Path
 
-CLASSIFY_PROMPT = """You are a professional voice casting director evaluating a voice for AI voice agent applications. Listen to this voice sample carefully and analyze it across multiple dimensions.
+CLASSIFY_PROMPT = """Listen to this voice. Respond with JSON only, no other text.
 
-Think about:
-- WHO does this voice sound like? What gender, age range, and cultural background?
-- HOW does this voice FEEL? Is it warm or cold? Calm or energetic? Friendly or distant?
-- WHAT is the vocal texture? Smooth and polished? Gravelly and rough? Breathy and intimate?
-- WHERE would this voice work best? Customer service? Healthcare? Sales? Education?
-- Think about the speaking pace, pitch level, and how much emotion the voice conveys.
-
-Rate traits on a 0.0-1.0 scale where:
-- 0.0-0.2 = very low (e.g., very cold, very monotone, very quiet)
-- 0.3-0.4 = somewhat low
-- 0.5 = moderate/neutral
-- 0.6-0.7 = somewhat high
-- 0.8-1.0 = very high (e.g., very warm, very energetic, very clear)
-
-Respond ONLY with a JSON object, no other text:
-
-{
-  "gender": "male" or "female" or "neutral",
-  "age_group": "young" (18-30) or "middle" (30-50) or "mature" (50+),
-  "accent": the accent you hear (e.g., "american", "british", "southern_american", "indian"),
-  "description": "2-3 sentences describing how this voice sounds and what personality it projects. Be specific about tone, warmth, and character. Example: 'A warm, gentle female voice with a Southern lilt. Sounds like a trusted friend — calm, patient, and genuinely caring. Would make anxious callers feel immediately at ease.'",
-  "texture": one of "smooth", "warm", "crisp", "gravelly", "breathy", "raspy", "rich", "thin",
-  "pitch": one of "low", "medium-low", "medium", "medium-high", "high",
-  "warmth": 0.0 to 1.0 (cold/clinical to warm/caring),
-  "energy": 0.0 to 1.0 (subdued/calm to energetic/upbeat),
-  "clarity": 0.0 to 1.0 (mumbled to crisp/articulate),
-  "authority": 0.0 to 1.0 (casual/soft to commanding/authoritative),
-  "friendliness": 0.0 to 1.0 (distant/formal to approachable/friendly),
-  "confidence": 0.0 to 1.0 (hesitant/uncertain to assured/confident),
-  "personality_tags": ["3-5 personality words like empathetic, professional, playful, wise, nurturing"],
-  "style_tags": ["3-5 acoustic descriptor words like soft, deep, bright, husky, melodic, clear"],
-  "use_cases": ["2-4 best use cases like healthcare, customer_support, sales, education, meditation, finance"]
-}"""
+{"gender": "male/female/neutral", "age_group": "young/middle/mature", "accent": "american/british/etc", "description": "2 sentences about how this voice sounds and its personality", "texture": "smooth/warm/crisp/gravelly/breathy/raspy/rich/thin", "pitch": "low/medium-low/medium/medium-high/high", "warmth": 0.0-1.0, "energy": 0.0-1.0, "clarity": 0.0-1.0, "authority": 0.0-1.0, "friendliness": 0.0-1.0, "confidence": 0.0-1.0, "personality_tags": ["3-5 words"], "style_tags": ["3-5 words"], "use_cases": ["2-4 use cases like healthcare, sales, customer_support, education, meditation, finance"]}"""
 
 # Singleton model cache
 _model = None
@@ -78,6 +46,10 @@ def classify_audio(audio_path: Path, model_id: str = "mlx-community/Qwen2-Audio-
 
 def parse_response(raw: str) -> dict | None:
     """Parse the model's raw text response into structured voice metadata."""
+    # Fix escaped quotes from some models
+    if '\\"' in raw and '{"' not in raw:
+        raw = raw.replace('\\"', '"')
+
     # Try to extract JSON from the response
     json_match = re.search(r'\{[^{}]*\}', raw, re.DOTALL)
     if not json_match:

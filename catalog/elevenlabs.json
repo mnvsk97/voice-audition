@@ -4,7 +4,7 @@
     "provider": "elevenlabs",
     "provider_voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "name": "Roger",
-    "description": "Laid-Back, Casual, Resonant. classy",
+    "description": "The voice has a youthful and energetic tone, often associated with someone who is enthusiastic and eager to learn.",
     "gender": "male",
     "age": "middle",
     "accent": "american",
@@ -32,14 +32,23 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/58ee3ff5-f6f2-4628-93b8-e38eb31806b0.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080595+00:00"
+    "last_synced": "2026-04-03T06:56:06.080595+00:00",
+    "age_group": "young",
+    "enrichment": {
+      "model": "qwen2-audio-7b-4bit",
+      "confidence": 0.7,
+      "sample_text": "preview_audio",
+      "timestamp": "2026-04-04T08:29:29.165525+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "last_verified": "2026-04-04T08:29:29.165810+00:00"
   },
   {
     "id": "elevenlabs:EXAVITQu4vr4xnSDxMaL",
     "provider": "elevenlabs",
     "provider_voice_id": "EXAVITQu4vr4xnSDxMaL",
     "name": "Sarah",
-    "description": "Mature, Reassuring, Confident. professional",
+    "description": "The voice has a youthful and energetic tone with an American accent.",
     "gender": "female",
     "age": "young",
     "accent": "american",
@@ -48,14 +57,19 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.8,
+      "energy": 0.8,
+      "clarity": 0.8,
+      "authority": 0.6,
+      "friendliness": 0.8,
+      "confidence": 0.6
     },
     "use_cases": [
-      "entertainment_tv"
+      "customer support",
+      "education",
+      "entertainment_tv",
+      "meditation",
+      "sales"
     ],
     "personality": [],
     "tags": [
@@ -67,7 +81,25 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/EXAVITQu4vr4xnSDxMaL/01a3e33c-6e99-4ee7-8543-ff2216a32186.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080615+00:00"
+    "last_synced": "2026-04-03T06:56:06.080615+00:00",
+    "age_group": "young",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "energetic",
+      "youthful"
+    ],
+    "style_tags": [
+      "american accent"
+    ],
+    "enrichment": {
+      "model": "qwen2-audio-7b-4bit",
+      "confidence": 0.7,
+      "sample_text": "preview_audio",
+      "timestamp": "2026-04-04T08:29:29.165816+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "last_verified": "2026-04-04T08:29:29.165824+00:00"
   },
   {
     "id": "elevenlabs:FGY2WhTYpPnrIDTdsKH5",
@@ -109,23 +141,28 @@
     "provider": "elevenlabs",
     "provider_voice_id": "IKne3meq5aSn9XLyUdCD",
     "name": "Charlie",
-    "description": "Deep, Confident, Energetic. hyped",
+    "description": "The voice has a youthful and energetic tone, often associated with someone who is enthusiastic and full of vigor.",
     "gender": "male",
     "age": "young",
-    "accent": "australian",
+    "accent": "american",
     "language": "en",
     "languages": [
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.8,
+      "energy": 0.8,
+      "clarity": 0.9,
+      "authority": 0.6,
+      "friendliness": 0.7,
+      "confidence": 0.8
     },
     "use_cases": [
-      "conversational"
+      "conversational",
+      "customer support",
+      "entertainment",
+      "sales",
+      "sports"
     ],
     "personality": [],
     "tags": [
@@ -137,30 +174,56 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/IKne3meq5aSn9XLyUdCD/102de6f2-22ed-43e0-a1f1-111fa75c5481.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080628+00:00"
+    "last_synced": "2026-04-03T06:56:06.080628+00:00",
+    "age_group": "young",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "energetic",
+      "enthusiastic",
+      "youthful"
+    ],
+    "style_tags": [
+      "energetic",
+      "enthusiastic",
+      "youthful"
+    ],
+    "enrichment": {
+      "model": "qwen2-audio-7b-4bit",
+      "confidence": 0.7,
+      "sample_text": "preview_audio",
+      "timestamp": "2026-04-04T08:29:29.165828+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "last_verified": "2026-04-04T08:29:29.165832+00:00"
   },
   {
     "id": "elevenlabs:JBFqnCBsd6RMkjVDRZzb",
     "provider": "elevenlabs",
     "provider_voice_id": "JBFqnCBsd6RMkjVDRZzb",
     "name": "George",
-    "description": "Warm, Captivating Storyteller. mature",
+    "description": "The voice has a deep, rich tone that suggests experience and wisdom. It's warm and full-bodied, indicating comfort and approachability.",
     "gender": "male",
     "age": "middle",
-    "accent": "british",
+    "accent": "american",
     "language": "en",
     "languages": [
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.8,
+      "energy": 0.8,
+      "clarity": 0.8,
+      "authority": 0.8,
+      "friendliness": 0.8,
+      "confidence": 0.8
     },
     "use_cases": [
-      "narrative_story"
+      "customer support",
+      "healthcare",
+      "meditation",
+      "narrative_story",
+      "sales"
     ],
     "personality": [],
     "tags": [
@@ -172,7 +235,26 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/JBFqnCBsd6RMkjVDRZzb/e6206d1a-0721-4787-aafb-06a6e705cac5.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080633+00:00"
+    "last_synced": "2026-04-03T06:56:06.080633+00:00",
+    "age_group": "unknown",
+    "pitch": "medium",
+    "personality_tags": [
+      "approachable",
+      "comforting",
+      "wise"
+    ],
+    "style_tags": [
+      "mellow",
+      "reassuring"
+    ],
+    "enrichment": {
+      "model": "qwen2-audio-7b-4bit",
+      "confidence": 0.7,
+      "sample_text": "preview_audio",
+      "timestamp": "2026-04-04T08:29:29.165836+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "last_verified": "2026-04-04T08:29:29.165840+00:00"
   },
   {
     "id": "elevenlabs:N2lVS1w4EtoT3dr4eOWO",
@@ -213,8 +295,8 @@
     "provider": "elevenlabs",
     "provider_voice_id": "SAz9YHcvj6GT2YYXdXww",
     "name": "River",
-    "description": "Relaxed, Neutral, Informative. calm",
-    "gender": "neutral",
+    "description": "The voice has a youthful and energetic tone with an American accent.",
+    "gender": "female",
     "age": "middle",
     "accent": "american",
     "language": "en",
@@ -222,14 +304,18 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.5,
+      "energy": 0.8,
+      "clarity": 1.0,
+      "authority": 0.5,
+      "friendliness": 0.8,
+      "confidence": 0.6
     },
     "use_cases": [
-      "conversational"
+      "and educational videos.",
+      "conversational",
+      "social media ads",
+      "youth-oriented marketing"
     ],
     "personality": [],
     "tags": [
@@ -241,7 +327,25 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/SAz9YHcvj6GT2YYXdXww/e6c95f0b-2227-491a-b3d7-2249240decb7.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080642+00:00"
+    "last_synced": "2026-04-03T06:56:06.080642+00:00",
+    "age_group": "young",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "energetic",
+      "youthful"
+    ],
+    "style_tags": [
+      "american accent"
+    ],
+    "enrichment": {
+      "model": "qwen2-audio-7b-4bit",
+      "confidence": 0.7,
+      "sample_text": "preview_audio",
+      "timestamp": "2026-04-04T08:29:29.165843+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "last_verified": "2026-04-04T08:29:29.165847+00:00"
   },
   {
     "id": "elevenlabs:SOYHLrjzK2X1ezoPC6cr",
@@ -318,23 +422,27 @@
     "provider": "elevenlabs",
     "provider_voice_id": "Xb7hH8MSUJpSbSDYk0k2",
     "name": "Alice",
-    "description": "Clear, Engaging Educator. professional",
+    "description": "The voice has a warm and clear tone, conveying a sense of authority and confidence.",
     "gender": "female",
     "age": "middle",
-    "accent": "british",
+    "accent": "american",
     "language": "en",
     "languages": [
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.8,
+      "energy": 0.8,
+      "clarity": 0.8,
+      "authority": 0.8,
+      "friendliness": 0.8,
+      "confidence": 0.8
     },
     "use_cases": [
-      "informative_educational"
+      "business presentations",
+      "customer service",
+      "informative_educational",
+      "job interviews"
     ],
     "personality": [],
     "tags": [
@@ -346,7 +454,26 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/Xb7hH8MSUJpSbSDYk0k2/d10f7534-11f6-41fe-a012-2de1e482d336.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080654+00:00"
+    "last_synced": "2026-04-03T06:56:06.080654+00:00",
+    "age_group": "middle",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "professional",
+      "reassuring"
+    ],
+    "style_tags": [
+      "authoritative",
+      "clear"
+    ],
+    "enrichment": {
+      "model": "qwen2-audio-7b-4bit",
+      "confidence": 0.7,
+      "sample_text": "preview_audio",
+      "timestamp": "2026-04-04T08:29:29.165850+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "last_verified": "2026-04-04T08:29:29.165853+00:00"
   },
   {
     "id": "elevenlabs:XrExE9yKIg1WjnnlVkGX",
@@ -423,7 +550,7 @@
     "provider": "elevenlabs",
     "provider_voice_id": "cgSgspJ2msm6clMCkdW9",
     "name": "Jessica",
-    "description": "Playful, Bright, Warm. cute",
+    "description": "The voice has a youthful and energetic tone with an American accent.",
     "gender": "female",
     "age": "young",
     "accent": "american",
@@ -432,14 +559,18 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.5,
+      "energy": 0.8,
+      "clarity": 0.9,
+      "authority": 0.3,
+      "friendliness": 0.7,
+      "confidence": 0.6
     },
     "use_cases": [
-      "conversational"
+      "and educational videos.",
+      "conversational",
+      "social media ads",
+      "youth-oriented marketing"
     ],
     "personality": [],
     "tags": [
@@ -451,7 +582,25 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/cgSgspJ2msm6clMCkdW9/56a97bf8-b69b-448f-846c-c3a11683d45a.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080665+00:00"
+    "last_synced": "2026-04-03T06:56:06.080665+00:00",
+    "age_group": "young",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "energetic",
+      "youthful"
+    ],
+    "style_tags": [
+      "american accent"
+    ],
+    "enrichment": {
+      "model": "qwen2-audio-7b-4bit",
+      "confidence": 0.7,
+      "sample_text": "preview_audio",
+      "timestamp": "2026-04-04T08:29:29.165855+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "last_verified": "2026-04-04T08:29:29.165858+00:00"
   },
   {
     "id": "elevenlabs:cjVigY5qzO86Huf0OWal",
@@ -563,7 +712,7 @@
     "provider": "elevenlabs",
     "provider_voice_id": "nPczCjzI2devNBz1zQrb",
     "name": "Brian",
-    "description": "Deep, Resonant and Comforting. classy",
+    "description": "The voice has a youthful and energetic tone, often associated with someone who is enthusiastic and full of vigor.",
     "gender": "male",
     "age": "middle",
     "accent": "american",
@@ -572,14 +721,19 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.8,
+      "energy": 0.8,
+      "clarity": 0.8,
+      "authority": 0.6,
+      "friendliness": 0.8,
+      "confidence": 0.8
     },
     "use_cases": [
-      "social_media"
+      "customer support",
+      "entertainment",
+      "sales",
+      "social_media",
+      "sports"
     ],
     "personality": [],
     "tags": [
@@ -591,7 +745,28 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/nPczCjzI2devNBz1zQrb/2dd3e72c-4fd3-42f1-93ea-abc5d4e5aa1d.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080680+00:00"
+    "last_synced": "2026-04-03T06:56:06.080680+00:00",
+    "age_group": "young",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "energetic",
+      "enthusiastic",
+      "youthful"
+    ],
+    "style_tags": [
+      "energetic",
+      "enthusiastic",
+      "youthful"
+    ],
+    "enrichment": {
+      "model": "qwen2-audio-7b-4bit",
+      "confidence": 0.7,
+      "sample_text": "preview_audio",
+      "timestamp": "2026-04-04T08:29:29.165860+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "last_verified": "2026-04-04T08:29:29.165864+00:00"
   },
   {
     "id": "elevenlabs:onwK4e9ZLuTAKqWW03F9",
@@ -633,23 +808,29 @@
     "provider": "elevenlabs",
     "provider_voice_id": "pFZP5JQG7iQjIQuC4Bku",
     "name": "Lily",
-    "description": "Velvety Actress. confident",
+    "description": "The voice sounds youthful and energetic. It has a clear and friendly tone that conveys a sense of approachability.",
     "gender": "female",
     "age": "middle",
-    "accent": "british",
+    "accent": "american",
     "language": "en",
     "languages": [
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.8,
+      "energy": 0.8,
+      "clarity": 1.0,
+      "authority": 0.5,
+      "friendliness": 1.0,
+      "confidence": 0.8
     },
     "use_cases": [
-      "informative_educational"
+      "customer support",
+      "education",
+      "finance",
+      "informative_educational",
+      "meditation",
+      "sales"
     ],
     "personality": [],
     "tags": [
@@ -661,7 +842,27 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/pFZP5JQG7iQjIQuC4Bku/89b68b35-b3dd-4348-a84a-a3c13a3c2b30.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080688+00:00"
+    "last_synced": "2026-04-03T06:56:06.080688+00:00",
+    "age_group": "young",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "clear",
+      "energetic",
+      "friendly",
+      "youthful"
+    ],
+    "style_tags": [
+      "american"
+    ],
+    "enrichment": {
+      "model": "qwen2-audio-7b-4bit",
+      "confidence": 0.7,
+      "sample_text": "preview_audio",
+      "timestamp": "2026-04-04T08:29:29.165865+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "last_verified": "2026-04-04T08:29:29.165869+00:00"
   },
   {
     "id": "elevenlabs:pNInz6obpgDQGcFmaJgB",
@@ -702,7 +903,7 @@
     "provider": "elevenlabs",
     "provider_voice_id": "pqHfZKP75CvOlQylNhV4",
     "name": "Bill",
-    "description": "Wise, Mature, Balanced. crisp",
+    "description": "The voice has a youthful and energetic tone, often associated with someone who is enthusiastic and full of vigor.",
     "gender": "male",
     "age": "mature",
     "accent": "american",
@@ -711,14 +912,18 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.8,
+      "energy": 0.8,
+      "clarity": 0.9,
+      "authority": 0.6,
+      "friendliness": 0.7,
+      "confidence": 0.8
     },
     "use_cases": [
-      "advertisement"
+      "advertisement",
+      "customer support",
+      "sales",
+      "sports"
     ],
     "personality": [],
     "tags": [
@@ -730,6 +935,27 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/pqHfZKP75CvOlQylNhV4/d782b3ff-84ba-4029-848c-acf01285524d.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080695+00:00"
+    "last_synced": "2026-04-03T06:56:06.080695+00:00",
+    "age_group": "young",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "energetic",
+      "enthusiastic",
+      "youthful"
+    ],
+    "style_tags": [
+      "energetic",
+      "enthusiastic",
+      "youthful"
+    ],
+    "enrichment": {
+      "model": "qwen2-audio-7b-4bit",
+      "confidence": 0.7,
+      "sample_text": "preview_audio",
+      "timestamp": "2026-04-04T08:29:29.165871+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "last_verified": "2026-04-04T08:29:29.165874+00:00"
   }
 ]
