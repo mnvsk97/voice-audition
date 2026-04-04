@@ -99,6 +99,5 @@ jobs:
           **Action needed:** Review each changed provider's pricing page and update \`catalog/providers.json\` if the actual pricing changed.
 
           Note: False positives can occur if a page adds promotional pricing, testimonial quotes with dollar amounts, or temporary sale banners. Check the actual plan prices." \
-            --label "pricing"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
