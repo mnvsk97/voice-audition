@@ -10,7 +10,7 @@ from pathlib import Path
 import httpx
 
 from voice_audition.index import semantic_search
-from voice_audition.search import load_all_voices, filter_voices
+from voice_audition.search import load_all_voices
 
 USE_CASE_PROFILES = {
     "healthcare": {
