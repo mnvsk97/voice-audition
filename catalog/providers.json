@@ -41,7 +41,9 @@
         "scale": "$330/mo (2,000,000 chars)",
         "enterprise": "custom",
         "estimated_cost_per_minute": 0.03,
-        "cost_tier": "high"
+        "cost_tier": "high",
+        "pricing_updated": "2026-04-04",
+        "notes": "Character-based billing. At scale plan rate (~$0.165/1K chars), ~900 chars/min of speech yields ~$0.03/min."
       },
       "developer_sentiment": {
         "score": 88,
@@ -127,12 +129,16 @@
       "pricing": {
         "model": "per-character (credits)",
         "free_tier": "20,000 credits/month",
-        "hobby": "$4/mo",
-        "startup": "$39/mo",
-        "growth": "$239/mo",
+        "pro": "$4/mo (100K credits, billed yearly)",
+        "startup": "$39/mo (1.25M credits, billed yearly)",
+        "scale": "$239/mo (8M credits, billed yearly)",
         "enterprise": "custom",
+        "sonic_3_rate": "15 credits per second of audio",
+        "voice_cloning_cost": "225 credits (instant), 1M credits (professional training)",
         "estimated_cost_per_minute": 0.015,
-        "cost_tier": "medium"
+        "cost_tier": "medium",
+        "pricing_updated": "2026-04-04",
+        "notes": "Credit-based billing via Sonic-3. At scale tier, 8M credits covers ~8,889 seconds (~148 min) of audio."
       },
       "developer_sentiment": {
         "score": 85,
@@ -216,12 +222,17 @@
       },
       "pricing": {
         "model": "per-character",
-        "free_tier": "$200 credit on signup",
-        "pay_as_you_go": "$0.030/1K chars (aura-2)",
-        "growth": "$0.027/1K chars",
+        "free_tier": "$200 credit on signup (no expiration)",
+        "pay_as_you_go_aura2": "$0.030/1K chars",
+        "pay_as_you_go_aura1": "$0.015/1K chars",
+        "growth_aura2": "$0.027/1K chars",
+        "growth_aura1": "$0.0135/1K chars",
+        "growth_minimum": "$4K/year prepaid",
         "enterprise": "custom",
         "estimated_cost_per_minute": 0.01,
-        "cost_tier": "low"
+        "cost_tier": "low",
+        "pricing_updated": "2026-04-04",
+        "notes": "Aura-1 is half the cost of Aura-2. Growth plan offers ~10% discount with annual commitment. ~900 chars/min speech at Aura-2 PAYG = ~$0.027/min; Aura-1 = ~$0.014/min."
       },
       "developer_sentiment": {
         "score": 82,
@@ -304,13 +315,15 @@
       },
       "pricing": {
         "model": "per-character",
-        "free_tier": "none (pay-as-you-go)",
+        "free_tier": "none (pay-as-you-go only)",
         "tts_1": "$15/1M chars",
         "tts_1_hd": "$30/1M chars",
         "gpt_4o_mini_tts": "$15/1M chars",
-        "enterprise": "volume discounts",
-        "estimated_cost_per_minute": 0.02,
-        "cost_tier": "medium"
+        "enterprise": "volume discounts available",
+        "estimated_cost_per_minute": 0.015,
+        "cost_tier": "medium",
+        "pricing_updated": "2026-04-04",
+        "notes": "~900 chars/min speech. tts-1 and gpt-4o-mini-tts at $15/1M chars = ~$0.0135/min. tts-1-hd at $30/1M chars = ~$0.027/min. No free tier; billing starts immediately."
       },
       "developer_sentiment": {
         "score": 78,
@@ -398,7 +411,9 @@
         "pro": "$99/mo",
         "enterprise": "custom",
         "estimated_cost_per_minute": 0.02,
-        "cost_tier": "medium"
+        "cost_tier": "medium",
+        "pricing_updated": "2026-04-04",
+        "notes": "Play.ht pricing page was unreachable during verification (HTTP 530). Existing plan prices retained. Creator and Pro plans include character quotas; check play.ht/pricing for current limits."
       },
       "developer_sentiment": {
         "score": 75,
@@ -474,11 +489,20 @@
         "uptime_sla": "undisclosed"
       },
       "pricing": {
-        "model": "per-character",
-        "free_tier": "limited",
-        "paid": "contact sales",
-        "estimated_cost_per_minute": 0.008,
-        "cost_tier": "low"
+        "model": "per-million-characters",
+        "free_tier": "$100 in free credits (no credit card required)",
+        "pay_as_you_go_mist": "$30/1M chars (~$0.030/min)",
+        "pay_as_you_go_arcana": "$40/1M chars (~$0.040/min)",
+        "growth_mist": "$27/1M chars (~$0.027/min)",
+        "growth_arcana": "$36/1M chars (~$0.036/min)",
+        "growth_minimum": "$5K/year (10%+ discount)",
+        "enterprise": "custom volume discounts",
+        "concurrent_limits_payg": 5,
+        "concurrent_limits_growth": 20,
+        "estimated_cost_per_minute": 0.03,
+        "cost_tier": "medium",
+        "pricing_updated": "2026-04-04",
+        "notes": "Pricing now public. Mist is cheaper; Arcana is higher quality at premium. Growth plan includes 2 professional voice clones, BAA/HIPAA, SOC 2. Startup grants available (up to 3 months free)."
       },
       "developer_sentiment": {
         "score": 72,

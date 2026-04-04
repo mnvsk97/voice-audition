@@ -39,9 +39,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668612+00:00",
-    "last_verified": "2026-04-04T18:15:53.668612+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582838+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -83,9 +85,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668625+00:00",
-    "last_verified": "2026-04-04T18:15:53.668625+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582851+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -127,9 +131,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668633+00:00",
-    "last_verified": "2026-04-04T18:15:53.668633+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582856+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -171,9 +177,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668638+00:00",
-    "last_verified": "2026-04-04T18:15:53.668638+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582861+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -215,9 +223,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668642+00:00",
-    "last_verified": "2026-04-04T18:15:53.668642+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582865+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -259,9 +269,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668646+00:00",
-    "last_verified": "2026-04-04T18:15:53.668646+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582869+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -303,9 +315,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668650+00:00",
-    "last_verified": "2026-04-04T18:15:53.668650+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582875+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -347,9 +361,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668654+00:00",
-    "last_verified": "2026-04-04T18:15:53.668654+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582879+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -391,9 +407,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668659+00:00",
-    "last_verified": "2026-04-04T18:15:53.668659+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582883+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -435,9 +453,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668663+00:00",
-    "last_verified": "2026-04-04T18:15:53.668663+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582887+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -479,9 +499,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668667+00:00",
-    "last_verified": "2026-04-04T18:15:53.668667+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582891+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -523,9 +545,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668671+00:00",
-    "last_verified": "2026-04-04T18:15:53.668671+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582895+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -567,9 +591,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668675+00:00",
-    "last_verified": "2026-04-04T18:15:53.668675+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582899+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -611,9 +637,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668679+00:00",
-    "last_verified": "2026-04-04T18:15:53.668679+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582903+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -655,9 +683,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668683+00:00",
-    "last_verified": "2026-04-04T18:15:53.668683+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582913+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -699,9 +729,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668687+00:00",
-    "last_verified": "2026-04-04T18:15:53.668687+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582917+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -743,9 +775,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668693+00:00",
-    "last_verified": "2026-04-04T18:15:53.668693+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582922+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -787,9 +821,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668700+00:00",
-    "last_verified": "2026-04-04T18:15:53.668700+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582927+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -831,9 +867,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668705+00:00",
-    "last_verified": "2026-04-04T18:15:53.668705+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582931+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -875,9 +913,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668709+00:00",
-    "last_verified": "2026-04-04T18:15:53.668709+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582935+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -919,9 +959,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668713+00:00",
-    "last_verified": "2026-04-04T18:15:53.668713+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582940+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -963,9 +1005,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668717+00:00",
-    "last_verified": "2026-04-04T18:15:53.668717+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582944+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1007,9 +1051,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668722+00:00",
-    "last_verified": "2026-04-04T18:15:53.668722+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582948+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1051,9 +1097,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668726+00:00",
-    "last_verified": "2026-04-04T18:15:53.668726+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582952+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1095,9 +1143,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668730+00:00",
-    "last_verified": "2026-04-04T18:15:53.668730+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582956+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1139,9 +1189,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668734+00:00",
-    "last_verified": "2026-04-04T18:15:53.668734+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582960+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1183,9 +1235,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668738+00:00",
-    "last_verified": "2026-04-04T18:15:53.668738+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582964+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1227,9 +1281,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668741+00:00",
-    "last_verified": "2026-04-04T18:15:53.668741+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582969+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1271,9 +1327,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668745+00:00",
-    "last_verified": "2026-04-04T18:15:53.668745+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582974+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1315,9 +1373,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668749+00:00",
-    "last_verified": "2026-04-04T18:15:53.668749+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582979+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1359,9 +1419,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668753+00:00",
-    "last_verified": "2026-04-04T18:15:53.668753+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582983+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1403,9 +1465,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668757+00:00",
-    "last_verified": "2026-04-04T18:15:53.668757+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582987+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1447,9 +1511,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668761+00:00",
-    "last_verified": "2026-04-04T18:15:53.668761+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582991+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1491,9 +1557,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668765+00:00",
-    "last_verified": "2026-04-04T18:15:53.668765+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.582995+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1535,9 +1603,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668768+00:00",
-    "last_verified": "2026-04-04T18:15:53.668768+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.583000+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1579,9 +1649,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668772+00:00",
-    "last_verified": "2026-04-04T18:15:53.668772+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.583004+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1623,9 +1695,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668776+00:00",
-    "last_verified": "2026-04-04T18:15:53.668776+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.583008+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1667,9 +1741,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668780+00:00",
-    "last_verified": "2026-04-04T18:15:53.668780+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.583012+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1711,9 +1787,11 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668784+00:00",
-    "last_verified": "2026-04-04T18:15:53.668784+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.583016+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   },
   {
     "schema_version": "1.0",
@@ -1755,8 +1833,10 @@
     "status": "active",
     "metadata_source": "manual",
     "enrichment": {},
-    "last_synced": "2026-04-04T18:15:53.668787+00:00",
-    "last_verified": "2026-04-04T18:15:53.668787+00:00",
-    "provider_metadata": {}
+    "last_synced": "2026-04-04T18:53:42.583609+00:00",
+    "last_verified": "2026-04-04T18:53:42.583021+00:00",
+    "provider_metadata": {},
+    "first_seen": "2026-04-04T18:53:42.583609+00:00",
+    "last_seen": "2026-04-04T18:53:42.583609+00:00"
   }
 ]

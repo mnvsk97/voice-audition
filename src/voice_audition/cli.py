@@ -74,6 +74,18 @@ def audition(brief, candidates, output, gender, provider):
 
 
 @main.command()
+@click.argument("minutes", type=int)
+def costs(minutes):
+    """Compare API vs self-hosted costs at a given volume.
+
+    MINUTES is monthly minutes of TTS usage.
+    Example: voice-audition costs 100000
+    """
+    from voice_audition.costs import run_costs
+    run_costs(minutes)
+
+
+@main.command()
 def mcp():
     """Start the MCP server for Claude integration."""
     from voice_audition.mcp_server import run_mcp

@@ -1,5 +1,5 @@
 """
-Voice catalog sync — consolidated provider sync functions.
+Voice catalog sync -- consolidated provider sync functions with diff-based sync.
 
 Usage (as module):
     from voice_audition.sync import run_sync
@@ -16,6 +16,7 @@ import json
 import os
 import sys
 import traceback
+from datetime import datetime, timezone
 from pathlib import Path
 
 import httpx
@@ -29,11 +30,24 @@ CATALOG_DIR = Path(__file__).parent.parent.parent.parent / "catalog"
 # Common helpers
 # ---------------------------------------------------------------------------
 
+def _now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
 def write_catalog(provider: str, voices: list[dict]):
     CATALOG_DIR.mkdir(parents=True, exist_ok=True)
     path = CATALOG_DIR / f"{provider}.json"
     path.write_text(json.dumps(voices, indent=2, ensure_ascii=False))
-    print(f"[{provider}] Wrote {len(voices)} voices to {path}")
+
+
+def load_existing(provider: str) -> list[dict]:
+    path = CATALOG_DIR / f"{provider}.json"
+    if not path.exists():
+        return []
+    try:
+        return json.loads(path.read_text())
+    except (json.JSONDecodeError, OSError):
+        return []
 
 
 def map_gender(g: str | None) -> str:
@@ -65,14 +79,97 @@ def map_age(a: str | None) -> str:
 
 
 # ---------------------------------------------------------------------------
-# ElevenLabs — API sync (requires ELEVENLABS_API_KEY)
+# Diff-based sync engine
 # ---------------------------------------------------------------------------
 
-def sync_elevenlabs():
+_ENRICHMENT_KEYS = (
+    "description", "gender", "age_group", "accent", "traits",
+    "texture", "pitch", "speaking_style", "personality_tags",
+    "style_tags", "use_cases", "enrichment", "metadata_source",
+)
+
+_ENRICHED_SOURCES = ("enriched_local", "enriched_cloud", "manual", "hybrid")
+
+_PROVIDER_FIELDS = ("name", "provider_model", "preview_url", "provider_page_url", "provider_metadata")
+
+
+def _provider_fields_changed(old: dict, new: dict) -> bool:
+    """Check if provider-sourced fields changed."""
+    for key in _PROVIDER_FIELDS:
+        if old.get(key) != new.get(key):
+            return True
+    return False
+
+
+def diff_sync(provider: str, new_voices: list[dict]) -> dict:
+    """Compare new voices against existing catalog, return changes."""
+    existing = load_existing(provider)
+    existing_by_id = {v["id"]: v for v in existing}
+    new_by_id = {v["id"]: v for v in new_voices}
+
+    now = _now()
+    added = []
+    removed = []
+    updated = []
+    unchanged = []
+
+    for vid, voice in new_by_id.items():
+        if vid not in existing_by_id:
+            voice["first_seen"] = now
+            voice["last_seen"] = now
+            added.append(voice)
+        else:
+            old = existing_by_id[vid]
+            voice["first_seen"] = old.get("first_seen", now)
+            voice["last_seen"] = now
+            # Preserve enrichment data from old entry
+            if old.get("metadata_source") in _ENRICHED_SOURCES:
+                for key in _ENRICHMENT_KEYS:
+                    if key in old and old[key]:
+                        voice[key] = old[key]
+            if _provider_fields_changed(old, voice):
+                updated.append(voice)
+            else:
+                voice["last_synced"] = now
+                unchanged.append(voice)
+
+    for vid, old in existing_by_id.items():
+        if vid not in new_by_id:
+            old["status"] = "deprecated"
+            old["deprecated_at"] = now
+            old["last_seen"] = old.get("last_seen", now)
+            removed.append(old)
+
+    return {"added": added, "removed": removed, "updated": updated, "unchanged": unchanged}
+
+
+def apply_sync(provider: str, new_voices: list[dict]) -> dict:
+    """Run diff_sync, write merged catalog, print summary, return diff."""
+    result = diff_sync(provider, new_voices)
+
+    all_voices = result["added"] + result["updated"] + result["unchanged"] + result["removed"]
+    write_catalog(provider, all_voices)
+
+    total = len(all_voices)
+    print(f"[{provider}] Sync results:")
+    print(f"  Added:     {len(result['added'])} new voices")
+    print(f"  Updated:   {len(result['updated'])} changed")
+    print(f"  Removed:   {len(result['removed'])} deprecated")
+    print(f"  Unchanged: {len(result['unchanged'])}")
+    print(f"  Total:     {total}")
+
+    return result
+
+
+# ---------------------------------------------------------------------------
+# ElevenLabs -- API sync (requires ELEVENLABS_API_KEY)
+# ---------------------------------------------------------------------------
+
+def sync_elevenlabs() -> list[dict]:
     api_key = os.environ.get("ELEVENLABS_API_KEY", "")
     if not api_key:
         print("[elevenlabs] WARNING: No ELEVENLABS_API_KEY. Skipping.")
-        return
+        return []
 
     headers = {"xi-api-key": api_key}
     voices = []
@@ -140,11 +237,11 @@ def sync_elevenlabs():
             if not data.get("has_more", True) or not cursor:
                 break
 
-    write_catalog("elevenlabs", voices)
+    return voices
 
 
 # ---------------------------------------------------------------------------
-# Rime — static JSON, no auth
+# Rime -- static JSON, no auth
 # ---------------------------------------------------------------------------
 
 RIME_LANG_MAP = {
@@ -153,7 +250,7 @@ RIME_LANG_MAP = {
 }
 
 
-def sync_rime():
+def sync_rime() -> list[dict]:
     resp = httpx.get("https://users.rime.ai/data/voices/all-v2.json", timeout=30)
     resp.raise_for_status()
     data = resp.json()
@@ -179,11 +276,11 @@ def sync_rime():
                     provider_metadata={"model_family": model_family, "original_lang_code": lang_code},
                 ))
 
-    write_catalog("rime", voices)
+    return voices
 
 
 # ---------------------------------------------------------------------------
-# Deepgram — hardcoded registry (no listing API)
+# Deepgram -- hardcoded registry (no listing API)
 # ---------------------------------------------------------------------------
 
 DEEPGRAM_VOICES = [
@@ -230,7 +327,7 @@ DEEPGRAM_VOICES = [
 ]
 
 
-def sync_deepgram():
+def sync_deepgram() -> list[dict]:
     voices = []
     for name_, vid, gender_, age_, accent_ in DEEPGRAM_VOICES:
         model = "aura-2" if vid.startswith("aura-2") else "aura-1"
@@ -240,11 +337,11 @@ def sync_deepgram():
             language="en", provider_page_url="https://deepgram.com/product/text-to-speech",
             metadata_source="manual",
         ))
-    write_catalog("deepgram", voices)
+    return voices
 
 
 # ---------------------------------------------------------------------------
-# OpenAI — hardcoded (13 voices, no listing API)
+# OpenAI -- hardcoded (13 voices, no listing API)
 # ---------------------------------------------------------------------------
 
 OPENAI_VOICES = [
@@ -264,7 +361,7 @@ OPENAI_VOICES = [
 ]
 
 
-def sync_openai():
+def sync_openai() -> list[dict]:
     voices = []
     for name_, vid, gender_, age_, accent_, desc in OPENAI_VOICES:
         voices.append(make_voice(
@@ -274,29 +371,106 @@ def sync_openai():
             metadata_source="manual",
             provider_metadata={"supports_instructions": True},
         ))
-    write_catalog("openai", voices)
+    return voices
 
 
 # ---------------------------------------------------------------------------
-# Cartesia — stub (requires API key)
+# Cartesia -- API sync (requires CARTESIA_API_KEY)
 # ---------------------------------------------------------------------------
 
-def sync_cartesia():
+def sync_cartesia() -> list[dict]:
     api_key = os.environ.get("CARTESIA_API_KEY", "")
     if not api_key:
-        print("[cartesia] Requires CARTESIA_API_KEY. Skipping.")
-        return
+        print("[cartesia] WARNING: No CARTESIA_API_KEY. Skipping.")
+        return []
+
+    headers = {
+        "X-API-Key": api_key,
+        "Cartesia-Version": "2024-06-10",
+    }
+
+    resp = httpx.get("https://api.cartesia.ai/voices", headers=headers, timeout=30)
+    resp.raise_for_status()
+    data = resp.json()
+
+    voices = []
+    for v in data:
+        vid = v.get("id", "")
+        name_ = v.get("name", "").strip()
+        if not vid or not name_:
+            continue
+
+        lang = v.get("language", "en")
+        if isinstance(lang, list):
+            lang = lang[0] if lang else "en"
+
+        voices.append(make_voice(
+            provider="cartesia",
+            provider_voice_id=vid,
+            name=name_,
+            description=v.get("description"),
+            language=lang,
+            provider_page_url="https://play.cartesia.ai",
+            provider_metadata={
+                "is_public": v.get("is_public"),
+            },
+        ))
+
+    print(f"[cartesia] Fetched {len(voices)} voices from API")
+    return voices
 
 
 # ---------------------------------------------------------------------------
-# PlayHT — stub (requires API key)
+# PlayHT -- API sync (requires PLAYHT_API_KEY + PLAYHT_USER_ID)
 # ---------------------------------------------------------------------------
 
-def sync_playht():
+def sync_playht() -> list[dict]:
     api_key = os.environ.get("PLAYHT_API_KEY", "")
-    if not api_key:
-        print("[playht] Requires PLAYHT_API_KEY. Skipping.")
-        return
+    user_id = os.environ.get("PLAYHT_USER_ID", "")
+    if not api_key or not user_id:
+        print("[playht] WARNING: No PLAYHT_API_KEY or PLAYHT_USER_ID. Skipping.")
+        return []
+
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "X-User-ID": user_id,
+    }
+
+    resp = httpx.get("https://api.play.ht/api/v2/voices", headers=headers, timeout=30)
+    resp.raise_for_status()
+    data = resp.json()
+
+    voices = []
+    for v in data:
+        vid = v.get("id", "")
+        name_ = v.get("name", "").strip()
+        if not vid or not name_:
+            continue
+
+        lang = v.get("language_code", "en")
+        if lang and "-" in lang:
+            lang = lang.split("-")[0]
+
+        voices.append(make_voice(
+            provider="playht",
+            provider_voice_id=vid,
+            name=name_,
+            gender=map_gender(v.get("gender")),
+            age_group=map_age(v.get("age")),
+            accent=v.get("accent"),
+            language=lang or "en",
+            texture=v.get("texture"),
+            preview_url=v.get("sample"),
+            provider_page_url="https://play.ht/voice-library",
+            provider_metadata={
+                "loudness": v.get("loudness"),
+                "style": v.get("style"),
+                "tempo": v.get("tempo"),
+            },
+        ))
+
+    print(f"[playht] Fetched {len(voices)} voices from API")
+    return voices
 
 
 # ---------------------------------------------------------------------------
@@ -325,8 +499,13 @@ def run_sync(providers: list[str] | None = None):
             continue
         try:
             print(f"\n{'='*50}\nSyncing {name}\n{'='*50}")
-            fn()
-            results[name] = "ok"
+            new_voices = fn()
+            if new_voices:
+                apply_sync(name, new_voices)
+                results[name] = "ok"
+            else:
+                print(f"[{name}] No voices returned (missing API key or empty response)")
+                results[name] = "skipped"
         except Exception as e:
             print(f"[{name}] FAILED: {e}")
             traceback.print_exc()

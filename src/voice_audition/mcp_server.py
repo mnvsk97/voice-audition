@@ -279,6 +279,21 @@ def run_voice_audition(
 
 
 # ---------------------------------------------------------------------------
+# Tool 7: calculate_voice_costs
+# ---------------------------------------------------------------------------
+
+@mcp.tool
+def calculate_voice_costs(minutes_per_month: int) -> dict:
+    """Calculate and compare API vs self-hosted TTS costs at a given monthly volume.
+
+    Returns cost breakdown for all providers and self-hosted options with recommendation.
+    Example: 100000 minutes/month
+    """
+    from voice_audition.costs import calculate_costs
+    return calculate_costs(minutes_per_month)
+
+
+# ---------------------------------------------------------------------------
 # Entry points
 # ---------------------------------------------------------------------------
 
