@@ -17,7 +17,7 @@ from pathlib import Path
 
 import httpx
 
-CATALOG_DIR = Path(__file__).resolve().parent.parent.parent.parent / "catalog" / "voices"
+CATALOG_DIR = Path(__file__).resolve().parent.parent.parent.parent / "catalog"
 
 SAMPLE_TEXT = (
     "Hi there, welcome back. I wanted to check in and see how you're doing today. "
@@ -127,20 +127,14 @@ def generate_sample(voice: dict, out_dir: Path, client: httpx.Client) -> Path | 
 # ---------------------------------------------------------------------------
 
 def classify_voice(audio_path: Path, model: str = "qwen2-audio") -> dict | None:
-    """Classify a voice from an audio sample. Returns enrichment dict.
-
-    TODO: Implement actual model inference. For now returns None to indicate
-    the voice couldn't be classified.
-    """
+    """Classify a voice from an audio sample. Returns enrichment dict."""
     if model == "qwen2-audio":
         try:
-            from mlx_audio.stt.utils import load_model  # noqa: F401
+            from voice_audition.enrich.classify import classify_audio
         except ImportError:
-            print("[enrich] mlx-audio not installed. Install with: pip install 'voice-catalog[enrich]'")
+            print("[enrich] mlx-audio not installed. Install with: pip install 'voice-audition[enrich]'")
             return None
-        # TODO: actual inference
-        print("[enrich] Qwen2-Audio classification not yet implemented")
-        return None
+        return classify_audio(audio_path)
 
     print(f"[enrich] Unknown model: {model}")
     return None
@@ -153,17 +147,24 @@ def classify_voice(audio_path: Path, model: str = "qwen2-audio") -> dict | None:
 def merge_enrichment(voice: dict, enrichment: dict) -> dict:
     """Merge classification results into a voice entry."""
     voice = {**voice}
-    for key in ("gender", "age_group", "accent", "description"):
+    for key in ("gender", "age_group", "accent", "description", "texture", "pitch"):
         if key in enrichment and enrichment[key]:
             voice[key] = enrichment[key]
     if "traits" in enrichment:
-        voice["traits"] = {**voice.get("traits", {}), **enrichment["traits"]}
+        existing = voice.get("traits") or {}
+        merged = {**existing}
+        for k, v in enrichment["traits"].items():
+            if v is not None:
+                merged[k] = v
+        voice["traits"] = merged
     for key in ("personality_tags", "style_tags", "use_cases"):
         if key in enrichment and enrichment[key]:
             existing = set(voice.get(key, []))
             existing.update(enrichment[key])
             voice[key] = sorted(existing)
-    voice["metadata_source"] = "enriched_llm"
+    if "enrichment" in enrichment:
+        voice["enrichment"] = enrichment["enrichment"]
+    voice["metadata_source"] = "enriched_local"
     voice["last_verified"] = datetime.now(timezone.utc).isoformat()
     return voice
 
@@ -182,19 +183,22 @@ def is_unenriched(voice: dict) -> bool:
     return False
 
 
-def load_catalog(provider: str) -> dict | None:
-    """Load a provider catalog JSON. Returns None if not found."""
+def load_catalog(provider: str) -> list[dict] | None:
+    """Load a provider catalog JSON. Returns list of voice dicts or None."""
     path = CATALOG_DIR / f"{provider}.json"
     if not path.exists():
         return None
-    return json.loads(path.read_text())
+    data = json.loads(path.read_text())
+    if isinstance(data, list):
+        return data
+    return data.get("voices", [])
 
 
-def save_catalog(provider: str, catalog: dict) -> None:
+def save_catalog(provider: str, voices: list[dict]) -> None:
     """Write a provider catalog JSON back to disk."""
     path = CATALOG_DIR / f"{provider}.json"
-    path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False))
-    print(f"[enrich] Wrote {path}")
+    path.write_text(json.dumps(voices, indent=2, ensure_ascii=False))
+    print(f"[enrich] Wrote {len(voices)} voices to {path}")
 
 
 # ---------------------------------------------------------------------------
@@ -203,7 +207,8 @@ def save_catalog(provider: str, catalog: dict) -> None:
 
 def run_enrich(providers: list[str] | None = None, model: str = "qwen2-audio"):
     """Run the enrichment pipeline."""
-    available = [p.stem for p in CATALOG_DIR.glob("*.json")]
+    skip = {"providers", "schema"}
+    available = [p.stem for p in CATALOG_DIR.glob("*.json") if p.stem not in skip]
     targets = providers if providers else available
     targets = [p for p in targets if p in available]
 
@@ -218,16 +223,14 @@ def run_enrich(providers: list[str] | None = None, model: str = "qwen2-audio"):
         out_dir = Path(tmp)
 
         with httpx.Client(timeout=30) as client:
-            # Track which providers had missing API keys (print once per provider)
             warned_providers: set[str] = set()
 
             for provider in targets:
-                catalog = load_catalog(provider)
-                if catalog is None:
+                voices = load_catalog(provider)
+                if voices is None:
                     print(f"[enrich] No catalog for {provider}, skipping")
                     continue
 
-                voices = catalog.get("voices", [])
                 unenriched = [v for v in voices if is_unenriched(v)]
                 total_voices += len(unenriched)
 
@@ -239,29 +242,36 @@ def run_enrich(providers: list[str] | None = None, model: str = "qwen2-audio"):
 
                 updated = False
                 for v in unenriched:
-                    print(f"[enrich] Generating sample for {v['id']}...")
+                    vid = v.get("id", v.get("provider_voice_id", "?"))
+                    print(f"[enrich] Generating sample for {vid}...")
 
                     audio_path = generate_sample(v, out_dir, client)
                     if audio_path is None:
-                        # Only warn once per provider about missing keys
                         if provider not in warned_providers:
                             warned_providers.add(provider)
                         continue
 
+                    print(f"[enrich] Classifying {vid}...")
                     result = classify_voice(audio_path, model=model)
                     if result is None:
                         continue
 
-                    # Find and update the voice in the catalog
+                    # Add enrichment metadata
+                    result["enrichment"] = {
+                        "model": model,
+                        "confidence": 0.7,
+                        "sample_text": SAMPLE_TEXT,
+                        "timestamp": datetime.now(timezone.utc).isoformat(),
+                    }
+
                     for i, entry in enumerate(voices):
-                        if entry["id"] == v["id"]:
+                        if entry.get("id") == v.get("id"):
                             voices[i] = merge_enrichment(entry, result)
                             enriched_count += 1
                             updated = True
                             break
 
                 if updated:
-                    catalog["voices"] = voices
-                    save_catalog(provider, catalog)
+                    save_catalog(provider, voices)
 
-    print(f"[enrich] Done. Enriched {enriched_count}/{total_voices} voices (model not yet implemented)")
+    print(f"\n[enrich] Done. Enriched {enriched_count}/{total_voices} voices.")
