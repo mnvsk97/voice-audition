@@ -1,0 +1,104 @@
+name: Check Pricing Changes
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Every Monday at 9am UTC
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check pricing pages
+        id: check
+        run: |
+          mkdir -p .pricing-snapshot
+
+          changed=""
+
+          check_pricing() {
+            local provider="$1"
+            local url="$2"
+            local snapshot=".pricing-snapshot/${provider}.txt"
+
+            # Fetch page, strip HTML tags, extract plan-level dollar amounts ($X-$XXX range)
+            # Filter to plan prices only: $1-$9999 (skip sub-cent per-char rates)
+            prices=$(curl -sL --max-time 15 "$url" 2>/dev/null \
+              | sed 's/<[^>]*>//g' \
+              | grep -oE '\$[0-9]{1,4}(\.[0-9]{1,2})?' \
+              | grep -v '^\$0\.' \
+              | sort -t'$' -k1 -n -u \
+              | tr '\n' ' ' \
+              | sed 's/ $//')
+
+            if [ -z "$prices" ]; then
+              echo "[$provider] Could not fetch or no prices found (page may need JS)"
+              return
+            fi
+
+            if [ -f "$snapshot" ]; then
+              old=$(cat "$snapshot")
+              if [ "$old" != "$prices" ]; then
+                echo "[$provider] CHANGED"
+                echo "  Was: $old"
+                echo "  Now: $prices"
+                changed="${changed}### ${provider}\nWas: ${old}\nNow: ${prices}\n\n"
+              else
+                echo "[$provider] No change"
+              fi
+            else
+              echo "[$provider] First snapshot: $prices"
+              changed="${changed}### ${provider}\nFirst snapshot: ${prices}\n\n"
+            fi
+
+            echo "$prices" > "$snapshot"
+          }
+
+          check_pricing "elevenlabs" "https://elevenlabs.io/pricing"
+          check_pricing "deepgram" "https://deepgram.com/pricing"
+          check_pricing "cartesia" "https://cartesia.ai/pricing"
+          check_pricing "playht" "https://play.ht/pricing"
+          # OpenAI pricing page is JS-rendered, curl gets nothing.
+          # Monitor via their docs page instead:
+          check_pricing "openai" "https://platform.openai.com/docs/guides/text-to-speech"
+
+          if [ -n "$changed" ]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+            printf "$changed" > /tmp/pricing-diff.txt
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit snapshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .pricing-snapshot/
+          git diff --staged --quiet || git commit -m "Update pricing snapshots $(date +%Y-%m-%d)" && git push
+
+      - name: Create issue if prices changed
+        if: steps.check.outputs.changes == 'true'
+        run: |
+          body=$(cat /tmp/pricing-diff.txt)
+          gh issue create \
+            --title "Pricing change detected $(date +%Y-%m-%d)" \
+            --body "## Pricing page changes detected
+
+          The following provider pricing pages have different dollar amounts than last week:
+
+          \`\`\`
+          ${body}
+          \`\`\`
+
+          **Action needed:** Review each changed provider's pricing page and update \`catalog/providers.json\` if the actual pricing changed.
+
+          Note: False positives can occur if a page adds promotional pricing, testimonial quotes with dollar amounts, or temporary sale banners. Check the actual plan prices." \
+            --label "pricing"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
