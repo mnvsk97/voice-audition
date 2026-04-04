@@ -2,15 +2,14 @@ name: Sync Voice Catalog
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Every 6 hours
-  workflow_dispatch: # Manual trigger
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pull-requests: write
 
     steps:
       - uses: actions/checkout@v4
@@ -19,10 +18,10 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install voice-audition package
+      - name: Install
         run: pip install -e .
 
-      - name: Run sync
+      - name: Sync
         run: voice-audition sync
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
@@ -30,32 +29,18 @@ jobs:
           DEEPGRAM_API_KEY: ${{ secrets.DEEPGRAM_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           PLAYHT_API_KEY: ${{ secrets.PLAYHT_API_KEY }}
-          PLAYHT_USER_ID: ${{ secrets.PLAYHT_USER_ID }}
           RIME_API_KEY: ${{ secrets.RIME_API_KEY }}
         continue-on-error: true
 
-      - name: Run monitor
+      - name: Monitor
         run: voice-audition monitor
+        continue-on-error: true
 
-      - name: Check for changes
-        id: changes
+      - name: Commit changes
         run: |
-          git diff --quiet catalog/ && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
-
-      - name: Create PR with updates
-        if: steps.changes.outputs.changed == 'true'
-        run: |
-          git config user.name "VoiceAudition Bot"
-          git config user.email "bot@voiceaudition.dev"
-          BRANCH="catalog-sync-$(date +%Y%m%d-%H%M)"
-          git checkout -b "$BRANCH"
+          git diff --quiet catalog/ && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add catalog/
-          git commit -m "Update voice catalog $(date +%Y-%m-%d)"
-          git push origin "$BRANCH"
-          gh pr create \
-            --title "Update voice catalog $(date +%Y-%m-%d)" \
-            --body "Automated sync of voice catalog from provider APIs." \
-            --base main \
-            --head "$BRANCH"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git commit -m "Sync voice catalog $(date +%Y-%m-%d)"
+          git push
