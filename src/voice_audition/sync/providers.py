@@ -1,17 +1,3 @@
-"""
-Voice catalog sync -- consolidated provider sync functions with diff-based sync.
-
-Usage (as module):
-    from voice_audition.sync import run_sync
-    run_sync()                      # Sync all providers
-    run_sync(["elevenlabs", "rime"])  # Sync specific providers
-
-Usage (CLI):
-    python -m voice_audition.sync.providers                   # Sync all
-    python -m voice_audition.sync.providers elevenlabs rime   # Sync specific
-    python -m voice_audition.sync.providers --list            # Show providers
-"""
-
 import json
 import os
 import sys
@@ -25,10 +11,6 @@ from voice_audition.schema import make_voice
 
 CATALOG_DIR = Path(__file__).parent.parent.parent.parent / "catalog"
 
-
-# ---------------------------------------------------------------------------
-# Common helpers
-# ---------------------------------------------------------------------------
 
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
@@ -78,10 +60,6 @@ def map_age(a: str | None) -> str:
     return "unknown"
 
 
-# ---------------------------------------------------------------------------
-# Diff-based sync engine
-# ---------------------------------------------------------------------------
-
 _ENRICHMENT_KEYS = (
     "description", "gender", "age_group", "accent", "traits",
     "texture", "pitch", "speaking_style", "personality_tags",
@@ -94,7 +72,6 @@ _PROVIDER_FIELDS = ("name", "provider_model", "preview_url", "provider_page_url"
 
 
 def _provider_fields_changed(old: dict, new: dict) -> bool:
-    """Check if provider-sourced fields changed."""
     for key in _PROVIDER_FIELDS:
         if old.get(key) != new.get(key):
             return True
@@ -102,7 +79,6 @@ def _provider_fields_changed(old: dict, new: dict) -> bool:
 
 
 def diff_sync(provider: str, new_voices: list[dict]) -> dict:
-    """Compare new voices against existing catalog, return changes."""
     existing = load_existing(provider)
     existing_by_id = {v["id"]: v for v in existing}
     new_by_id = {v["id"]: v for v in new_voices}
@@ -122,7 +98,6 @@ def diff_sync(provider: str, new_voices: list[dict]) -> dict:
             old = existing_by_id[vid]
             voice["first_seen"] = old.get("first_seen", now)
             voice["last_seen"] = now
-            # Preserve enrichment data from old entry
             if old.get("metadata_source") in _ENRICHED_SOURCES:
                 for key in _ENRICHMENT_KEYS:
                     if key in old and old[key]:
@@ -144,7 +119,6 @@ def diff_sync(provider: str, new_voices: list[dict]) -> dict:
 
 
 def apply_sync(provider: str, new_voices: list[dict]) -> dict:
-    """Run diff_sync, write merged catalog, print summary, return diff."""
     result = diff_sync(provider, new_voices)
 
     all_voices = result["added"] + result["updated"] + result["unchanged"] + result["removed"]
@@ -160,10 +134,6 @@ def apply_sync(provider: str, new_voices: list[dict]) -> dict:
 
     return result
 
-
-# ---------------------------------------------------------------------------
-# ElevenLabs -- API sync (requires ELEVENLABS_API_KEY)
-# ---------------------------------------------------------------------------
 
 def sync_elevenlabs() -> list[dict]:
     api_key = os.environ.get("ELEVENLABS_API_KEY", "")
@@ -240,10 +210,6 @@ def sync_elevenlabs() -> list[dict]:
     return voices
 
 
-# ---------------------------------------------------------------------------
-# Rime -- static JSON, no auth
-# ---------------------------------------------------------------------------
-
 RIME_LANG_MAP = {
     "eng": "en", "spa": "es", "fra": "fr", "ger": "de",
     "hin": "hi", "ara": "ar", "heb": "he", "jpn": "ja", "por": "pt",
@@ -278,10 +244,6 @@ def sync_rime() -> list[dict]:
 
     return voices
 
-
-# ---------------------------------------------------------------------------
-# Deepgram -- hardcoded registry (no listing API)
-# ---------------------------------------------------------------------------
 
 DEEPGRAM_VOICES = [
     ("Thalia", "aura-2-thalia-en", "female", "middle", "american"),
@@ -340,10 +302,6 @@ def sync_deepgram() -> list[dict]:
     return voices
 
 
-# ---------------------------------------------------------------------------
-# OpenAI -- hardcoded (13 voices, no listing API)
-# ---------------------------------------------------------------------------
-
 OPENAI_VOICES = [
     ("Alloy", "alloy", "neutral", "middle", "american", "Neutral, versatile. Safe default for diverse audiences."),
     ("Ash", "ash", "male", "young", "american", "Soft-spoken, thoughtful. Calm and measured."),
@@ -373,10 +331,6 @@ def sync_openai() -> list[dict]:
         ))
     return voices
 
-
-# ---------------------------------------------------------------------------
-# Cartesia -- API sync (requires CARTESIA_API_KEY)
-# ---------------------------------------------------------------------------
 
 def sync_cartesia() -> list[dict]:
     api_key = os.environ.get("CARTESIA_API_KEY", "")
@@ -419,10 +373,6 @@ def sync_cartesia() -> list[dict]:
     print(f"[cartesia] Fetched {len(voices)} voices from API")
     return voices
 
-
-# ---------------------------------------------------------------------------
-# PlayHT -- API sync (requires PLAYHT_API_KEY + PLAYHT_USER_ID)
-# ---------------------------------------------------------------------------
 
 def sync_playht() -> list[dict]:
     api_key = os.environ.get("PLAYHT_API_KEY", "")
@@ -472,10 +422,6 @@ def sync_playht() -> list[dict]:
     print(f"[playht] Fetched {len(voices)} voices from API")
     return voices
 
-
-# ---------------------------------------------------------------------------
-# Registry & entry points
-# ---------------------------------------------------------------------------
 
 PROVIDERS = {
     "elevenlabs": sync_elevenlabs,

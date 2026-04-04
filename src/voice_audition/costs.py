@@ -1,16 +1,12 @@
-"""Voice cost calculator — compare API providers vs self-hosted at any volume."""
-
-# Provider costs per minute (USD) — keep in sync with providers.json
 API_COSTS = {
     "elevenlabs": 0.030,
     "cartesia": 0.015,
-    "openai": 0.020,
+    "openai": 0.015,
     "deepgram": 0.010,
-    "rime": 0.008,
+    "rime": 0.030,
     "playht": 0.020,
 }
 
-# Self-hosted costs (estimated monthly for always-on)
 SELF_HOSTED = {
     "kokoro_cpu": {
         "name": "Kokoro (CPU VM)",
@@ -49,7 +45,6 @@ SELF_HOSTED = {
 
 
 def calculate_costs(minutes_per_month: int) -> dict:
-    """Calculate costs for all options at a given volume."""
     results = {"volume_minutes_per_month": minutes_per_month, "api": {}, "self_hosted": {}}
 
     for provider, cost_per_min in API_COSTS.items():
@@ -71,7 +66,6 @@ def calculate_costs(minutes_per_month: int) -> dict:
             "quality": info["quality"],
         }
 
-    # Find cheapest API and cheapest self-hosted
     cheapest_api = min(results["api"].items(), key=lambda x: x[1]["monthly_cost"])
     cheapest_self = min(results["self_hosted"].items(), key=lambda x: x[1]["monthly_cost"])
 
@@ -85,7 +79,6 @@ def calculate_costs(minutes_per_month: int) -> dict:
 
 
 def format_cost_table(results: dict) -> str:
-    """Format cost comparison as a readable table."""
     lines = []
     vol = results["volume_minutes_per_month"]
     lines.append(f"Cost comparison at {vol:,} minutes/month")
@@ -116,6 +109,5 @@ def format_cost_table(results: dict) -> str:
 
 
 def run_costs(minutes: int):
-    """CLI entry point."""
     results = calculate_costs(minutes)
     print(format_cost_table(results))

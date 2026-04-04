@@ -65,10 +65,10 @@
       "name": "RunPod",
       "website": "https://www.runpod.io",
       "gpu_pricing": {
-        "l4": {"hourly_flex": 0.68, "hourly_active": 0.47},
-        "a40": {"hourly_flex": 1.22, "hourly_active": 0.86},
-        "l40s": {"hourly_flex": 1.91, "hourly_active": 1.33},
-        "a100_80gb": {"hourly_flex": 2.74, "hourly_active": 2.16},
+        "l4": {"hourly_flex": 0.69, "hourly_active": 0.48},
+        "a40": {"hourly_flex": 1.22, "hourly_active": 0.85},
+        "l40s": {"hourly_flex": 1.90, "hourly_active": 1.33},
+        "a100_80gb": {"hourly_flex": 2.72, "hourly_active": 2.17},
         "h100": {"hourly_flex": 4.18, "hourly_active": 3.35},
         "h200": {"hourly_flex": 5.58, "hourly_active": 4.46},
         "b200": {"hourly_flex": 8.64, "hourly_active": 6.84}

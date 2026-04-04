@@ -1,12 +1,3 @@
-"""
-Enrichment pipeline — generate audio samples, classify voices, merge results.
-
-Usage:
-    from voice_audition.enrich import run_enrich
-    run_enrich()                        # All providers
-    run_enrich(providers=["rime"])       # Specific provider
-"""
-
 from __future__ import annotations
 
 import json
@@ -24,10 +15,6 @@ SAMPLE_TEXT = (
     "Let me know if there's anything I can help with."
 )
 
-
-# ---------------------------------------------------------------------------
-# Step 1: Generate audio samples
-# ---------------------------------------------------------------------------
 
 def _generate_rime(voice_id: str, model: str, out_dir: Path, client: httpx.Client) -> Path | None:
     api_key = os.environ.get("RIME_API_KEY", "")
@@ -106,7 +93,6 @@ _GENERATORS = {
 
 
 def generate_sample(voice: dict, out_dir: Path, client: httpx.Client) -> Path | None:
-    """Generate an audio sample for a voice. Returns path to audio file or None."""
     provider = voice["provider"]
     gen = _GENERATORS.get(provider)
     if gen is None:
@@ -122,12 +108,7 @@ def generate_sample(voice: dict, out_dir: Path, client: httpx.Client) -> Path | 
         return None
 
 
-# ---------------------------------------------------------------------------
-# Step 2: Classify with local model
-# ---------------------------------------------------------------------------
-
 def classify_voice(audio_path: Path, model: str = "qwen2-audio") -> dict | None:
-    """Classify a voice from an audio sample. Returns enrichment dict."""
     if model == "qwen2-audio":
         try:
             from voice_audition.enrich.classify import classify_audio
@@ -140,12 +121,7 @@ def classify_voice(audio_path: Path, model: str = "qwen2-audio") -> dict | None:
     return None
 
 
-# ---------------------------------------------------------------------------
-# Step 3: Merge enrichment into catalog
-# ---------------------------------------------------------------------------
-
 def merge_enrichment(voice: dict, enrichment: dict) -> dict:
-    """Merge classification results into a voice entry."""
     voice = {**voice}
     for key in ("gender", "age_group", "accent", "description", "texture", "pitch"):
         if key in enrichment and enrichment[key]:
@@ -169,12 +145,7 @@ def merge_enrichment(voice: dict, enrichment: dict) -> dict:
     return voice
 
 
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
-
 def is_unenriched(voice: dict) -> bool:
-    """Check if a voice needs enrichment."""
     desc = voice.get("description", "") or ""
     if not desc or desc.startswith("Rime ") or len(desc) < 20:
         return True
@@ -184,7 +155,6 @@ def is_unenriched(voice: dict) -> bool:
 
 
 def load_catalog(provider: str) -> list[dict] | None:
-    """Load a provider catalog JSON. Returns list of voice dicts or None."""
     path = CATALOG_DIR / f"{provider}.json"
     if not path.exists():
         return None
@@ -195,15 +165,10 @@ def load_catalog(provider: str) -> list[dict] | None:
 
 
 def save_catalog(provider: str, voices: list[dict]) -> None:
-    """Write a provider catalog JSON back to disk."""
     path = CATALOG_DIR / f"{provider}.json"
     path.write_text(json.dumps(voices, indent=2, ensure_ascii=False))
     print(f"[enrich] Wrote {len(voices)} voices to {path}")
 
-
-# ---------------------------------------------------------------------------
-# Main entry point
-# ---------------------------------------------------------------------------
 
 def run_enrich(providers: list[str] | None = None, model: str = "qwen2-audio"):
     """Run the enrichment pipeline."""
@@ -256,7 +221,6 @@ def run_enrich(providers: list[str] | None = None, model: str = "qwen2-audio"):
                     if result is None:
                         continue
 
-                    # Add enrichment metadata
                     result["enrichment"] = {
                         "model": model,
                         "confidence": 0.7,

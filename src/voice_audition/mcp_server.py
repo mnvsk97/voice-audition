@@ -1,5 +1,3 @@
-"""FastMCP server exposing voice catalog search tools."""
-
 from __future__ import annotations
 
 import asyncio
@@ -16,7 +14,6 @@ mcp = FastMCP("VoiceAudition")
 
 
 def _simplify_voice(v: dict, *, include_score: bool = False, extra_fields: tuple[str, ...] = ()) -> dict:
-    """Return a compact representation of a voice dict."""
     out = {
         "id": v.get("id"),
         "name": v.get("name"),
@@ -30,10 +27,6 @@ def _simplify_voice(v: dict, *, include_score: bool = False, extra_fields: tuple
         out["score"] = v["score"]
     return out
 
-
-# ---------------------------------------------------------------------------
-# Tool 1: search_voices
-# ---------------------------------------------------------------------------
 
 @mcp.tool
 def search_voices(
@@ -64,16 +57,14 @@ def search_voices(
     if latency_tier is not None:
         filters["max_latency_tier"] = latency_tier
 
-    # Try semantic search via the index module (may not be installed/built yet).
     try:
-        from voice_audition.index import semantic_search  # noqa: F811
+        from voice_audition.index import semantic_search
 
         results = asyncio.run(semantic_search(query, top_k=top_k, filters=filters))
         return [_simplify_voice(v, include_score=True) for v in results]
     except (ImportError, ModuleNotFoundError, Exception):
         pass
 
-    # Fallback: keyword search over the catalog.
     voices = load_all_voices()
     if filters:
         voices = _filter_voices(voices, **{k: v for k, v in filters.items()})
@@ -107,25 +98,15 @@ def search_voices(
     return results
 
 
-# ---------------------------------------------------------------------------
-# Tool 2: get_voice
-# ---------------------------------------------------------------------------
-
 @mcp.tool
 def get_voice(voice_id: str) -> dict | None:
     """Get full details for a voice by ID (e.g. 'openai:shimmer', 'rime:mist:bayou')."""
     voices = load_all_voices()
     for v in voices:
         if v.get("id") == voice_id:
-            # Return the full voice dict, stripping bulky provider_metadata.
-            out = {k: val for k, val in v.items() if k != "provider_metadata"}
-            return out
+            return {k: val for k, val in v.items() if k != "provider_metadata"}
     return None
 
-
-# ---------------------------------------------------------------------------
-# Tool 3: filter_voices
-# ---------------------------------------------------------------------------
 
 @mcp.tool
 def filter_voices(
@@ -167,10 +148,6 @@ def filter_voices(
     return [_simplify_voice(v, extra_fields=extra) for v in matched[:50]]
 
 
-# ---------------------------------------------------------------------------
-# Tool 4: get_providers
-# ---------------------------------------------------------------------------
-
 @mcp.tool
 def get_providers() -> list[dict]:
     """List all TTS providers with reliability scores, pricing, and capabilities."""
@@ -186,10 +163,6 @@ def get_providers() -> list[dict]:
         })
     return result
 
-
-# ---------------------------------------------------------------------------
-# Tool 5: get_catalog_stats
-# ---------------------------------------------------------------------------
 
 @mcp.tool
 def get_catalog_stats() -> dict:
@@ -225,10 +198,6 @@ def get_catalog_stats() -> dict:
         "by_gender": by_gender,
     }
 
-
-# ---------------------------------------------------------------------------
-# Tool 6: run_audition
-# ---------------------------------------------------------------------------
 
 @mcp.tool
 def run_voice_audition(
@@ -278,10 +247,6 @@ def run_voice_audition(
     }
 
 
-# ---------------------------------------------------------------------------
-# Tool 7: calculate_voice_costs
-# ---------------------------------------------------------------------------
-
 @mcp.tool
 def calculate_voice_costs(minutes_per_month: int) -> dict:
     """Calculate and compare API vs self-hosted TTS costs at a given monthly volume.
@@ -293,12 +258,7 @@ def calculate_voice_costs(minutes_per_month: int) -> dict:
     return calculate_costs(minutes_per_month)
 
 
-# ---------------------------------------------------------------------------
-# Entry points
-# ---------------------------------------------------------------------------
-
 def run_mcp():
-    """Start the MCP server."""
     mcp.run()
 
 

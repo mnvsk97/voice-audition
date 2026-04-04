@@ -43,7 +43,8 @@
         "estimated_cost_per_minute": 0.03,
         "cost_tier": "high",
         "pricing_updated": "2026-04-04",
-        "notes": "Character-based billing. At scale plan rate (~$0.165/1K chars), ~900 chars/min of speech yields ~$0.03/min."
+        "notes": "Character-based billing. At scale plan rate (~$0.165/1K chars), ~900 chars/min of speech yields ~$0.03/min.",
+        "verification_gap": "Pricing page is JS-rendered and could not be scraped (2026-04-04). Plan prices not independently verified. Docs confirm 6 public tiers (Free, Starter, Creator, Pro, Scale, Business) plus Enterprise; 'Business' tier is missing from this file."
       },
       "developer_sentiment": {
         "score": 88,
@@ -93,7 +94,7 @@
         "status": "operational",
         "incidents_90d": 25,
         "status_page_url": "https://status.elevenlabs.io/",
-        "last_checked": "2026-04-04T18:15:53.790804+00:00"
+        "last_checked": "2026-04-04T19:09:32.530634+00:00"
       }
     },
     "cartesia": {
@@ -185,7 +186,7 @@
         "status": "unknown",
         "incidents_90d": null,
         "status_page_url": null,
-        "last_checked": "2026-04-04T18:15:55.398327+00:00"
+        "last_checked": "2026-04-04T19:09:34.991615+00:00"
       }
     },
     "deepgram": {
@@ -276,7 +277,7 @@
         "status": "operational",
         "incidents_90d": 14,
         "status_page_url": "https://status.deepgram.com",
-        "last_checked": "2026-04-04T18:15:55.042989+00:00"
+        "last_checked": "2026-04-04T19:09:34.183149+00:00"
       }
     },
     "openai": {
@@ -323,7 +324,8 @@
         "estimated_cost_per_minute": 0.015,
         "cost_tier": "medium",
         "pricing_updated": "2026-04-04",
-        "notes": "~900 chars/min speech. tts-1 and gpt-4o-mini-tts at $15/1M chars = ~$0.0135/min. tts-1-hd at $30/1M chars = ~$0.027/min. No free tier; billing starts immediately."
+        "notes": "~900 chars/min speech. tts-1 and gpt-4o-mini-tts at $15/1M chars = ~$0.0135/min. tts-1-hd at $30/1M chars = ~$0.027/min. No free tier; billing starts immediately.",
+        "verification_gap": "OpenAI pricing pages returned HTTP 403 (JS-rendered, 2026-04-04). Per-model rates not independently verified this audit cycle."
       },
       "developer_sentiment": {
         "score": 78,
@@ -369,7 +371,7 @@
         "status": "operational",
         "incidents_90d": 25,
         "status_page_url": "https://status.openai.com/",
-        "last_checked": "2026-04-04T18:15:54.542856+00:00"
+        "last_checked": "2026-04-04T19:09:33.416075+00:00"
       }
     },
     "playht": {
@@ -454,7 +456,7 @@
         "status": "unknown",
         "incidents_90d": null,
         "status_page_url": null,
-        "last_checked": "2026-04-04T18:15:55.398343+00:00"
+        "last_checked": "2026-04-04T19:09:34.991644+00:00"
       }
     },
     "rime": {
@@ -548,7 +550,7 @@
         "status": "unknown",
         "incidents_90d": null,
         "status_page_url": null,
-        "last_checked": "2026-04-04T18:15:55.398340+00:00"
+        "last_checked": "2026-04-04T19:09:34.991638+00:00"
       }
     }
   }

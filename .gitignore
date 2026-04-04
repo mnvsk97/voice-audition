@@ -40,3 +40,4 @@ skills-lock.json
 /skills/
 .superdesign/
 .claude/skills/truefoundry-*
+uv.lock

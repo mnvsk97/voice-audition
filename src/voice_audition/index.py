@@ -1,9 +1,3 @@
-"""Moss semantic search index for the voice catalog.
-
-Builds a Moss vector index from catalog voices and provides
-hybrid (semantic + keyword) search over it.
-"""
-
 import asyncio
 import os
 
@@ -13,7 +7,6 @@ from voice_audition.search import load_all_voices
 
 
 def _trait_label(value: float) -> str:
-    """Translate a 0-1 trait score to a word."""
     if value < 0.3:
         return "low"
     elif value <= 0.7:
@@ -22,8 +15,6 @@ def _trait_label(value: float) -> str:
         return "high"
 
 
-# Name-based hints for voices without descriptions.
-# These are evocative names that carry semantic signal.
 _NAME_VIBES = {
     # Rime evocative names
     "bayou": "warm, southern, relaxed, swampy, earthy",
@@ -66,7 +57,6 @@ _NAME_VIBES = {
     "dune": "warm, shifting, sandy, desert, dry",
 }
 
-# Deepgram mythology names carry personality associations
 _DEEPGRAM_VIBES = {
     "thalia": "muse of comedy, cheerful, warm, lighthearted, entertaining",
     "andromeda": "bright, celestial, bold, adventurous, spirited",
@@ -132,7 +122,6 @@ def voice_to_document(voice: dict) -> DocumentInfo:
     cost_per_min_usd = voice.get("cost_per_min_usd")
     pipecat_supported = voice.get("pipecat_supported", False)
 
-    # --- Build text for semantic search ---
     parts = []
 
     # Identity line
@@ -161,7 +150,6 @@ def voice_to_document(voice: dict) -> DocumentInfo:
     if description and len(description) > 20:
         parts.append(description)
     else:
-        # No real description — infer vibes from the voice name
         name_lower = name.lower().replace(" ", "").replace("_", "")
         # Check Deepgram mythology names
         if provider == "deepgram":
@@ -206,7 +194,6 @@ def voice_to_document(voice: dict) -> DocumentInfo:
 
     text = " ".join(parts)
 
-    # --- Build metadata (all string values) ---
     metadata: dict[str, str] = {}
 
     if provider:
@@ -244,7 +231,6 @@ async def build_index(force: bool = False) -> None:
         print("[index] No voices found in catalog.")
         return
 
-    # Deduplicate by ID (keep first occurrence)
     seen = set()
     documents = []
     for v in voices:
@@ -302,14 +288,11 @@ async def semantic_search(
 
 
 def run_index(force: bool = False) -> None:
-    """Sync wrapper for build_index(). For CLI use."""
     asyncio.run(build_index(force=force))
 
 
 def run_semantic_search(query: str, top_k: int = 5) -> None:
-    """Sync wrapper that runs semantic_search() and prints results."""
     results = asyncio.run(semantic_search(query, top_k=top_k))
-    time_ms = "?"
     n = len(results)
     print(f'Search: "{query}" ({n} results)')
     print()
@@ -324,16 +307,13 @@ def run_semantic_search(query: str, top_k: int = 5) -> None:
             labels.append(meta["accent"])
         label_str = f" [{', '.join(labels)}]" if labels else ""
 
-        # Extract name and provider from id (format: "provider:voice_id")
         doc_id = r.get("id", "")
         provider = meta.get("provider", "")
         name = doc_id.split(":", 1)[1] if ":" in doc_id else doc_id
 
         score = r.get("score", 0)
 
-        # First line of text as description snippet
         text = r.get("text", "")
-        # Grab the second sentence as a brief description
         sentences = text.split(". ")
         snippet = sentences[1].rstrip(".") if len(sentences) > 1 else ""
 

@@ -1,9 +1,3 @@
-"""Voice audition system — cast the right voice for your use case.
-
-Generates use-case-specific test scripts, auditions candidate voices,
-scores them against role-specific criteria, and produces a scorecard.
-"""
-
 from __future__ import annotations
 
 import asyncio
@@ -17,10 +11,6 @@ import httpx
 
 from voice_audition.index import semantic_search
 from voice_audition.search import load_all_voices, filter_voices
-
-# ---------------------------------------------------------------------------
-# Step 1: Analyze brief and generate scripts + criteria
-# ---------------------------------------------------------------------------
 
 USE_CASE_PROFILES = {
     "healthcare": {
@@ -221,7 +211,6 @@ DEFAULT_PROFILE = {
 
 
 def detect_use_case(brief: str) -> str:
-    """Detect the use case category from a brief description."""
     lower = brief.lower()
     keywords = {
         "healthcare": ["healthcare", "medical", "patient", "clinic", "hospital", "doctor", "nurse", "therapy", "fertility", "dental", "pharmacy", "wellness"],
@@ -238,19 +227,12 @@ def detect_use_case(brief: str) -> str:
 
 
 def get_profile(use_case: str) -> dict:
-    """Get the audition profile for a use case."""
     return USE_CASE_PROFILES.get(use_case, DEFAULT_PROFILE)
 
 
-# ---------------------------------------------------------------------------
-# Step 2: Select candidates
-# ---------------------------------------------------------------------------
-
 def select_candidates(brief: str, num: int = 10, filters: dict | None = None) -> list[dict]:
-    """Select candidate voices using semantic search + optional filters."""
     results = asyncio.run(semantic_search(brief, top_k=num * 2, filters=filters))
 
-    # Load full voice data for the top results
     all_voices = {v["id"]: v for v in load_all_voices()}
     candidates = []
     for r in results:
@@ -263,10 +245,6 @@ def select_candidates(brief: str, num: int = 10, filters: dict | None = None) ->
 
     return candidates
 
-
-# ---------------------------------------------------------------------------
-# Step 3: Generate audio + judge
-# ---------------------------------------------------------------------------
 
 JUDGE_PROMPT_TEMPLATE = """You are a professional voice casting director judging a voice for the following role:
 
@@ -293,7 +271,6 @@ Respond ONLY with JSON:
 
 
 def build_judge_prompt(brief: str, use_case: str, script: dict, profile: dict) -> str:
-    """Build a use-case-specific judge prompt."""
     criteria_text = "\n".join(
         f"- {name}: {label} (0=terrible, 5=adequate, 10=perfect)"
         for name, label in profile["criteria_labels"].items()
@@ -308,7 +285,6 @@ def build_judge_prompt(brief: str, use_case: str, script: dict, profile: dict) -
 
 
 def generate_audio(voice: dict, text: str, out_path: Path, client: httpx.Client) -> bool:
-    """Generate audio for a voice reading text. Returns True on success."""
     provider = voice.get("provider")
     voice_id = voice.get("provider_voice_id", "")
 
@@ -345,7 +321,6 @@ def generate_audio(voice: dict, text: str, out_path: Path, client: httpx.Client)
             if not api_key:
                 return False
             model = voice.get("provider_model", "mist")
-            # voice_id might be "mist:bayou" — extract just the name
             name = voice_id.split(":")[-1] if ":" in voice_id else voice_id
             resp = client.post(
                 "https://users.rime.ai/v1/rime-tts",
@@ -365,7 +340,6 @@ def generate_audio(voice: dict, text: str, out_path: Path, client: httpx.Client)
 
 
 def judge_voice(audio_path: Path, prompt: str) -> dict | None:
-    """Judge a voice sample using Qwen2-Audio. Returns scores dict."""
     try:
         from voice_audition.enrich.classify import _load_model
     except ImportError:
@@ -387,12 +361,7 @@ def judge_voice(audio_path: Path, prompt: str) -> dict | None:
         return None
 
 
-# ---------------------------------------------------------------------------
-# Step 4: Scorecard
-# ---------------------------------------------------------------------------
-
 def format_scorecard(brief: str, use_case: str, profile: dict, results: list[dict], out_dir: Path | None = None) -> str:
-    """Format the audition results as a readable scorecard."""
     lines = []
     lines.append(f"AUDITION: {brief}")
     lines.append(f"Use case: {use_case}")
@@ -438,10 +407,6 @@ def format_scorecard(brief: str, use_case: str, profile: dict, results: list[dic
     return "\n".join(lines)
 
 
-# ---------------------------------------------------------------------------
-# Main entry point
-# ---------------------------------------------------------------------------
-
 def run_audition(
     brief: str,
     num_candidates: int = 8,
@@ -449,8 +414,7 @@ def run_audition(
     gender: str | None = None,
     provider: str | None = None,
 ):
-    """Run a full voice audition."""
-    # Step 1: Analyze brief
+    # Analyze brief
     use_case = detect_use_case(brief)
     profile = get_profile(use_case)
     print(f"[audition] Use case detected: {use_case}")
@@ -458,7 +422,6 @@ def run_audition(
     print(f"[audition] Test scripts: {len(profile['scripts'])}")
     print()
 
-    # Step 2: Select candidates
     filters = {}
     if gender:
         filters["gender"] = gender
@@ -472,7 +435,6 @@ def run_audition(
         print(f"  {c.get('name', '?')} ({c.get('provider')}) [{c.get('gender', '?')}] score={c.get('search_score', 0):.3f}")
     print()
 
-    # Step 3: Audition
     out_dir = Path(output_dir) if output_dir else Path(tempfile.mkdtemp(prefix="audition_"))
     out_dir.mkdir(parents=True, exist_ok=True)
     audio_dir = out_dir / "audio"
@@ -498,7 +460,6 @@ def run_audition(
                 sname = script["name"]
                 audio_path = audio_dir / f"{cid.replace(':', '_')}_{sname}.wav"
 
-                # Generate audio
                 ok = generate_audio(candidate, script["text"], audio_path, client)
                 if not ok:
                     print(f"  [skip] No API key for {candidate.get('provider')}")
@@ -507,7 +468,6 @@ def run_audition(
                 has_audio = True
                 print(f"  [scene] {sname}: generated")
 
-                # Judge
                 prompt = build_judge_prompt(brief, use_case, script, profile)
                 judgment = judge_voice(audio_path, prompt)
 
@@ -529,7 +489,6 @@ def run_audition(
             if not has_audio:
                 continue
 
-            # Compute averages per criterion
             criteria_averages = {}
             for c in profile["criteria"]:
                 vals = all_scores.get(c, [])
@@ -548,11 +507,9 @@ def run_audition(
                 "concerns": concerns,
             })
 
-    # Step 4: Scorecard
     if not results:
         print("\n[audition] No candidates could be auditioned (missing API keys).")
         print("[audition] Add provider API keys to .env and try again.")
-        # Still save the brief + candidates for reference
         (out_dir / "brief.json").write_text(json.dumps({
             "brief": brief,
             "use_case": use_case,

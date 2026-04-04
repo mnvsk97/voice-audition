@@ -1,10 +1,3 @@
-"""
-Provider status monitoring and reliability scoring.
-
-Scrapes Statuspage.io-compatible status pages and computes
-composite reliability scores for each TTS provider.
-"""
-
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -33,7 +26,6 @@ _TIMEOUT = 15
 
 
 def fetch_status(provider: str) -> dict | None:
-    """Fetch status page summary for a provider. Returns None if no status page."""
     url = STATUS_PAGES.get(provider)
     if url is None:
         return None
@@ -46,7 +38,6 @@ def fetch_status(provider: str) -> dict | None:
 
 
 def fetch_incidents(provider: str, days: int = 90) -> list[dict]:
-    """Fetch recent incidents for a provider."""
     url = INCIDENT_URLS.get(provider)
     if url is None:
         return []
@@ -89,7 +80,6 @@ def fetch_incidents(provider: str, days: int = 90) -> list[dict]:
 
 
 def compute_reliability(provider: str) -> dict:
-    """Compute composite reliability score for a provider."""
     now = datetime.now(timezone.utc).isoformat()
 
     if STATUS_PAGES.get(provider) is None:
@@ -104,7 +94,6 @@ def compute_reliability(provider: str) -> dict:
     summary = fetch_status(provider)
     incidents = fetch_incidents(provider, days=90)
 
-    # Determine current status
     if summary:
         indicator = summary.get("status", {}).get("indicator", "none")
         page_url = summary.get("page", {}).get("url")
@@ -115,13 +104,10 @@ def compute_reliability(provider: str) -> dict:
     status_map = {"none": "operational", "minor": "degraded", "major": "outage", "critical": "outage"}
     status_label = status_map.get(indicator, "unknown")
 
-    # --- Scoring ---
-
-    # 1. Current status (40%)
+    # Scoring: current status (40%), incident count (30%), severity (20%), MTTR (10%)
     status_points = {"none": 40, "minor": 25, "major": 10, "critical": 0}
     s_current = status_points.get(indicator, 0)
 
-    # 2. Incident count in 90d (30%)
     n = len(incidents)
     if n == 0:
         s_count = 30
@@ -134,7 +120,6 @@ def compute_reliability(provider: str) -> dict:
     else:
         s_count = 6
 
-    # 3. Avg incident severity (20%)
     if n == 0:
         s_severity = 20
     else:
@@ -146,7 +131,6 @@ def compute_reliability(provider: str) -> dict:
         else:
             s_severity = 12
 
-    # 4. Avg MTTR (10%)
     durations = [inc["duration_min"] for inc in incidents if inc["duration_min"] is not None]
     if not durations:
         s_mttr = 10  # no resolved incidents = assume good
@@ -173,7 +157,6 @@ def compute_reliability(provider: str) -> dict:
 
 
 def run_monitor():
-    """Run monitoring for all providers, update providers.json."""
     if not PROVIDERS_FILE.exists():
         print(f"providers.json not found at {PROVIDERS_FILE}")
         return

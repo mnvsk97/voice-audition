@@ -1,5 +1,3 @@
-"""CLI entrypoint for voice-audition."""
-
 import click
 
 
@@ -13,7 +11,7 @@ def main():
 @click.argument("providers", nargs=-1)
 def sync(providers):
     """Sync voices from TTS providers."""
-    from voice_audition.sync import run_sync
+    from voice_audition.sync.providers import run_sync
     run_sync(list(providers) or None)
 
 
@@ -22,20 +20,19 @@ def sync(providers):
 @click.option("--model", default="qwen2-audio", help="Classification model")
 def enrich(providers, model):
     """Enrich unenriched voices with descriptions and traits."""
-    from voice_audition.enrich import run_enrich
+    from voice_audition.enrich.pipeline import run_enrich
     run_enrich(list(providers) or None, model=model)
 
 
 @main.command()
 def monitor():
     """Check provider reliability via status pages."""
-    from voice_audition.monitor import run_monitor
+    from voice_audition.monitor.status import run_monitor
     run_monitor()
 
 
 @main.command()
-@click.argument("query", required=False)
-def stats(query):
+def stats():
     """Show catalog statistics."""
     from voice_audition.search import show_stats
     show_stats()

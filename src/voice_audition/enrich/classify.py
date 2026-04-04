@@ -1,9 +1,3 @@
-"""Voice classifier using Qwen2-Audio via MLX.
-
-Listens to an audio sample and returns structured voice metadata:
-gender, age, accent, description, traits, tags, use cases.
-"""
-
 from __future__ import annotations
 
 import json
@@ -14,7 +8,6 @@ CLASSIFY_PROMPT = """Listen to this voice. Respond with JSON only, no other text
 
 {"gender": "male/female/neutral", "age_group": "young/middle/mature", "accent": "american/british/etc", "description": "2 sentences about how this voice sounds and its personality", "texture": "smooth/warm/crisp/gravelly/breathy/raspy/rich/thin", "pitch": "low/medium-low/medium/medium-high/high", "warmth": 0.0-1.0, "energy": 0.0-1.0, "clarity": 0.0-1.0, "authority": 0.0-1.0, "friendliness": 0.0-1.0, "confidence": 0.0-1.0, "personality_tags": ["3-5 words"], "style_tags": ["3-5 words"], "use_cases": ["2-4 use cases like healthcare, sales, customer_support, education, meditation, finance"]}"""
 
-# Singleton model cache
 _model = None
 _model_name = None
 
@@ -32,7 +25,6 @@ def _load_model(model_id: str = "mlx-community/Qwen2-Audio-7B-Instruct-4bit"):
 
 
 def classify_audio(audio_path: Path, model_id: str = "mlx-community/Qwen2-Audio-7B-Instruct-4bit") -> dict | None:
-    """Run Qwen2-Audio on an audio file and return structured voice metadata."""
     model = _load_model(model_id)
     result = model.generate(
         str(audio_path),
@@ -45,15 +37,12 @@ def classify_audio(audio_path: Path, model_id: str = "mlx-community/Qwen2-Audio-
 
 
 def parse_response(raw: str) -> dict | None:
-    """Parse the model's raw text response into structured voice metadata."""
     # Fix escaped quotes from some models
     if '\\"' in raw and '{"' not in raw:
         raw = raw.replace('\\"', '"')
 
-    # Try to extract JSON from the response
     json_match = re.search(r'\{[^{}]*\}', raw, re.DOTALL)
     if not json_match:
-        # Try harder — maybe there are nested braces
         depth = 0
         start = None
         for i, c in enumerate(raw):
@@ -83,7 +72,6 @@ def parse_response(raw: str) -> dict | None:
 
 
 def _normalize(data: dict) -> dict:
-    """Normalize parsed JSON into the enrichment format."""
     def clamp(v):
         if v is None:
             return None
@@ -141,7 +129,6 @@ def _to_list(val) -> list[str]:
 
 
 def _parse_freetext(raw: str) -> dict | None:
-    """Fallback: extract what we can from free-text response."""
     if not raw or len(raw) < 10:
         return None
 
