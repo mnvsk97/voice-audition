@@ -91,7 +91,7 @@
         "status": "operational",
         "incidents_90d": 25,
         "status_page_url": "https://status.elevenlabs.io/",
-        "last_checked": "2026-04-03T23:02:15.829446+00:00"
+        "last_checked": "2026-04-04T00:42:29.287288+00:00"
       }
     },
     "cartesia": {
@@ -179,7 +179,7 @@
         "status": "unknown",
         "incidents_90d": null,
         "status_page_url": null,
-        "last_checked": "2026-04-03T23:02:17.929760+00:00"
+        "last_checked": "2026-04-04T00:42:30.600152+00:00"
       }
     },
     "deepgram": {
@@ -265,7 +265,7 @@
         "status": "operational",
         "incidents_90d": 14,
         "status_page_url": "https://status.deepgram.com",
-        "last_checked": "2026-04-03T23:02:17.269166+00:00"
+        "last_checked": "2026-04-04T00:42:30.223636+00:00"
       }
     },
     "openai": {
@@ -356,7 +356,7 @@
         "status": "operational",
         "incidents_90d": 25,
         "status_page_url": "https://status.openai.com/",
-        "last_checked": "2026-04-03T23:02:16.622167+00:00"
+        "last_checked": "2026-04-04T00:42:29.847504+00:00"
       }
     },
     "playht": {
@@ -439,7 +439,7 @@
         "status": "unknown",
         "incidents_90d": null,
         "status_page_url": null,
-        "last_checked": "2026-04-03T23:02:17.929792+00:00"
+        "last_checked": "2026-04-04T00:42:30.600168+00:00"
       }
     },
     "rime": {
@@ -524,7 +524,7 @@
         "status": "unknown",
         "incidents_90d": null,
         "status_page_url": null,
-        "last_checked": "2026-04-03T23:02:17.929787+00:00"
+        "last_checked": "2026-04-04T00:42:30.600164+00:00"
       }
     }
   }
