@@ -164,14 +164,6 @@ voice-audition enrich rime --model qwen2-audio
 
 Open source voices (Kokoro, Piper, Orpheus) run locally with no API costs. The catalog tracks GPU requirements and inference speed for each. Use `voice-audition costs <minutes>` to see when self-hosting beats API pricing for your volume.
 
-## Research
-
-See the `research/` directory. Key findings:
-
-- Voice perception collapses to 2 axes: warmth vs authority (McAleer et al.)
-- Speech rate is the #1 trust predictor, not pitch
-- Emotional voices: +50% CSAT but -20% accuracy (Deepgram)
-
 ## Development
 
 ```bash
