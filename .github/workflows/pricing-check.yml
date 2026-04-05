@@ -29,7 +29,7 @@ jobs:
 
             # Fetch page, strip HTML tags, extract plan-level dollar amounts ($X-$XXX range)
             # Filter to plan prices only: $1-$9999 (skip sub-cent per-char rates)
-            prices=$(curl -sL --max-time 15 "$url" 2>/dev/null \
+            prices=$(curl -sL --max-time 15 -A "Mozilla/5.0" "$url" 2>/dev/null \
               | sed 's/<[^>]*>//g' \
               | grep -oE '\$[0-9]{1,4}(\.[0-9]{1,2})?' \
               | grep -v '^\$0\.' \
@@ -37,15 +37,25 @@ jobs:
               | tr '\n' ' ' \
               | sed 's/ $//')
 
-            if [ -z "$prices" ]; then
-              echo "[$provider] Could not fetch or no prices found (page may need JS)"
+            new_count=$(echo "$prices" | wc -w | tr -d ' ')
+
+            if [ "$new_count" -lt 2 ]; then
+              echo "[$provider] Skipped: got $new_count prices (page likely JS-rendered)"
               return
             fi
 
             if [ -f "$snapshot" ]; then
               old=$(cat "$snapshot")
+              old_count=$(echo "$old" | wc -w | tr -d ' ')
+
+              # If new fetch has less than half the prices, treat as bad fetch
+              if [ "$old_count" -gt 3 ] && [ "$new_count" -lt $((old_count / 2)) ]; then
+                echo "[$provider] Skipped: got $new_count prices vs $old_count before (bad fetch)"
+                return
+              fi
+
               if [ "$old" != "$prices" ]; then
-                echo "[$provider] CHANGED"
+                echo "[$provider] CHANGED ($old_count -> $new_count prices)"
                 echo "  Was: $old"
                 echo "  Now: $prices"
                 changed="${changed}### ${provider}\nWas: ${old}\nNow: ${prices}\n\n"
@@ -53,10 +63,11 @@ jobs:
                 echo "[$provider] No change"
               fi
             else
-              echo "[$provider] First snapshot: $prices"
+              echo "[$provider] First snapshot ($new_count prices): $prices"
               changed="${changed}### ${provider}\nFirst snapshot: ${prices}\n\n"
             fi
 
+            # Only update snapshot on good fetches
             echo "$prices" > "$snapshot"
           }
 
