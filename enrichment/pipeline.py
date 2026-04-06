@@ -21,7 +21,8 @@ def _log(msg: str):
 
 SAMPLE_TEXT = (
     "Hi there, welcome back. I wanted to check in and see how you're doing today. "
-    "Let me know if there's anything I can help with."
+    "Your account has been upgraded with priority support and faster response times. "
+    "If you have any questions, don't hesitate to reach out. I'm here to help."
 )
 
 MAX_ATTEMPTS = 3
@@ -34,9 +35,9 @@ BASE_DELAY = 1.0  # seconds, doubles each retry
 
 RIME_LANG_SAMPLES = {
     "eng": SAMPLE_TEXT,
-    "spa": "Hola, bienvenido de nuevo. Quería saber cómo estás hoy. Dime si hay algo en lo que pueda ayudarte.",
-    "fra": "Bonjour, bon retour. Je voulais prendre de vos nouvelles. Dites-moi si je peux vous aider.",
-    "ger": "Hallo, willkommen zurück. Ich wollte nachfragen, wie es Ihnen heute geht. Lassen Sie mich wissen, ob ich helfen kann.",
+    "spa": "Hola, bienvenido de nuevo. Tu cuenta ha sido actualizada con soporte prioritario. Si tienes preguntas, no dudes en contactarnos.",
+    "fra": "Bonjour, bon retour. Votre compte a été mis à niveau avec un support prioritaire. N'hésitez pas à nous contacter si vous avez des questions.",
+    "ger": "Hallo, willkommen zurück. Ihr Konto wurde mit priorisiertem Support aktualisiert. Zögern Sie nicht, uns bei Fragen zu kontaktieren.",
 }
 
 
@@ -293,7 +294,7 @@ def save_catalog(provider: str, voices: list[dict]) -> None:
 # Main pipeline
 # ---------------------------------------------------------------------------
 
-def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False):
+def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False) -> dict:
     from enrichment.config import load_config, get_provider_config, validate_credentials
     from enrichment.classify import enrich_voice
 
@@ -312,13 +313,14 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False):
 
     if not targets:
         print("[enrich] No catalog files found. Run sync first.")
-        return
+        return {"enriched": 0, "failed": 0, "pending": 0, "completed": 0}
 
     model_name = provider_config.get("model") or provider_config.get("model_id", enrich_provider)
     total = 0
     enriched = 0
     skipped = 0
     failed = 0
+    enriched_ids: set[str] = set()
 
     with tempfile.TemporaryDirectory(prefix="voice_enrich_") as tmp:
         out_dir = Path(tmp)
@@ -417,6 +419,7 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False):
 
                 voices[idx] = merge_enrichment(voice, result)
                 enriched += 1
+                enriched_ids.add(voice.get("id", ""))
                 dirty = True
 
                 # Save progress every 25 voices
@@ -436,9 +439,11 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False):
     _log(f"[enrich] Overall: {completed} completed, {failed_total} failed, {pending_total} pending")
 
     if enriched > 0:
-        print("[enrich] Rebuilding search index...")
+        print("[enrich] Updating search index...")
         try:
             from audition.index import run_index
-            run_index()
+            run_index(changed_ids=enriched_ids)
         except Exception as e:
-            _log(f"[enrich] Index rebuild failed: {e}")
+            _log(f"[enrich] Index update failed: {e}")
+
+    return {"enriched": enriched, "failed": failed, "pending": pending_total, "completed": completed}

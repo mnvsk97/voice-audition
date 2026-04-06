@@ -1,7 +1,7 @@
 import asyncio
 import os
 
-from moss import DocumentInfo, MossClient, QueryOptions
+from moss import DocumentInfo, MossClient, MutationOptions, QueryOptions
 
 from audition.search import load_all_voices
 
@@ -136,7 +136,7 @@ def voice_to_document(voice: dict) -> DocumentInfo:
     return DocumentInfo(id=voice_id, text=text, metadata=metadata)
 
 
-async def build_index(force: bool = False) -> None:
+async def build_index(force: bool = False, changed_ids: set[str] | None = None) -> None:
     project_id = os.environ.get("MOSS_PROJECT_ID")
     project_key = os.environ.get("MOSS_PROJECT_KEY")
     if not project_id or not project_key:
@@ -156,13 +156,30 @@ async def build_index(force: bool = False) -> None:
             seen.add(doc.id)
             documents.append(doc)
 
-    print(f"[index] Indexing {len(documents)} voices...")
     client = MossClient(project_id, project_key)
-    try:
-        await client.delete_index("voice-audition")
-    except Exception:
-        pass
-    await client.create_index("voice-audition", documents, "moss-minilm")
+
+    # Incremental upsert when we know which voices changed and index exists
+    if changed_ids and not force:
+        try:
+            await client.get_index("voice-audition")
+        except Exception:
+            changed_ids = None  # index doesn't exist, fall through to full rebuild
+
+    if changed_ids and not force:
+        diff_docs = [d for d in documents if d.id in changed_ids]
+        if not diff_docs:
+            print("[index] No changed documents to upsert.")
+            return
+        print(f"[index] Upserting {len(diff_docs)} changed voices (of {len(documents)} total)...")
+        await client.add_docs("voice-audition", diff_docs, MutationOptions(upsert=True))
+    else:
+        print(f"[index] Full rebuild: {len(documents)} voices...")
+        try:
+            await client.delete_index("voice-audition")
+        except Exception:
+            pass
+        await client.create_index("voice-audition", documents, "moss-minilm")
+
     print(f"[index] Done.")
 
 
@@ -183,8 +200,8 @@ async def semantic_search(query: str, top_k: int = 5, filters: dict | None = Non
     return [{"id": d.id, "text": d.text, "score": d.score, "metadata": d.metadata} for d in result.docs]
 
 
-def run_index(force: bool = False):
-    asyncio.run(build_index(force=force))
+def run_index(force: bool = False, changed_ids: set[str] | None = None):
+    asyncio.run(build_index(force=force, changed_ids=changed_ids))
 
 
 def run_semantic_search(query: str, top_k: int = 5):

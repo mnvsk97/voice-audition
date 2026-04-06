@@ -76,7 +76,7 @@
       },
       "voice_listing_api": {
         "endpoint": "GET https://api.elevenlabs.io/v1/shared-voices",
-        "auth_required": false,
+        "auth_header": "xi-api-key: <ELEVENLABS_API_KEY>",
         "pagination": "cursor (last_sort_id)",
         "filters": [
           "gender",
@@ -86,7 +86,15 @@
           "use_case"
         ],
         "preview_urls": true,
-        "metadata_richness": "excellent"
+        "metadata_richness": "excellent",
+        "notes": "Returns gender, age, accent, language, use_case, descriptive tags, preview_url per voice"
+      },
+      "tts_api": {
+        "endpoint": "POST https://api.elevenlabs.io/v1/text-to-speech/{voice_id}",
+        "auth_header": "xi-api-key: <ELEVENLABS_API_KEY>",
+        "body": {"text": "<text>", "model_id": "eleven_turbo_v2_5"},
+        "response": "audio/mpeg stream",
+        "notes": "Returns raw audio bytes. Supports streaming via /stream suffix."
       },
       "last_synced": null,
       "reliability": {
@@ -170,14 +178,22 @@
       },
       "voice_listing_api": {
         "endpoint": "GET https://api.cartesia.ai/voices",
-        "auth_required": true,
+        "auth_header": "X-API-Key: <CARTESIA_API_KEY>",
         "pagination": "cursor",
         "filters": [
           "gender",
           "language"
         ],
         "preview_urls": true,
-        "metadata_richness": "minimal"
+        "metadata_richness": "minimal",
+        "notes": "Returns id, name, description, language per voice"
+      },
+      "tts_api": {
+        "endpoint": "POST https://api.cartesia.ai/tts/bytes",
+        "auth_header": "X-API-Key: <CARTESIA_API_KEY>",
+        "body": {"model_id": "sonic-2", "transcript": "<text>", "voice": {"mode": "id", "id": "<voice_id>"}, "output_format": {"container": "wav", "sample_rate": 44100, "encoding": "pcm_f32le"}},
+        "response": "audio bytes",
+        "notes": "Also supports /tts/sse for streaming. Requires Cartesia-Version header."
       },
       "last_synced": null,
       "reliability": {
@@ -262,12 +278,20 @@
         }
       },
       "voice_listing_api": {
-        "endpoint": null,
-        "auth_required": null,
-        "pagination": null,
+        "endpoint": "GET https://api.deepgram.com/v1/models",
+        "auth_header": "Authorization: Token <DEEPGRAM_API_KEY>",
+        "pagination": "none (full list in tts array)",
         "filters": null,
-        "preview_urls": false,
-        "metadata_richness": "none (hardcoded registry)"
+        "preview_urls": true,
+        "metadata_richness": "good",
+        "notes": "Returns tts[] with canonical_name, name, languages[], metadata (accent, tags, sample URL, image)"
+      },
+      "tts_api": {
+        "endpoint": "POST https://api.deepgram.com/v1/speak?model={voice_id}",
+        "auth_header": "Authorization: Token <DEEPGRAM_API_KEY>",
+        "body": "raw text (Content-Type: text/plain)",
+        "response": "audio/mpeg stream",
+        "notes": "Send plain text as request body. Supports encoding, container, sample_rate query params."
       },
       "last_synced": null,
       "reliability": {
@@ -356,11 +380,19 @@
       },
       "voice_listing_api": {
         "endpoint": null,
-        "auth_required": null,
+        "auth_header": null,
         "pagination": null,
         "filters": null,
         "preview_urls": false,
-        "metadata_richness": "none (hardcoded in SDK)"
+        "metadata_richness": "none (hardcoded, 13 voices)",
+        "notes": "No voice listing API. Voices are static: alloy, ash, ballad, cedar, coral, echo, fable, marin, nova, onyx, sage, shimmer, verse"
+      },
+      "tts_api": {
+        "endpoint": "POST https://api.openai.com/v1/audio/speech",
+        "auth_header": "Authorization: Bearer <OPENAI_API_KEY>",
+        "body": {"model": "gpt-4o-mini-tts", "voice": "<voice_id>", "input": "<text>"},
+        "response": "audio bytes (mp3 default)",
+        "notes": "Supports instructions param for dynamic voice control. response_format: mp3/opus/aac/flac/wav/pcm"
       },
       "last_synced": null,
       "reliability": {
@@ -440,11 +472,19 @@
       },
       "voice_listing_api": {
         "endpoint": "GET https://api.play.ht/api/v2/voices",
-        "auth_required": true,
+        "auth_header": "Authorization: Bearer <PLAYHT_API_KEY>, X-User-ID: <PLAYHT_USER_ID>",
         "pagination": "none (full list)",
         "filters": "client-side only",
         "preview_urls": true,
-        "metadata_richness": "good"
+        "metadata_richness": "good",
+        "notes": "Returns id, name, gender, age, accent, language_code, texture, style, tempo, loudness, sample URL"
+      },
+      "tts_api": {
+        "endpoint": "POST https://api.play.ht/api/v2/tts/stream",
+        "auth_header": "Authorization: Bearer <PLAYHT_API_KEY>, X-User-ID: <PLAYHT_USER_ID>",
+        "body": {"text": "<text>", "voice": "<voice_id>", "output_format": "mp3"},
+        "response": "audio stream",
+        "notes": "Supports voice_engine param. Also /tts for non-streaming."
       },
       "last_synced": null,
       "reliability": {
@@ -533,11 +573,19 @@
       },
       "voice_listing_api": {
         "endpoint": "GET https://users.rime.ai/data/voices/all-v2.json",
-        "auth_required": false,
+        "auth_header": null,
         "pagination": "none (static JSON)",
         "filters": null,
         "preview_urls": false,
-        "metadata_richness": "none (names only)"
+        "metadata_richness": "none (names only, grouped by model_family/language)",
+        "notes": "Public JSON. Structure: {model_family: {lang_code: [name, ...]}}"
+      },
+      "tts_api": {
+        "endpoint": "POST https://users.rime.ai/v1/rime-tts",
+        "auth_header": "Authorization: Bearer <RIME_API_KEY>",
+        "body": {"text": "<text>", "speaker": "<voice_name>", "modelId": "<model_family>"},
+        "response": "varies by model",
+        "notes": "Mist/MistV2: JSON with base64 audioContent. Arcana/MistV3: raw audio with Accept: audio/wav header. Add lang param for non-English."
       },
       "last_synced": null,
       "reliability": {

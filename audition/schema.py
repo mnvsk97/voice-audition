@@ -1,11 +1,32 @@
 from datetime import datetime, timezone
 
-SCHEMA_VERSION = "1.0"
+SCHEMA_VERSION = "1.1"
 
-TRAIT_DEFAULTS = {
-    "warmth": None, "energy": None, "clarity": None,
-    "authority": None, "friendliness": None, "confidence": None,
+GENDERS = {"male", "female", "neutral", "unknown"}
+AGE_GROUPS = {"young", "middle", "mature", "unknown"}
+TEXTURES = {"smooth", "warm", "crisp", "gravelly", "breathy", "raspy", "rich", "thin"}
+PITCHES = {"low", "medium-low", "medium", "medium-high", "high"}
+TRAITS = {"warmth", "energy", "clarity", "authority", "friendliness", "confidence"}
+
+USE_CASES = {
+    "healthcare", "customer_support", "sales", "education", "finance",
+    "meditation", "audiobook", "assistant", "voicemail", "entertainment",
+    "advertisement", "podcast", "navigation", "gaming", "ivr", "storytelling",
 }
+
+PERSONALITY_TAGS = {
+    "reassuring", "direct", "playful", "wise", "gentle", "confident",
+    "warm", "calm", "energetic", "professional", "friendly", "authoritative",
+    "sincere", "empathetic", "cheerful", "serious", "patient", "composed",
+}
+
+STYLE_TAGS = {
+    "conversational", "formal", "animated", "soothing", "crisp", "measured",
+    "expressive", "monotone", "casual", "dramatic", "deliberate", "upbeat",
+    "relaxed", "articulate",
+}
+
+TRAIT_DEFAULTS = {t: None for t in TRAITS}
 
 
 def make_voice(
@@ -35,17 +56,17 @@ def make_voice(
         "name": name,
         "provider_model": provider_model,
         "description": description,
-        "gender": gender,
-        "age_group": age_group,
+        "gender": gender if gender in GENDERS else "unknown",
+        "age_group": age_group if age_group in AGE_GROUPS else "unknown",
         "accent": accent,
         "language": language,
         "additional_languages": additional_languages or [],
         "traits": {**TRAIT_DEFAULTS, **(traits or {})},
-        "texture": texture,
-        "pitch": pitch,
-        "use_cases": use_cases or [],
-        "personality_tags": personality_tags or [],
-        "style_tags": style_tags or [],
+        "texture": texture if texture in TEXTURES else None,
+        "pitch": pitch if pitch in PITCHES else None,
+        "use_cases": [u for u in (use_cases or []) if u in USE_CASES],
+        "personality_tags": [p for p in (personality_tags or []) if p in PERSONALITY_TAGS],
+        "style_tags": [s for s in (style_tags or []) if s in STYLE_TAGS],
         "latency_tier": latency_tier,
         "cost_per_min_usd": cost_per_min_usd,
         "preview_url": preview_url,

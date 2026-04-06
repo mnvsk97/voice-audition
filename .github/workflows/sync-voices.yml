@@ -1,12 +1,12 @@
-name: Sync Voice Catalog
+name: Voice Pipeline
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 */12 * * *'
   workflow_dispatch:
 
 jobs:
-  sync:
+  pipeline:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -21,16 +21,21 @@ jobs:
       - name: Install
         run: pip install -e .
 
-      - name: Sync
-        run: voice-audition sync
+      - name: Pipeline (sync + enrich + index)
+        run: voice-audition pipeline
         env:
+          # TTS provider keys (for sync + audio sample generation)
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           CARTESIA_API_KEY: ${{ secrets.CARTESIA_API_KEY }}
           DEEPGRAM_API_KEY: ${{ secrets.DEEPGRAM_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           PLAYHT_API_KEY: ${{ secrets.PLAYHT_API_KEY }}
           RIME_API_KEY: ${{ secrets.RIME_API_KEY }}
-        continue-on-error: true
+          # Enrichment LLM
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # Moss search index
+          MOSS_PROJECT_ID: ${{ secrets.MOSS_PROJECT_ID }}
+          MOSS_PROJECT_KEY: ${{ secrets.MOSS_PROJECT_KEY }}
 
       - name: Monitor
         run: voice-audition monitor
@@ -42,5 +47,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add catalog/
-          git commit -m "Sync voice catalog $(date +%Y-%m-%d)"
+          git commit -m "Pipeline run $(date +%Y-%m-%d)"
           git push

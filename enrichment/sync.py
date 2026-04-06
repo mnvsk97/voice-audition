@@ -54,6 +54,7 @@ def map_age(a: str | None) -> str:
 _ENRICHMENT_KEYS = (
     "description", "gender", "age_group", "accent", "traits", "texture", "pitch",
     "personality_tags", "style_tags", "use_cases", "enrichment", "metadata_source",
+    "enrichment_status", "enrichment_attempts",
 )
 _ENRICHED_SOURCES = ("enriched_local", "enriched_cloud", "manual", "hybrid")
 _PROVIDER_FIELDS = ("name", "provider_model", "preview_url", "provider_page_url", "provider_metadata")
@@ -285,9 +286,9 @@ PROVIDERS = {
 }
 
 
-def run_sync(providers: list[str] | None = None):
+def run_sync(providers: list[str] | None = None) -> dict:
     targets = providers or list(PROVIDERS.keys())
-    failed = False
+    synced, errors = [], []
     for name in targets:
         fn = PROVIDERS.get(name)
         if not fn:
@@ -297,12 +298,14 @@ def run_sync(providers: list[str] | None = None):
             print(f"\nSyncing {name}...")
             new_voices = fn()
             if new_voices:
-                apply_sync(name, new_voices)
+                result = apply_sync(name, new_voices)
+                synced.append({"provider": name, "added": len(result["added"]),
+                               "removed": len(result["removed"]), "updated": len(result["updated"]),
+                               "total": len(result["added"]) + len(result["updated"]) + len(result["unchanged"]) + len(result["removed"])})
             else:
                 print(f"[{name}] No voices returned")
         except Exception as e:
             print(f"[{name}] FAILED: {e}")
             traceback.print_exc()
-            failed = True
-    if failed:
-        sys.exit(1)
+            errors.append({"provider": name, "error": str(e)})
+    return {"synced": synced, "errors": errors}
