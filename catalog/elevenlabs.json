@@ -4,23 +4,28 @@
     "provider": "elevenlabs",
     "provider_voice_id": "CwhRBWXzGAHq8TQ4Fs17",
     "name": "Roger",
-    "description": "The voice has a youthful and energetic tone, often associated with someone who is enthusiastic and eager to learn.",
+    "description": "The voice has a warm and breathy texture. It is distinctive for its pitch which is medium and has a slightly raspy quality. This voice is often used in customer support roles due to its clear and soothing tone.",
     "gender": "male",
     "age": "middle",
-    "accent": "american",
+    "accent": "english",
     "language": "en",
     "languages": [
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.5,
+      "energy": 0.5,
+      "clarity": 0.8,
+      "authority": 0.3,
+      "friendliness": 0.7,
+      "confidence": 0.6
     },
     "use_cases": [
-      "conversational"
+      "conversational",
+      "customer_support",
+      "voicemail",
+      "助理",
+      "教育"
     ],
     "personality": [],
     "tags": [
@@ -33,22 +38,35 @@
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
     "last_synced": "2026-04-03T06:56:06.080595+00:00",
-    "age_group": "young",
-    "enrichment": {
-      "model": "qwen2-audio-7b-4bit",
-      "confidence": 0.7,
-      "sample_text": "preview_audio",
-      "timestamp": "2026-04-04T08:29:29.165525+00:00"
-    },
     "metadata_source": "enriched_local",
-    "last_verified": "2026-04-04T08:29:29.165810+00:00"
+    "age_group": "middle",
+    "pitch": "medium",
+    "personality_tags": [
+      "calm",
+      "clear",
+      "reassuring"
+    ],
+    "style_tags": [
+      "conversational",
+      "customer_support"
+    ],
+    "enrichment": {
+      "model": "qwen2-audio",
+      "confidence": 0.7,
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T17:32:19.547301+00:00"
+    },
+    "last_verified": "2026-04-05T17:32:19.547622+00:00",
+    "enrichment_status": "completed",
+    "enrichment_attempts": 1
   },
   {
     "id": "elevenlabs:EXAVITQu4vr4xnSDxMaL",
     "provider": "elevenlabs",
     "provider_voice_id": "EXAVITQu4vr4xnSDxMaL",
     "name": "Sarah",
-    "description": "The voice has a youthful and energetic tone with an American accent.",
+    "description": "The voice has a warm and breathy texture. It is distinctive for its pitch, which is medium and has a slight high pitched tremble. This tremble gives the voice a playful and youthful quality.",
     "gender": "female",
     "age": "young",
     "accent": "american",
@@ -58,18 +76,20 @@
     ],
     "traits": {
       "warmth": 0.8,
-      "energy": 0.8,
-      "clarity": 0.8,
-      "authority": 0.6,
-      "friendliness": 0.8,
-      "confidence": 0.6
+      "energy": 0.5,
+      "clarity": 0.7,
+      "authority": 0.3,
+      "friendliness": 0.6,
+      "confidence": 0.4
     },
     "use_cases": [
       "customer support",
       "education",
       "entertainment_tv",
       "meditation",
-      "sales"
+      "playful interactions",
+      "sales",
+      "youth-oriented marketing campaigns"
     ],
     "personality": [],
     "tags": [
@@ -82,31 +102,34 @@
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
     "last_synced": "2026-04-03T06:56:06.080615+00:00",
-    "age_group": "young",
-    "texture": "smooth",
-    "pitch": "medium",
+    "metadata_source": "enriched_local",
+    "age_group": "middle",
+    "texture": "breathy",
     "personality_tags": [
-      "energetic",
+      "playful",
       "youthful"
     ],
     "style_tags": [
-      "american accent"
+      "conversational",
+      "youthful"
     ],
     "enrichment": {
-      "model": "qwen2-audio-7b-4bit",
+      "model": "qwen2-audio",
       "confidence": 0.7,
-      "sample_text": "preview_audio",
-      "timestamp": "2026-04-04T08:29:29.165816+00:00"
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T17:32:33.369859+00:00"
     },
-    "metadata_source": "enriched_local",
-    "last_verified": "2026-04-04T08:29:29.165824+00:00"
+    "last_verified": "2026-04-05T17:32:33.369907+00:00",
+    "enrichment_status": "completed",
+    "enrichment_attempts": 1
   },
   {
     "id": "elevenlabs:FGY2WhTYpPnrIDTdsKH5",
     "provider": "elevenlabs",
     "provider_voice_id": "FGY2WhTYpPnrIDTdsKH5",
     "name": "Laura",
-    "description": "Enthusiast, Quirky Attitude. sassy",
+    "description": "The voice has a slightly nasal resonance and a deliberate pace. What sets it apart is a subtle, almost imperceptible, upward inflection at the end of phrases, giving it a questioning quality.",
     "gender": "female",
     "age": "young",
     "accent": "american",
@@ -115,13 +138,17 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.3,
+      "energy": 0.4,
+      "clarity": 0.8,
+      "authority": 0.6,
+      "friendliness": 0.5,
+      "confidence": 0.7
     },
     "use_cases": [
+      "audiobook",
+      "customer_support",
+      "education",
       "social_media"
     ],
     "personality": [],
@@ -134,33 +161,61 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/FGY2WhTYpPnrIDTdsKH5/67341759-ad08-41a5-be6e-de12fe448618.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080623+00:00"
+    "last_synced": "2026-04-03T06:56:06.080623+00:00",
+    "age_group": "middle",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "calm",
+      "direct",
+      "measured"
+    ],
+    "style_tags": [
+      "conversational",
+      "crisp",
+      "measured"
+    ],
+    "enrichment": {
+      "provider": "gemini",
+      "model": "gemini-2.0-flash",
+      "confidence": 0.7,
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T21:25:52.076949+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "enrichment_status": "completed",
+    "last_verified": "2026-04-05T21:25:52.077034+00:00"
   },
   {
     "id": "elevenlabs:IKne3meq5aSn9XLyUdCD",
     "provider": "elevenlabs",
     "provider_voice_id": "IKne3meq5aSn9XLyUdCD",
     "name": "Charlie",
-    "description": "The voice has a youthful and energetic tone, often associated with someone who is enthusiastic and full of vigor.",
+    "description": "The voice has a warm and breathy texture. It is distinctive for its pitch, which is medium and has a slight vibrato. It also has a raspy quality that adds character to the voice. This voice is suitable for conversational and formal styles of delivery, making it ideal for customer support or educational purposes.",
     "gender": "male",
     "age": "young",
-    "accent": "american",
+    "accent": "english",
     "language": "en",
     "languages": [
       "en"
     ],
     "traits": {
-      "warmth": 0.8,
-      "energy": 0.8,
-      "clarity": 0.9,
-      "authority": 0.6,
-      "friendliness": 0.7,
-      "confidence": 0.8
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null
     },
     "use_cases": [
+      "assistant",
       "conversational",
       "customer support",
+      "customer_support",
+      "education",
       "entertainment",
+      "meditation",
       "sales",
       "sports"
     ],
@@ -175,55 +230,62 @@
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
     "last_synced": "2026-04-03T06:56:06.080628+00:00",
-    "age_group": "young",
-    "texture": "smooth",
-    "pitch": "medium",
+    "metadata_source": "enriched_local",
+    "age_group": "middle",
     "personality_tags": [
-      "energetic",
-      "enthusiastic",
-      "youthful"
+      "direct",
+      "playful",
+      "reassuring"
     ],
     "style_tags": [
-      "energetic",
-      "enthusiastic",
-      "youthful"
+      "conversational",
+      "formal"
     ],
     "enrichment": {
-      "model": "qwen2-audio-7b-4bit",
+      "model": "qwen2-audio",
       "confidence": 0.7,
-      "sample_text": "preview_audio",
-      "timestamp": "2026-04-04T08:29:29.165828+00:00"
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T17:32:46.596928+00:00"
     },
-    "metadata_source": "enriched_local",
-    "last_verified": "2026-04-04T08:29:29.165832+00:00"
+    "last_verified": "2026-04-05T17:32:46.597039+00:00",
+    "enrichment_status": "completed",
+    "enrichment_attempts": 1
   },
   {
     "id": "elevenlabs:JBFqnCBsd6RMkjVDRZzb",
     "provider": "elevenlabs",
     "provider_voice_id": "JBFqnCBsd6RMkjVDRZzb",
     "name": "George",
-    "description": "The voice has a deep, rich tone that suggests experience and wisdom. It's warm and full-bodied, indicating comfort and approachability.",
+    "description": "The voice has a warm and rich texture with a medium pitch. It is distinctive for its breathy and raspy quality, which gives it a soothing and calming effect. This voice is often used in customer support and educational contexts due to its clear and authoritative tone.",
     "gender": "male",
     "age": "middle",
-    "accent": "american",
+    "accent": "english",
     "language": "en",
     "languages": [
       "en"
     ],
     "traits": {
-      "warmth": 0.8,
-      "energy": 0.8,
-      "clarity": 0.8,
-      "authority": 0.8,
-      "friendliness": 0.8,
-      "confidence": 0.8
+      "warmth": 0.5,
+      "energy": 0.5,
+      "clarity": 0.5,
+      "authority": 0.5,
+      "friendliness": 0.5,
+      "confidence": 0.5
     },
     "use_cases": [
       "customer support",
+      "customer_support",
       "healthcare",
       "meditation",
       "narrative_story",
-      "sales"
+      "sales",
+      "冥想",
+      "助理",
+      "教育",
+      "有声书",
+      "语音邮件",
+      "财务"
     ],
     "personality": [],
     "tags": [
@@ -236,32 +298,37 @@
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
     "last_synced": "2026-04-03T06:56:06.080633+00:00",
-    "age_group": "unknown",
+    "metadata_source": "enriched_local",
+    "age_group": "middle",
     "pitch": "medium",
     "personality_tags": [
-      "approachable",
-      "comforting",
-      "wise"
-    ],
-    "style_tags": [
-      "mellow",
+      "authoritative",
+      "calming",
       "reassuring"
     ],
+    "style_tags": [
+      "conversational",
+      "formal"
+    ],
     "enrichment": {
-      "model": "qwen2-audio-7b-4bit",
-      "confidence": 0.7,
-      "sample_text": "preview_audio",
-      "timestamp": "2026-04-04T08:29:29.165836+00:00"
+      "model": "qwen2-audio",
+      "confidence": 0.5,
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": [
+        "flat_traits (spread=0.00)"
+      ],
+      "timestamp": "2026-04-05T17:33:01.502244+00:00"
     },
-    "metadata_source": "enriched_local",
-    "last_verified": "2026-04-04T08:29:29.165840+00:00"
+    "last_verified": "2026-04-05T17:33:01.502367+00:00",
+    "enrichment_status": "completed",
+    "enrichment_attempts": 1
   },
   {
     "id": "elevenlabs:N2lVS1w4EtoT3dr4eOWO",
     "provider": "elevenlabs",
     "provider_voice_id": "N2lVS1w4EtoT3dr4eOWO",
     "name": "Callum",
-    "description": "Husky Trickster",
+    "description": "The voice has a smooth and warm texture with a medium pitch. It is distinctive for its breathy and raspy quality, which gives it a playful and youthful character. This voice could be used in customer support or in educational materials that aim to engage a younger audience.",
     "gender": "male",
     "age": "middle",
     "accent": "american",
@@ -270,14 +337,17 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.8,
+      "energy": 0.6,
+      "clarity": 0.7,
+      "authority": 0.3,
+      "friendliness": 0.8,
+      "confidence": 0.5
     },
     "use_cases": [
-      "characters_animation"
+      "characters_animation",
+      "customer_support",
+      "youth-centered marketing campaigns"
     ],
     "personality": [],
     "tags": [
@@ -288,33 +358,56 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/N2lVS1w4EtoT3dr4eOWO/ac833bd8-ffda-4938-9ebc-b0f99ca25481.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080637+00:00"
+    "last_synced": "2026-04-03T06:56:06.080637+00:00",
+    "age_group": "young",
+    "pitch": "medium",
+    "personality_tags": [
+      "playful",
+      "youthful"
+    ],
+    "style_tags": [
+      "conversational",
+      "youthful"
+    ],
+    "enrichment": {
+      "model": "qwen2-audio",
+      "confidence": 0.7,
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T17:33:15.826287+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "last_verified": "2026-04-05T17:33:15.826944+00:00",
+    "enrichment_status": "completed",
+    "enrichment_attempts": 1
   },
   {
     "id": "elevenlabs:SAz9YHcvj6GT2YYXdXww",
     "provider": "elevenlabs",
     "provider_voice_id": "SAz9YHcvj6GT2YYXdXww",
     "name": "River",
-    "description": "The voice has a youthful and energetic tone with an American accent.",
+    "description": "The voice has a warm and breathy texture. It's distinctive for its pitch which is low and has a medium-paced rhythm. It's also characterized by a sense of authority and wisdom, making it suitable for roles such as a teacher or a professional in a business setting.",
     "gender": "female",
     "age": "middle",
-    "accent": "american",
+    "accent": "us_english",
     "language": "en",
     "languages": [
       "en"
     ],
     "traits": {
-      "warmth": 0.5,
-      "energy": 0.8,
-      "clarity": 1.0,
-      "authority": 0.5,
-      "friendliness": 0.8,
-      "confidence": 0.6
+      "warmth": 0.8,
+      "energy": 0.5,
+      "clarity": 0.7,
+      "authority": 0.6,
+      "friendliness": 0.3,
+      "confidence": 0.8
     },
     "use_cases": [
-      "and educational videos.",
+      "business_settings",
       "conversational",
+      "professional_voice",
       "social media ads",
+      "teaching",
       "youth-oriented marketing"
     ],
     "personality": [],
@@ -328,31 +421,35 @@
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
     "last_synced": "2026-04-03T06:56:06.080642+00:00",
-    "age_group": "young",
-    "texture": "smooth",
-    "pitch": "medium",
+    "metadata_source": "enriched_local",
+    "age_group": "middle",
+    "pitch": "low",
     "personality_tags": [
-      "energetic",
-      "youthful"
+      "authoritative",
+      "direct",
+      "wise"
     ],
     "style_tags": [
-      "american accent"
+      "formal",
+      "measured"
     ],
     "enrichment": {
-      "model": "qwen2-audio-7b-4bit",
+      "model": "qwen2-audio",
       "confidence": 0.7,
-      "sample_text": "preview_audio",
-      "timestamp": "2026-04-04T08:29:29.165843+00:00"
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T17:33:29.542483+00:00"
     },
-    "metadata_source": "enriched_local",
-    "last_verified": "2026-04-04T08:29:29.165847+00:00"
+    "last_verified": "2026-04-05T17:33:29.542524+00:00",
+    "enrichment_status": "completed",
+    "enrichment_attempts": 1
   },
   {
     "id": "elevenlabs:SOYHLrjzK2X1ezoPC6cr",
     "provider": "elevenlabs",
     "provider_voice_id": "SOYHLrjzK2X1ezoPC6cr",
     "name": "Harry",
-    "description": "Fierce Warrior. rough",
+    "description": "The voice has a medium pitch with a slightly nasal resonance and a deliberate pace. What distinguishes it is a subtle, almost theatrical quality, as if the speaker is carefully crafting each phrase for effect.",
     "gender": "male",
     "age": "young",
     "accent": "american",
@@ -361,14 +458,18 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.4,
+      "energy": 0.3,
+      "clarity": 0.8,
+      "authority": 0.6,
+      "friendliness": 0.5,
+      "confidence": 0.7
     },
     "use_cases": [
-      "characters_animation"
+      "audiobook",
+      "characters_animation",
+      "education",
+      "voicemail"
     ],
     "personality": [],
     "tags": [
@@ -380,14 +481,38 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/SOYHLrjzK2X1ezoPC6cr/86d178f6-f4b6-4e0e-85be-3de19f490794.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080646+00:00"
+    "last_synced": "2026-04-03T06:56:06.080646+00:00",
+    "age_group": "middle",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "earnest",
+      "sincere",
+      "thoughtful"
+    ],
+    "style_tags": [
+      "articulate",
+      "deliberate",
+      "measured"
+    ],
+    "enrichment": {
+      "provider": "gemini",
+      "model": "gemini-2.0-flash",
+      "confidence": 0.7,
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T21:25:54.471194+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "enrichment_status": "completed",
+    "last_verified": "2026-04-05T21:25:54.471224+00:00"
   },
   {
     "id": "elevenlabs:TX3LPaxmHKxFdv7VOQHJ",
     "provider": "elevenlabs",
     "provider_voice_id": "TX3LPaxmHKxFdv7VOQHJ",
     "name": "Liam",
-    "description": "Energetic, Social Media Creator. confident",
+    "description": "The voice has a medium pitch and a deliberate pace, with a slight resonance in the chest. What distinguishes this voice is its measured cadence and the subtle emphasis placed on key words, creating a sense of thoughtful conviction.",
     "gender": "male",
     "age": "young",
     "accent": "american",
@@ -396,14 +521,19 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.6,
+      "energy": 0.4,
+      "clarity": 0.8,
+      "authority": 0.7,
+      "friendliness": 0.5,
+      "confidence": 0.9
     },
     "use_cases": [
-      "social_media"
+      "audiobook",
+      "education",
+      "meditation",
+      "social_media",
+      "voicemail"
     ],
     "personality": [],
     "tags": [
@@ -415,34 +545,64 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/TX3LPaxmHKxFdv7VOQHJ/63148076-6363-42db-aea8-31424308b92c.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080650+00:00"
+    "last_synced": "2026-04-03T06:56:06.080650+00:00",
+    "age_group": "middle",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "calm",
+      "clear",
+      "direct",
+      "wise"
+    ],
+    "style_tags": [
+      "crisp",
+      "formal",
+      "measured"
+    ],
+    "enrichment": {
+      "provider": "gemini",
+      "model": "gemini-2.0-flash",
+      "confidence": 0.7,
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T21:25:56.784068+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "enrichment_status": "completed",
+    "last_verified": "2026-04-05T21:25:56.784160+00:00"
   },
   {
     "id": "elevenlabs:Xb7hH8MSUJpSbSDYk0k2",
     "provider": "elevenlabs",
     "provider_voice_id": "Xb7hH8MSUJpSbSDYk0k2",
     "name": "Alice",
-    "description": "The voice has a warm and clear tone, conveying a sense of authority and confidence.",
+    "description": "The voice has a warm and breathy texture. It is distinctive for its pitch, which is low and has a medium-paced resonance. This voice conveys a sense of authority and wisdom, making it suitable for educational and healthcare settings.",
     "gender": "female",
     "age": "middle",
-    "accent": "american",
+    "accent": "us_english",
     "language": "en",
     "languages": [
       "en"
     ],
     "traits": {
       "warmth": 0.8,
-      "energy": 0.8,
-      "clarity": 0.8,
+      "energy": 0.5,
+      "clarity": 0.7,
       "authority": 0.8,
-      "friendliness": 0.8,
-      "confidence": 0.8
+      "friendliness": 0.6,
+      "confidence": 0.7
     },
     "use_cases": [
+      "assistant",
+      "audiobook",
       "business presentations",
       "customer service",
+      "education",
+      "healthcare",
       "informative_educational",
-      "job interviews"
+      "job interviews",
+      "voicemail"
     ],
     "personality": [],
     "tags": [
@@ -455,32 +615,35 @@
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
     "last_synced": "2026-04-03T06:56:06.080654+00:00",
+    "metadata_source": "enriched_local",
     "age_group": "middle",
-    "texture": "smooth",
-    "pitch": "medium",
+    "pitch": "low",
     "personality_tags": [
-      "professional",
-      "reassuring"
+      "authoritative",
+      "calm",
+      "wise"
     ],
     "style_tags": [
-      "authoritative",
-      "clear"
+      "formal",
+      "measured"
     ],
     "enrichment": {
-      "model": "qwen2-audio-7b-4bit",
+      "model": "qwen2-audio",
       "confidence": 0.7,
-      "sample_text": "preview_audio",
-      "timestamp": "2026-04-04T08:29:29.165850+00:00"
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T17:33:42.580841+00:00"
     },
-    "metadata_source": "enriched_local",
-    "last_verified": "2026-04-04T08:29:29.165853+00:00"
+    "last_verified": "2026-04-05T17:33:42.580888+00:00",
+    "enrichment_status": "completed",
+    "enrichment_attempts": 1
   },
   {
     "id": "elevenlabs:XrExE9yKIg1WjnnlVkGX",
     "provider": "elevenlabs",
     "provider_voice_id": "XrExE9yKIg1WjnnlVkGX",
     "name": "Matilda",
-    "description": "Knowledgable, Professional. upbeat",
+    "description": "The voice has a medium pitch and a slightly measured pace, with a noticeable resonance in the lower register. What distinguishes this voice is its subtle gravitas combined with a hint of optimism, creating a sense of grounded hopefulness.",
     "gender": "female",
     "age": "middle",
     "accent": "american",
@@ -489,14 +652,19 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.6,
+      "energy": 0.4,
+      "clarity": 0.8,
+      "authority": 0.5,
+      "friendliness": 0.7,
+      "confidence": 0.7
     },
     "use_cases": [
-      "informative_educational"
+      "audiobook",
+      "education",
+      "informative_educational",
+      "meditation",
+      "voicemail"
     ],
     "personality": [],
     "tags": [
@@ -508,14 +676,39 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/XrExE9yKIg1WjnnlVkGX/b930e18d-6b4d-466e-bab2-0ae97c6d8535.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080658+00:00"
+    "last_synced": "2026-04-03T06:56:06.080658+00:00",
+    "age_group": "middle",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "calm",
+      "gentle",
+      "hopeful",
+      "wise"
+    ],
+    "style_tags": [
+      "conversational",
+      "measured",
+      "soothing"
+    ],
+    "enrichment": {
+      "provider": "gemini",
+      "model": "gemini-2.0-flash",
+      "confidence": 0.7,
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T21:25:59.377663+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "enrichment_status": "completed",
+    "last_verified": "2026-04-05T21:25:59.377738+00:00"
   },
   {
     "id": "elevenlabs:bIHbv24MWmeRgasZH58o",
     "provider": "elevenlabs",
     "provider_voice_id": "bIHbv24MWmeRgasZH58o",
     "name": "Will",
-    "description": "Relaxed Optimist. chill",
+    "description": "The voice has a medium pitch and a slightly deliberate pace, with a touch of resonance in the lower register. What sets it apart is a subtle, almost philosophical tone, suggesting a reflective and thoughtful speaker.",
     "gender": "male",
     "age": "young",
     "accent": "american",
@@ -524,14 +717,18 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.4,
+      "energy": 0.3,
+      "clarity": 0.8,
+      "authority": 0.6,
+      "friendliness": 0.5,
+      "confidence": 0.7
     },
     "use_cases": [
-      "conversational"
+      "audiobook",
+      "conversational",
+      "education",
+      "meditation"
     ],
     "personality": [],
     "tags": [
@@ -543,32 +740,61 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/bIHbv24MWmeRgasZH58o/8caf8f3d-ad29-4980-af41-53f20c72d7a4.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080661+00:00"
+    "last_synced": "2026-04-03T06:56:06.080661+00:00",
+    "age_group": "middle",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "calm",
+      "reflective",
+      "thoughtful",
+      "wise"
+    ],
+    "style_tags": [
+      "conversational",
+      "measured",
+      "soothing"
+    ],
+    "enrichment": {
+      "provider": "gemini",
+      "model": "gemini-2.0-flash",
+      "confidence": 0.7,
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T21:26:01.763548+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "enrichment_status": "completed",
+    "last_verified": "2026-04-05T21:26:01.763568+00:00"
   },
   {
     "id": "elevenlabs:cgSgspJ2msm6clMCkdW9",
     "provider": "elevenlabs",
     "provider_voice_id": "cgSgspJ2msm6clMCkdW9",
     "name": "Jessica",
-    "description": "The voice has a youthful and energetic tone with an American accent.",
+    "description": "The voice has a warm and rich texture with a medium pitch. It is distinctive for its soothing and clear delivery style, which makes it suitable for roles that require empathy and understanding, such as healthcare or customer support.",
     "gender": "female",
     "age": "young",
-    "accent": "american",
+    "accent": "english",
     "language": "en",
     "languages": [
       "en"
     ],
     "traits": {
-      "warmth": 0.5,
-      "energy": 0.8,
+      "warmth": 0.8,
+      "energy": 0.5,
       "clarity": 0.9,
       "authority": 0.3,
       "friendliness": 0.7,
       "confidence": 0.6
     },
     "use_cases": [
-      "and educational videos.",
+      "assistant",
       "conversational",
+      "customer_support",
+      "education",
+      "healthcare",
+      "meditation",
       "social media ads",
       "youth-oriented marketing"
     ],
@@ -583,31 +809,32 @@
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
     "last_synced": "2026-04-03T06:56:06.080665+00:00",
-    "age_group": "young",
-    "texture": "smooth",
+    "metadata_source": "enriched_local",
+    "age_group": "mature",
     "pitch": "medium",
     "personality_tags": [
-      "energetic",
-      "youthful"
+      "wise, gentle"
     ],
     "style_tags": [
-      "american accent"
+      "conversational, soothing"
     ],
     "enrichment": {
-      "model": "qwen2-audio-7b-4bit",
+      "model": "qwen2-audio",
       "confidence": 0.7,
-      "sample_text": "preview_audio",
-      "timestamp": "2026-04-04T08:29:29.165855+00:00"
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T17:33:55.660035+00:00"
     },
-    "metadata_source": "enriched_local",
-    "last_verified": "2026-04-04T08:29:29.165858+00:00"
+    "last_verified": "2026-04-05T17:33:55.660155+00:00",
+    "enrichment_status": "completed",
+    "enrichment_attempts": 1
   },
   {
     "id": "elevenlabs:cjVigY5qzO86Huf0OWal",
     "provider": "elevenlabs",
     "provider_voice_id": "cjVigY5qzO86Huf0OWal",
     "name": "Eric",
-    "description": "Smooth, Trustworthy. classy",
+    "description": "The voice has a medium pitch and a slightly measured pace, with a touch of resonance in the lower register. What sets it apart is a subtle, almost philosophical tone, lending a sense of gravitas to the delivery.",
     "gender": "male",
     "age": "middle",
     "accent": "american",
@@ -616,14 +843,19 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.6,
+      "energy": 0.4,
+      "clarity": 0.8,
+      "authority": 0.7,
+      "friendliness": 0.5,
+      "confidence": 0.9
     },
     "use_cases": [
-      "conversational"
+      "audiobook",
+      "conversational",
+      "education",
+      "meditation",
+      "voicemail"
     ],
     "personality": [],
     "tags": [
@@ -635,14 +867,39 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/cjVigY5qzO86Huf0OWal/d098fda0-6456-4030-b3d8-63aa048c9070.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080669+00:00"
+    "last_synced": "2026-04-03T06:56:06.080669+00:00",
+    "age_group": "middle",
+    "texture": "rich",
+    "pitch": "medium",
+    "personality_tags": [
+      "calm",
+      "direct",
+      "thoughtful",
+      "wise"
+    ],
+    "style_tags": [
+      "crisp",
+      "measured",
+      "soothing"
+    ],
+    "enrichment": {
+      "provider": "gemini",
+      "model": "gemini-2.0-flash",
+      "confidence": 0.7,
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T21:26:04.369130+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "enrichment_status": "completed",
+    "last_verified": "2026-04-05T21:26:04.369147+00:00"
   },
   {
     "id": "elevenlabs:hpp4J3VqNfWAUOO0d1Us",
     "provider": "elevenlabs",
     "provider_voice_id": "hpp4J3VqNfWAUOO0d1Us",
     "name": "Bella",
-    "description": "Professional, Bright, Warm. professional",
+    "description": "The voice has a medium pitch with a slightly resonant quality, delivered at a moderate pace. What sets it apart is a subtle theatricality, as if the speaker is accustomed to projecting her voice.",
     "gender": "female",
     "age": "middle",
     "accent": "american",
@@ -651,14 +908,18 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.6,
+      "energy": 0.4,
+      "clarity": 0.8,
+      "authority": 0.5,
+      "friendliness": 0.7,
+      "confidence": 0.7
     },
     "use_cases": [
-      "informative_educational"
+      "audiobook",
+      "education",
+      "informative_educational",
+      "meditation"
     ],
     "personality": [],
     "tags": [
@@ -670,14 +931,39 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/hpp4J3VqNfWAUOO0d1Us/dab0f5ba-3aa4-48a8-9fad-f138fea1126d.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080673+00:00"
+    "last_synced": "2026-04-03T06:56:06.080673+00:00",
+    "age_group": "middle",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "calm",
+      "gentle",
+      "poetic",
+      "wise"
+    ],
+    "style_tags": [
+      "formal",
+      "measured",
+      "soothing"
+    ],
+    "enrichment": {
+      "provider": "gemini",
+      "model": "gemini-2.0-flash",
+      "confidence": 0.7,
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T21:26:07.091416+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "enrichment_status": "completed",
+    "last_verified": "2026-04-05T21:26:07.091476+00:00"
   },
   {
     "id": "elevenlabs:iP95p4xoKVk53GoZ742B",
     "provider": "elevenlabs",
     "provider_voice_id": "iP95p4xoKVk53GoZ742B",
     "name": "Chris",
-    "description": "Charming, Down-to-Earth. casual",
+    "description": "The voice has a medium pitch with a slightly nasal resonance and a deliberate pace. What distinguishes it is a subtle, almost melancholic tone that gives the impression of thoughtful reflection.",
     "gender": "male",
     "age": "middle",
     "accent": "american",
@@ -686,14 +972,19 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.4,
+      "energy": 0.3,
+      "clarity": 0.8,
+      "authority": 0.5,
+      "friendliness": 0.6,
+      "confidence": 0.7
     },
     "use_cases": [
-      "conversational"
+      "audiobook",
+      "conversational",
+      "education",
+      "meditation",
+      "voicemail"
     ],
     "personality": [],
     "tags": [
@@ -705,35 +996,64 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/iP95p4xoKVk53GoZ742B/3f4bde72-cc48-40dd-829f-57fbf906f4d7.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080677+00:00"
+    "last_synced": "2026-04-03T06:56:06.080677+00:00",
+    "age_group": "middle",
+    "texture": "smooth",
+    "pitch": "medium",
+    "personality_tags": [
+      "calm",
+      "gentle",
+      "sincere",
+      "thoughtful"
+    ],
+    "style_tags": [
+      "conversational",
+      "measured",
+      "soothing"
+    ],
+    "enrichment": {
+      "provider": "gemini",
+      "model": "gemini-2.0-flash",
+      "confidence": 0.7,
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T21:26:09.625685+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "enrichment_status": "completed",
+    "last_verified": "2026-04-05T21:26:09.625731+00:00"
   },
   {
     "id": "elevenlabs:nPczCjzI2devNBz1zQrb",
     "provider": "elevenlabs",
     "provider_voice_id": "nPczCjzI2devNBz1zQrb",
     "name": "Brian",
-    "description": "The voice has a youthful and energetic tone, often associated with someone who is enthusiastic and full of vigor.",
+    "description": "The voice has a warm and breathy texture. It is distinctive for its pitch, which is medium and has a slight accent. The speaker's personality is playful and wise, with a conversational style that is soothing and clear.",
     "gender": "male",
     "age": "middle",
-    "accent": "american",
+    "accent": "english",
     "language": "en",
     "languages": [
       "en"
     ],
     "traits": {
-      "warmth": 0.8,
-      "energy": 0.8,
+      "warmth": 0.7,
+      "energy": 0.5,
       "clarity": 0.8,
-      "authority": 0.6,
-      "friendliness": 0.8,
-      "confidence": 0.8
+      "authority": 0.3,
+      "friendliness": 0.6,
+      "confidence": 0.4
     },
     "use_cases": [
+      "assistant",
       "customer support",
+      "customer_support",
       "entertainment",
+      "meditation",
       "sales",
       "social_media",
-      "sports"
+      "sports",
+      "voicemail"
     ],
     "personality": [],
     "tags": [
@@ -746,34 +1066,34 @@
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
     "last_synced": "2026-04-03T06:56:06.080680+00:00",
-    "age_group": "young",
-    "texture": "smooth",
+    "metadata_source": "enriched_local",
+    "age_group": "middle",
     "pitch": "medium",
     "personality_tags": [
-      "energetic",
-      "enthusiastic",
-      "youthful"
+      "playful",
+      "wise"
     ],
     "style_tags": [
-      "energetic",
-      "enthusiastic",
-      "youthful"
+      "conversational",
+      "soothing"
     ],
     "enrichment": {
-      "model": "qwen2-audio-7b-4bit",
+      "model": "qwen2-audio",
       "confidence": 0.7,
-      "sample_text": "preview_audio",
-      "timestamp": "2026-04-04T08:29:29.165860+00:00"
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T17:34:08.651051+00:00"
     },
-    "metadata_source": "enriched_local",
-    "last_verified": "2026-04-04T08:29:29.165864+00:00"
+    "last_verified": "2026-04-05T17:34:08.651115+00:00",
+    "enrichment_status": "completed",
+    "enrichment_attempts": 1
   },
   {
     "id": "elevenlabs:onwK4e9ZLuTAKqWW03F9",
     "provider": "elevenlabs",
     "provider_voice_id": "onwK4e9ZLuTAKqWW03F9",
     "name": "Daniel",
-    "description": "Steady Broadcaster. formal",
+    "description": "The voice has a medium pitch and a deliberate pace, with a slight resonance in the lower register. What distinguishes it is a subtle, almost theatrical quality, suggesting a storyteller or narrator.",
     "gender": "male",
     "age": "middle",
     "accent": "british",
@@ -782,14 +1102,18 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.6,
+      "energy": 0.4,
+      "clarity": 0.8,
+      "authority": 0.7,
+      "friendliness": 0.5,
+      "confidence": 0.9
     },
     "use_cases": [
-      "informative_educational"
+      "audiobook",
+      "education",
+      "informative_educational",
+      "voicemail"
     ],
     "personality": [],
     "tags": [
@@ -801,36 +1125,65 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/onwK4e9ZLuTAKqWW03F9/7eee0236-1a72-4b86-b303-5dcadc007ba9.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080684+00:00"
+    "last_synced": "2026-04-03T06:56:06.080684+00:00",
+    "age_group": "middle",
+    "texture": "rich",
+    "pitch": "medium",
+    "personality_tags": [
+      "assured",
+      "calm",
+      "gentle",
+      "wise"
+    ],
+    "style_tags": [
+      "formal",
+      "measured",
+      "soothing"
+    ],
+    "enrichment": {
+      "provider": "gemini",
+      "model": "gemini-2.0-flash",
+      "confidence": 0.7,
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T21:26:12.312547+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "enrichment_status": "completed",
+    "last_verified": "2026-04-05T21:26:12.312606+00:00"
   },
   {
     "id": "elevenlabs:pFZP5JQG7iQjIQuC4Bku",
     "provider": "elevenlabs",
     "provider_voice_id": "pFZP5JQG7iQjIQuC4Bku",
     "name": "Lily",
-    "description": "The voice sounds youthful and energetic. It has a clear and friendly tone that conveys a sense of approachability.",
+    "description": "The voice has a warm and rich texture with a medium pitch. It is distinctive for its breathy and raspy quality, which gives it a soothing and gentle character. This voice would suit well in educational or healthcare settings, where its clarity and authority can be utilized effectively to convey important information.",
     "gender": "female",
     "age": "middle",
-    "accent": "american",
+    "accent": "english",
     "language": "en",
     "languages": [
       "en"
     ],
     "traits": {
       "warmth": 0.8,
-      "energy": 0.8,
-      "clarity": 1.0,
-      "authority": 0.5,
-      "friendliness": 1.0,
-      "confidence": 0.8
+      "energy": 0.5,
+      "clarity": 0.7,
+      "authority": 0.6,
+      "friendliness": 0.3,
+      "confidence": 0.4
     },
     "use_cases": [
+      "assistant",
+      "audiobook",
       "customer support",
       "education",
       "finance",
+      "healthcare",
       "informative_educational",
       "meditation",
-      "sales"
+      "sales",
+      "voicemail"
     ],
     "personality": [],
     "tags": [
@@ -843,33 +1196,36 @@
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
     "last_synced": "2026-04-03T06:56:06.080688+00:00",
-    "age_group": "young",
-    "texture": "smooth",
+    "metadata_source": "enriched_local",
+    "age_group": "mature",
     "pitch": "medium",
     "personality_tags": [
-      "clear",
-      "energetic",
-      "friendly",
-      "youthful"
+      "calm",
+      "gentle",
+      "knowledgeable"
     ],
     "style_tags": [
-      "american"
+      "authoritative",
+      "clear",
+      "formal"
     ],
     "enrichment": {
-      "model": "qwen2-audio-7b-4bit",
+      "model": "qwen2-audio",
       "confidence": 0.7,
-      "sample_text": "preview_audio",
-      "timestamp": "2026-04-04T08:29:29.165865+00:00"
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T17:34:24.020177+00:00"
     },
-    "metadata_source": "enriched_local",
-    "last_verified": "2026-04-04T08:29:29.165869+00:00"
+    "last_verified": "2026-04-05T17:34:24.020610+00:00",
+    "enrichment_status": "completed",
+    "enrichment_attempts": 1
   },
   {
     "id": "elevenlabs:pNInz6obpgDQGcFmaJgB",
     "provider": "elevenlabs",
     "provider_voice_id": "pNInz6obpgDQGcFmaJgB",
     "name": "Adam",
-    "description": "Dominant, Firm",
+    "description": "The voice has a warm and rich texture with a medium pitch. It is distinctive for its breathy and raspy quality, which gives it a sense of authority and confidence. This voice could be used in professional settings such as customer support or in educational contexts where a measured and wise tone is needed.",
     "gender": "male",
     "age": "middle",
     "accent": "american",
@@ -878,14 +1234,19 @@
       "en"
     ],
     "traits": {
-      "warmth": null,
-      "energy": null,
-      "clarity": null,
-      "authority": null,
-      "friendliness": null
+      "warmth": 0.5,
+      "energy": 0.5,
+      "clarity": 0.5,
+      "authority": 0.5,
+      "friendliness": 0.5,
+      "confidence": 0.5
     },
     "use_cases": [
-      "social_media"
+      "customer support",
+      "social_media",
+      "专业演讲",
+      "助理",
+      "教育"
     ],
     "personality": [],
     "tags": [
@@ -896,34 +1257,66 @@
     "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/pNInz6obpgDQGcFmaJgB/d6905d7a-dd26-4187-bfff-1bd3a5ea7cac.mp3",
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
-    "last_synced": "2026-04-03T06:56:06.080692+00:00"
+    "last_synced": "2026-04-03T06:56:06.080692+00:00",
+    "age_group": "middle",
+    "pitch": "medium",
+    "personality_tags": [
+      "authoritative",
+      "confident",
+      "wise"
+    ],
+    "style_tags": [
+      "formal",
+      "measured",
+      "wise"
+    ],
+    "enrichment": {
+      "model": "qwen2-audio",
+      "confidence": 0.5,
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": [
+        "flat_traits (spread=0.00)"
+      ],
+      "timestamp": "2026-04-05T17:34:39.059540+00:00"
+    },
+    "metadata_source": "enriched_local",
+    "last_verified": "2026-04-05T17:34:39.059750+00:00",
+    "enrichment_status": "completed",
+    "enrichment_attempts": 1
   },
   {
     "id": "elevenlabs:pqHfZKP75CvOlQylNhV4",
     "provider": "elevenlabs",
     "provider_voice_id": "pqHfZKP75CvOlQylNhV4",
     "name": "Bill",
-    "description": "The voice has a youthful and energetic tone, often associated with someone who is enthusiastic and full of vigor.",
+    "description": "The voice has a warm and breathy texture. It is distinctive for its pitch, which is medium and has a slight vibrato. The voice also has a sense of authority and wisdom, making it suitable for roles such as a teacher or mentor.",
     "gender": "male",
     "age": "mature",
-    "accent": "american",
+    "accent": "english",
     "language": "en",
     "languages": [
       "en"
     ],
     "traits": {
-      "warmth": 0.8,
-      "energy": 0.8,
-      "clarity": 0.9,
-      "authority": 0.6,
-      "friendliness": 0.7,
-      "confidence": 0.8
+      "warmth": 0.7,
+      "energy": 0.5,
+      "clarity": 0.6,
+      "authority": 0.8,
+      "friendliness": 0.3,
+      "confidence": 0.7
     },
     "use_cases": [
       "advertisement",
       "customer support",
       "sales",
-      "sports"
+      "sports",
+      "助理",
+      "指导",
+      "播客",
+      "教育",
+      "演讲",
+      "讲故事",
+      "语音邮件"
     ],
     "personality": [],
     "tags": [
@@ -936,26 +1329,25 @@
     "pipecat_supported": true,
     "pipecat_class": "ElevenLabsTTSService",
     "last_synced": "2026-04-03T06:56:06.080695+00:00",
-    "age_group": "young",
-    "texture": "smooth",
-    "pitch": "medium",
+    "metadata_source": "enriched_local",
+    "age_group": "middle",
     "personality_tags": [
-      "energetic",
-      "enthusiastic",
-      "youthful"
+      "authoritative",
+      "wise"
     ],
     "style_tags": [
-      "energetic",
-      "enthusiastic",
-      "youthful"
+      "formal",
+      "指导性"
     ],
     "enrichment": {
-      "model": "qwen2-audio-7b-4bit",
+      "model": "qwen2-audio",
       "confidence": 0.7,
-      "sample_text": "preview_audio",
-      "timestamp": "2026-04-04T08:29:29.165871+00:00"
+      "sample_text": "Hi there, welcome back. I wanted to check in and see how you're doing today. Let me know if there's anything I can help with.",
+      "warnings": null,
+      "timestamp": "2026-04-05T17:34:53.857224+00:00"
     },
-    "metadata_source": "enriched_local",
-    "last_verified": "2026-04-04T08:29:29.165874+00:00"
+    "last_verified": "2026-04-05T17:34:53.857392+00:00",
+    "enrichment_status": "completed",
+    "enrichment_attempts": 1
   }
 ]

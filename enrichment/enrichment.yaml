@@ -1,0 +1,53 @@
+# Voice Audition — Enrichment Pipeline Configuration
+#
+# Values can reference environment variables: ${ENV_VAR}
+# The active provider is set below; its credentials must be configured.
+
+enrichment:
+  # Active provider for voice enrichment
+  provider: gemini  # openai | gemini | anthropic | bedrock | ollama | mlx
+
+  # --- Provider Configurations ---
+
+  openai:
+    api_key: ${OPENAI_API_KEY}
+    base_url: https://api.openai.com/v1  # override for gateways (e.g. TrueFoundry)
+    model: gpt-4o
+
+  gemini:
+    # Option 1: API key (simplest)
+    api_key: ${GEMINI_API_KEY}
+    # Option 2: Service account credentials file (for GCP)
+    credentials_file: ~/credentials.json
+    model: gemini-2.0-flash
+
+  anthropic:
+    # Two-pass: acoustic features extracted locally, then sent to Claude as text
+    api_key: ${ANTHROPIC_API_KEY}
+    model: claude-sonnet-4-6
+
+  bedrock:
+    # Two-pass: acoustic features extracted locally, then sent to Claude on Bedrock
+    region: us-east-1
+    access_key_id: ${AWS_ACCESS_KEY_ID}
+    secret_access_key: ${AWS_SECRET_ACCESS_KEY}
+    session_token: null  # optional, for temporary credentials
+    model: anthropic.claude-sonnet-4-6
+
+  ollama:
+    base_url: http://localhost:11434
+    model: qwen2-audio  # any multimodal model: llava, qwen2-audio, etc.
+
+  mlx:
+    # Local Apple Silicon only. Requires: pip install 'voice-audition[enrich]'
+    model_id: mlx-community/Qwen2-Audio-7B-Instruct-4bit
+
+  # --- Validation ---
+
+  validation:
+    min_trait_spread: 0.15
+    reject_generic_descriptions: true
+    generic_phrases:
+      - "youthful and energetic"
+      - "clear and professional"
+      - "warm and friendly tone"

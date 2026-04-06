@@ -12,11 +12,23 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["narration", "conversation"],
+    "use_cases": [
+      "narration",
+      "conversation"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -39,7 +51,9 @@
       "min_vram_gb": 0,
       "self_hosted": true,
       "install": "pip install kokoro-onnx"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -54,11 +68,23 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["conversation", "creative"],
+    "use_cases": [
+      "conversation",
+      "creative"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -81,7 +107,9 @@
       "min_vram_gb": 0,
       "self_hosted": true,
       "install": "pip install kokoro-onnx"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -96,11 +124,23 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["narration", "podcast"],
+    "use_cases": [
+      "narration",
+      "podcast"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -123,7 +163,9 @@
       "min_vram_gb": 0,
       "self_hosted": true,
       "install": "pip install kokoro-onnx"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -138,11 +180,23 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["narration", "informational"],
+    "use_cases": [
+      "narration",
+      "informational"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -165,7 +219,9 @@
       "min_vram_gb": 0,
       "self_hosted": true,
       "install": "pip install kokoro-onnx"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -180,11 +236,23 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["conversation", "assistant"],
+    "use_cases": [
+      "conversation",
+      "assistant"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -207,7 +275,9 @@
       "min_vram_gb": 0,
       "self_hosted": true,
       "install": "pip install kokoro-onnx"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -222,11 +292,23 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["narration", "professional"],
+    "use_cases": [
+      "narration",
+      "professional"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -249,7 +331,9 @@
       "min_vram_gb": 0,
       "self_hosted": true,
       "install": "pip install kokoro-onnx"
-    }
+    },
+    "enrichment_status": "failed:model_unavailable",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -264,11 +348,23 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["conversation", "narration"],
+    "use_cases": [
+      "conversation",
+      "narration"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -291,7 +387,9 @@
       "min_vram_gb": 0,
       "self_hosted": true,
       "install": "pip install kokoro-onnx"
-    }
+    },
+    "enrichment_status": "failed:model_unavailable",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -306,11 +404,23 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["professional", "informational"],
+    "use_cases": [
+      "professional",
+      "informational"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -333,7 +443,9 @@
       "min_vram_gb": 0,
       "self_hosted": true,
       "install": "pip install kokoro-onnx"
-    }
+    },
+    "enrichment_status": "failed:model_unavailable",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -348,11 +460,23 @@
     "accent": "british",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["narration", "conversation"],
+    "use_cases": [
+      "narration",
+      "conversation"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -375,7 +499,9 @@
       "min_vram_gb": 0,
       "self_hosted": true,
       "install": "pip install kokoro-onnx"
-    }
+    },
+    "enrichment_status": "failed:model_unavailable",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -390,11 +516,23 @@
     "accent": "british",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["narration", "formal"],
+    "use_cases": [
+      "narration",
+      "formal"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -417,7 +555,9 @@
       "min_vram_gb": 0,
       "self_hosted": true,
       "install": "pip install kokoro-onnx"
-    }
+    },
+    "enrichment_status": "failed:model_unavailable",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -432,11 +572,24 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["narration", "assistant", "general"],
+    "use_cases": [
+      "narration",
+      "assistant",
+      "general"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -460,7 +613,9 @@
       "self_hosted": true,
       "install": "pip install piper-tts",
       "quality": "high"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -475,11 +630,23 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["assistant", "general"],
+    "use_cases": [
+      "assistant",
+      "general"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -503,7 +670,9 @@
       "self_hosted": true,
       "install": "pip install piper-tts",
       "quality": "medium"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -518,11 +687,24 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["narration", "assistant", "general"],
+    "use_cases": [
+      "narration",
+      "assistant",
+      "general"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -546,7 +728,9 @@
       "self_hosted": true,
       "install": "pip install piper-tts",
       "quality": "high"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -561,11 +745,23 @@
     "accent": "british",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["conversation", "assistant"],
+    "use_cases": [
+      "conversation",
+      "assistant"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -589,7 +785,9 @@
       "self_hosted": true,
       "install": "pip install piper-tts",
       "quality": "medium"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -604,11 +802,23 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["general", "assistant"],
+    "use_cases": [
+      "general",
+      "assistant"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -632,7 +842,9 @@
       "self_hosted": true,
       "install": "pip install piper-tts",
       "quality": "medium"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -647,11 +859,23 @@
     "accent": "british",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["narration", "formal"],
+    "use_cases": [
+      "narration",
+      "formal"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -675,7 +899,9 @@
       "self_hosted": true,
       "install": "pip install piper-tts",
       "quality": "high"
-    }
+    },
+    "enrichment_status": "failed:model_unavailable",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -690,15 +916,33 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": "conversational",
-    "use_cases": ["conversation", "creative", "storytelling"],
+    "use_cases": [
+      "conversation",
+      "creative",
+      "storytelling"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": "expressive",
-    "supported_emotions": ["laugh", "sigh", "gasp", "cry"],
+    "supported_emotions": [
+      "laugh",
+      "sigh",
+      "gasp",
+      "cry"
+    ],
     "latency_tier": "fast",
     "cost_per_min_usd": 0.0,
     "preview_url": null,
@@ -717,7 +961,9 @@
       "min_vram_gb": 6,
       "self_hosted": true,
       "install": "pip install orpheus-speech"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -732,15 +978,32 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": "conversational",
-    "use_cases": ["narration", "conversation"],
+    "use_cases": [
+      "narration",
+      "conversation"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": "expressive",
-    "supported_emotions": ["laugh", "sigh", "gasp", "cry"],
+    "supported_emotions": [
+      "laugh",
+      "sigh",
+      "gasp",
+      "cry"
+    ],
     "latency_tier": "fast",
     "cost_per_min_usd": 0.0,
     "preview_url": null,
@@ -759,7 +1022,9 @@
       "min_vram_gb": 6,
       "self_hosted": true,
       "install": "pip install orpheus-speech"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -774,15 +1039,33 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": "conversational",
-    "use_cases": ["narration", "conversation", "professional"],
+    "use_cases": [
+      "narration",
+      "conversation",
+      "professional"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": "expressive",
-    "supported_emotions": ["laugh", "sigh", "gasp", "cry"],
+    "supported_emotions": [
+      "laugh",
+      "sigh",
+      "gasp",
+      "cry"
+    ],
     "latency_tier": "fast",
     "cost_per_min_usd": 0.0,
     "preview_url": null,
@@ -801,7 +1084,9 @@
       "min_vram_gb": 6,
       "self_hosted": true,
       "install": "pip install orpheus-speech"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -816,15 +1101,32 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": "conversational",
-    "use_cases": ["conversation", "storytelling"],
+    "use_cases": [
+      "conversation",
+      "storytelling"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": "expressive",
-    "supported_emotions": ["laugh", "sigh", "gasp", "cry"],
+    "supported_emotions": [
+      "laugh",
+      "sigh",
+      "gasp",
+      "cry"
+    ],
     "latency_tier": "fast",
     "cost_per_min_usd": 0.0,
     "preview_url": null,
@@ -843,7 +1145,9 @@
       "min_vram_gb": 6,
       "self_hosted": true,
       "install": "pip install orpheus-speech"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -858,15 +1162,32 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": "conversational",
-    "use_cases": ["conversation", "assistant"],
+    "use_cases": [
+      "conversation",
+      "assistant"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": "expressive",
-    "supported_emotions": ["laugh", "sigh", "gasp", "cry"],
+    "supported_emotions": [
+      "laugh",
+      "sigh",
+      "gasp",
+      "cry"
+    ],
     "latency_tier": "fast",
     "cost_per_min_usd": 0.0,
     "preview_url": null,
@@ -885,7 +1206,9 @@
       "min_vram_gb": 6,
       "self_hosted": true,
       "install": "pip install orpheus-speech"
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -900,15 +1223,32 @@
     "accent": "american",
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": "casual",
-    "use_cases": ["conversation", "creative"],
+    "use_cases": [
+      "conversation",
+      "creative"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": "expressive",
-    "supported_emotions": ["laugh", "sigh", "gasp", "cry"],
+    "supported_emotions": [
+      "laugh",
+      "sigh",
+      "gasp",
+      "cry"
+    ],
     "latency_tier": "fast",
     "cost_per_min_usd": 0.0,
     "preview_url": null,
@@ -927,7 +1267,9 @@
       "min_vram_gb": 6,
       "self_hosted": true,
       "install": "pip install orpheus-speech"
-    }
+    },
+    "enrichment_status": "failed:model_unavailable",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -942,11 +1284,23 @@
     "accent": null,
     "language": "en",
     "additional_languages": [],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["voice_cloning", "custom"],
+    "use_cases": [
+      "voice_cloning",
+      "custom"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -970,7 +1324,9 @@
       "self_hosted": true,
       "install": "pip install chatterbox-tts",
       "voice_cloning": true
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   },
   {
     "schema_version": "1.0",
@@ -984,12 +1340,34 @@
     "age_group": "unknown",
     "accent": null,
     "language": "en",
-    "additional_languages": ["zh", "ja", "ko", "fr", "de", "es", "pt", "ar"],
-    "traits": {"warmth": null, "energy": null, "clarity": null, "authority": null, "friendliness": null, "confidence": null, "expressiveness": null, "pace": null},
+    "additional_languages": [
+      "zh",
+      "ja",
+      "ko",
+      "fr",
+      "de",
+      "es",
+      "pt",
+      "ar"
+    ],
+    "traits": {
+      "warmth": null,
+      "energy": null,
+      "clarity": null,
+      "authority": null,
+      "friendliness": null,
+      "confidence": null,
+      "expressiveness": null,
+      "pace": null
+    },
     "texture": null,
     "pitch": null,
     "speaking_style": null,
-    "use_cases": ["voice_cloning", "multilingual", "custom"],
+    "use_cases": [
+      "voice_cloning",
+      "multilingual",
+      "custom"
+    ],
     "personality_tags": [],
     "style_tags": [],
     "emotional_range": null,
@@ -1013,6 +1391,8 @@
       "self_hosted": true,
       "install": "See https://speech.fish.audio/install/",
       "voice_cloning": true
-    }
+    },
+    "enrichment_status": "failed:no_audio_source",
+    "enrichment_attempts": 1
   }
 ]
