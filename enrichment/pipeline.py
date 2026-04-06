@@ -295,15 +295,11 @@ def save_catalog(provider: str, voices: list[dict]) -> None:
 # ---------------------------------------------------------------------------
 
 def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False) -> dict:
-    from enrichment.config import load_config, get_provider_config, validate_credentials
-    from enrichment.classify import enrich_voice
+    from enrichment.graph import enrich_voice_graph, init_llm
 
-    config = load_config()
-    enrich_provider, provider_config = get_provider_config(config)
-
-    _log(f"[enrich] Provider: {enrich_provider}")
-    _log(f"[enrich] Model: {provider_config.get('model') or provider_config.get('model_id', 'default')}")
-    validate_credentials(enrich_provider, provider_config)
+    init_llm()
+    from enrichment.graph import _judge_provider, _judge_config
+    _log(f"[enrich] Provider: {_judge_provider}")
     _log(f"[enrich] Credentials OK.{' (retry mode)' if retry else ''}")
 
     skip = {"providers", "hosting"}
@@ -315,120 +311,69 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False) 
         print("[enrich] No catalog files found. Run sync first.")
         return {"enriched": 0, "failed": 0, "pending": 0, "completed": 0}
 
-    model_name = provider_config.get("model") or provider_config.get("model_id", enrich_provider)
-    total = 0
     enriched = 0
-    skipped = 0
     failed = 0
     enriched_ids: set[str] = set()
 
-    with tempfile.TemporaryDirectory(prefix="voice_enrich_") as tmp:
-        out_dir = Path(tmp)
+    for cat_provider in targets:
+        voices = load_catalog(cat_provider)
+        if voices is None:
+            continue
 
-        for cat_provider in targets:
-            voices = load_catalog(cat_provider)
-            if voices is None:
+        pending = [(i, v) for i, v in enumerate(voices) if _needs_enrichment(v, retry=retry)]
+        if not pending:
+            _log(f"[enrich] {cat_provider}: nothing to enrich")
+            continue
+
+        _log(f"[enrich] {cat_provider}: {len(pending)} voices to enrich")
+        dirty = False
+
+        for count, (idx, voice) in enumerate(pending, 1):
+            vid = voice.get("id", "?")
+
+            try:
+                result = enrich_voice_graph(voice)
+            except Exception as e:
+                _log(f"[enrich] {vid}: graph error: {e}")
+                voices[idx] = _set_status(voice, "failed", str(e)[:60])
+                failed += 1
+                dirty = True
                 continue
 
-            pending = [(i, v) for i, v in enumerate(voices) if _needs_enrichment(v, retry=retry)]
-            if not pending:
-                _log(f"[enrich] {cat_provider}: nothing to enrich")
-                continue
-
-            total += len(pending)
-            _log(f"[enrich] {cat_provider}: {len(pending)} voices to enrich")
-
-            # Phase 1: Generate all samples (skip model families with 5+ consecutive failures)
-            samples: list[tuple[int, dict, Path]] = []
-            model_failures: dict[str, int] = {}
-            gen_count = 0
-            with httpx.Client(timeout=15) as client:
-                for idx, voice in pending:
-                    gen_count += 1
-                    if gen_count % 50 == 0:
-                        _log(f"[enrich] {cat_provider}: generating samples... {gen_count}/{len(pending)}")
-                    model_key = f"{voice.get('provider')}:{voice.get('provider_model', '')}"
-                    if model_failures.get(model_key, 0) >= 5:
-                        voices[idx] = _set_status(voice, "failed", "model_unavailable")
-                        failed += 1
-                        skipped += 1
-                        continue
-
-                    audio_path, err = generate_sample(voice, out_dir, client)
-                    if audio_path:
-                        samples.append((idx, voice, audio_path))
-                        model_failures[model_key] = 0
-                    else:
-                        voices[idx] = _set_status(voice, "failed", err)
-                        failed += 1
-                        model_failures[model_key] = model_failures.get(model_key, 0) + 1
-
-            gen_failed = len(pending) - len(samples)
-            _log(f"[enrich] {cat_provider}: {len(samples)} samples ready, {gen_failed} failed audio gen")
-            if gen_failed > 0:
-                save_catalog(cat_provider, voices)
-
-            # Phase 2: Enrich with backoff
-            dirty = len(pending) - len(samples) > 0  # already have status changes from failed audio
-            consecutive_errors = 0
-
-            for idx, voice, audio_path in samples:
-                vid = voice.get("id", "?")
-
-                # Backoff on consecutive errors
-                if consecutive_errors > 0:
-                    delay = min(BASE_DELAY * (2 ** (consecutive_errors - 1)), 30)
-                    _log(f"[enrich] Backing off {delay:.0f}s...")
-                    time.sleep(delay)
-
-                try:
-                    result = enrich_voice(audio_path, enrich_provider, provider_config)
-                except Exception as e:
-                    _log(f"[enrich] Failed {vid}: {e}")
-                    voices[idx] = _set_status(voice, "failed", str(e)[:60])
-                    failed += 1
-                    consecutive_errors += 1
-                    dirty = True
-                    # Save progress every 10 failures
-                    if failed % 10 == 0:
-                        save_catalog(cat_provider, voices)
-                    continue
-
-                if result is None:
-                    voices[idx] = _set_status(voice, "failed", "empty_result")
-                    failed += 1
-                    consecutive_errors += 1
-                    dirty = True
-                    continue
-
-                # Success — reset backoff
-                consecutive_errors = 0
-
-                warnings = validate_enrichment(result, config)
-                if warnings:
-                    _log(f"[enrich] WARNING {vid}: {', '.join(warnings)}")
-
-                result["enrichment"] = {
-                    "provider": enrich_provider,
-                    "model": model_name,
-                    "confidence": 0.5 if warnings else 0.7,
+            if result["status"] == "completed" and result.get("scores"):
+                scores = result["scores"]
+                scores["description"] = result.get("description")
+                scores["enrichment"] = {
+                    "provider": _judge_provider,
+                    "model": (_judge_config or {}).get("model", ""),
+                    "attempts": result.get("attempt", 1),
                     "sample_text": SAMPLE_TEXT,
-                    "warnings": warnings or None,
                     "timestamp": datetime.now(timezone.utc).isoformat(),
                 }
-
-                voices[idx] = merge_enrichment(voice, result)
+                voices[idx] = merge_enrichment(voice, scores)
                 enriched += 1
-                enriched_ids.add(voice.get("id", ""))
-                dirty = True
+                enriched_ids.add(vid)
+            else:
+                reason = "; ".join(result.get("validation_errors", []))[:80] or "graph_failed"
+                voices[idx] = _set_status(voice, "failed", reason)
+                failed += 1
 
-                # Save progress every 25 voices
-                if enriched % 25 == 0:
-                    save_catalog(cat_provider, voices)
-                    _log(f"[enrich] Progress: {enriched} enriched, {failed} failed")
+            dirty = True
 
-            if dirty:
+            # Cleanup temp audio
+            audio_path = result.get("audio_path")
+            if audio_path:
+                try:
+                    Path(audio_path).unlink(missing_ok=True)
+                except Exception:
+                    pass
+
+            if count % 25 == 0:
                 save_catalog(cat_provider, voices)
+                _log(f"[enrich] Progress: {enriched} enriched, {failed} failed")
+
+        if dirty:
+            save_catalog(cat_provider, voices)
 
     # Summary
     completed = sum(1 for p in targets for v in (load_catalog(p) or []) if v.get("enrichment_status") == "completed")

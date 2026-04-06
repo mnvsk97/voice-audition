@@ -4,7 +4,6 @@ import asyncio
 import base64
 import json
 import os
-import re
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -234,139 +233,8 @@ def _generate_script_audio(voice: dict, text: str, script_name: str, out_dir: Pa
 
 
 # ---------------------------------------------------------------------------
-# LLM judging — uses enrichment config (any provider)
+# Main audition — uses LangGraph audition graph
 # ---------------------------------------------------------------------------
-
-def _build_judge_prompt(brief: str, use_case: str, criteria_labels: dict, script: dict) -> str:
-    criteria_str = "\n".join(f"- {k}: {v}" for k, v in criteria_labels.items())
-    return f"""You are judging a voice for: "{brief}" (category: {use_case}).
-
-Audio is the voice reading: "{script['text']}"
-Script purpose: {script['purpose']}
-
-Score each criterion 1-10. Be harsh — differentiate clearly.
-
-CRITERIA:
-{criteria_str}
-
-Respond with ONLY JSON:
-{{"scores": {{{", ".join(f'"{k}": 0' for k in criteria_labels)}}}, "notes": "1-2 sentences on fit"}}"""
-
-
-def _judge_audio(audio_path: Path, prompt: str, judge_provider: str, judge_config: dict) -> dict | None:
-    """Score a voice sample using the configured enrichment provider."""
-    from enrichment.classify import _read_audio_b64
-
-    b64, fmt = _read_audio_b64(audio_path)
-    mime = {"wav": "audio/wav", "mp3": "audio/mpeg"}.get(fmt, "audio/wav")
-
-    try:
-        if judge_provider == "gemini":
-            raw = _judge_gemini(b64, mime, prompt, judge_config)
-        elif judge_provider == "openai":
-            raw = _judge_openai(b64, fmt, prompt, judge_config)
-        elif judge_provider == "ollama":
-            raw = _judge_ollama(b64, prompt, judge_config)
-        elif judge_provider == "mlx":
-            raw = _judge_mlx(audio_path, prompt, judge_config)
-        elif judge_provider in ("anthropic", "bedrock"):
-            # Text-only models can't listen to audio — score from voice metadata instead
-            return None
-        else:
-            return None
-    except Exception as e:
-        print(f"  [judge] Error: {e}")
-        return None
-
-    if not raw:
-        return None
-    m = re.search(r'\{.*\}', raw, re.DOTALL)
-    if m:
-        try:
-            return json.loads(m.group())
-        except json.JSONDecodeError:
-            pass
-    return None
-
-
-def _judge_gemini(b64: str, mime: str, prompt: str, config: dict) -> str | None:
-    model = config.get("model", "gemini-2.0-flash")
-    creds = config.get("credentials_file")
-    if creds:
-        from enrichment.classify import _get_gemini_token_from_sa
-        token = _get_gemini_token_from_sa(str(Path(creds).expanduser()))
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-        headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
-    else:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={config['api_key']}"
-        headers = {"Content-Type": "application/json"}
-
-    resp = httpx.post(url, headers=headers, json={
-        "contents": [{"parts": [{"text": prompt}, {"inline_data": {"mime_type": mime, "data": b64}}]}],
-        "generationConfig": {"temperature": 0.1, "maxOutputTokens": 256},
-    }, timeout=60)
-    resp.raise_for_status()
-    return resp.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
-
-
-def _judge_openai(b64: str, fmt: str, prompt: str, config: dict) -> str | None:
-    base_url = config.get("base_url", "https://api.openai.com/v1").rstrip("/")
-    resp = httpx.post(f"{base_url}/chat/completions",
-        headers={"Authorization": f"Bearer {config['api_key']}"},
-        json={
-            "model": config.get("model", "gpt-4o"),
-            "messages": [{"role": "user", "content": [
-                {"type": "text", "text": prompt},
-                {"type": "input_audio", "input_audio": {"data": b64, "format": fmt}},
-            ]}],
-            "max_tokens": 256, "temperature": 0.1,
-        }, timeout=60)
-    resp.raise_for_status()
-    return resp.json()["choices"][0]["message"]["content"].strip()
-
-
-def _judge_ollama(b64: str, prompt: str, config: dict) -> str | None:
-    base_url = config.get("base_url", "http://localhost:11434").rstrip("/")
-    resp = httpx.post(f"{base_url}/api/chat", json={
-        "model": config.get("model", "qwen2-audio"),
-        "messages": [{"role": "user", "content": prompt, "images": [b64]}],
-        "stream": False, "options": {"temperature": 0.1},
-    }, timeout=120)
-    resp.raise_for_status()
-    return resp.json()["message"]["content"].strip()
-
-
-def _judge_mlx(audio_path: Path, prompt: str, config: dict) -> str | None:
-    from enrichment.classify import enrich_mlx
-    # Reuse MLX model loading, but with our judge prompt
-    global _mlx_model, _mlx_model_name
-    model_id = config.get("model_id", "mlx-community/Qwen2-Audio-7B-Instruct-4bit")
-    from enrichment.classify import _mlx_model, _mlx_model_name as _mn
-    if _mlx_model is None or _mn != model_id:
-        from mlx_audio.stt.utils import load_model
-        import enrichment.classify as cl
-        cl._mlx_model = load_model(model_id)
-        cl._mlx_model_name = model_id
-    result = _mlx_model.generate(str(audio_path), prompt=prompt, max_tokens=256, temperature=0.1)
-    return result.text.strip()
-
-
-# ---------------------------------------------------------------------------
-# Main audition
-# ---------------------------------------------------------------------------
-
-def _load_judge_config() -> tuple[str, dict] | None:
-    """Load enrichment config for judging. Returns (provider, config) or None."""
-    try:
-        from enrichment.config import load_config, get_provider_config, validate_credentials
-        config = load_config()
-        provider, provider_config = get_provider_config(config)
-        validate_credentials(provider, provider_config)
-        return provider, provider_config
-    except Exception as e:
-        print(f"[audition] No judge LLM configured: {e}")
-        return None
-
 
 def run_audition(brief: str, num_candidates: int = 8, output_dir: str | None = None,
                  gender: str | None = None, provider: str | None = None):
@@ -390,86 +258,39 @@ def run_audition(brief: str, num_candidates: int = 8, output_dir: str | None = N
         print(f"  {c.get('name', '?')} ({c.get('provider')}) [{c.get('gender', '?')}] score={c.get('search_score', 0):.3f}")
     print()
 
-    out_dir = Path(output_dir) if output_dir else Path(tempfile.mkdtemp(prefix="audition_"))
-    out_dir.mkdir(parents=True, exist_ok=True)
-    audio_dir = out_dir / "audio"
-    audio_dir.mkdir(exist_ok=True)
+    from audition.graph import run_audition_graph
 
-    # Phase 1: Generate audio
-    print("[audition] Generating audio samples...")
-    candidate_audio: dict[str, list[dict]] = {}
-    with httpx.Client(timeout=30) as client:
-        for c in candidates:
-            results = []
-            for script in profile["scripts"]:
-                path, err = _generate_script_audio(c, script["text"], script["name"], audio_dir, client)
-                results.append({"name": script["name"], "path": str(path) if path else None, "error": err})
-            candidate_audio[c["id"]] = results
-            ok = sum(1 for a in results if a["path"])
-            print(f"  {c.get('name', '?')}: {ok}/{len(results)} scripts" +
-                  (f" ({len(results) - ok} failed)" if ok < len(results) else ""))
+    profile_data = {
+        "criteria": profile["criteria"],
+        "criteria_labels": profile["criteria_labels"],
+        "scripts": profile["scripts"],
+    }
 
-    # Phase 2: LLM judges
-    judge = _load_judge_config()
-    scorecard: list[dict] = []
-
-    if judge:
-        judge_provider, judge_config = judge
-        print(f"\n[audition] Judging with {judge_provider}...")
-        for c in candidates:
-            voice_scores: dict[str, list[int]] = {k: [] for k in profile["criteria"]}
-            voice_notes = []
-            for i, script in enumerate(profile["scripts"]):
-                audio_info = candidate_audio[c["id"]][i]
-                if not audio_info["path"]:
-                    continue
-                prompt = _build_judge_prompt(brief, use_case, profile["criteria_labels"], script)
-                result = _judge_audio(Path(audio_info["path"]), prompt, judge_provider, judge_config)
-                if result and "scores" in result:
-                    for k in profile["criteria"]:
-                        s = result["scores"].get(k)
-                        if isinstance(s, (int, float)) and 1 <= s <= 10:
-                            voice_scores[k].append(int(s))
-                    if result.get("notes"):
-                        voice_notes.append(result["notes"])
-
-            avg = {k: round(sum(v) / len(v), 1) if v else 0 for k, v in voice_scores.items()}
-            total = round(sum(avg.values()) / len(avg), 1) if avg else 0
-            scorecard.append({
-                "id": c["id"], "name": c.get("name"), "provider": c.get("provider"),
-                "gender": c.get("gender"), "search_score": c.get("search_score", 0),
-                "scores": avg, "total": total, "notes": voice_notes,
-                "audio_files": [a["path"] for a in candidate_audio[c["id"]] if a["path"]],
-            })
-            print(f"  {c.get('name', '?')}: {total}/10")
-
-        scorecard.sort(key=lambda x: x["total"], reverse=True)
-    else:
-        print("\n[audition] No judge configured — audio files saved for manual review.")
-        for c in candidates:
-            scorecard.append({
-                "id": c["id"], "name": c.get("name"), "provider": c.get("provider"),
-                "gender": c.get("gender"), "search_score": c.get("search_score", 0),
-                "scores": {}, "total": 0, "notes": [],
-                "audio_files": [a["path"] for a in candidate_audio[c["id"]] if a["path"]],
-            })
+    result = run_audition_graph(brief, use_case, profile_data, candidates)
+    scorecard = result.get("scorecard", [])
 
     # Save results
+    out_dir = Path(output_dir) if output_dir else Path(tempfile.mkdtemp(prefix="audition_"))
+    out_dir.mkdir(parents=True, exist_ok=True)
+
     (out_dir / "scorecard.json").write_text(json.dumps({
         "brief": brief, "use_case": use_case,
-        "judge": {"provider": judge[0], "model": judge[1].get("model", judge[1].get("model_id", "default"))} if judge else None,
         "profile": {"criteria": profile["criteria"], "criteria_labels": profile["criteria_labels"],
                      "scripts": [s["name"] for s in profile["scripts"]]},
         "scorecard": scorecard,
         "recommendation": scorecard[0] if scorecard else None,
+        "candidate_notes": result.get("candidate_notes", []),
+        "comparison_raw": result.get("comparison"),
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }, indent=2))
 
     print(f"\n{'=' * 50}")
-    if scorecard and scorecard[0]["total"] > 0:
+    if scorecard and scorecard[0].get("total", 0) > 0:
         top = scorecard[0]
-        print(f"[audition] RECOMMENDATION: {top['name']} ({top['provider']}) — {top['total']}/10")
-        if top["notes"]:
-            print(f"  {top['notes'][0]}")
+        print(f"[audition] RECOMMENDATION: {top.get('name')} ({top.get('provider')}) — {top['total']}/10")
+        rec = top.get("recommendation")
+        if rec:
+            print(f"  {rec}")
+        if top.get("strengths"):
+            print(f"  Strengths: {top['strengths']}")
     print(f"[audition] Scorecard: {out_dir / 'scorecard.json'}")
-    print(f"[audition] Audio: {audio_dir}")
