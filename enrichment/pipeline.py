@@ -8,9 +8,16 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+import sys
+
 import httpx
 
 from enrichment import CATALOG_DIR
+
+
+def _log(msg: str):
+    print(msg)
+    sys.stdout.flush()
 
 SAMPLE_TEXT = (
     "Hi there, welcome back. I wanted to check in and see how you're doing today. "
@@ -33,21 +40,31 @@ RIME_LANG_SAMPLES = {
 }
 
 
+_RIME_STREAMING_MODELS = {"arcana", "mistv3"}  # return raw audio with Accept header
+_RIME_JSON_MODELS = {"mist", "mistv2"}          # return base64 JSON with audioContent
+
+
 def _generate_rime(voice_id: str, model: str, lang: str, out_dir: Path, client: httpx.Client) -> Path | None:
     api_key = os.environ.get("RIME_API_KEY", "")
     if not api_key:
         return None
     text = RIME_LANG_SAMPLES.get(lang, SAMPLE_TEXT)
-    body = {"text": text, "speaker": voice_id, "modelId": model}
+    body: dict = {"text": text, "speaker": voice_id, "modelId": model}
     if lang != "eng":
         body["lang"] = lang
-    resp = client.post(
-        "https://users.rime.ai/v1/rime-tts",
-        headers={"Authorization": f"Bearer {api_key}"},
-        json=body,
-    )
-    resp.raise_for_status()
-    audio_bytes = base64.b64decode(resp.json()["audioContent"])
+
+    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+
+    if model in _RIME_STREAMING_MODELS:
+        headers["Accept"] = "audio/wav"
+        resp = client.post("https://users.rime.ai/v1/rime-tts", headers=headers, json=body)
+        resp.raise_for_status()
+        audio_bytes = resp.content
+    else:
+        resp = client.post("https://users.rime.ai/v1/rime-tts", headers=headers, json=body)
+        resp.raise_for_status()
+        audio_bytes = base64.b64decode(resp.json()["audioContent"])
+
     path = out_dir / f"rime_{voice_id}.wav"
     path.write_bytes(audio_bytes)
     return path
@@ -283,10 +300,10 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False):
     config = load_config()
     enrich_provider, provider_config = get_provider_config(config)
 
-    print(f"[enrich] Provider: {enrich_provider}")
-    print(f"[enrich] Model: {provider_config.get('model') or provider_config.get('model_id', 'default')}")
+    _log(f"[enrich] Provider: {enrich_provider}")
+    _log(f"[enrich] Model: {provider_config.get('model') or provider_config.get('model_id', 'default')}")
     validate_credentials(enrich_provider, provider_config)
-    print(f"[enrich] Credentials OK.{' (retry mode)' if retry else ''}")
+    _log(f"[enrich] Credentials OK.{' (retry mode)' if retry else ''}")
 
     skip = {"providers", "hosting"}
     available = [p.stem for p in CATALOG_DIR.glob("*.json") if p.stem not in skip]
@@ -313,17 +330,21 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False):
 
             pending = [(i, v) for i, v in enumerate(voices) if _needs_enrichment(v, retry=retry)]
             if not pending:
-                print(f"[enrich] {cat_provider}: nothing to enrich")
+                _log(f"[enrich] {cat_provider}: nothing to enrich")
                 continue
 
             total += len(pending)
-            print(f"[enrich] {cat_provider}: {len(pending)} voices to enrich")
+            _log(f"[enrich] {cat_provider}: {len(pending)} voices to enrich")
 
             # Phase 1: Generate all samples (skip model families with 5+ consecutive failures)
             samples: list[tuple[int, dict, Path]] = []
             model_failures: dict[str, int] = {}
+            gen_count = 0
             with httpx.Client(timeout=15) as client:
                 for idx, voice in pending:
+                    gen_count += 1
+                    if gen_count % 50 == 0:
+                        _log(f"[enrich] {cat_provider}: generating samples... {gen_count}/{len(pending)}")
                     model_key = f"{voice.get('provider')}:{voice.get('provider_model', '')}"
                     if model_failures.get(model_key, 0) >= 5:
                         voices[idx] = _set_status(voice, "failed", "model_unavailable")
@@ -341,7 +362,7 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False):
                         model_failures[model_key] = model_failures.get(model_key, 0) + 1
 
             gen_failed = len(pending) - len(samples)
-            print(f"[enrich] {cat_provider}: {len(samples)} samples ready, {gen_failed} failed audio gen")
+            _log(f"[enrich] {cat_provider}: {len(samples)} samples ready, {gen_failed} failed audio gen")
             if gen_failed > 0:
                 save_catalog(cat_provider, voices)
 
@@ -355,13 +376,13 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False):
                 # Backoff on consecutive errors
                 if consecutive_errors > 0:
                     delay = min(BASE_DELAY * (2 ** (consecutive_errors - 1)), 30)
-                    print(f"[enrich] Backing off {delay:.0f}s...")
+                    _log(f"[enrich] Backing off {delay:.0f}s...")
                     time.sleep(delay)
 
                 try:
                     result = enrich_voice(audio_path, enrich_provider, provider_config)
                 except Exception as e:
-                    print(f"[enrich] Failed {vid}: {e}")
+                    _log(f"[enrich] Failed {vid}: {e}")
                     voices[idx] = _set_status(voice, "failed", str(e)[:60])
                     failed += 1
                     consecutive_errors += 1
@@ -383,7 +404,7 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False):
 
                 warnings = validate_enrichment(result, config)
                 if warnings:
-                    print(f"[enrich] WARNING {vid}: {', '.join(warnings)}")
+                    _log(f"[enrich] WARNING {vid}: {', '.join(warnings)}")
 
                 result["enrichment"] = {
                     "provider": enrich_provider,
@@ -401,7 +422,7 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False):
                 # Save progress every 25 voices
                 if enriched % 25 == 0:
                     save_catalog(cat_provider, voices)
-                    print(f"[enrich] Progress: {enriched} enriched, {failed} failed")
+                    _log(f"[enrich] Progress: {enriched} enriched, {failed} failed")
 
             if dirty:
                 save_catalog(cat_provider, voices)
@@ -412,7 +433,7 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False):
     pending_total = sum(1 for p in targets for v in (load_catalog(p) or []) if not v.get("enrichment_status"))
 
     print(f"\n[enrich] This run: +{enriched} enriched, {failed} failed")
-    print(f"[enrich] Overall: {completed} completed, {failed_total} failed, {pending_total} pending")
+    _log(f"[enrich] Overall: {completed} completed, {failed_total} failed, {pending_total} pending")
 
     if enriched > 0:
         print("[enrich] Rebuilding search index...")
@@ -420,4 +441,4 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False):
             from audition.index import run_index
             run_index()
         except Exception as e:
-            print(f"[enrich] Index rebuild failed: {e}")
+            _log(f"[enrich] Index rebuild failed: {e}")
