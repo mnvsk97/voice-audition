@@ -93,8 +93,7 @@
         "score": 55,
         "status": "operational",
         "incidents_90d": 25,
-        "status_page_url": "https://status.elevenlabs.io/",
-        "last_checked": "2026-04-06T12:26:35.771024+00:00"
+        "last_checked": "2026-04-06T18:26:51.068501+00:00"
       }
     },
     "cartesia": {
@@ -185,8 +184,7 @@
         "score": null,
         "status": "unknown",
         "incidents_90d": null,
-        "status_page_url": null,
-        "last_checked": "2026-04-06T12:26:37.028688+00:00"
+        "last_checked": "2026-04-06T18:26:52.516568+00:00"
       }
     },
     "deepgram": {
@@ -273,11 +271,10 @@
       },
       "last_synced": null,
       "reliability": {
-        "score": 68,
-        "status": "operational",
-        "incidents_90d": 14,
-        "status_page_url": "https://status.deepgram.com",
-        "last_checked": "2026-04-06T12:26:36.699637+00:00"
+        "score": 53,
+        "status": "degraded",
+        "incidents_90d": 15,
+        "last_checked": "2026-04-06T18:26:52.206846+00:00"
       }
     },
     "openai": {
@@ -370,8 +367,7 @@
         "score": 60,
         "status": "operational",
         "incidents_90d": 25,
-        "status_page_url": "https://status.openai.com/",
-        "last_checked": "2026-04-06T12:26:36.329003+00:00"
+        "last_checked": "2026-04-06T18:26:51.697197+00:00"
       }
     },
     "playht": {
@@ -455,8 +451,7 @@
         "score": null,
         "status": "unknown",
         "incidents_90d": null,
-        "status_page_url": null,
-        "last_checked": "2026-04-06T12:26:37.028703+00:00"
+        "last_checked": "2026-04-06T18:26:52.516585+00:00"
       }
     },
     "rime": {
@@ -549,8 +544,7 @@
         "score": null,
         "status": "unknown",
         "incidents_90d": null,
-        "status_page_url": null,
-        "last_checked": "2026-04-06T12:26:37.028699+00:00"
+        "last_checked": "2026-04-06T18:26:52.516582+00:00"
       }
     }
   }
