@@ -92,7 +92,10 @@
       "tts_api": {
         "endpoint": "POST https://api.elevenlabs.io/v1/text-to-speech/{voice_id}",
         "auth_header": "xi-api-key: <ELEVENLABS_API_KEY>",
-        "body": {"text": "<text>", "model_id": "eleven_turbo_v2_5"},
+        "body": {
+          "text": "<text>",
+          "model_id": "eleven_turbo_v2_5"
+        },
         "response": "audio/mpeg stream",
         "notes": "Returns raw audio bytes. Supports streaming via /stream suffix."
       },
@@ -101,7 +104,7 @@
         "score": 55,
         "status": "operational",
         "incidents_90d": 25,
-        "last_checked": "2026-04-06T18:26:51.068501+00:00"
+        "last_checked": "2026-04-07T00:19:23.473791+00:00"
       }
     },
     "cartesia": {
@@ -191,7 +194,19 @@
       "tts_api": {
         "endpoint": "POST https://api.cartesia.ai/tts/bytes",
         "auth_header": "X-API-Key: <CARTESIA_API_KEY>",
-        "body": {"model_id": "sonic-2", "transcript": "<text>", "voice": {"mode": "id", "id": "<voice_id>"}, "output_format": {"container": "wav", "sample_rate": 44100, "encoding": "pcm_f32le"}},
+        "body": {
+          "model_id": "sonic-2",
+          "transcript": "<text>",
+          "voice": {
+            "mode": "id",
+            "id": "<voice_id>"
+          },
+          "output_format": {
+            "container": "wav",
+            "sample_rate": 44100,
+            "encoding": "pcm_f32le"
+          }
+        },
         "response": "audio bytes",
         "notes": "Also supports /tts/sse for streaming. Requires Cartesia-Version header."
       },
@@ -200,7 +215,7 @@
         "score": null,
         "status": "unknown",
         "incidents_90d": null,
-        "last_checked": "2026-04-06T18:26:52.516568+00:00"
+        "last_checked": "2026-04-07T00:19:24.609283+00:00"
       }
     },
     "deepgram": {
@@ -298,7 +313,7 @@
         "score": 53,
         "status": "degraded",
         "incidents_90d": 15,
-        "last_checked": "2026-04-06T18:26:52.206846+00:00"
+        "last_checked": "2026-04-07T00:19:24.409783+00:00"
       }
     },
     "openai": {
@@ -390,7 +405,11 @@
       "tts_api": {
         "endpoint": "POST https://api.openai.com/v1/audio/speech",
         "auth_header": "Authorization: Bearer <OPENAI_API_KEY>",
-        "body": {"model": "gpt-4o-mini-tts", "voice": "<voice_id>", "input": "<text>"},
+        "body": {
+          "model": "gpt-4o-mini-tts",
+          "voice": "<voice_id>",
+          "input": "<text>"
+        },
         "response": "audio bytes (mp3 default)",
         "notes": "Supports instructions param for dynamic voice control. response_format: mp3/opus/aac/flac/wav/pcm"
       },
@@ -399,7 +418,7 @@
         "score": 60,
         "status": "operational",
         "incidents_90d": 25,
-        "last_checked": "2026-04-06T18:26:51.697197+00:00"
+        "last_checked": "2026-04-07T00:19:24.059533+00:00"
       }
     },
     "playht": {
@@ -482,7 +501,11 @@
       "tts_api": {
         "endpoint": "POST https://api.play.ht/api/v2/tts/stream",
         "auth_header": "Authorization: Bearer <PLAYHT_API_KEY>, X-User-ID: <PLAYHT_USER_ID>",
-        "body": {"text": "<text>", "voice": "<voice_id>", "output_format": "mp3"},
+        "body": {
+          "text": "<text>",
+          "voice": "<voice_id>",
+          "output_format": "mp3"
+        },
         "response": "audio stream",
         "notes": "Supports voice_engine param. Also /tts for non-streaming."
       },
@@ -491,7 +514,7 @@
         "score": null,
         "status": "unknown",
         "incidents_90d": null,
-        "last_checked": "2026-04-06T18:26:52.516585+00:00"
+        "last_checked": "2026-04-07T00:19:24.609296+00:00"
       }
     },
     "rime": {
@@ -583,7 +606,11 @@
       "tts_api": {
         "endpoint": "POST https://users.rime.ai/v1/rime-tts",
         "auth_header": "Authorization: Bearer <RIME_API_KEY>",
-        "body": {"text": "<text>", "speaker": "<voice_name>", "modelId": "<model_family>"},
+        "body": {
+          "text": "<text>",
+          "speaker": "<voice_name>",
+          "modelId": "<model_family>"
+        },
         "response": "varies by model",
         "notes": "Mist/MistV2: JSON with base64 audioContent. Arcana/MistV3: raw audio with Accept: audio/wav header. Add lang param for non-English."
       },
@@ -592,7 +619,7 @@
         "score": null,
         "status": "unknown",
         "incidents_90d": null,
-        "last_checked": "2026-04-06T18:26:52.516582+00:00"
+        "last_checked": "2026-04-07T00:19:24.609292+00:00"
       }
     }
   }
