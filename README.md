@@ -1,65 +1,46 @@
 # voice-audition
 
-The casting director for your AI voice agent. Search voices across multiple TTS providers with Moss-powered text search, a checked-in SQLite catalog, local runtime state, use-case auditions, and cost comparison.
+[![PyPI](https://img.shields.io/pypi/v/voice-audition)](https://pypi.org/project/voice-audition/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+
+The casting director for your AI voice agent. Search 697 voices across multiple TTS providers, run use-case auditions with AI scoring, and compare costs — all from the CLI or as an MCP server for Claude.
 
 ## Install
 
 ```bash
 pip install voice-audition
-pip install voice-audition[enrich]   # adds Qwen2-Audio enrichment
-pip install voice-audition[mcp]      # adds MCP server for Claude
-pip install voice-audition[acoustic] # adds acoustic analysis
-pip install voice-audition[clap]     # adds CLAP embeddings + audio search
+pip install voice-audition[enrich]   # LLM-based voice enrichment (Gemini, OpenAI, local MLX)
+pip install voice-audition[mcp]      # MCP server for Claude Desktop
+pip install voice-audition[acoustic] # acoustic feature analysis (librosa, Parselmouth)
+pip install voice-audition[clap]     # CLAP embeddings for audio similarity search
 ```
 
 ## Setup
 
 ```bash
 cp .env.example .env
+# Fill in the API keys you need (all optional)
 ```
 
-```bash
-# Optional: Moss credentials for semantic search
-# Get them at https://platform.inferedge.dev
-MOSS_PROJECT_ID=...
-MOSS_PROJECT_KEY=...
-
-# Optional: Provider API keys for sync + enrichment
-ELEVENLABS_API_KEY=...
-OPENAI_API_KEY=...
-DEEPGRAM_API_KEY=...
-RIME_API_KEY=...
-CARTESIA_API_KEY=...
-PLAYHT_API_KEY=...
-PLAYHT_USER_ID=...
-AZURE_SPEECH_KEY=...
-AZURE_SPEECH_REGION=...
-GOOGLE_ACCESS_TOKEN=...
-```
+Provider API keys are optional — you only need keys for the providers you want to sync. Moss credentials enable semantic search; without them, keyword search is used as fallback.
 
 ## Quick start
 
 ```bash
-# Sync voices from all providers
+# Sync voices from providers
 voice-audition sync
-
-# Build search index
-voice-audition index
 
 # Search
 voice-audition search "warm female voice for healthcare"
 
-# Analyze options without generating audio
-voice-audition analyze "voice for fertility clinic for anxious IVF patients"
+# Analyze top options (no audio generated)
+voice-audition analyze "voice for fertility clinic"
 
-# Search by audio similarity
-voice-audition search-audio ./reference.wav
+# Run a full audition with AI scoring
+voice-audition audition "fertility clinic for anxious IVF patients" --gender female
 
-# Run a full audition
-voice-audition audition "fertility clinic for anxious IVF patients" --gender female --mode ai
-voice-audition audition "fertility clinic for anxious IVF patients" --gender female --mode human
-
-# Compare costs at 100k minutes/month
+# Compare costs at scale
 voice-audition costs 100000
 ```
 
@@ -67,35 +48,23 @@ voice-audition costs 100000
 
 | Command | What it does |
 |---------|-------------|
-| `voice-audition sync [providers...]` | Sync voices from TTS providers with diff-based lifecycle tracking |
-| `voice-audition index` | Build or rebuild the Moss semantic search index |
-| `voice-audition search <query>` | Semantic search the voice catalog (`--top-k` for result count) |
-| `voice-audition analyze <brief>` | Deterministic recommendation pass over top candidates without audio generation |
-| `voice-audition enrich [providers...]` | Enrich voices with Qwen2-Audio descriptions and traits (`--model`) |
-| `voice-audition audition <brief>` | Run a use-case audition with `--mode ai|human` |
-| `voice-audition costs <minutes>` | Compare API vs self-hosted costs at a given monthly volume |
-| `voice-audition enrich-acoustic [providers...]` | Compute acoustic measurements and store them in SQLite |
-| `voice-audition embed [providers...]` | Generate CLAP embeddings and store them in SQLite |
-| `voice-audition search-audio <path>` | Find voices acoustically similar to an audio clip |
+| `voice-audition sync [providers...]` | Sync voices from TTS provider APIs |
+| `voice-audition enrich [providers...] [--status]` | Enrich voices with LLM-generated descriptions and traits |
+| `voice-audition pipeline [--providers ...]` | Run full pipeline: sync → enrich → rebuild index |
+| `voice-audition index [--force]` | Build or rebuild the Moss semantic search index |
+| `voice-audition search <query> [--top-k N]` | Semantic search (falls back to keyword search without Moss) |
+| `voice-audition analyze <brief>` | Recommend best/budget/safest voices without generating audio |
+| `voice-audition audition <brief> [--mode ai\|human]` | Run a use-case audition with audio generation and scoring |
+| `voice-audition costs <minutes>` | Compare API vs self-hosted costs at a monthly volume |
+| `voice-audition enrich-acoustic [providers...]` | Extract acoustic features (pitch, speech rate, HNR) |
+| `voice-audition embed [providers...]` | Generate CLAP embeddings for audio similarity |
+| `voice-audition search-audio <path>` | Find voices similar to an audio clip |
+| `voice-audition stats` | Catalog statistics |
+| `voice-audition runs [--last N]` | Recent pipeline run history |
 | `voice-audition monitor` | Check provider reliability via status pages |
-| `voice-audition stats` | Show catalog statistics |
-| `voice-audition mcp` | Start the MCP server for Claude integration |
+| `voice-audition mcp` | Start the MCP server |
 
-## Cost calculator
-
-```bash
-$ voice-audition costs 100000
-
-# Compares per-provider API pricing against self-hosted open source:
-#   ElevenLabs  100k min = $3,000/mo
-#   Cartesia    100k min = $1,500/mo
-#   Kokoro      100k min = $0 (self-hosted, GPU cost only)
-#   Piper       100k min = $0 (self-hosted, CPU-capable)
-```
-
-At high volume, self-hosted open source voices (Kokoro, Piper, Orpheus) can cut costs to near-zero -- the calculator shows the breakeven.
-
-## MCP Server
+## MCP server
 
 Add to Claude Desktop config:
 
@@ -114,94 +83,70 @@ Add to Claude Desktop config:
 }
 ```
 
-Exposes additive search and analysis tools over the SQLite-backed catalog:
-
 | Tool | What it does |
 |------|-------------|
-| `search_voices` | Semantic search across the full catalog |
-| `analyze_voices` | Deterministic recommendation pass without audio generation |
-| `get_voice` | Get detailed info for a specific voice |
-| `filter_voices` | Filter by gender, provider, accent, age group, or use case |
-| `get_catalog_stats` | Voice counts plus enrichment/acoustic/embedding coverage |
-| `run_voice_audition` | Run a full use-case audition with scorecard |
-| `calculate_voice_costs` | Compare API vs self-hosted costs at volume |
-| `find_similar_voices` | Find acoustically similar voices from stored embeddings |
-| `get_acoustic_profile` | Return measured acoustic features for a voice |
-
-## How it works
-
-```
-voice-audition search "warm female for healthcare"
-    |
-1. `catalog/voice_catalog.db` stores canonical voice/catalog state
-    |
-2. Query embedded into Moss (moss-minilm model) when credentials exist
-    |
-3. If Moss is unavailable, CLI falls back to SQLite keyword search
-    |
-4. Metadata filters applied and top-k results returned
-```
-
-Project-local state lives in `.voice-audition/` by default:
-
-- `catalog/voice_catalog.db` for checked-in catalog data
-- `.voice-audition/runtime.db` for local runtime state and query cache
-- `.voice-audition/clips/` for human-audition audio clips
+| `search_voices` | Semantic search with optional acoustic filters |
+| `analyze_voices` | Recommend best voices without generating audio |
+| `filter_voices` | Filter by gender, provider, accent, age group, use case |
+| `get_voice` | Full details for a specific voice |
+| `get_catalog_stats` | Catalog overview with enrichment coverage |
+| `run_voice_audition` | Full audition with audio generation and AI scoring |
+| `calculate_voice_costs` | API vs self-hosted cost comparison |
+| `find_similar_voices` | Find acoustically similar voices via embeddings |
+| `get_acoustic_profile` | Measured acoustic features for a voice |
 
 ## Voice catalog
 
-697 voices across 9 providers:
+697 voices across 9 providers in a checked-in SQLite database:
 
 | Type | Providers |
 |------|-----------|
-| **Commercial** | ElevenLabs, OpenAI, Deepgram, Rime, Cartesia, PlayHT |
+| **Commercial** | ElevenLabs, OpenAI, Deepgram, Rime |
+| **Syncable** | Cartesia, PlayHT, Azure, Google (API keys required) |
 | **Open source** | Kokoro, Piper, Orpheus, Chatterbox, Fish Speech |
 
-- Diff-based sync with lifecycle tracking (new/deprecated/changed detection)
-- SQLite is the only catalog format; the checked-in catalog DB is the source of truth
+- Diff-based sync: detects added, removed, and changed voices
+- Enrichment data preserved across re-syncs
+- Deprecated voices filtered from search/audition
 - Weekly pricing change detection via page hash diff
-- Research-backed schema: 8 perceptual traits, texture, pitch, emotional range
-- Synced every 6 hours via GitHub Actions
-- Provider reliability monitoring via status pages
-- Open source registry includes hosting platform data (GPU requirements, inference speed)
 
-## Enrichment pipeline
+## Enrichment
 
-Most providers ship voice metadata. Rime is still the biggest enrichment gap. The enrichment pipeline classifies audio samples with Qwen2-Audio to fill in traits and descriptions, persists state in SQLite, and updates the checked-in catalog DB.
+The enrichment pipeline generates audio samples, sends them to an LLM for classification, and fills in descriptions, traits, and tags. Configure your LLM provider in `enrichment/enrichment.yaml`:
 
-```bash
-pip install voice-audition[enrich]
-voice-audition enrich rime --limit 10
-voice-audition enrich rime --yes
+```yaml
+enrichment:
+  provider: gemini  # gemini | openai | anthropic | ollama | mlx
 ```
 
-Additional derived-data passes:
+Supported: Gemini, OpenAI, Anthropic, Bedrock, Ollama (Qwen2-Audio), local MLX.
 
 ```bash
-voice-audition enrich-acoustic
-voice-audition embed
+voice-audition enrich rime --limit 10    # enrich 10 Rime voices
+voice-audition enrich --status           # show enrichment progress
+voice-audition pipeline                  # sync + enrich + rebuild index
 ```
 
 ## Audition profiles
 
-5 built-in use-case profiles with role-specific scoring criteria:
+6 built-in use-case profiles with domain-specific scoring criteria:
 
-- **Healthcare**: patient comfort, trust, empathy, clarity, pacing, sensitivity
-- **Sales**: energy, rapport, persuasiveness, confidence, resilience, likability
-- **Support**: patience, clarity, helpfulness, professionalism, warmth, resolution focus
-- **Finance**: authority, precision, trustworthiness, calm, professionalism, compliance
-- **Meditation**: calm, spaciousness, grounding, non-intrusive, breath quality, presence
-
-## Self-hosting
-
-Open source voices (Kokoro, Piper, Orpheus) run locally with no API costs. The catalog tracks GPU requirements and inference speed for each. Use `voice-audition costs <minutes>` to see when self-hosting beats API pricing for your volume.
+| Profile | Criteria |
+|---------|----------|
+| Healthcare | patient comfort, trust, empathy, clarity, pacing, sensitivity |
+| Sales | energy, rapport, persuasiveness, confidence, resilience, likability |
+| Support | patience, clarity, helpfulness, professionalism, warmth, resolution focus |
+| Finance | authority, precision, trustworthiness, calm, professionalism, compliance |
+| Meditation | calm, spaciousness, grounding, non-intrusive, breath quality, presence |
+| Education | clarity, patience, encouragement, structure, warmth, confidence |
 
 ## Development
 
 ```bash
 git clone https://github.com/mnvsk97/voice-audition.git
 cd voice-audition
-pip install -e ".[mcp]"
+pip install -e ".[mcp,enrich]"
+python -m pytest tests/
 ```
 
 ## License

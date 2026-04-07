@@ -9,6 +9,7 @@ credentials.json
 runs.jsonl
 *.db
 !catalog/voice_catalog.db
+.DS_Store
 
 # IDE and tool directories
 .adal/
