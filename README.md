@@ -1,6 +1,6 @@
 # voice-audition
 
-The casting director for your AI voice agent. Search 697 voices across 9 TTS providers with semantic search, run use-case auditions, and compare API vs self-hosted costs.
+The casting director for your AI voice agent. Search voices across multiple TTS providers with Moss-powered text search, a checked-in SQLite catalog, local runtime state, use-case auditions, and cost comparison.
 
 ## Install
 
@@ -8,6 +8,8 @@ The casting director for your AI voice agent. Search 697 voices across 9 TTS pro
 pip install voice-audition
 pip install voice-audition[enrich]   # adds Qwen2-Audio enrichment
 pip install voice-audition[mcp]      # adds MCP server for Claude
+pip install voice-audition[acoustic] # adds acoustic analysis
+pip install voice-audition[clap]     # adds CLAP embeddings + audio search
 ```
 
 ## Setup
@@ -17,7 +19,7 @@ cp .env.example .env
 ```
 
 ```bash
-# Required: Moss credentials for semantic search
+# Optional: Moss credentials for semantic search
 # Get them at https://platform.inferedge.dev
 MOSS_PROJECT_ID=...
 MOSS_PROJECT_KEY=...
@@ -30,6 +32,9 @@ RIME_API_KEY=...
 CARTESIA_API_KEY=...
 PLAYHT_API_KEY=...
 PLAYHT_USER_ID=...
+AZURE_SPEECH_KEY=...
+AZURE_SPEECH_REGION=...
+GOOGLE_ACCESS_TOKEN=...
 ```
 
 ## Quick start
@@ -44,8 +49,15 @@ voice-audition index
 # Search
 voice-audition search "warm female voice for healthcare"
 
+# Analyze options without generating audio
+voice-audition analyze "voice for fertility clinic for anxious IVF patients"
+
+# Search by audio similarity
+voice-audition search-audio ./reference.wav
+
 # Run a full audition
-voice-audition audition "fertility clinic for anxious IVF patients" --gender female
+voice-audition audition "fertility clinic for anxious IVF patients" --gender female --mode ai
+voice-audition audition "fertility clinic for anxious IVF patients" --gender female --mode human
 
 # Compare costs at 100k minutes/month
 voice-audition costs 100000
@@ -58,9 +70,13 @@ voice-audition costs 100000
 | `voice-audition sync [providers...]` | Sync voices from TTS providers with diff-based lifecycle tracking |
 | `voice-audition index` | Build or rebuild the Moss semantic search index |
 | `voice-audition search <query>` | Semantic search the voice catalog (`--top-k` for result count) |
+| `voice-audition analyze <brief>` | Deterministic recommendation pass over top candidates without audio generation |
 | `voice-audition enrich [providers...]` | Enrich voices with Qwen2-Audio descriptions and traits (`--model`) |
-| `voice-audition audition <brief>` | Run a use-case audition with ranked scorecard (`--candidates`, `--gender`, `--provider`) |
+| `voice-audition audition <brief>` | Run a use-case audition with `--mode ai|human` |
 | `voice-audition costs <minutes>` | Compare API vs self-hosted costs at a given monthly volume |
+| `voice-audition enrich-acoustic [providers...]` | Compute acoustic measurements and store them in SQLite |
+| `voice-audition embed [providers...]` | Generate CLAP embeddings and store them in SQLite |
+| `voice-audition search-audio <path>` | Find voices acoustically similar to an audio clip |
 | `voice-audition monitor` | Check provider reliability via status pages |
 | `voice-audition stats` | Show catalog statistics |
 | `voice-audition mcp` | Start the MCP server for Claude integration |
@@ -98,32 +114,39 @@ Add to Claude Desktop config:
 }
 ```
 
-Exposes 7 tools:
+Exposes additive search and analysis tools over the SQLite-backed catalog:
 
 | Tool | What it does |
 |------|-------------|
 | `search_voices` | Semantic search across the full catalog |
+| `analyze_voices` | Deterministic recommendation pass without audio generation |
 | `get_voice` | Get detailed info for a specific voice |
-| `filter_voices` | Filter by gender, provider, cost, latency |
-| `get_providers` | List available TTS providers and status |
-| `get_catalog_stats` | Voice counts, coverage, freshness |
+| `filter_voices` | Filter by gender, provider, accent, age group, or use case |
+| `get_catalog_stats` | Voice counts plus enrichment/acoustic/embedding coverage |
 | `run_voice_audition` | Run a full use-case audition with scorecard |
 | `calculate_voice_costs` | Compare API vs self-hosted costs at volume |
+| `find_similar_voices` | Find acoustically similar voices from stored embeddings |
+| `get_acoustic_profile` | Return measured acoustic features for a voice |
 
 ## How it works
 
 ```
 voice-audition search "warm female for healthcare"
     |
-1. Query embedded (Moss, moss-minilm model)
+1. `catalog/voice_catalog.db` stores canonical voice/catalog state
     |
-2. Hybrid search: semantic similarity + keyword matching (alpha=0.7)
-   Name-based vibes fill in for unenriched voices
+2. Query embedded into Moss (moss-minilm model) when credentials exist
     |
-3. Metadata filters applied (gender, provider, cost, latency)
+3. If Moss is unavailable, CLI falls back to SQLite keyword search
     |
-4. Top-k results ranked by relevance score
+4. Metadata filters applied and top-k results returned
 ```
+
+Project-local state lives in `.voice-audition/` by default:
+
+- `catalog/voice_catalog.db` for checked-in catalog data
+- `.voice-audition/runtime.db` for local runtime state and query cache
+- `.voice-audition/clips/` for human-audition audio clips
 
 ## Voice catalog
 
@@ -135,6 +158,7 @@ voice-audition search "warm female for healthcare"
 | **Open source** | Kokoro, Piper, Orpheus, Chatterbox, Fish Speech |
 
 - Diff-based sync with lifecycle tracking (new/deprecated/changed detection)
+- SQLite is the only catalog format; the checked-in catalog DB is the source of truth
 - Weekly pricing change detection via page hash diff
 - Research-backed schema: 8 perceptual traits, texture, pitch, emotional range
 - Synced every 6 hours via GitHub Actions
@@ -143,11 +167,19 @@ voice-audition search "warm female for healthcare"
 
 ## Enrichment pipeline
 
-Most providers ship voice metadata. Rime does not -- its 610 voices have no descriptions. The enrichment pipeline classifies audio samples with Qwen2-Audio to fill in traits and descriptions. Tested on 10 voices.
+Most providers ship voice metadata. Rime is still the biggest enrichment gap. The enrichment pipeline classifies audio samples with Qwen2-Audio to fill in traits and descriptions, persists state in SQLite, and updates the checked-in catalog DB.
 
 ```bash
 pip install voice-audition[enrich]
-voice-audition enrich rime --model qwen2-audio
+voice-audition enrich rime --limit 10
+voice-audition enrich rime --yes
+```
+
+Additional derived-data passes:
+
+```bash
+voice-audition enrich-acoustic
+voice-audition embed
 ```
 
 ## Audition profiles

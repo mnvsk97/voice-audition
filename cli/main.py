@@ -20,15 +20,17 @@ def sync(providers):
 @main.command()
 @click.argument("providers", nargs=-1)
 @click.option("--retry", is_flag=True, help="Retry previously failed voices")
+@click.option("--limit", type=int, default=None, help="Limit voices per provider")
+@click.option("--yes", is_flag=True, help="Skip confirmation prompt")
 @click.option("--status", "show_status", is_flag=True, help="Show enrichment status summary")
-def enrich(providers, retry, show_status):
+def enrich(providers, retry, limit, yes, show_status):
     """Enrich voices with descriptions and traits."""
     if show_status:
         _print_enrich_status()
         return
     from enrichment.pipeline import run_enrich
     try:
-        run_enrich(list(providers) or None, retry=retry)
+        run_enrich(list(providers) or None, retry=retry, limit=limit, yes=yes)
     except (ValueError, FileNotFoundError, ConnectionError, ImportError) as e:
         raise click.ClickException(str(e))
 
@@ -38,10 +40,8 @@ def enrich(providers, retry, show_status):
 @click.option("--providers", "-p", multiple=True, help="Limit sync/enrich to specific providers")
 def pipeline(retry, providers):
     """Run full pipeline: sync -> enrich new voices -> update index."""
-    import json
     import time
     from datetime import datetime, timezone
-    from pathlib import Path
 
     start = time.monotonic()
     ts = datetime.now(timezone.utc).isoformat()
@@ -80,43 +80,66 @@ def pipeline(retry, providers):
     run["duration_s"] = round(time.monotonic() - start, 1)
     run["status"] = "ok" if not run["errors"] else "errors"
 
-    # Append to run log
-    log_path = Path(__file__).resolve().parent.parent / "runs.jsonl"
-    with open(log_path, "a") as f:
-        f.write(json.dumps(run) + "\n")
-
     print("\n" + "=" * 50)
     print(f"[pipeline] Done in {run['duration_s']}s — {run['status']}")
     if run["errors"]:
         for err in run["errors"]:
             print(f"  ERROR: {err}")
-    print(f"[pipeline] Run log: {log_path}")
 
 
 @main.command()
 @click.option("--last", default=5, help="Show last N runs")
 def runs(last):
     """Show recent pipeline runs."""
-    import json
-    from pathlib import Path
+    import sqlite3
 
-    log_path = Path(__file__).resolve().parent.parent / "runs.jsonl"
-    if not log_path.exists():
+    from audition.db import get_runtime_db_path, init_runtime_db
+
+    db_path = init_runtime_db()
+    conn = sqlite3.connect(db_path)
+    conn.row_factory = sqlite3.Row
+    try:
+        sync_rows = conn.execute(
+            """
+            SELECT provider, status, added_count, updated_count, removed_count, total_count, error, finished_at
+            FROM provider_sync_runs
+            ORDER BY id DESC
+            LIMIT ?
+            """,
+            (last,),
+        ).fetchall()
+        pipeline_rows = conn.execute(
+            """
+            SELECT stage, provider, voice_id, status, details_json, finished_at
+            FROM pipeline_runs
+            ORDER BY id DESC
+            LIMIT ?
+            """,
+            (last,),
+        ).fetchall()
+    finally:
+        conn.close()
+
+    if not sync_rows and not pipeline_rows:
         print("No runs yet.")
         return
-    lines = log_path.read_text().strip().split("\n")
-    for line in lines[-last:]:
-        r = json.loads(line)
-        sync_info = r.get("steps", {}).get("sync", {})
-        enrich_info = r.get("steps", {}).get("enrich", {})
-        synced_count = sum(s.get("added", 0) for s in sync_info.get("synced", []))
-        enriched_count = enrich_info.get("enriched", 0)
-        failed_count = enrich_info.get("failed", 0)
-        print(f"  {r['timestamp'][:19]}  {r.get('duration_s', '?')}s  "
-              f"+{synced_count} synced  +{enriched_count} enriched  {failed_count} failed  "
-              f"[{r.get('status', '?')}]")
-        for err in r.get("errors", []):
-            print(f"    ERROR: {err}")
+
+    if sync_rows:
+        print("Recent sync runs:")
+        for row in sync_rows:
+            print(
+                f"  {row['finished_at'] or '?'} {row['provider']} "
+                f"+{row['added_count']} ~{row['updated_count']} -{row['removed_count']} "
+                f"total={row['total_count']} [{row['status']}]"
+            )
+            if row["error"]:
+                print(f"    ERROR: {row['error']}")
+
+    if pipeline_rows:
+        print("\nRecent pipeline events:")
+        for row in pipeline_rows:
+            label = row["voice_id"] or row["provider"] or "-"
+            print(f"  {row['finished_at'] or '?'} {row['stage']} {label} [{row['status']}]")
 
 
 @main.command()
@@ -131,6 +154,16 @@ def stats():
     """Show catalog statistics."""
     from audition.search import show_stats
     show_stats()
+
+
+@main.command()
+@click.argument("minutes_per_month", type=int)
+def costs(minutes_per_month):
+    """Compare API vs self-hosted costs at a given monthly volume."""
+    from audition.costs import calculate_voice_costs, render_voice_costs
+
+    result = calculate_voice_costs(minutes_per_month)
+    click.echo(render_voice_costs(result))
 
 
 @main.command("index")
@@ -150,16 +183,105 @@ def search(query, top_k):
     run_semantic_search(query, top_k=top_k)
 
 
+def _run_analyze_command(brief, candidates, gender, provider):
+    from audition.analyze import analyze_brief
+
+    filters = {}
+    if gender:
+        filters["gender"] = gender
+    if provider:
+        filters["provider"] = provider
+    result = analyze_brief(brief, num_candidates=candidates, filters=filters)
+    click.echo(f"[analyze] Use case: {result['use_case']}")
+    click.echo(
+        f"[analyze] Best overall: {result['best_overall']['name']} "
+        f"({result['best_overall']['provider']}) cost={result['best_overall']['cost_per_min_usd']}"
+    )
+    click.echo(
+        f"[analyze] Best budget: {result['best_budget']['name']} "
+        f"({result['best_budget']['provider']}) cost={result['best_budget']['cost_per_min_usd']}"
+    )
+    click.echo(
+        f"[analyze] Safest: {result['safest_option']['name']} "
+        f"({result['safest_option']['provider']}) cost={result['safest_option']['cost_per_min_usd']}"
+    )
+    click.echo("[analyze] Shortlist:")
+    for item in result["shortlist"]:
+        click.echo(
+            f"  {item['name']} ({item['provider']}) score={item['score']:.3f} "
+            f"cost={item['cost_per_min_usd']} latency={item['latency_tier']}"
+        )
+    click.echo(f"[analyze] Analysis id: {result['analysis_id']}")
+    click.echo(f"[analyze] Next: {result['next_step']}")
+
+
+@main.command("analyze")
+@click.argument("brief")
+@click.option("--candidates", default=8)
+@click.option("--gender", default=None)
+@click.option("--provider", default=None)
+def analyze_cmd(brief, candidates, gender, provider):
+    """Analyze the best voice options without generating audio."""
+    _run_analyze_command(brief, candidates, gender, provider)
+
+
+@main.command("analyse")
+@click.argument("brief")
+@click.option("--candidates", default=8)
+@click.option("--gender", default=None)
+@click.option("--provider", default=None)
+def analyse_cmd(brief, candidates, gender, provider):
+    """Alias for analyze."""
+    _run_analyze_command(brief, candidates, gender, provider)
+
+
+@main.command("enrich-acoustic")
+@click.argument("providers", nargs=-1)
+def enrich_acoustic_cmd(providers):
+    """Compute acoustic measurements for voices and store them in SQLite."""
+    from audition.acoustic import enrich_acoustic
+
+    result = enrich_acoustic(list(providers) or None)
+    click.echo(f"Processed {result['processed']} voices; {result['failed']} failed.")
+
+
+@main.command("embed")
+@click.argument("providers", nargs=-1)
+def embed_cmd(providers):
+    """Generate CLAP embeddings for voices and store them in SQLite."""
+    from audition.embeddings import embed_voices
+
+    result = embed_voices(list(providers) or None)
+    click.echo(f"Processed {result['processed']} voices; {result['failed']} failed.")
+
+
+@main.command("search-audio")
+@click.argument("path")
+@click.option("--top-k", default=5, help="Number of results")
+def search_audio_cmd(path, top_k):
+    """Find voices acoustically similar to an audio file."""
+    from audition.embeddings import search_audio
+
+    results = search_audio(path, top_k=top_k)
+    click.echo(f'Audio search: "{path}" ({len(results)} results)\n')
+    for row in results:
+        click.echo(
+            f"  {row.get('score', 0):.3f}  {row.get('name', '')} "
+            f"({row.get('provider', '')}) [{row.get('gender', '')}]"
+        )
+
+
 @main.command()
 @click.argument("brief")
 @click.option("--candidates", default=8)
 @click.option("--output", default=None)
 @click.option("--gender", default=None)
 @click.option("--provider", default=None)
-def audition(brief, candidates, output, gender, provider):
+@click.option("--mode", type=click.Choice(["ai", "human"]), default="ai")
+def audition(brief, candidates, output, gender, provider, mode):
     """Run a voice audition for a use case."""
     from audition.audition import run_audition
-    run_audition(brief, num_candidates=candidates, output_dir=output, gender=gender, provider=provider)
+    run_audition(brief, num_candidates=candidates, output_dir=output, gender=gender, provider=provider, mode=mode)
 
 
 @main.command()
@@ -170,14 +292,11 @@ def mcp():
 
 
 def _print_enrich_status():
-    from enrichment.pipeline import load_catalog
-    from enrichment import CATALOG_DIR
-    skip = {"providers", "hosting"}
-    for f in sorted(CATALOG_DIR.glob("*.json")):
-        if f.stem in skip:
-            continue
-        voices = load_catalog(f.stem) or []
+    from audition.db import list_providers, load_voices
+
+    for provider in list_providers():
+        voices = load_voices(provider=provider) or []
         completed = sum(1 for v in voices if v.get("enrichment_status") == "completed")
         failed = sum(1 for v in voices if (v.get("enrichment_status") or "").startswith("failed:"))
         pending = len(voices) - completed - failed
-        print(f"  {f.stem:<15} {len(voices):>4} total  {completed:>4} done  {failed:>4} failed  {pending:>4} pending")
+        print(f"  {provider:<15} {len(voices):>4} total  {completed:>4} done  {failed:>4} failed  {pending:>4} pending")

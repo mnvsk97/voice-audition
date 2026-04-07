@@ -9,6 +9,9 @@ description = "Build and maintain a rich voice catalog across TTS providers"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
+authors = [
+    { name = "Sai Krishna", email = "mnvsk97@gmail.com" },
+]
 dependencies = [
     "httpx>=0.27",
     "click>=8.0",
@@ -17,12 +20,21 @@ dependencies = [
     "langgraph>=0.4",
 ]
 
+[project.urls]
+Repository = "https://github.com/mnvsk97/voice-audition"
+Issues = "https://github.com/mnvsk97/voice-audition/issues"
+
 [project.optional-dependencies]
 enrich = ["mlx-audio>=0.1"]
 mcp = ["fastmcp>=2.0"]
+acoustic = ["librosa>=0.10", "praat-parselmouth>=0.4"]
+clap = ["torch>=2.0", "transformers>=4.40", "librosa>=0.10"]
 
 [project.scripts]
 voice-audition = "cli.main:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["cli", "audition", "enrichment", "mcp", "monitor"]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"catalog" = "catalog"

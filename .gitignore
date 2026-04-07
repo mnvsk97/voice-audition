@@ -6,6 +6,9 @@ dist/
 build/
 .env
 credentials.json
+runs.jsonl
+*.db
+!catalog/voice_catalog.db
 
 # IDE and tool directories
 .adal/
@@ -42,4 +45,4 @@ skills-lock.json
 .superdesign/
 .claude/skills/truefoundry-*
 uv.lock
-runs.jsonl
+.voice-audition/

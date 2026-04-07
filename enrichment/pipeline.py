@@ -10,15 +10,15 @@ from pathlib import Path
 
 import sys
 
+import click
 import httpx
 
-from enrichment import CATALOG_DIR
+from audition.db import get_provider_record, list_providers, load_voices, record_pipeline_run, upsert_voices
 
 
 def _log(msg: str):
     print(msg)
     sys.stdout.flush()
-
 SAMPLE_TEXT = (
     "Hi there, welcome back. I wanted to check in and see how you're doing today. "
     "Your account has been upgraded with priority support and faster response times. "
@@ -27,6 +27,48 @@ SAMPLE_TEXT = (
 
 MAX_ATTEMPTS = 3
 BASE_DELAY = 1.0  # seconds, doubles each retry
+
+
+def estimate_rime_enrichment_cost(voice_count: int) -> dict | None:
+    rime = get_provider_record("rime") or {}
+    pricing = rime.get("pricing", {}) if isinstance(rime, dict) else {}
+    rate = pricing.get("estimated_cost_per_minute")
+    if not isinstance(rate, (int, float)):
+        return None
+    return {
+        "voice_count": voice_count,
+        "unit_cost_usd": float(rate),
+        "estimated_cost_usd": round(float(rate) * voice_count, 2),
+        "pricing_updated": pricing.get("pricing_updated"),
+    }
+
+
+def preview_enrich_targets(catalog_providers: list[str] | None = None, retry: bool = False,
+                           limit: int | None = None) -> dict[str, dict]:
+    available = list_providers()
+    targets = catalog_providers if catalog_providers else available
+    targets = [p for p in targets if p in available]
+
+    preview: dict[str, dict] = {}
+    for cat_provider in targets:
+        voices = load_catalog(cat_provider)
+        if voices is None:
+            continue
+        pending = [(i, v) for i, v in enumerate(voices) if _needs_enrichment(v, retry=retry)]
+        if limit is not None:
+            pending = pending[:limit]
+        info = {
+            "total_count": len(voices),
+            "eligible_count": len(pending),
+            "limit": limit,
+            "estimated_cost_usd": None,
+        }
+        if cat_provider == "rime" and pending:
+            estimate = estimate_rime_enrichment_cost(len(pending))
+            if estimate:
+                info.update(estimate)
+        preview[cat_provider] = info
+    return preview
 
 
 # ---------------------------------------------------------------------------
@@ -278,32 +320,45 @@ def merge_enrichment(voice: dict, enrichment: dict) -> dict:
 
 
 def load_catalog(provider: str) -> list[dict] | None:
-    path = CATALOG_DIR / f"{provider}.json"
-    if not path.exists():
+    try:
+        voices = load_voices(provider=provider)
+        return voices if voices else []
+    except Exception:
         return None
-    data = json.loads(path.read_text())
-    return data if isinstance(data, list) else data.get("voices", [])
 
 
 def save_catalog(provider: str, voices: list[dict]) -> None:
-    path = CATALOG_DIR / f"{provider}.json"
-    path.write_text(json.dumps(voices, indent=2, ensure_ascii=False))
+    del provider
+    upsert_voices(voices)
 
 
 # ---------------------------------------------------------------------------
 # Main pipeline
 # ---------------------------------------------------------------------------
 
-def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False) -> dict:
+def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False,
+               limit: int | None = None, yes: bool = False) -> dict:
     from enrichment.graph import enrich_voice_graph, init_llm
+
+    preview = preview_enrich_targets(catalog_providers, retry=retry, limit=limit)
+    if preview:
+        print("[enrich] Preflight:")
+        for provider, info in preview.items():
+            line = f"  {provider}: {info['eligible_count']} voices"
+            if info.get("estimated_cost_usd") is not None:
+                line += f", est ${info['estimated_cost_usd']:.2f}"
+            print(line)
+        if any(info.get("estimated_cost_usd") is not None for info in preview.values()) and not yes:
+            if not click.confirm("Continue with enrichment?", default=False):
+                print("[enrich] Aborted.")
+                return {"enriched": 0, "failed": 0, "pending": 0, "completed": 0, "aborted": True}
 
     init_llm()
     from enrichment.graph import _judge_provider, _judge_config
     _log(f"[enrich] Provider: {_judge_provider}")
     _log(f"[enrich] Credentials OK.{' (retry mode)' if retry else ''}")
 
-    skip = {"providers", "hosting"}
-    available = [p.stem for p in CATALOG_DIR.glob("*.json") if p.stem not in skip]
+    available = list_providers()
     targets = catalog_providers if catalog_providers else available
     targets = [p for p in targets if p in available]
 
@@ -321,6 +376,8 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False) 
             continue
 
         pending = [(i, v) for i, v in enumerate(voices) if _needs_enrichment(v, retry=retry)]
+        if limit is not None:
+            pending = pending[:limit]
         if not pending:
             _log(f"[enrich] {cat_provider}: nothing to enrich")
             continue
@@ -330,12 +387,22 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False) 
 
         for count, (idx, voice) in enumerate(pending, 1):
             vid = voice.get("id", "?")
+            run_started_at = datetime.now(timezone.utc).isoformat()
 
             try:
                 result = enrich_voice_graph(voice)
             except Exception as e:
                 _log(f"[enrich] {vid}: graph error: {e}")
                 voices[idx] = _set_status(voice, "failed", str(e)[:60])
+                record_pipeline_run(
+                    "enrich",
+                    "failed",
+                    provider=cat_provider,
+                    voice_id=vid,
+                    details={"error": str(e)[:60]},
+                    started_at=run_started_at,
+                    finished_at=datetime.now(timezone.utc).isoformat(),
+                )
                 failed += 1
                 dirty = True
                 continue
@@ -351,11 +418,29 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False) 
                     "timestamp": datetime.now(timezone.utc).isoformat(),
                 }
                 voices[idx] = merge_enrichment(voice, scores)
+                record_pipeline_run(
+                    "enrich",
+                    "completed",
+                    provider=cat_provider,
+                    voice_id=vid,
+                    details={"attempt": result.get("attempt", 1)},
+                    started_at=run_started_at,
+                    finished_at=datetime.now(timezone.utc).isoformat(),
+                )
                 enriched += 1
                 enriched_ids.add(vid)
             else:
                 reason = "; ".join(result.get("validation_errors", []))[:80] or "graph_failed"
                 voices[idx] = _set_status(voice, "failed", reason)
+                record_pipeline_run(
+                    "enrich",
+                    "failed",
+                    provider=cat_provider,
+                    voice_id=vid,
+                    details={"error": reason},
+                    started_at=run_started_at,
+                    finished_at=datetime.now(timezone.utc).isoformat(),
+                )
                 failed += 1
 
             dirty = True

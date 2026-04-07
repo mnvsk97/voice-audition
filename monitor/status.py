@@ -1,18 +1,16 @@
-import json
 from datetime import datetime, timezone
-from pathlib import Path
 
 import httpx
 
-from enrichment import CATALOG_DIR
-
-PROVIDERS_FILE = CATALOG_DIR / "providers.json"
+from audition.db import get_provider_record, save_provider_record
 
 STATUS_PAGES = {
     "elevenlabs": "https://status.elevenlabs.io/api/v2/summary.json",
     "openai": "https://status.openai.com/api/v2/summary.json",
     "deepgram": "https://status.deepgram.com/api/v2/summary.json",
-    "cartesia": None, "rime": None, "playht": None,
+    "cartesia": None,
+    "rime": None,
+    "playht": None,
 }
 
 INCIDENT_URLS = {
@@ -61,8 +59,14 @@ def fetch_incidents(provider: str, days: int = 90) -> list[dict]:
                 duration = (resolved_dt - created_dt).total_seconds() / 60
             except ValueError:
                 pass
-        incidents.append({"name": inc.get("name"), "impact": inc.get("impact", "none"),
-                          "created_at": inc["created_at"], "duration_min": duration})
+        incidents.append(
+            {
+                "name": inc.get("name"),
+                "impact": inc.get("impact", "none"),
+                "created_at": inc["created_at"],
+                "duration_min": duration,
+            }
+        )
     return incidents
 
 
@@ -85,25 +89,25 @@ def compute_reliability(provider: str) -> dict:
     avg = sum(durations) / len(durations) if durations else 0
     score_parts.append(10 if not durations else 10 if avg < 30 else 8 if avg < 60 else 5 if avg < 240 else 2)
 
-    return {"score": sum(score_parts), "status": status_map.get(indicator, "unknown"),
-            "incidents_90d": len(incidents), "last_checked": now}
+    return {
+        "score": sum(score_parts),
+        "status": status_map.get(indicator, "unknown"),
+        "incidents_90d": len(incidents),
+        "last_checked": now,
+    }
 
 
 def run_monitor():
-    if not PROVIDERS_FILE.exists():
-        print(f"providers.json not found at {PROVIDERS_FILE}")
-        return
-    data = json.loads(PROVIDERS_FILE.read_text())
-    providers = data.get("providers", {})
     results = {}
     for name in STATUS_PAGES:
-        rel = compute_reliability(name)
-        results[name] = rel
-        if name in providers:
-            providers[name]["reliability"] = rel
-    PROVIDERS_FILE.write_text(json.dumps(data, indent=2) + "\n")
+        reliability = compute_reliability(name)
+        results[name] = reliability
+        record = get_provider_record(name)
+        if record:
+            record["reliability"] = reliability
+            save_provider_record(name, record)
 
     print(f"{'Provider':<14}{'Status':<14}{'Score':>5}  {'Incidents':>9}")
     for name in sorted(results):
-        r = results[name]
-        print(f"{name:<14}{r['status']:<14}{r['score'] or '-':>5}  {r['incidents_90d'] or '-':>9}")
+        reliability = results[name]
+        print(f"{name:<14}{reliability['status']:<14}{reliability['score'] or '-':>5}  {reliability['incidents_90d'] or '-':>9}")

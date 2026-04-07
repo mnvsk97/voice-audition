@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import asyncio
 import base64
 import json
 import os
@@ -10,7 +9,7 @@ from pathlib import Path
 
 import httpx
 
-from audition.index import semantic_search
+from audition.db import add_audition_clip, create_audition_run, get_state_dir, update_audition_run
 from audition.search import load_all_voices
 
 USE_CASE_PROFILES = {
@@ -119,6 +118,27 @@ USE_CASE_PROFILES = {
              "text": "When you're ready, gently bring your awareness back to the room. Wiggle your fingers and toes. Take one more deep breath. Welcome back."},
         ],
     },
+    "education": {
+        "criteria": ["clarity", "patience", "encouragement", "structure", "warmth", "confidence"],
+        "criteria_labels": {
+            "clarity": "Clarity — easy to understand and follow?",
+            "patience": "Patience — gives the listener room to think?",
+            "encouragement": "Encouragement — supportive without sounding scripted?",
+            "structure": "Structure — organizes information cleanly?",
+            "warmth": "Warmth — friendly and welcoming?",
+            "confidence": "Confidence — sounds informed and steady?",
+        },
+        "scripts": [
+            {"name": "opening", "purpose": "Tests friendly instructional tone",
+             "text": "Let's work through this together. There are no wrong answers here, and I'll guide you step by step."},
+            {"name": "explanation", "purpose": "Tests clear teaching voice",
+             "text": "First, we'll look at the main idea. Then we'll break it into smaller parts so it is easier to follow."},
+            {"name": "encouragement", "purpose": "Tests supportive pacing",
+             "text": "Take your time. If something is unclear, we can pause and come back to it whenever you're ready."},
+            {"name": "wrap_up", "purpose": "Tests calm confidence",
+             "text": "You have the basics now, and we'll keep building from here. You're doing well."},
+        ],
+    },
 }
 
 DEFAULT_PROFILE = {
@@ -147,6 +167,7 @@ _USE_CASE_KEYWORDS = {
     "customer_support": ["support", "customer service", "help desk", "call center", "complaint", "troubleshoot"],
     "finance": ["finance", "financial", "banking", "investment", "insurance", "loan", "mortgage", "credit", "wealth"],
     "meditation": ["meditation", "mindfulness", "yoga", "sleep", "relaxation", "calm", "breathing"],
+    "education": ["education", "classroom", "lesson", "student", "teacher", "curriculum", "training", "school", "teach"],
 }
 
 
@@ -162,7 +183,9 @@ def get_profile(use_case: str) -> dict:
 
 
 def select_candidates(brief: str, num: int = 10, filters: dict | None = None) -> list[dict]:
-    results = asyncio.run(semantic_search(brief, top_k=num * 2, filters=filters))
+    from audition.index import search_voices
+
+    results = search_voices(brief, top_k=num * 2, filters=filters)["results"]
     all_voices = {v["id"]: v for v in load_all_voices()}
     candidates = []
     for r in results:
@@ -232,14 +255,102 @@ def _generate_script_audio(voice: dict, text: str, script_name: str, out_dir: Pa
         return None, str(e)[:80]
 
 
+def _human_audition_scripts(use_case: str, brief: str) -> list[dict]:
+    profile = get_profile(use_case)
+    scripts = profile.get("scripts", [])[:2]
+    if scripts:
+        return [
+            {
+                "name": "business_context",
+                "purpose": "Context-specific business phrase",
+                "text": f"This voice will be used for: {brief}",
+            },
+            *scripts,
+        ]
+    return [
+        {"name": "intro", "purpose": "Business-context introduction", "text": brief},
+        {"name": "follow_up", "purpose": "Natural follow-up", "text": f"I'm calling about: {brief}"},
+    ]
+
+
+def run_human_audition(brief: str, num_candidates: int = 5,
+                       gender: str | None = None, provider: str | None = None) -> dict:
+    use_case = detect_use_case(brief)
+    filters = {}
+    if gender:
+        filters["gender"] = gender
+    if provider:
+        filters["provider"] = provider
+
+    candidates = select_candidates(brief, num=num_candidates, filters=filters)
+    scripts = _human_audition_scripts(use_case, brief)
+    storage_root = get_state_dir() / "clips"
+    audition_run_id = create_audition_run("voice", "human", brief, use_case, "running")
+    audition_dir = storage_root / f"audition-{audition_run_id}"
+    audition_dir.mkdir(parents=True, exist_ok=True)
+
+    clips = []
+    with httpx.Client(timeout=30) as client:
+        for voice in candidates:
+            for script in scripts:
+                path, error = _generate_script_audio(voice, script["text"], script["name"], audition_dir, client)
+                clip = {
+                    "audition_id": audition_run_id,
+                    "voice_id": voice["id"],
+                    "voice_name": voice.get("name"),
+                    "provider": voice.get("provider"),
+                    "script_name": script["name"],
+                    "script_text": script["text"],
+                    "file_path": str(path) if path else None,
+                    "error": error,
+                    "cost_per_min_usd": voice.get("effective_cost_per_min_usd"),
+                }
+                clips.append(clip)
+                add_audition_clip(
+                    audition_run_id,
+                    voice["id"],
+                    script["name"],
+                    script["text"],
+                    str(path) if path else None,
+                    voice.get("provider"),
+                    "completed" if path else "failed",
+                    error=error,
+                )
+
+    result = {
+        "mode": "human",
+        "audition_id": audition_run_id,
+        "use_case": use_case,
+        "output_dir": str(audition_dir),
+        "clips": clips,
+    }
+    update_audition_run(audition_run_id, status="completed", output_dir=str(audition_dir), result=result)
+    return result
+
+
 # ---------------------------------------------------------------------------
 # Main audition — uses LangGraph audition graph
 # ---------------------------------------------------------------------------
 
 def run_audition(brief: str, num_candidates: int = 8, output_dir: str | None = None,
-                 gender: str | None = None, provider: str | None = None):
+                 gender: str | None = None, provider: str | None = None,
+                 mode: str = "ai"):
+    if mode == "human":
+        result = run_human_audition(brief, num_candidates=num_candidates, gender=gender, provider=provider)
+        print(f"[audition] HUMAN AUDITION {result['audition_id']} stored in {result['output_dir']}")
+        for clip in result["clips"]:
+            status = "ok" if clip.get("file_path") else f"failed:{clip.get('error')}"
+            print(
+                f"  {clip['voice_name']} ({clip['provider']}) {clip['script_name']} "
+                f"[{status}] cost={clip.get('cost_per_min_usd')}"
+            )
+            if clip.get("file_path"):
+                print(f"    {clip['file_path']}")
+        return result
+
     use_case = detect_use_case(brief)
     profile = get_profile(use_case)
+    audition_run_id = create_audition_run("voice", "ai", brief, use_case, "running", output_dir=output_dir)
     print(f"[audition] Use case: {use_case} | Criteria: {', '.join(profile['criteria'])} | Scripts: {len(profile['scripts'])}\n")
 
     filters = {}
@@ -255,7 +366,10 @@ def run_audition(brief: str, num_candidates: int = 8, output_dir: str | None = N
 
     print(f"[audition] {len(candidates)} candidates")
     for c in candidates:
-        print(f"  {c.get('name', '?')} ({c.get('provider')}) [{c.get('gender', '?')}] score={c.get('search_score', 0):.3f}")
+        print(
+            f"  {c.get('name', '?')} ({c.get('provider')}) [{c.get('gender', '?')}] "
+            f"score={c.get('search_score', 0):.3f} cost={c.get('effective_cost_per_min_usd')}"
+        )
     print()
 
     from audition.graph import run_audition_graph
@@ -294,3 +408,10 @@ def run_audition(brief: str, num_candidates: int = 8, output_dir: str | None = N
         if top.get("strengths"):
             print(f"  Strengths: {top['strengths']}")
     print(f"[audition] Scorecard: {out_dir / 'scorecard.json'}")
+    update_audition_run(
+        audition_run_id,
+        status="completed",
+        output_dir=str(out_dir),
+        result={"scorecard": scorecard, "output_dir": str(out_dir)},
+    )
+    return {"mode": "ai", "audition_id": audition_run_id, "scorecard": scorecard, "output_dir": str(out_dir)}
