@@ -20,9 +20,15 @@ dependencies = [
 [project.optional-dependencies]
 enrich = ["mlx-audio>=0.1"]
 mcp = ["fastmcp>=2.0"]
+acoustic = ["librosa>=0.10", "praat-parselmouth>=0.4"]
+clap = ["torch>=2.0", "transformers>=4.40", "librosa>=0.10"]
+quality = ["torch>=2.0", "torchaudio>=2.0"]
 
 [project.scripts]
 voice-audition = "cli.main:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["cli", "audition", "enrichment", "mcp", "monitor"]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"catalog" = "catalog"

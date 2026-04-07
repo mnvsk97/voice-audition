@@ -1,9 +1,12 @@
 import asyncio
 import os
+from math import sqrt
 
 from moss import DocumentInfo, MossClient, MutationOptions, QueryOptions
 
-from audition.search import load_all_voices
+from audition.db import (cache_query_result, get_acoustic_features, get_embedding_rows,
+                         get_cached_query, make_cache_key)
+from audition.search import keyword_search, load_all_voices
 
 _NAME_VIBES = {
     "bayou": "warm, southern, relaxed, earthy",
@@ -200,20 +203,102 @@ async def semantic_search(query: str, top_k: int = 5, filters: dict | None = Non
     return [{"id": d.id, "text": d.text, "score": d.score, "metadata": d.metadata} for d in result.docs]
 
 
+def search_voices(query: str, top_k: int = 5, filters: dict | None = None) -> dict:
+    cache_key = make_cache_key("search", {"query": query.strip().lower(), "top_k": top_k, "filters": filters or {}})
+    cached = get_cached_query(cache_key, "search")
+    if cached is not None:
+        return {"mode": cached["mode"], "results": cached["results"], "cache_hit": True}
+
+    mode = "semantic"
+    try:
+        results = asyncio.run(semantic_search(query, top_k=top_k, filters=filters))
+    except Exception:
+        results = []
+    if not results:
+        mode = "keyword"
+        results = keyword_search(query, top_k=top_k, filters=filters)
+    payload = {"mode": mode, "results": results}
+    cache_query_result(cache_key, "search", payload)
+    return {"mode": mode, "results": results, "cache_hit": False}
+
+
 def run_index(force: bool = False, changed_ids: set[str] | None = None):
     asyncio.run(build_index(force=force, changed_ids=changed_ids))
 
 
 def run_semantic_search(query: str, top_k: int = 5):
-    results = asyncio.run(semantic_search(query, top_k=top_k))
-    print(f'Search: "{query}" ({len(results)} results)\n')
-    for r in results:
-        meta = r.get("metadata", {})
-        labels = [meta.get(k, "") for k in ("gender", "age_group", "accent") if meta.get(k)]
-        doc_id = r.get("id", "")
-        name = doc_id.split(":", 1)[1] if ":" in doc_id else doc_id
-        print(f"  {r.get('score', 0):.3f}  {name} ({meta.get('provider', '')}) [{', '.join(labels)}]")
-        sentences = r.get("text", "").split(". ")
-        if len(sentences) > 1:
-            print(f"         {sentences[1].rstrip('.')}")
+    outcome = search_voices(query, top_k=top_k)
+    mode = outcome["mode"]
+    results = outcome["results"]
+    if mode == "keyword":
+        print("[search] Semantic search unavailable, using local keyword mode.")
+
+    print(f'Search ({mode}): "{query}" ({len(results)} results)\n')
+    voice_map = {voice["id"]: voice for voice in load_all_voices()}
+    for result in results:
+        meta = result.get("metadata", {})
+        if meta:
+            voice = voice_map.get(result.get("id", ""), {})
+            labels = [meta.get(key, "") for key in ("gender", "age_group", "accent") if meta.get(key)]
+            doc_id = result.get("id", "")
+            name = doc_id.split(":", 1)[1] if ":" in doc_id else doc_id
+            print(
+                f"  {result.get('score', 0):.3f}  {name} ({meta.get('provider', '')}) "
+                f"[{', '.join(labels)}] cost={voice.get('effective_cost_per_min_usd')}"
+            )
+            sentences = result.get("text", "").split(". ")
+            if len(sentences) > 1:
+                print(f"         {sentences[1].rstrip('.')}")
+        else:
+            labels = [result.get(key, "") for key in ("gender", "age_group", "accent") if result.get(key)]
+            print(
+                f"  {result.get('score', 0):.3f}  {result.get('name', '')} ({result.get('provider', '')}) "
+                f"[{', '.join(labels)}] cost={result.get('effective_cost_per_min_usd')}"
+            )
+            if result.get("description"):
+                print(f"         {result['description']}")
         print()
+
+
+def search_similar_voices(voice_id: str, top_k: int = 5) -> list[dict]:
+    target = None
+    for candidate_id, vector in get_embedding_rows():
+        if candidate_id == voice_id:
+            target = vector
+            break
+    if target is None:
+        return []
+
+    voices = {voice["id"]: voice for voice in load_all_voices()}
+    scored = []
+    target_norm = sqrt(sum(value * value for value in target)) or 1.0
+    for candidate_id, vector in get_embedding_rows():
+        if candidate_id == voice_id:
+            continue
+        denom = (sqrt(sum(value * value for value in vector)) or 1.0) * target_norm
+        score = sum(a * b for a, b in zip(target, vector)) / denom
+        voice = voices.get(candidate_id)
+        if voice:
+            scored.append((score, voice))
+    scored.sort(key=lambda item: -item[0])
+    return [{**voice, "score": round(score, 4)} for score, voice in scored[:top_k]]
+
+
+def acoustic_profile_summary(voice_id: str) -> dict | None:
+    features = get_acoustic_features(voice_id)
+    if not features:
+        return None
+    notes = []
+    f0 = features.get("f0_mean_hz")
+    if f0 is not None:
+        notes.append(f"mean pitch {f0:.1f} Hz")
+    rate = features.get("speech_rate_syl_per_sec")
+    if rate is not None:
+        notes.append(f"speech rate {rate:.2f} syllables/s")
+    hnr = features.get("hnr_db")
+    if hnr is not None:
+        notes.append(f"HNR {hnr:.2f} dB")
+    utmos = features.get("utmos_score")
+    if utmos is not None:
+        notes.append(f"MOS {utmos:.2f}")
+    return {**features, "summary": ", ".join(notes)}

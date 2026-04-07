@@ -40,7 +40,10 @@ Address each criterion:
 {criteria}
 
 Write 2-3 sentences of specific observations. Note strengths AND weaknesses.
-Do NOT score yet — just observe and describe what you hear."""
+Do NOT score the use-case criteria yet — just observe and describe what you hear.
+
+Also rate the raw audio quality on a 1-5 MOS scale (1=bad, 2=poor, 3=fair, 4=good, 5=excellent).
+End your response with exactly: AUDIO_QUALITY_MOS=X.X"""
 
 
 def _compare_prompt(brief: str, use_case: str, criteria_labels: dict, all_notes: list[dict]) -> str:
@@ -73,6 +76,22 @@ Be decisive — avoid ties. There IS a best voice for this use case."""
 # Nodes
 # ---------------------------------------------------------------------------
 
+def _parse_mos(text: str) -> float | None:
+    """Extract AUDIO_QUALITY_MOS=X.X from LLM response."""
+    m = re.search(r'AUDIO_QUALITY_MOS\s*=\s*([0-9]+\.?[0-9]*)', text)
+    if m:
+        return max(1.0, min(5.0, float(m.group(1))))
+    return None
+
+
+def _run_utmos(audio_path: str | None) -> float | None:
+    try:
+        from audition.quality import safe_predict_mos
+        return safe_predict_mos(audio_path)
+    except ImportError:
+        return None
+
+
 def generate_audio_all(state: AuditionState) -> dict:
     """Generate audio for all candidates across all scripts."""
     import httpx
@@ -88,13 +107,17 @@ def generate_audio_all(state: AuditionState) -> dict:
             audio_files = []
             for script in scripts:
                 path, err = _generate_script_audio(voice, script["text"], script["name"], audio_dir, client)
+                utmos_score = _run_utmos(str(path) if path else None)
                 audio_files.append({
                     "script": script["name"],
                     "path": str(path) if path else None,
                     "error": err,
+                    "utmos_score": utmos_score,
                 })
             ok = sum(1 for a in audio_files if a["path"])
-            print(f"  [audio] {voice.get('name', '?')}: {ok}/{len(scripts)} scripts")
+            utmos_scores = [a["utmos_score"] for a in audio_files if a["utmos_score"] is not None]
+            utmos_info = f" utmos_avg={sum(utmos_scores)/len(utmos_scores):.2f}" if utmos_scores else ""
+            print(f"  [audio] {voice.get('name', '?')}: {ok}/{len(scripts)} scripts{utmos_info}")
             candidates.append({**voice, "_audio": audio_files, "_audio_dir": str(audio_dir)})
 
     return {"candidates": candidates}
@@ -133,8 +156,9 @@ def take_notes(state: dict) -> dict:
             continue
 
         prompt = _notes_prompt(brief, use_case, profile["criteria_labels"], script)
-        raw = _call_llm(audio_path, prompt)
-        notes.append({"script": script["name"], "text": raw or "LLM call failed."})
+        raw = _call_llm(audio_path, prompt) or "LLM call failed."
+        mos = _parse_mos(raw)
+        notes.append({"script": script["name"], "text": raw, "llm_mos": mos})
 
     return {"candidate_notes": [{
         "id": candidate["id"],
@@ -175,10 +199,17 @@ def rank(state: AuditionState) -> dict:
     raw = state.get("comparison") or ""
     m = re.search(r'\{.*\}', raw, re.DOTALL)
     if not m:
-        # Fallback: return candidates ordered by search score
-        return {"scorecard": [{"id": c["id"], "name": c.get("name"), "provider": c.get("provider"),
-                               "total": 0, "scores": {}, "notes": "Comparison failed"}
-                              for c in state["candidates"]]}
+        # Fallback: return candidates ordered by search score, still include UTMOS
+        fallback = []
+        for c in state["candidates"]:
+            clips = [{"script": a["script"], "utmos_score": a.get("utmos_score")}
+                     for a in c.get("_audio", [])]
+            utmos_scores = [cl["utmos_score"] for cl in clips if cl.get("utmos_score") is not None]
+            utmos_avg = round(sum(utmos_scores) / len(utmos_scores), 2) if utmos_scores else None
+            fallback.append({"id": c["id"], "name": c.get("name"), "provider": c.get("provider"),
+                             "total": 0, "utmos_avg": utmos_avg, "scores": {},
+                             "clips": clips, "notes": "Comparison failed"})
+        return {"scorecard": fallback}
 
     try:
         data = json.loads(m.group())
@@ -189,22 +220,44 @@ def rank(state: AuditionState) -> dict:
     recommendation = data.get("recommendation", "")
     runner_up = data.get("runner_up", "")
 
-    # Build scorecard with audio file references
-    audio_map = {c["id"]: [a["path"] for a in c.get("_audio", []) if a.get("path")]
-                 for c in state["candidates"]}
+    # Collect per-candidate audio info and LLM MOS from notes
+    audio_map: dict[str, list] = {}
+    clip_map: dict[str, list] = {}
+    llm_mos_map: dict[str, list[float]] = {}
+    for c in state["candidates"]:
+        vid = c["id"]
+        audio_map[vid] = [a["path"] for a in c.get("_audio", []) if a.get("path")]
+        clip_map[vid] = [
+            {"script": a["script"], "utmos_score": a.get("utmos_score")}
+            for a in c.get("_audio", [])
+        ]
+    for n in state.get("candidate_notes", []):
+        vid = n.get("id", "")
+        for note in n.get("notes", []):
+            if note.get("llm_mos") is not None:
+                llm_mos_map.setdefault(vid, []).append(note["llm_mos"])
 
     scorecard = []
     for r in rankings:
         vid = r.get("id", "")
+        clips = clip_map.get(vid, [])
+        utmos_scores = [cl["utmos_score"] for cl in clips if cl.get("utmos_score") is not None]
+        utmos_avg = round(sum(utmos_scores) / len(utmos_scores), 2) if utmos_scores else None
+        llm_scores = llm_mos_map.get(vid, [])
+        llm_mos_avg = round(sum(llm_scores) / len(llm_scores), 2) if llm_scores else None
         scorecard.append({
             "id": vid,
             "name": r.get("name", ""),
             "provider": next((c.get("provider") for c in state["candidates"] if c["id"] == vid), ""),
             "total": r.get("total", 0),
+            "mos_avg": llm_mos_avg or utmos_avg,
+            "llm_mos_avg": llm_mos_avg,
+            "utmos_avg": utmos_avg,
             "scores": r.get("scores", {}),
             "strengths": r.get("strengths", ""),
             "weaknesses": r.get("weaknesses", ""),
             "audio_files": audio_map.get(vid, []),
+            "clips": clips,
         })
 
     if scorecard:
