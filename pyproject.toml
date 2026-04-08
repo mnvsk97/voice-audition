@@ -36,7 +36,7 @@ Repository = "https://github.com/mnvsk97/voice-audition"
 Issues = "https://github.com/mnvsk97/voice-audition/issues"
 
 [project.optional-dependencies]
-enrich = ["mlx-audio>=0.1"]
+enrich = ["mlx-audio>=0.1", "google-auth>=2.0"]
 mcp = ["fastmcp>=2.0"]
 acoustic = ["librosa>=0.10", "praat-parselmouth>=0.4"]
 clap = ["torch>=2.0", "transformers>=4.40", "librosa>=0.10"]

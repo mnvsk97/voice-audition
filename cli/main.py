@@ -1,10 +1,27 @@
+from pathlib import Path
+
 import click
+
+
+def _load_dotenv():
+    env_path = Path(__file__).resolve().parent.parent / ".env"
+    if not env_path.exists():
+        return
+    import os
+    for line in env_path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        key, value = key.strip(), value.strip()
+        if key and key not in os.environ:
+            os.environ[key] = value
 
 
 @click.group()
 def main():
     """VoiceAudition — the casting director for your AI voice agent."""
-    pass
+    _load_dotenv()
 
 
 @main.command()
