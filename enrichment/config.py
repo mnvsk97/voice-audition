@@ -24,18 +24,18 @@ def _resolve_env(value):
 
 
 def find_config() -> Path | None:
-    """Look for enrichment.yaml in the project root."""
-    # Walk up from this file to find the config
+    """Look for enrichment.yaml — check cwd first, then walk up from module."""
+    # Check cwd first (pip-installed users)
+    cwd = Path.cwd() / CONFIG_FILENAME
+    if cwd.exists():
+        return cwd
+    # Walk up from this file (dev installs)
     current = Path(__file__).resolve().parent
     for _ in range(5):
         candidate = current / CONFIG_FILENAME
         if candidate.exists():
             return candidate
         current = current.parent
-    # Also check cwd
-    cwd = Path.cwd() / CONFIG_FILENAME
-    if cwd.exists():
-        return cwd
     return None
 
 

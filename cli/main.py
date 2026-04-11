@@ -4,10 +4,16 @@ import click
 
 
 def _load_dotenv():
-    env_path = Path(__file__).resolve().parent.parent / ".env"
-    if not env_path.exists():
-        return
     import os
+
+    # Check cwd first (pip-installed users), then package root (dev installs)
+    candidates = [
+        Path.cwd() / ".env",
+        Path(__file__).resolve().parent.parent / ".env",
+    ]
+    env_path = next((p for p in candidates if p.exists()), None)
+    if env_path is None:
+        return
     for line in env_path.read_text().splitlines():
         line = line.strip()
         if not line or line.startswith("#") or "=" not in line:
@@ -299,6 +305,65 @@ def audition(brief, candidates, output, gender, provider, mode):
     """Run a voice audition for a use case."""
     from audition.audition import run_audition
     run_audition(brief, num_candidates=candidates, output_dir=output, gender=gender, provider=provider, mode=mode)
+
+
+@main.command()
+def setup():
+    """Set up voice-audition: generate .env and print MCP config."""
+    import json
+    import shutil
+
+    env_file = Path.cwd() / ".env"
+    env_example = Path(__file__).resolve().parent.parent / ".env.example"
+
+    # Step 1: .env
+    if env_file.exists():
+        click.echo(f"[setup] .env already exists at {env_file}")
+    elif env_example.exists():
+        shutil.copy(env_example, env_file)
+        click.echo(f"[setup] Created .env at {env_file}")
+        click.echo("[setup] Edit it to add your API keys (all optional).")
+    else:
+        # pip-installed — .env.example not available, generate it
+        env_file.write_text(
+            "# Moss semantic search (optional — keyword fallback without it)\n"
+            "MOSS_PROJECT_ID=\n"
+            "MOSS_PROJECT_KEY=\n"
+            "\n"
+            "# TTS Provider API Keys (only needed for providers you want to sync)\n"
+            "ELEVENLABS_API_KEY=\n"
+            "OPENAI_API_KEY=\n"
+            "DEEPGRAM_API_KEY=\n"
+            "RIME_API_KEY=\n"
+            "CARTESIA_API_KEY=\n"
+            "PLAYHT_API_KEY=\n"
+            "PLAYHT_USER_ID=\n"
+            "\n"
+            "# Enrichment LLM (configure provider in enrichment.yaml)\n"
+            "GEMINI_API_KEY=\n"
+        )
+        click.echo(f"[setup] Created .env at {env_file}")
+        click.echo("[setup] Edit it to add your API keys (all optional).")
+
+    # Step 2: MCP config
+    mcp_config = {
+        "mcpServers": {
+            "voice-audition": {
+                "command": "voice-audition",
+                "args": ["mcp"],
+            }
+        }
+    }
+    click.echo("\n[setup] To use with Claude Desktop, add this to your config:")
+    click.echo(f"\n{json.dumps(mcp_config, indent=2)}\n")
+    click.echo("[setup] Config location:")
+    click.echo("  macOS: ~/Library/Application Support/Claude/claude_desktop_config.json")
+    click.echo("  Linux: ~/.config/Claude/claude_desktop_config.json")
+
+    # Step 3: Quick test
+    click.echo("\n[setup] Quick test:")
+    click.echo('  voice-audition search "warm female voice"')
+    click.echo("  voice-audition stats")
 
 
 @main.command()

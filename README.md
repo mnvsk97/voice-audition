@@ -19,11 +19,19 @@ pip install voice-audition[clap]     # CLAP embeddings for audio similarity sear
 ## Setup
 
 ```bash
-cp .env.example .env
-# Fill in the API keys you need (all optional)
+voice-audition setup
 ```
 
-Provider API keys are optional — you only need keys for the providers you want to sync. Moss credentials enable semantic search; without them, keyword search is used as fallback.
+This creates a `.env` in your working directory and prints the MCP config for Claude Desktop. All API keys are optional — you only need keys for the providers you want to sync. Moss credentials enable semantic search; without them, keyword search is used as fallback.
+
+**If developing from source:**
+
+```bash
+git clone https://github.com/mnvsk97/voice-audition.git
+cd voice-audition
+pip install -e ".[mcp,enrich]"
+cp .env.example .env   # edit to add your API keys
+```
 
 ## Quick start
 
@@ -65,6 +73,7 @@ Open http://localhost:5173. The UI provides:
 
 | Command | What it does |
 |---------|-------------|
+| `voice-audition setup` | Generate .env, print MCP config, verify installation |
 | `voice-audition sync [providers...]` | Sync voices from TTS provider APIs |
 | `voice-audition enrich [providers...] [--status]` | Enrich voices with LLM-generated descriptions and traits |
 | `voice-audition pipeline [--providers ...]` | Run full pipeline: sync → enrich → rebuild index |
@@ -83,22 +92,23 @@ Open http://localhost:5173. The UI provides:
 
 ## MCP server
 
-Add to Claude Desktop config:
+Run `voice-audition setup` to get the config snippet, or add this to your Claude Desktop config manually:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Linux**: `~/.config/Claude/claude_desktop_config.json`
 
 ```json
 {
   "mcpServers": {
     "voice-audition": {
       "command": "voice-audition",
-      "args": ["mcp"],
-      "env": {
-        "MOSS_PROJECT_ID": "...",
-        "MOSS_PROJECT_KEY": "..."
-      }
+      "args": ["mcp"]
     }
   }
 }
 ```
+
+Set `MOSS_PROJECT_ID` and `MOSS_PROJECT_KEY` in your `.env` (in the directory where you run Claude Desktop) for semantic search. Without them, keyword search is used as fallback.
 
 | Tool | What it does |
 |------|-------------|
@@ -167,6 +177,7 @@ voice-audition pipeline                  # sync + enrich + rebuild index
 git clone https://github.com/mnvsk97/voice-audition.git
 cd voice-audition
 pip install -e ".[mcp,enrich]"
+cp .env.example .env   # edit to add your API keys
 python -m pytest tests/
 ```
 

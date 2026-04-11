@@ -27,14 +27,34 @@ voice-audition --help
 If not installed:
 ```bash
 pip install voice-audition
+voice-audition setup
 ```
 
-The CLI needs `MOSS_PROJECT_ID` and `MOSS_PROJECT_KEY` env vars for semantic search. Check if they're set:
+The `setup` command creates a `.env` in the current directory and prints MCP server config.
+
+### MCP Server (for Claude Desktop / Claude Code)
+
+If using this skill with MCP tools (search_voices, analyze_voices, etc.), the MCP server must be configured. Add to Claude Desktop config (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
+
+```json
+{
+  "mcpServers": {
+    "voice-audition": {
+      "command": "voice-audition",
+      "args": ["mcp"]
+    }
+  }
+}
+```
+
+### Semantic Search
+
+The CLI uses `MOSS_PROJECT_ID` and `MOSS_PROJECT_KEY` for semantic search. Check if they're set:
 ```bash
 echo $MOSS_PROJECT_ID
 ```
 
-If not set, ask the user to set them. They can get credentials at https://platform.inferedge.dev
+If not set, keyword search is used as fallback. For semantic search, get credentials at https://platform.inferedge.dev and add them to `.env`.
 
 ## The Flow
 
