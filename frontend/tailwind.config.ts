@@ -9,7 +9,6 @@ const config: Config = {
       },
       colors: {
         background: 'hsl(var(--background))',
-        'sidebar-bg': '#FAFAFA',
         'text-primary': '#111827',
         'text-secondary': '#6B7280',
         border: 'hsl(var(--border))',
@@ -18,30 +17,10 @@ const config: Config = {
           foreground: 'hsl(var(--accent-foreground))',
         },
         pass: '#15803D',
-        warning: '#D97706',
         fail: '#B91C1C',
-        foreground: 'hsl(var(--foreground))',
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
-        },
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
-        input: 'hsl(var(--input))',
+        card: 'hsl(var(--card))',
+        primary: 'hsl(var(--primary))',
+        muted: 'hsl(var(--muted))',
         ring: 'hsl(var(--ring))',
       },
       borderRadius: {

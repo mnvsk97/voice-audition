@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import * as api from '@/lib/api';
 
-export const queryKeys = {
+const queryKeys = {
   voices: (params?: Record<string, string>) => ['voices', params ?? {}] as const,
   voice: (id: string) => ['voice', id] as const,
   filters: () => ['filters'] as const,

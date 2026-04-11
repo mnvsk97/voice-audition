@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import { config } from 'dotenv';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';

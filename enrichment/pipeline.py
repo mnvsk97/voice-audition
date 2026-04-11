@@ -3,8 +3,6 @@ from __future__ import annotations
 import base64
 import json
 import os
-import tempfile
-import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -26,7 +24,6 @@ SAMPLE_TEXT = (
 )
 
 MAX_ATTEMPTS = 3
-BASE_DELAY = 1.0  # seconds, doubles each retry
 
 
 def estimate_rime_enrichment_cost(voice_count: int) -> dict | None:

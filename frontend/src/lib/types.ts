@@ -30,7 +30,6 @@ export interface VoiceListResponse {
   total: number;
   ready_count: number;
   providers: string[];
-  filters: FilterOptions;
 }
 
 export interface FilterOptions {
