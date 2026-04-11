@@ -150,6 +150,8 @@ async def build_index(force: bool = False, changed_ids: set[str] | None = None) 
     seen = set()
     documents = []
     for voice in voices:
+        if voice.get("enrichment_status") != "completed":
+            continue
         doc = voice_to_document(voice)
         if doc.id not in seen:
             seen.add(doc.id)

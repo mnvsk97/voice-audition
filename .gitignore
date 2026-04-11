@@ -10,6 +10,9 @@ runs.jsonl
 *.db
 !catalog/voice_catalog.db
 .DS_Store
+node_modules/
+frontend/dist/
+.claude/worktrees/
 
 # IDE and tool directories
 .adal/

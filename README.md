@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 
-The casting director for your AI voice agent. Search 697 voices across multiple TTS providers, run use-case auditions with AI scoring, and compare costs — all from the CLI or as an MCP server for Claude.
+The casting director for your AI voice agent. 697 voices across 9 TTS providers (645 enriched with LLM-generated descriptions and traits), semantic search via Moss, use-case auditions with AI scoring, cost comparison, web UI, and MCP server for Claude.
 
 ## Install
 
@@ -43,6 +43,23 @@ voice-audition audition "fertility clinic for anxious IVF patients" --gender fem
 # Compare costs at scale
 voice-audition costs 100000
 ```
+
+## Web UI
+
+A lightweight web interface for browsing the voice catalog, filtering by attributes, and generating TTS audio samples.
+
+```bash
+# Terminal 1: Start the Hono API server
+cd server && npm install && npm run dev
+
+# Terminal 2: Start the Vite frontend
+cd frontend && npm install && npm run dev
+```
+
+Open http://localhost:5173. The UI provides:
+- Voice list with search and filters (provider, gender, age, texture, pitch, use case, enrichment status)
+- Voice detail pages with trait scores, tags, and descriptions
+- TTS generation — type text and hear any voice (requires provider API keys in `.env`)
 
 ## Commands
 
@@ -97,7 +114,7 @@ Add to Claude Desktop config:
 
 ## Voice catalog
 
-697 voices across 9 providers in a checked-in SQLite database:
+697 voices across 9 providers in a checked-in SQLite database (645 enriched):
 
 | Type | Providers |
 |------|-----------|
@@ -109,6 +126,7 @@ Add to Claude Desktop config:
 - Enrichment data preserved across re-syncs
 - Deprecated voices filtered from search/audition
 - Weekly pricing change detection via page hash diff
+- Rich failure metadata with error classification (transient/auth/unsupported/validation)
 
 ## Enrichment
 
@@ -121,9 +139,12 @@ enrichment:
 
 Supported: Gemini, OpenAI, Anthropic, Bedrock, Ollama (Qwen2-Audio), local MLX.
 
+TTS generators for enrichment audio: Rime, ElevenLabs, Deepgram, OpenAI. Open-source models (Kokoro, Piper) supported with local setup.
+
 ```bash
 voice-audition enrich rime --limit 10    # enrich 10 Rime voices
 voice-audition enrich --status           # show enrichment progress
+voice-audition enrich --retry            # retry failed voices (up to 3 attempts)
 voice-audition pipeline                  # sync + enrich + rebuild index
 ```
 

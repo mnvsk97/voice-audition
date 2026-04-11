@@ -143,6 +143,44 @@ def _generate_deepgram(voice_id: str, out_dir: Path, client: httpx.Client) -> Pa
     return path
 
 
+def _generate_cartesia(voice_id: str, out_dir: Path, client: httpx.Client) -> Path | None:
+    api_key = os.environ.get("CARTESIA_API_KEY", "")
+    if not api_key:
+        return None
+    resp = client.post(
+        "https://api.cartesia.ai/tts/bytes",
+        headers={"X-API-Key": api_key, "Cartesia-Version": "2024-06-10", "Content-Type": "application/json"},
+        json={
+            "model_id": "sonic-2",
+            "transcript": SAMPLE_TEXT,
+            "voice": {"mode": "id", "id": voice_id},
+            "output_format": {"container": "wav", "encoding": "pcm_s16le", "sample_rate": 44100},
+        },
+        timeout=30,
+    )
+    resp.raise_for_status()
+    path = out_dir / f"cartesia_{voice_id}.wav"
+    path.write_bytes(resp.content)
+    return path
+
+
+def _generate_openai(voice_id: str, out_dir: Path, client: httpx.Client, model: str = "gpt-4o-mini-tts") -> Path | None:
+    api_key = os.environ.get("OPENAI_API_KEY", "")
+    if not api_key:
+        return None
+    base_url = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com").rstrip("/")
+    resp = client.post(
+        f"{base_url}/v1/audio/speech",
+        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+        json={"model": model, "voice": voice_id, "input": SAMPLE_TEXT, "response_format": "wav"},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    path = out_dir / f"openai_{voice_id}.wav"
+    path.write_bytes(resp.content)
+    return path
+
+
 def _generate_kokoro(voice_id: str, out_dir: Path) -> Path | None:
     """Generate audio sample using the kokoro-onnx package (local, CPU)."""
     try:
@@ -196,6 +234,8 @@ _GENERATORS = {
     "rime": lambda v, d, c: _generate_rime(v["provider_voice_id"].split(":")[-1], v.get("provider_model", "mist"), v.get("provider_metadata", {}).get("original_lang_code", "eng"), d, c),
     "elevenlabs": lambda v, d, c: _generate_elevenlabs(v["provider_voice_id"], d, c),
     "deepgram": lambda v, d, c: _generate_deepgram(v["provider_voice_id"], d, c),
+    "cartesia": lambda v, d, c: _generate_cartesia(v["provider_voice_id"], d, c),
+    "openai": lambda v, d, c: _generate_openai(v["provider_voice_id"], d, c, v.get("provider_model", "gpt-4o-mini-tts")),
     "kokoro": lambda v, d, c: _generate_kokoro(v["provider_voice_id"], d),
     "piper": lambda v, d, c: _generate_piper(v["provider_voice_id"], d),
     "orpheus": _generate_opensource_stub,
@@ -228,16 +268,24 @@ def generate_sample(voice: dict, out_dir: Path, client: httpx.Client) -> tuple[P
             if result is not None:
                 return result, None
         except httpx.HTTPStatusError as e:
+            body = e.response.text[:200] if e.response else ""
             reason = f"http_{e.response.status_code}"
+            voice.setdefault("_failure_meta", {}).update(
+                http_status=e.response.status_code, http_body=body,
+                url=str(e.request.url) if e.request else None,
+            )
             preview = _download_preview(voice, out_dir, client)
             if preview:
                 return preview, None
             return None, reason
         except Exception as e:
+            voice.setdefault("_failure_meta", {}).update(
+                exception_type=type(e).__name__, exception_msg=str(e)[:300],
+            )
             preview = _download_preview(voice, out_dir, client)
             if preview:
                 return preview, None
-            return None, str(e)[:80]
+            return None, str(e)[:120]
     preview = _download_preview(voice, out_dir, client)
     if preview:
         return preview, None
@@ -247,6 +295,24 @@ def generate_sample(voice: dict, out_dir: Path, client: httpx.Client) -> tuple[P
 # ---------------------------------------------------------------------------
 # Status helpers
 # ---------------------------------------------------------------------------
+
+def _classify_error(error: str) -> str:
+    """Classify an error as transient, auth, unsupported, or validation for triage."""
+    e = error.lower()
+    if any(k in e for k in ["errno 8", "timeout", "connection", "peer closed", "dns", "reset"]):
+        return "transient"
+    if any(k in e for k in ["http_401", "http_403", "unauthorized", "forbidden"]):
+        return "auth"
+    if any(k in e for k in ["http_400", "bad request"]):
+        return "bad_request"
+    if any(k in e for k in ["no_audio_source", "model_unavailable", "not supported"]):
+        return "unsupported"
+    if any(k in e for k in ["recursion limit", "flat_traits", "generic_description", "validation"]):
+        return "validation"
+    if "http_4" in e or "http_5" in e:
+        return "api_error"
+    return "unknown"
+
 
 def _needs_enrichment(voice: dict, retry: bool = False) -> bool:
     status = voice.get("enrichment_status")
@@ -393,13 +459,24 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False,
                 result = enrich_voice_graph(voice)
             except Exception as e:
                 _log(f"[enrich] {vid}: graph error: {e}")
-                voices[idx] = _set_status(voice, "failed", str(e)[:60])
+                reason = str(e)[:120]
+                voices[idx] = _set_status(voice, "failed", reason)
+                failure_meta = voice.pop("_failure_meta", {})
                 record_pipeline_run(
                     "enrich",
                     "failed",
                     provider=cat_provider,
                     voice_id=vid,
-                    details={"error": str(e)[:60]},
+                    details={
+                        "error": reason,
+                        "error_full": str(e)[:500],
+                        "error_type": type(e).__name__,
+                        "category": _classify_error(str(e)),
+                        "attempt": voice.get("enrichment_attempts", 0),
+                        "provider_model": voice.get("provider_model"),
+                        "provider_voice_id": voice.get("provider_voice_id"),
+                        **failure_meta,
+                    },
                     started_at=run_started_at,
                     finished_at=datetime.now(timezone.utc).isoformat(),
                 )
@@ -430,14 +507,24 @@ def run_enrich(catalog_providers: list[str] | None = None, retry: bool = False,
                 enriched += 1
                 enriched_ids.add(vid)
             else:
-                reason = "; ".join(result.get("validation_errors", []))[:80] or "graph_failed"
+                reason = "; ".join(result.get("validation_errors", []))[:120] or "graph_failed"
                 voices[idx] = _set_status(voice, "failed", reason)
+                failure_meta = voice.pop("_failure_meta", {})
                 record_pipeline_run(
                     "enrich",
                     "failed",
                     provider=cat_provider,
                     voice_id=vid,
-                    details={"error": reason},
+                    details={
+                        "error": reason,
+                        "error_full": reason,
+                        "category": _classify_error(reason),
+                        "attempt": voice.get("enrichment_attempts", 0),
+                        "provider_model": voice.get("provider_model"),
+                        "provider_voice_id": voice.get("provider_voice_id"),
+                        "validation_errors": result.get("validation_errors", []),
+                        **failure_meta,
+                    },
                     started_at=run_started_at,
                     finished_at=datetime.now(timezone.utc).isoformat(),
                 )

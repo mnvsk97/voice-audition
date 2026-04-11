@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "voice-audition"
-version = "0.5.0"
-description = "Build and maintain a rich voice catalog across TTS providers"
+version = "0.6.0"
+description = "Voice catalog with semantic search, enrichment, auditions, and web UI across 9 TTS providers"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"

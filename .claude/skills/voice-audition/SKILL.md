@@ -2,9 +2,10 @@
 name: voice-audition
 description: >
   VoiceAudition -- the casting director for your AI voice agent. Interviews you about your needs,
-  searches 697 voices across 9 TTS providers (6 commercial + 3 open source) using semantic search,
+  searches 697+ voices across 9+ TTS providers (6 commercial + 3 open source) using semantic search,
   runs use-case-specific auditions, compares API vs self-hosted costs, and delivers a ranked
-  scorecard with ready-to-use config.
+  scorecard with ready-to-use config. 645+ voices enriched with LLM-generated descriptions,
+  traits, and tags. Web UI available at localhost:5173 for browsing and TTS preview.
 
   TRIGGER when: user asks "what voice should I use", "find me a voice", "help me pick a voice",
   "audition voices", "recommend a voice for my agent", "which TTS voice", or any question about
